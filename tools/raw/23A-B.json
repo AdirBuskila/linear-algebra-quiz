@@ -38,7 +38,80 @@
    "solution": "$$A^3-A+I=0\\ \\Rightarrow\\ A-A^3=I\\ \\Rightarrow\\ A(I-A^2)=I\\ \\Rightarrow\\ A^{-1}=I-A^2$$\nכלומר $A$ הפיכה, וההופכית שלה היא $I-A^2$.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "העברת אגפים: $A-A^3=I$",
+     "points": 2
+    },
+    {
+     "text": "הוצאת $A$ כגורם משותף: $A(I-A^2)=I$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $A$ הפיכה וההופכית שלה היא $I-A^2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להעביר אגפים בטעות ולקבל $A^{-1}=A^2-I$ (טעות סימן).",
+    "לחלק ב-$A$ לפני שהוכח שהיא הפיכה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי להוכחת ההפיכות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מציגים מטריצה $X$ במפורש שמקיימת $AX=I$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מראים שהדטרמיננטה של $A$ שונה מאפס על ידי חישוב ישיר של האיברים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מראים שלמערכת $A\\vec x=0$ יש רק פתרון טריוויאלי על ידי דירוג"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מחשבים את הפולינום האופייני של $A$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון הרשמי מוציא את $A$ כגורם משותף ומקבל $A(I-A^2)=I$, כלומר $I-A^2$ היא ההופכית."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$A^3-A+I=0$",
+      "$A-A^3=I$",
+      "$A(I-A^2)=I$",
+      "לכן $A$ הפיכה ו-$A^{-1}=I-A^2$"
+     ],
+     "explain": "כל שורה נובעת מהקודמת: העברת אגפים, הוצאת גורם משותף, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$A^3-A+I=0$",
+      "$A^3-A=I$",
+      "$A(I-A^2)=I$",
+      "לכן $A$ הפיכה ו-$A^{-1}=I-A^2$"
+     ],
+     "bugIndex": 1,
+     "explain": "העברת $I$ לאגף ימין נותנת $A^3-A=-I$, כלומר $A-A^3=I$. הכתיבה $A^3-A=I$ שגויה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -50,7 +123,76 @@
    "solution": "$$(BC)^n=(BC)(BC)\\cdots(BC)=B^nC^n$$\n(השוויון האחרון נכון כי $BC=CB$.) ברור שאם ניקח $n\\geq k$ אז $B^n=0$ ולכן $(BC)^n=0$. אם ניקח $n\\geq m$, אז $C^n=0$ ושוב מקבלים $(BC)^n=0$.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "שימוש ב-$BC=CB$ כדי לקבל $(BC)^n=B^nC^n$",
+     "points": 3
+    },
+    {
+     "text": "בחירת $n\\geq k$ מבטיחה $B^n=0$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $(BC)^n=0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $(BC)^n=B^nC^n$ בלי להזכיר שהשוויון תלוי בהחלפת הסדר $BC=CB$.",
+    "לבחור $n$ קטן מ-$k$ ומ-$m$ ולהניח ש-$B^n=0$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה מאפשר את המעבר $(BC)^n=B^nC^n$ בפתרון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הנתון ש-$B$ ו-$C$ הפיכות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הנתון $BC=CB$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הנתון ש-$B=C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הנתון ש-$B+C=0$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "שתי המטריצות מקיימות חזקה השווה לאפס ולכן אינן הפיכות, ואין צורך ש-$B=C$. ההחלפה $BC=CB$ היא שמאפשרת לסדר מחדש את הגורמים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "נתון $B=\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$, $C=\\begin{pmatrix}0&0\\\\1&0\\end{pmatrix}$ ($B^2=C^2=0$ אך $BC\\neq CB$). מהו הרכיב בשורה 1 עמודה 1 של $(BC)^5$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$BC=\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}$ ולכן $(BC)^5=BC$. כאן $B^5C^5=0$, כלומר בלי $BC=CB$ השוויון נכשל."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$(BC)^n=B^nC^n$ כי $BC=CB$",
+      "אם $n\\leq k$ אז $B^n=0$",
+      "לכן $(BC)^n=B^nC^n=0$",
+      "באופן דומה, אם $n\\geq m$ אז $C^n=0$ ושוב $(BC)^n=0$"
+     ],
+     "bugIndex": 1,
+     "explain": "$B^n=0$ מובטח רק עבור $n\\geq k$. עבור $n<k$ ייתכן ש-$B^n\\neq0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -62,7 +204,91 @@
    "solution": "נניח ש-$D$ הפיכה, כלומר קיימת לה $D^{-1}$. אז, אם נכפול את השוויון $DE=0$ משמאל ב-$D^{-1}$, אז נקבל\n$$E=IE=D^{-1}DE=D^{-1}\\cdot 0=0$$\nבסתירה לנתון.\nמצד שני, אם נניח ש-$E$ הפיכה וקיימת לה $E^{-1}$. אז, נכפול את השוויון $DE=0$ מימין ב-$E^{-1}$ ונקבל\n$$D=DI=DEE^{-1}=0\\cdot E^{-1}=0$$\nבסתירה לנתון. זה מוכיח ש-$D$ ו-$E$ שתיהן לא הפיכות.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הנחה בשלילה ש-$D$ הפיכה",
+     "points": 1
+    },
+    {
+     "text": "כפל $DE=0$ משמאל ב-$D^{-1}$ וקבלת $E=0$",
+     "points": 2
+    },
+    {
+     "text": "סתירה לנתון $E\\neq0$",
+     "points": 1
+    },
+    {
+     "text": "אותו טיעון עבור $E$ עם כפל מימין ב-$E^{-1}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכפול משני האגפים מצדדים שונים (כפל מטריצות אינו קומוטטיבי).",
+    "לצמצם $D$ משני האגפים בלי להניח שהיא הפיכה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מחשבים את הדטרמיננטה של $D$ ושל $E$ ישירות מהערכים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בונים דוגמה נגדית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מניחים שהמטריצה הפיכה ומגיעים לסתירה לנתון"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "משתמשים באינדוקציה על סדר המטריצה"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הפתרון הרשמי מניח ש-$D$ הפיכה, מכפיל ב-$D^{-1}$ ומקבל $E=0$, בסתירה לנתון; וכך גם עבור $E$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה ש-$D$ אינה הפיכה.",
+     "lines": [
+      "נניח ש-$D$ הפיכה, ולכן קיימת $D^{-1}$",
+      "נכפול את $DE=0$ משמאל ב-$D^{-1}$",
+      "$E=D^{-1}DE=D^{-1}\\cdot0=0$",
+      "בסתירה לנתון $E\\neq0$"
+     ],
+     "explain": "כל שורה נובעת מהקודמת."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נניח ש-$D$ הפיכה, ולכן קיימת $D^{-1}$",
+      "נכפול את $DE=0$ מימין ב-$D^{-1}$",
+      "$E=D^{-1}DE=D^{-1}\\cdot0=0$",
+      "בסתירה לנתון $E\\neq0$"
+     ],
+     "bugIndex": 1,
+     "explain": "כדי לבודד את $E$ מתוך $DE$ צריך לכפול משמאל. כפל מימין נותן $DED^{-1}=0$ ואינו מבודד את $E$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $D=\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}$ ו-$E=\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}$ מתקיים $DE=0$. מהו $\\det D+\\det E$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "שתיהן לא הפיכות, כפי שההוכחה טוענת: $\\det D=\\det E=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -74,7 +300,87 @@
    "solution": "נסמן $F=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}$. ידוע שהערכים העצמיים של $F$ מהווים שורשים של הפולינום האופייני שלה, כלומר שורשים של\n$$\\det(F-\\lambda I)=\\begin{vmatrix}a-\\lambda&b\\\\c&d-\\lambda\\end{vmatrix}=\\lambda^2-(a+d)\\lambda+ad-bc$$\nאז $F^T=\\begin{pmatrix}a&c\\\\b&d\\end{pmatrix}$ והפולינום האופייני שלה\n$$\\det(F^T-\\lambda I)=\\begin{vmatrix}a-\\lambda&c\\\\b&d-\\lambda\\end{vmatrix}=\\lambda^2-(a+d)\\lambda+ad-bc$$\nהוא זהה לחלוטין לפולינום האופייני של $F$ ולכן בעל אותם השורשים בדיוק.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "כתיבת $\\det(F-\\lambda I)=\\lambda^2-(a+d)\\lambda+ad-bc$",
+     "points": 2
+    },
+    {
+     "text": "כתיבת $F^T$ וחישוב $\\det(F^T-\\lambda I)$",
+     "points": 3
+    },
+    {
+     "text": "השוואה: אותו פולינום אופייני, לכן אותם שורשים",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון ש-$F$ ו-$F^T$ בעלות אותם וקטורים עצמיים (רק הערכים העצמיים זהים).",
+    "לשכוח שהערכים העצמיים הם שורשי הפולינום האופייני."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה משווה הפתרון הרשמי כדי להוכיח שלשתי המטריצות אותם ערכים עצמיים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "את הווקטורים העצמיים של $F$ ושל $F^T$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "את הדטרמיננטות של $F$ ושל $F^T$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "את הדרגות של $F$ ושל $F^T$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "את הפולינום האופייני של $F$ ושל $F^T$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הערכים העצמיים הם שורשי הפולינום האופייני, ולכן שוויון הפולינומים מספיק."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $F=\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$, מהו $\\det(F^T-\\lambda I)$ ב-$\\lambda=0$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$ad-bc=4-6=-2$, וזה זהה גם עבור $F$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$\\det(F-\\lambda I)=\\lambda^2-(a+d)\\lambda+ad-bc$",
+      "$F^T=\\begin{pmatrix}a&c\\\\b&d\\end{pmatrix}$",
+      "$\\det(F^T-\\lambda I)=(a-\\lambda)(d-\\lambda)-cb=\\lambda^2-(a+d)\\lambda+ad-bc$",
+      "אותו פולינום אופייני, ולכן אותם שורשים: $\\lambda_1,\\lambda_2$"
+     ],
+     "explain": "שני הפולינומים האופייניים מחושבים ואז משווים."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$\\det(F-\\lambda I)=\\lambda^2-(a+d)\\lambda+ad-bc$",
+      "$F^T=\\begin{pmatrix}a&c\\\\b&d\\end{pmatrix}$",
+      "$\\det(F^T-\\lambda I)=\\lambda^2-(a+d)\\lambda+ad-bc$",
+      "לכן ל-$F$ ול-$F^T$ אותם ערכים עצמיים ואותם וקטורים עצמיים"
+     ],
+     "bugIndex": 3,
+     "explain": "הפולינום האופייני זהה ולכן הערכים העצמיים זהים, אך הווקטורים העצמיים יכולים להיות שונים: עבור $\\begin{pmatrix}1&1\\\\0&2\\end{pmatrix}$ הוקטור העצמי של $1$ הוא $(1,0)$, ועבור המשוחלפת הוא $(1,-1)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -87,7 +393,82 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המורחבת של המערכת",
+     "points": 2
+    },
+    {
+     "text": "$R_2\\to R_2-R_1$ ו-$R_3\\to R_3-R_1$",
+     "points": 3
+    },
+    {
+     "text": "$R_3\\to R_3+R_2$",
+     "points": 2
+    },
+    {
+     "text": "הצורה המדורגת הסופית עם שורה 3 $\\left(0\\ 0\\ 1-3a\\mid 3-5a\\right)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחלק שורה ב-$a$ בלי לבדוק את המקרה $a=0$.",
+    "טעות סימן בהחסרה של האיבר $4a$ מהאגף הימני."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_2\\to R_2-R_1$, מהו האיבר באגף הימני של שורה 2?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$(4a+1)-4a=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_3\\to R_3-R_1$, מהו המקדם של $y$ בשורה 3?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$(2a-1)-2a=-1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו פעולה מאפסת את המקדם של $y$ בשורה 3 (כשבשורה 2 המקדם הוא $1$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$R_3\\to R_3+R_2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$R_3\\to R_3-R_2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$R_3\\to R_3+2R_2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$R_3\\to R_3-R_1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המקדם של $y$ בשורה 3 הוא $-1$ ובשורה 2 הוא $1$, ולכן החיבור מאפס אותו; החיסור נותן $-2$, חיבור כפול נותן $1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם של $z$ בשורה 3 הסופית עבור $a=2$?",
+     "answer": -5,
+     "tol": 0,
+     "explain": "$1-3a=1-6=-5$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -100,7 +481,82 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "זיהוי שורת סתירה עבור $a=\\frac13$ ולכן אין פתרון",
+     "points": 2
+    },
+    {
+     "text": "לכל $a\\neq0,\\frac13$ שלושה איברים מובילים ולכן פתרון יחיד",
+     "points": 1
+    },
+    {
+     "text": "בדיקת $a=0$ בנפרד",
+     "points": 1
+    },
+    {
+     "text": "עבור $a=0$ יש משתנה חופשי ולכן אינסוף פתרונות",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לבדוק את $a=0$ בנפרד (שם המקדם המוביל הראשון מתאפס).",
+    "לבלבל בין מקדם $z$ שמתאפס (חשד לסתירה) לבין צד ימין שמתאפס."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור איזה ערך של $a$ מתאפס המקדם של $z$ בשורה האחרונה $1-3a$? (עגלו לשלוש ספרות אחרי הנקודה)",
+     "answer": 0.333,
+     "tol": 0.001,
+     "explain": "$1-3a=0\\Rightarrow a=\\frac13$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האגף הימני של השורה האחרונה כאשר $a=\\frac13$? (עגלו לשלוש ספרות אחרי הנקודה)",
+     "answer": 1.333,
+     "tol": 0.001,
+     "explain": "$3-5\\cdot\\frac13=\\frac43\\neq0$, ולכן זו שורת סתירה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של מטריצת המקדמים עבור $a=2$?",
+     "answer": -10,
+     "tol": 0,
+     "explain": "$a(1-3a)\\cdot1=2\\cdot(-5)=-10$ (פעולות שורה מסוג חיבור לא משנות את הדטרמיננטה)."
+    },
+    {
+     "type": "choice",
+     "prompt": "כמה פתרונות יש למערכת עבור $a=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אין פתרון"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינסוף"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "פתרון יחיד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "בדיוק שני פתרונות"
+      }
+     ],
+     "correctId": "b",
+     "explain": "עבור $a=0$ דרגת מטריצת המקדמים שווה לדרגת המטריצה המורחבת ($2$) והיא קטנה ממספר הנעלמים, ולכן אינסוף פתרונות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -113,7 +569,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "הצבת $a=0$ בצורה המדורגת",
+     "points": 1
+    },
+    {
+     "text": "קבלת $y=-2$ ו-$z=3$",
+     "points": 2
+    },
+    {
+     "text": "$x$ משתנה חופשי: $x=t$",
+     "points": 1
+    },
+    {
+     "text": "כתיבת הפתרון הכללי $(t,-2,3)$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לתת פרמטר לנעלם שאינו חופשי.",
+    "לשכוח לציין ש-$t$ ממשי כלשהו."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $y$ בפתרון המערכת עבור $a=0$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "מהמטריצה המדורגת $y=-2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $z$ בפתרון המערכת עבור $a=0$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "מהמטריצה המדורגת $z=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו מימד קבוצת הפתרונות של המערכת ההומוגנית המתאימה עבור $a=0$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "יש משתנה חופשי אחד ($x$), והקבוצה היא ישר."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -126,7 +629,73 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "פירוק $z\\left(z^3+(2+i)\\right)=0$ והפתרון $z_1=0$",
+     "points": 1
+    },
+    {
+     "text": "המרת $-2-i$ לצורה טריגונומטרית: $\\sqrt5\\,\\mathrm{cis}(206.57)$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $r=\\sqrt[6]5$",
+     "points": 1
+    },
+    {
+     "text": "הנוסחה $\\theta=\\frac{206.57+360k}{3}$",
+     "points": 1
+    },
+    {
+     "text": "שלושת הפתרונות $z_2,z_3,z_4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור את הזווית $26.57$ במקום $206.57$ (המספר ברביע השלישי).",
+    "לשכוח את הפתרון $z=0$.",
+    "להשתמש ב-$\\sqrt5$ כמודול של הפתרונות במקום $\\sqrt[6]5$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו המודול של $-2-i$ בריבוע?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$|-2-i|^2=4+1=5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הזווית של $-2-i$ במעלות בתחום $0\\le\\theta<360$? (עגלו לשתי ספרות אחרי הנקודה)",
+     "answer": 206.57,
+     "tol": 0.01,
+     "explain": "המספר ברביע השלישי: $180+26.57=206.57$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המודול $r$ של כל אחד משלושת הפתרונות של $z^3=-2-i$? (עגלו לשלוש ספרות אחרי הנקודה)",
+     "answer": 1.308,
+     "tol": 0.001,
+     "explain": "$r^3=\\sqrt5\\Rightarrow r=5^{1/6}\\approx1.308$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הזווית של הפתרון $z_4$ במעלות ($k=2$)? (עגלו לשתי ספרות אחרי הנקודה)",
+     "answer": 308.86,
+     "tol": 0.01,
+     "explain": "$\\frac{206.57+720}{3}=308.86$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פתרונות מרוכבים שונים יש למשוואה $z^4+(2+i)z=0$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "הפתרון $0$ ועוד שלושה שורשים שלישיים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -139,7 +708,61 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה $\\left(A\\mid I\\right)$",
+     "points": 1
+    },
+    {
+     "text": "$R_3\\to R_3+R_1$ ו-$R_2\\to-R_2$",
+     "points": 2
+    },
+    {
+     "text": "ניקוי מעל האלכסון: $R_1\\to R_1+2R_3$ ו-$R_1\\to R_1+2R_2$",
+     "points": 2
+    },
+    {
+     "text": "קבלת $A^{-1}=\\begin{pmatrix}3&-2&2\\\\0&-1&0\\\\1&0&1\\end{pmatrix}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לבצע כל פעולת שורה גם על חצי ה-$I$.",
+    "טעות סימן בעמודה האמצעית של ההופכית."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של $A$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "הדטרמיננטה שונה מאפס, ולכן $A$ הפיכה: $\\det A=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_3\\to R_3+R_1$, מהו האיבר בשורה 3 עמודה 3 של חצי $A$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$3+(-2)=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 2 של $A^{-1}$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "מהמטריצה הסופית $A^{-1}=\\begin{pmatrix}3&-2&2\\\\0&-1&0\\\\1&0&1\\end{pmatrix}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 3 של $A^{-1}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מאותה מטריצה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -152,7 +775,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "כל פעולת שורה בדירוג מתאימה למטריצה אלמנטרית",
+     "points": 3
+    },
+    {
+     "text": "הפעולה הראשונה נמצאת בצד ימין של המכפלה",
+     "points": 2
+    },
+    {
+     "text": "כתיבת המכפלה של ארבע המטריצות",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב את המטריצות האלמנטריות בסדר הפעולות במקום בסדר הפוך.",
+    "להתבלבל בין המטריצה האלמנטרית של הפעולה לבין ההופכית שלה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "היכן במכפלה נמצאת המטריצה האלמנטרית של הפעולה הראשונה ($R_3\\to R_3+R_1$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הכי משמאל"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "באמצע, אחרי הפעולה השנייה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הכי מימין"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "המקום אינו משנה"
+      }
+     ],
+     "correctId": "c",
+     "explain": "כל פעולה מתבצעת על התוצאה הקודמת, כלומר כפל משמאל. הפעולה הראשונה נמצאת צמודה ל-$I$ מימין. החלפת הסדר נותנת מכפלה אחרת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של המכפלה $E_4E_3E_2E_1$ (השווה ל-$A^{-1}$)?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$\\det A^{-1}=\\frac1{\\det A}=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 1 של המכפלה?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "המכפלה היא $A^{-1}$ ולכן האיבר הוא $3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -164,7 +851,86 @@
    "solution": "תחילה נמצא את כל הערכים העצמיים והווקטורים העצמיים של $B$. נחשב את הדטרמיננטה הבאה לפי שורה שלישית:\n$$|\\lambda I-B|=\\begin{vmatrix}\\lambda-3&-1&-1\\\\-1&\\lambda-3&-1\\\\0&0&\\lambda-2\\end{vmatrix}=(\\lambda-2)\\begin{vmatrix}\\lambda-3&-1\\\\-1&\\lambda-3\\end{vmatrix}=(\\lambda-2)\\left[(\\lambda-3)^2-1\\right]=(\\lambda-2)(\\lambda^2-6\\lambda+8)=(\\lambda-2)(\\lambda-2)(\\lambda-4)$$\nקיבלנו שהערכים העצמיים הם: $2,2,4$. כעת נמצא את הווקטורים העצמיים.\n**עבור ע״ע 2:**\n$$\\begin{pmatrix}-1&-1&-1\\\\-1&-1&-1\\\\0&0&0\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&1&1\\\\0&0&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $y=t,\\ z=s$ ונקבל $x=-t-s$. הווקטורים העצמיים המתקבלים הם $(-1,1,0)^T,\\ (-1,0,1)^T$.\n**עבור ע״ע 4:**\n$$\\begin{pmatrix}1&-1&-1\\\\-1&1&-1\\\\0&0&2\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&-1&0\\\\0&0&1\\\\0&0&0\\end{pmatrix}$$\nנסמן $y=t$ ונקבל $x=t,\\ z=0$. הווקטור העצמי המתקבל הוא $(1,1,0)^T$.\nהמטריצה ניתנת לליכסון (שלושה וקטורים עצמיים בלתי תלויים). כעת נמצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $PD=BP$:\n$$D=\\begin{pmatrix}2&0&0\\\\0&2&0\\\\0&0&4\\end{pmatrix},\\qquad P=\\begin{pmatrix}-1&-1&1\\\\1&0&1\\\\0&1&0\\end{pmatrix}$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "חישוב הפולינום האופייני $(\\lambda-2)^2(\\lambda-4)$ והערכים העצמיים $2,2,4$",
+     "points": 3
+    },
+    {
+     "text": "וקטורים עצמיים של $2$: $(-1,1,0),(-1,0,1)$",
+     "points": 3
+    },
+    {
+     "text": "וקטור עצמי של $4$: $(1,1,0)$",
+     "points": 2
+    },
+    {
+     "text": "המסקנה: ניתנת לליכסון (שלושה וקטורים עצמיים בלתי תלויים)",
+     "points": 1
+    },
+    {
+     "text": "כתיבת $P$ ו-$D$ המקיימות $BP=PD$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק שהמטריצה אינה ניתנת לליכסון בגלל ערך עצמי כפול, בלי לבדוק את מימד המרחב העצמי.",
+    "לסדר את העמודות של $P$ בסדר שאינו תואם את האיברים על אלכסון $D$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערכו של $|\\lambda I-B|$ ב-$\\lambda=0$?",
+     "answer": -16,
+     "tol": 0,
+     "explain": "$(0-2)^2(0-4)=-16$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו מימד המרחב העצמי של הערך העצמי $2$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "הדרגה של $2I-B$ היא $1$, ולכן המימד הוא $3-1=2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $B$ ניתנת לליכסון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "יש לה שלושה ערכים עצמיים שונים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי היא סימטרית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי הדטרמיננטה שלה שונה מאפס"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "יש שלושה וקטורים עצמיים בלתי תלויים: שניים עבור $2$ ואחד עבור $4$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הערכים העצמיים הם $2,2,4$ (לא שלושה שונים), $B$ אינה סימטרית, ודטרמיננטה שונה מאפס אינה מבטיחה ליכסון."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 3 של $BP$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$B(1,1,0)^T=4(1,1,0)^T$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -177,7 +943,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "כתיבת פולינום כללי $ax^3+bx^2+cx+d$ ונגזרתו",
+     "points": 1
+    },
+    {
+     "text": "הצבת התנאי $p(1)=p'(1)$ וקבלת $d=2a+b$",
+     "points": 2
+    },
+    {
+     "text": "פירוק לפי הפרמטרים: $a(x^3+2)+b(x^2+1)+cx$",
+     "points": 2
+    },
+    {
+     "text": "בסיס ומימד: $\\dim U=3$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לגזור בטעות ולקבל תנאי שגוי.",
+    "לטעות במימד: ארבעה מקדמים ואילוץ אחד נותנים $3$ ולא $4$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "אם $a=3$ ו-$b=1$, מהו $d$ בפולינום ב-$U$?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "$d=2a+b=7$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $p'(1)$ עבור $p(x)=x^3+2$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$p'(x)=3x^2$ ולכן $p'(1)=3=p(1)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו מימד $U$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "ארבעה מקדמים ואילוץ אחד: $4-1=3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -190,7 +1003,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "תרגום התנאי $p(x)=p(-x)$ למקדמים",
+     "points": 2
+    },
+    {
+     "text": "קבלת $ax^3+cx=0$ ולכן $a=c=0$",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\{x^2,1\\}$ ו-$\\dim W=2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שפולינום זוגי חייב להיות קבוע.",
+    "לשכוח שגם $x^2$ זוגי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה מהפולינומים הבאים שייך ל-$W$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x^2+5$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x^3+x^2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x+1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x^3$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ב-$W$ רק פולינומים עם $p(x)=p(-x)$. ב-$x^3+x^2$, $x+1$ ו-$x^3$ יש חזקה אי זוגית ולכן $p(-x)\\neq p(x)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מקדמים נאלצים להתאפס בפולינום ב-$W$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$a=0$ ו-$c=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו מימד $W$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$4-2=2$, בסיס $\\{x^2,1\\}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -203,7 +1080,50 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "איחוד קבוצות הפורשות של $U$ ו-$W$",
+     "points": 2
+    },
+    {
+     "text": "הצגת $x^3$ כצירוף: $x^3=(x^3+2)-2\\cdot1$",
+     "points": 2
+    },
+    {
+     "text": "המסקנה $U+W=\\mathbb{R}_3[x]$ ו-$\\dim=4$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחבר את המימדים $3+2=5$ בלי להחסיר את החיתוך.",
+    "לספור את חמשת הוקטורים כבסיס בלי לבדוק תלות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בצירוף $x^3=(x^3+2)+c\\cdot1$, מהו $c$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$(x^3+2)-2=x^3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הדרגה של קבוצת חמשת הפולינומים $\\{x^2,1,x^3+2,x^2+1,x\\}$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "הם פורשים את $\\mathbb{R}_3[x]$ שמימדו $4$, ואחד מהם מיותר."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim(U+W)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$U+W=\\mathbb{R}_3[x]$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -216,7 +1136,75 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "השוואת הצירופים $a(x^3+2)+b(x^2+1)+cx=dx^2+e$",
+     "points": 2
+    },
+    {
+     "text": "קבלת $a=0,\\ c=0,\\ b=d$",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\{x^2+1\\}$ ו-$\\dim=1$",
+     "points": 1
+    },
+    {
+     "text": "אימות משפט המימדים $4=3+2-1$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שבצד אחד יש גם הקבוע $2a+b$.",
+    "לחשב $\\dim(U\\cap W)=0$ ולפספס שהפולינום $x^2+1$ משותף."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה פולינום הוא בסיס של $U\\cap W$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x^2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x^2+1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x^3+2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x+1$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$x^2$ אינו ב-$U$ ($p(1)=1\\neq2=p'(1)$); $x^3+2$ ו-$x+1$ אינם זוגיים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim(U\\cap W)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$a=c=0$ ו-$b=d$, פרמטר אחד חופשי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "לפי משפט המימדים, מהו $\\dim U+\\dim W-\\dim(U\\cap W)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$3+2-1=4=\\dim(U+W)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -229,7 +1217,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המייצגת $A=[T]_F^E$",
+     "points": 2
+    },
+    {
+     "text": "דירוג $A$ וזיהוי עמודות מובילות 1,2,4",
+     "points": 2
+    },
+    {
+     "text": "בסיס ל-$\\mathrm{Im}\\,T$ ומימד $3$",
+     "points": 2
+    },
+    {
+     "text": "פתרון $A\\vec x=0$ וקבלת $t(-2,-1,1,0)$",
+     "points": 3
+    },
+    {
+     "text": "בסיס ומימד $1$ ל-$\\mathrm{Ker}\\,T$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את העמודות המדורגות כבסיס של התמונה במקום העמודות המקוריות.",
+    "לשכוח להפוך בסיס של $\\mathrm{Col}\\,A$ חזרה לפולינומים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדרגה של $[T]_F^E$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$\\dim\\mathrm{Im}\\,T=3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו עמודות מובילות בצורה המדורגת-המצומצמת של המטריצה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "עמודות 1, 2, 3"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "עמודות 1, 3, 4"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "עמודות 1, 2, 4"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "עמודות 2, 3, 4"
+      }
+     ],
+     "correctId": "c",
+     "explain": "עמודה 3 תלויה: היא $2\\cdot$עמודה 1 + עמודה 2, ולכן אינה עמודה מובילה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Ker}\\,T$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$4-3=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בווקטור הגרעין עבור $x_3=1$, מהו $x_1$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$x_1=-2x_3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -242,7 +1309,64 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "$\\dim\\mathrm{Ker}\\,T=1\\neq0$ ולכן לא חד חד ערכית",
+     "points": 1
+    },
+    {
+     "text": "$\\dim\\mathrm{Im}\\,T=3<4$ ולכן לא על",
+     "points": 1
+    },
+    {
+     "text": "מסקנה ונימוק מלא",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהעתקה על כי הדרגה גדולה מאפס.",
+    "לבלבל בין התנאי לחד חד ערכיות (גרעין טריוויאלי) לתנאי ל\"על\" (תמונה שווה למרחב היעד)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי המסקנה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T$ חד חד ערכית ועל"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T$ חד חד ערכית אך לא על"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T$ על אך לא חד חד ערכית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T$ לא חד חד ערכית ולא על"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הגרעין שאינו טריוויאלי ($\\dim=1$) שולל חד חד ערכיות, והתמונה ממימד $3$ במרחב ממימד $4$ שוללת על."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathbb{R}_3[t]-\\dim\\mathrm{Im}\\,T$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$4-3=1>0$, ולכן $T$ אינה על."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -255,7 +1379,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "הצגת הוקטור כ-$t(-2,-1,1,0)$",
+     "points": 1
+    },
+    {
+     "text": "השוואת רכיבים",
+     "points": 1
+    },
+    {
+     "text": "מהמשוואה $5=-t$ מקבלים $t=-5$",
+     "points": 2
+    },
+    {
+     "text": "$p=10,\\ q=0$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "טעות סימן: $5=-t$ ולכן $t=-5$, לא $5$.",
+    "לשכוח לאמת שהרכיב הרביעי נותן $q=0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $t$?",
+     "answer": -5,
+     "tol": 0,
+     "explain": "$5=-t$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $p$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$p=-2t=10$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $q$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "הרכיב הרביעי של $(-2,-1,1,0)$ הוא $0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -268,7 +1439,82 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "חישוב $T$ של כל וקטור בסיס $B$ כצירוף של התמונות",
+     "points": 2
+    },
+    {
+     "text": "מעבר לקואורדינטות בבסיס $C=(x^3,1,x^2,x)$",
+     "points": 2
+    },
+    {
+     "text": "כתיבת כל עמודה",
+     "points": 2
+    },
+    {
+     "text": "המטריצה הסופית",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שסדר הבסיס $C$ הוא $(x^3,1,x^2,x)$ ולא הסדר הסטנדרטי.",
+    "לחשב $T$ של וקטורי הבסיס הסטנדרטי במקום של וקטורי $B$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "בבסיס $C=(x^3,1,x^2,x)$, מה הרכיב הראשון של וקטור הקואורדינטות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "המקדם של $x^3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "המקדם של $1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "המקדם של $x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "המקדם של $x^2$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הרכיב הראשון מתאים לוקטור הבסיס הראשון, $x^3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 1 של $[T]_C^B$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$T(1,1,0,0)=2+2x+3x^2+4x^3$ ולכן המקדם של $x^3$ הוא $4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 2?",
+     "answer": 8,
+     "tol": 0,
+     "explain": "$T(0,1,1,0)=4+4x+6x^2+8x^3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 4?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$T(0,0,0,1)=1+x+x^2+5x^3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
