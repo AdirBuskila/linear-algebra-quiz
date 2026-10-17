@@ -1,0 +1,572 @@
+{
+ "examCode": "25A-A",
+ "verifier": "refuter",
+ "items": [
+  {
+   "num": 1,
+   "part": "א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "disagree",
+     "note": "order: line 1 (non-parallel check) and line 2 (parametric equations) are independent; either order valid"
+    }
+   ],
+   "verdict": "disagree"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    }
+   ],
+   "verdict": "agree"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "disagree",
+     "note": "order: 'take point p0' is independent of lines 1-2 and may precede them"
+    }
+   ],
+   "verdict": "disagree"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "agree",
+     "note": ""
+    }
+   ],
+   "verdict": "agree"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    }
+   ],
+   "verdict": "agree"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 4,
+     "type": "order",
+     "verdict": "disagree",
+     "note": "order: rank/free-variable line can come after solving z=2y, x=-3y"
+    }
+   ],
+   "verdict": "disagree"
+  },
+  {
+   "num": 2,
+   "part": "ד",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "order",
+     "verdict": "disagree",
+     "note": "order: 'z=0 from row 1' is independent of the rank line; swappable"
+    }
+   ],
+   "verdict": "disagree"
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "disagree",
+     "note": "order: brute force over 720 permutations: 6 orders reduce A to I (R3-2R2 before R3-3R1 ok; R1-R3, R2-3R3, R1-2R2 reorderable); numeric 'six' also depends on the chosen sequence"
+    }
+   ],
+   "verdict": "disagree"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "disagree",
+     "note": "order: eigenspace of 8 and of 10 are independent, swappable"
+    }
+   ],
+   "verdict": "disagree"
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "agree",
+     "note": ""
+    }
+   ],
+   "verdict": "agree"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "agree",
+     "note": ""
+    }
+   ],
+   "verdict": "agree"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "agree",
+     "note": ""
+    }
+   ],
+   "verdict": "agree"
+  },
+  {
+   "num": 4,
+   "part": "ד",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    }
+   ],
+   "verdict": "agree"
+  },
+  {
+   "num": 5,
+   "part": "א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 4,
+     "type": "order",
+     "verdict": "disagree",
+     "note": "order: line 3 (basis of Im) and line 4 (solve Ax=0) independent, swappable"
+    }
+   ],
+   "verdict": "disagree"
+  },
+  {
+   "num": 5,
+   "part": "ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "disagree",
+     "note": "choice 'is T injective': option c (dim Im T<4=dim domain) is also a valid reason; two defensible answers"
+    }
+   ],
+   "verdict": "disagree"
+  },
+  {
+   "num": 5,
+   "part": "ג",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    }
+   ],
+   "verdict": "agree"
+  },
+  {
+   "num": 5,
+   "part": "ד",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total, content matches own derivation)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": ""
+    }
+   ],
+   "verdict": "agree"
+  }
+ ]
+}
