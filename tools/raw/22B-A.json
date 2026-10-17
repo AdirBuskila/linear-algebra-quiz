@@ -1,0 +1,282 @@
+{
+ "examCode": "22B-A",
+ "examLabel": "מבחן סוף סמסטר ב׳ תשפ״ב, מועד א׳ (07.06.2022)",
+ "year": 2022,
+ "examDate": "07.06.2022",
+ "sourceFile": "22B-A exam + official solution (PDF)",
+ "solutionFile": "22B-A exam + official solution (PDF)",
+ "contexts": {
+  "c1": {
+   "kind": "text",
+   "title": "שאלה 1",
+   "text": "נתונה מטריצה $A$ ממשית מסדר $4\\times4$ המקיימת את המשוואות $AA^T+A^2=5I$ ו-$AA^T-A^2=0$."
+  },
+  "c2": {
+   "kind": "text",
+   "title": "שאלה 2 - מערכת עם פרמטר",
+   "text": "נתונה מערכת המשוואות כאשר $k$ הוא פרמטר ממשי:\n$$\\begin{cases} x+y+kz=2\\\\ 3x+4y+2z=k\\\\ 2x+3y-z=1\\end{cases}$$"
+  },
+  "c3": {
+   "kind": "text",
+   "title": "שאלה 3 - סעיפים א ו-ב",
+   "text": "נתונה המטריצה $A=\\begin{pmatrix}1&2&0\\\\0&1&1\\\\2&4&2\\end{pmatrix}$."
+  },
+  "c4": {
+   "kind": "text",
+   "title": "שאלה 4 - תתי מרחבים של R^3",
+   "text": "נגדיר שני תתי מרחב $W_1$ ו-$W_2$ של $\\mathbb{R}^3$ ע״י\n$W_1=\\{A\\vec{x}:\\ \\vec{x}\\in\\mathbb{R}^3\\},\\qquad A=\\begin{pmatrix}1&2&-4\\\\-2&3&-13\\\\-1&-1&1\\end{pmatrix}$\n$W_2=\\left\\{\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}\\in\\mathbb{R}^3:\\ x+2y-3z=0\\right\\}$"
+  },
+  "c5": {
+   "kind": "text",
+   "title": "שאלה 5 - סעיפים א עד ג",
+   "text": "נתונה העתקה לינארית $T:\\mathbb{R}^4\\to\\mathbb{R}_2[x]$ המוגדרת על ידי:\n$$T\\begin{pmatrix}a\\\\b\\\\c\\\\d\\end{pmatrix}=(a+b+c+d)+(a+b+3c+3d)x+(-a-b+c+d)x^2$$"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "part": "א",
+   "kind": "proof",
+   "topic": "matrix_proofs",
+   "points": 7,
+   "question": "הראו כי $A$ הפיכה ע״י מציאת ביטוי של המטריצה ההפוכה באמצעות $A$.",
+   "solution": "מהמשוואה $AA^T+A^2=5I$ נובע כי $A\\left(A^T+A\\right)=5I$ או $A\\cdot\\frac{1}{5}\\left(A^T+A\\right)=I$. זאת אומרת ש-$A$ כן הפיכה כך ש-\n$$A^{-1}=\\frac{1}{5}\\left(A^T+A\\right)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "kind": "proof",
+   "topic": "matrix_proofs",
+   "points": 7,
+   "question": "האם $A^{-1}$ מטריצה סימטרית?",
+   "solution": "נבנה מטריצה $\\left(A^{-1}\\right)^T$:\n$$\\left(A^{-1}\\right)^T=\\frac{1}{5}\\left(A^T+A\\right)^T=\\frac{1}{5}\\left(A+A^T\\right)=A^{-1}$$\nוזה מוכיח שהמטריצה $A^{-1}$ היא מטריצה סימטרית. **כן.**",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "determinants",
+   "points": 7,
+   "question": "חשבו את הדטרמיננטה $|A|$.",
+   "solution": "**הפתרון הרשמי עם תיקון:** בפתרון הרשמי נקבע $\\det(A)=\\frac{25}{4}$; מהשוויון $\\det^2(A)=\\left(\\frac{5}{2}\\right)^4$ נובע רק ש-$\\det(A)=\\pm\\frac{25}{4}$.\nמהמשוואות הנתונות נוכל לקבל כי $AA^T=A^2$ ו-$AA^T+A^2=5I$, כלומר $2A^2=5I$, או במילים אחרות $A^2=\\frac{5}{2}I$. לכן\n$$\\det\\left(A^2\\right)=\\left(\\frac{5}{2}\\right)^4\\det(I)\\ \\Leftarrow\\ A^2=\\frac{5}{2}I\\ \\Leftarrow\\ 2A^2=5I$$\nולכן $\\det^2(A)=\\left(\\frac{5}{2}\\right)^4$. מכאן סופית נקבל ש-\n$$\\det(A)=\\pm\\frac{25}{4}$$\n**הערה:** שני הסימנים אפשריים. למשל $A=\\mathrm{diag}(a,a,a,a)$ עם $a=\\sqrt{5/2}$ נותנת $\\det(A)=\\frac{25}{4}$, ואילו $A=\\mathrm{diag}(a,a,a,-a)$ מקיימת את שתי המשוואות ($AA^T=A^2=a^2I$ ו-$2a^2=5$) ו-$\\det(A)=-\\frac{25}{4}$.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "determinants",
+   "points": 4,
+   "question": "חשבו את הדטרמיננטה $\\left|A^{-1}\\right|$.",
+   "solution": "**הפתרון הרשמי עם תיקון:** בפתרון הרשמי נקבע $\\det\\left(A^{-1}\\right)=\\frac{4}{25}$; בהתאם לסעיף הקודם התוצאה היא $\\pm\\frac{4}{25}$.\n$$\\det\\left(A^{-1}\\right)=\\frac{1}{\\det(A)}=\\pm\\frac{4}{25}$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c1"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 6,
+   "question": "עבור איזה ערך של הפרמטר $k$ יש פתרון יחיד למערכת? מצאו את הפתרון.",
+   "solution": "דירוג נותן לנו:\n$$\\left(\\begin{array}{ccc|c}1&1&k&2\\\\3&4&2&k\\\\2&3&-1&1\\end{array}\\right)\\xrightarrow{\\substack{3R_1-R_2\\to R_2\\\\2R_1-R_3\\to R_3}}\\left(\\begin{array}{ccc|c}1&1&k&2\\\\0&-1&3k-2&6-k\\\\0&-1&2k+1&3\\end{array}\\right)\\xrightarrow{\\substack{R_2+R_1\\to R_1\\\\-R_2\\to R_2}}\\left(\\begin{array}{ccc|c}1&0&4k-2&8-k\\\\0&1&2-3k&k-6\\\\0&-1&2k+1&3\\end{array}\\right)\\xrightarrow{R_2+R_3\\to R_3}\\left(\\begin{array}{ccc|c}1&0&4k-2&8-k\\\\0&1&2-3k&k-6\\\\0&0&3-k&k-3\\end{array}\\right)$$\nעבור $k\\neq3$, נקבל פתרון יחיד מהצורה:\n$$\\left(\\begin{array}{ccc|c}1&0&4k-2&8-k\\\\0&1&2-3k&k-6\\\\0&0&1&-1\\end{array}\\right)\\Rightarrow\\begin{cases}x=3(k+2)\\\\y=-2(k+2)\\\\z=-1\\end{cases}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 6,
+   "question": "עבור איזה ערך של הפרמטר $k$ אין פתרון למערכת?",
+   "solution": "מהמטריצה המדורגת בסעיף א, השורה השלישית היא $\\left(0\\ \\ 0\\ \\ 3-k\\ \\middle|\\ k-3\\right)$: עבור $k\\neq3$ יש פתרון יחיד, ועבור $k=3$ היא שורת אפסים (אינסוף פתרונות).\nאין ערך של $k$ עבורו אין פתרון למערכת.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 7,
+   "question": "עבור איזה ערך של הפרמטר $k$ יש אינסוף פתרונות למערכת? מצאו הצגה פרמטרית של הפתרונות. הראו שפתרון זה הוא סכום של הפתרון של מערכת המשוואות ההומוגנית יחד עם פתרון פרטי של מערכת המשוואות הלא-הומוגנית המקורית.",
+   "solution": "נבדוק תחילה את הערך $k=3$. עבור ערך זה נקבל אינסוף פתרונות:\n$$\\left(\\begin{array}{ccc|c}1&1&3&2\\\\3&4&2&3\\\\2&3&-1&1\\end{array}\\right)\\to\\left(\\begin{array}{ccc|c}1&0&10&5\\\\0&1&-7&-3\\\\0&0&0&0\\end{array}\\right)\\Rightarrow\\begin{cases}x=5-10z\\\\y=-3+7z\\\\0=0\\end{cases}$$\nאזי הפתרון הכללי נתון:\n$$(x,y,z)=(5-10z,\\,-3+7z,\\,z)=(5,-3,0)+z(-10,7,1)$$\nהפתרון הכללי הזה מורכב משני חלקים. הפתרון הפרטי, $(5,-3,0)$, שפותר את המערכת המקורית, והפתרון הכללי של המערכת ההומוגנית $z(-10,7,1)$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "complex_numbers",
+   "points": 6,
+   "question": "עבור איזה ערך של הפרמטר המרוכב $z$ המטריצה $A=\\begin{pmatrix}1-i&iz\\\\z^2&1+i\\end{pmatrix}$ הפיכה. נא לכתוב את הפתרונות בצורה $x+iy$.",
+   "solution": "המטריצה $A$ הפיכה אם ורק אם הדטרמיננטה שלה שונה מאפס. נחשב ונמצא:\n$$\\det A=(1-i)(1+i)-iz^3=1-i^2-iz^3=2-iz^3$$\nנחשב מתי $\\det A=0\\ \\Leftarrow\\ 2-iz^3=0\\ \\Leftarrow\\ z^3=-2i$.\n$$z^3=-2i=2(0-i)=2\\left(\\cos\\frac{3\\pi}{2}+i\\sin\\frac{3\\pi}{2}\\right)=2\\left(\\cos\\left(\\frac{3\\pi}{2}+2\\pi k\\right)+i\\sin\\left(\\frac{3\\pi}{2}+2\\pi k\\right)\\right)=2e^{i\\left(\\frac{3\\pi}{2}+2\\pi k\\right)}\\ \\Rightarrow\\ z_k=2^{1/3}e^{i\\left(\\frac{\\pi}{2}+\\frac{2\\pi}{3}k\\right)}$$\nישנם שלושה פתרונות:\n$$z_0=2^{1/3}e^{i\\frac{\\pi}{2}}=2^{1/3}\\left(\\cos\\frac{\\pi}{2}+i\\sin\\frac{\\pi}{2}\\right)=i\\,2^{1/3}$$\n$$z_1=2^{1/3}e^{i\\left(\\frac{\\pi}{2}+\\frac{2\\pi}{3}\\right)}=2^{1/3}e^{i\\left(\\pi+\\frac{\\pi}{6}\\right)}=-2^{1/3}\\left(\\cos\\frac{\\pi}{6}+i\\sin\\frac{\\pi}{6}\\right)$$\n$$z_2=2^{1/3}e^{i\\left(\\frac{\\pi}{2}+\\frac{4\\pi}{3}\\right)}=2^{1/3}e^{i\\left(2\\pi-\\frac{\\pi}{6}\\right)}=2^{1/3}\\left(\\cos\\frac{\\pi}{6}-i\\sin\\frac{\\pi}{6}\\right)$$\nבצורה $x+iy$: $z_0=2^{1/3}i$, $z_1=-2^{1/3}\\left(\\frac{\\sqrt3}{2}+\\frac{1}{2}i\\right)$, $z_2=2^{1/3}\\left(\\frac{\\sqrt3}{2}-\\frac{1}{2}i\\right)$.\n**סיכום:** עבור $z\\neq z_0,z_1,z_2$ המטריצה הפיכה.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 6,
+   "question": "הוכיחו ש-$A$ הפיכה על ידי מציאת המטריצה $A^{-1}$.",
+   "solution": "נחשב את $A^{-1}$:\n$$\\left(\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\0&1&1&0&1&0\\\\2&4&2&0&0&1\\end{array}\\right)\\xrightarrow{R_3\\to R_3-2R_1}\\left(\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\0&1&1&0&1&0\\\\0&0&2&-2&0&1\\end{array}\\right)\\xrightarrow{R_3\\to0.5R_3}\\left(\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\0&1&1&0&1&0\\\\0&0&1&-1&0&0.5\\end{array}\\right)\\xrightarrow{R_2\\to R_2-R_3}\\left(\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\0&1&0&1&1&-0.5\\\\0&0&1&-1&0&0.5\\end{array}\\right)\\xrightarrow{R_1\\to R_1-2R_2}\\left(\\begin{array}{ccc|ccc}1&0&0&-1&-2&1\\\\0&1&0&1&1&-0.5\\\\0&0&1&-1&0&0.5\\end{array}\\right)$$\nקיבלנו שהמטריצה ההופכית היא:\n$$A^{-1}=\\begin{pmatrix}-1&-2&1\\\\1&1&-0.5\\\\-1&0&0.5\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 7,
+   "question": "הציגו את $A^{-1}$ בצורת כפל של מטריצות אלמנטריות.",
+   "solution": "כעת נשתמש בדירוג הנ״ל ונכתוב את $A^{-1}$ כמכפלה של מטריצות אלמנטריות:\n$$A^{-1}=\\begin{pmatrix}1&-2&0\\\\0&1&0\\\\0&0&1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&-1\\\\0&0&1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&0.5\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\-2&0&1\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 12,
+   "question": "נתונה מטריצה $B=\\begin{pmatrix}2&1&1\\\\1&2&1\\\\0&0&1\\end{pmatrix}$. האם $B$ ניתנת לליכסון? במידה וכן, מצאו מטריצה הפיכה $P$ ומטריצה אלכסונית $D$ כך שמתקיים $D=P^{-1}BP$.",
+   "solution": "תחילה נמצא את כל הערכים העצמיים והווקטורים העצמיים של $B$. נחשב את הדטרמיננטה הבאה לפי שורה שלישית:\n$$|\\lambda I-B|=\\begin{vmatrix}\\lambda-2&-1&-1\\\\-1&\\lambda-2&-1\\\\0&0&\\lambda-1\\end{vmatrix}=(\\lambda-1)\\begin{vmatrix}\\lambda-2&-1\\\\-1&\\lambda-2\\end{vmatrix}=(\\lambda-1)\\left[(\\lambda-2)^2-1\\right]=(\\lambda-1)(\\lambda^2-4\\lambda+3)=(\\lambda-1)(\\lambda-1)(\\lambda-3)$$\nקיבלנו שהערכים העצמיים הם: $1,3$. כעת נמצא את הווקטורים העצמיים.\n**עבור ע״ע 1:**\n$$\\begin{pmatrix}-1&-1&-1\\\\-1&-1&-1\\\\0&0&0\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&1&1\\\\0&0&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $y=t,\\ z=s$ ונקבל: $x=-t-s$. הווקטורים העצמיים המתקבלים הם: $(-1,1,0)^T,\\ (-1,0,1)^T$.\n**עבור ע״ע 3:**\n$$\\begin{pmatrix}1&-1&-1\\\\-1&1&-1\\\\0&0&2\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&-1&0\\\\0&0&1\\\\0&0&0\\end{pmatrix}$$\nנסמן $y=t$ ונקבל: $x=t,\\ z=0$. הווקטור העצמי המתקבל הוא: $(1,1,0)^T$.\nכעת נמצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$:\n$$D=\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&3\\end{pmatrix},\\qquad P=\\begin{pmatrix}-1&-1&1\\\\1&0&1\\\\0&1&0\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצאו בסיס ומימד של $W_1$ ו-$W_2$.",
+   "solution": "על פי ההגדרה של $W_1$ מתקיים $W_1=\\mathrm{Col}(A)$. לכן נמצא בסיס ומימד של תת מרחב זה. לשם כך נדרג את $A$ ונקבל\n$$A=\\begin{pmatrix}1&2&-4\\\\-2&3&-13\\\\-1&-1&1\\end{pmatrix}\\xrightarrow{\\substack{R_2+2R_1\\to R_2\\\\R_3+R_1\\to R_3}}\\begin{pmatrix}1&2&-4\\\\0&7&-21\\\\0&1&-3\\end{pmatrix}\\xrightarrow{7R_3-R_2\\to R_3}\\begin{pmatrix}1&2&-4\\\\0&7&-21\\\\0&0&0\\end{pmatrix}$$\n$$\\xrightarrow{\\frac{1}{7}R_2\\to R_2}\\begin{pmatrix}1&2&-4\\\\0&1&-3\\\\0&0&0\\end{pmatrix}\\xrightarrow{R_1-2R_2\\to R_1}\\begin{pmatrix}1&0&2\\\\0&1&-3\\\\0&0&0\\end{pmatrix}$$\nכיוון שבעמודה האחרונה אין איבר מוביל נשמיט את הווקטור המתאים מהעמודות של $A$ ונקבל ש-\n$$W_1=\\mathrm{Col}(A)=\\mathrm{span}\\left\\{\\vec{v}_1=\\begin{pmatrix}1\\\\-2\\\\-1\\end{pmatrix},\\ \\vec{v}_2=\\begin{pmatrix}2\\\\3\\\\-1\\end{pmatrix}\\right\\}$$\nכיוון ש-$\\vec{v}_1$ ו-$\\vec{v}_2$ הם בת״ל, הקבוצה $B_1=\\{\\vec{v}_1,\\vec{v}_2\\}$ מהווה בסיס של $W_1$ ו-$\\dim(W_1)=2$. עתה נמצא בסיס ומימד של $W_2$. לשם כך נפתור את המשוואה\n$$x+2y-3z=0$$\nבמערכת זו יש שני משתנים חופשיים. נבצע פרמטריזציה $y=s,\\ z=t$ ונקבל ש-$x=-2s+3t$. מכאן שפתרון המערכת הוא\n$$\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}=\\begin{pmatrix}-2s+3t\\\\s\\\\t\\end{pmatrix}=s\\begin{pmatrix}-2\\\\1\\\\0\\end{pmatrix}+t\\begin{pmatrix}3\\\\0\\\\1\\end{pmatrix}$$\nמכאן\n$$W_2=\\mathrm{span}\\left\\{\\vec{v}_3=\\begin{pmatrix}-2\\\\1\\\\0\\end{pmatrix},\\ \\vec{v}_4=\\begin{pmatrix}3\\\\0\\\\1\\end{pmatrix}\\right\\}$$\nכיוון ש-$\\vec{v}_3$ ו-$\\vec{v}_4$ הם בת״ל הקבוצה $B_2=\\{\\vec{v}_3,\\vec{v}_4\\}$ מהווה בסיס של $W_2$ ו-$\\dim(W_2)=2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצאו בסיס ומימד של $W_1+W_2$.",
+   "solution": "(ב)+(ג): כדי למצוא בסיס ומימד של $W_1\\cap W_2$ ו-$W_1+W_2$ נבנה מטריצה שעמודותיה הן וקטורי הבסיס של $W_1$ ו-$W_2$ שמצאנו ונדרג\n$$\\left(\\begin{array}{cc|cc}1&2&2&-3\\\\-2&3&-1&0\\\\-1&-1&0&-1\\end{array}\\right)\\xrightarrow{\\substack{R_2+2R_1\\to R_2\\\\R_3+R_1\\to R_3}}\\left(\\begin{array}{cc|cc}1&2&2&-3\\\\0&7&3&-6\\\\0&1&2&-4\\end{array}\\right)\\xrightarrow{7R_3-R_2\\to R_3}$$\n$$\\left(\\begin{array}{cc|cc}1&2&2&-3\\\\0&7&3&-6\\\\0&0&11&-22\\end{array}\\right)\\xrightarrow{\\frac{1}{11}R_3\\to R_3}\\left(\\begin{array}{cc|cc}1&2&2&-3\\\\0&7&3&-6\\\\0&0&1&-2\\end{array}\\right)$$\nבשלב זה אנו רואים שבכל העמודות למעט העמודה האחרונה יש איבר מוביל. לכן נשמיט את הווקטור בעמודה האחרונה של המטריצה ונקבל בסיס $B_{W_1+W_2}$ עבור $W_1+W_2$\n$$B_{W_1+W_2}=\\left\\{\\begin{pmatrix}1\\\\-2\\\\-1\\end{pmatrix},\\begin{pmatrix}2\\\\3\\\\-1\\end{pmatrix},\\begin{pmatrix}2\\\\-1\\\\0\\end{pmatrix}\\right\\},\\quad\\dim(W_1+W_2)=3\\ \\Rightarrow\\ W_1+W_2=\\mathbb{R}^3$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצאו בסיס ומימד של $W_1\\cap W_2$.",
+   "solution": "כדי למצוא בסיס עבור $W_1\\cap W_2$ נמשיך ונפתור את המערכת ההומוגנית\n$$\\left(\\begin{array}{cc|cc}1&2&2&-3\\\\0&7&3&-6\\\\0&0&1&-2\\end{array}\\right)\\begin{pmatrix}\\alpha_1\\\\\\alpha_2\\\\\\beta_1\\\\\\beta_2\\end{pmatrix}=\\begin{pmatrix}0\\\\0\\\\0\\end{pmatrix}$$\nבמערכת הנ״ל $\\beta_2$ הוא משתנה חופשי. נבצע פרמטריזציה $\\beta_2=t$ ונקבל ש-$\\beta_1=2\\beta_2=2t$. מכאן\n$$\\vec{v}\\in W_1\\cap W_2\\ \\Leftrightarrow\\ \\vec{v}=2t\\begin{pmatrix}-2\\\\1\\\\0\\end{pmatrix}+t\\begin{pmatrix}3\\\\0\\\\1\\end{pmatrix}=t\\begin{pmatrix}-1\\\\2\\\\1\\end{pmatrix}$$\nמכאן נקבל בסיס עבור $W_1\\cap W_2$\n$$B_{W_1\\cap W_2}=\\left\\{\\begin{pmatrix}-1\\\\2\\\\1\\end{pmatrix}\\right\\},\\quad\\dim(W_1\\cap W_2)=1$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 4,
+   "question": "האם הווקטור $\\begin{pmatrix}5\\\\-10\\\\-5\\end{pmatrix}$ שייך אל $W_1\\cap W_2$?",
+   "solution": "$$\\begin{pmatrix}5\\\\-10\\\\-5\\end{pmatrix}=-5\\begin{pmatrix}-1\\\\2\\\\1\\end{pmatrix}\\in W_1\\cap W_2$$\nכלומר, **כן**.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 5,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 12,
+   "question": "מצאו את המימד ובסיס של $\\mathrm{Im}\\,T$, $\\mathrm{Ker}\\,T$.",
+   "solution": "נסמן $B=\\left(1,x,x^2\\right)$ בסיס סטנדרטי של $\\mathbb{R}_2[x]$ ו-$E$ בסיס סטנדרטי של $\\mathbb{R}^4$.\n$$\\left[T\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix}\\right]_B=\\left[1+x-x^2\\right]_B=\\begin{pmatrix}1\\\\1\\\\-1\\end{pmatrix},\\quad \\left[T\\begin{pmatrix}0\\\\1\\\\0\\\\0\\end{pmatrix}\\right]_B=\\left[1+x-x^2\\right]_B=\\begin{pmatrix}1\\\\1\\\\-1\\end{pmatrix}$$\n$$\\left[T\\begin{pmatrix}0\\\\0\\\\1\\\\0\\end{pmatrix}\\right]_B=\\left[1+3x+x^2\\right]_B=\\begin{pmatrix}1\\\\3\\\\1\\end{pmatrix},\\quad \\left[T\\begin{pmatrix}0\\\\0\\\\0\\\\1\\end{pmatrix}\\right]_B=\\left[1+3x+x^2\\right]_B=\\begin{pmatrix}1\\\\3\\\\1\\end{pmatrix}$$\nמטריצה מייצגת סטנדרטית היא\n$$A=[T]_B^E=\\begin{pmatrix}1&1&1&1\\\\1&1&3&3\\\\-1&-1&1&1\\end{pmatrix}$$\n$$\\left(\\begin{array}{cccc|c}1&1&1&1&0\\\\1&1&3&3&0\\\\-1&-1&1&1&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&1&1&1&0\\\\0&0&2&2&0\\\\0&0&2&2&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&1&1&1&0\\\\0&0&2&2&0\\\\0&0&0&0&0\\end{array}\\right)$$\nעמודות מס׳ 1,3 של המטריצה המדורגת מובילות, אז $\\mathrm{Col}\\,A$ בסיס של $\\left\\{\\begin{pmatrix}1\\\\1\\\\-1\\end{pmatrix},\\begin{pmatrix}1\\\\3\\\\1\\end{pmatrix}\\right\\}$, כלומר בסיס של $\\mathrm{Im}\\,T$ הוא $\\left(1+x-x^2,\\ 1+3x+x^2\\right)$ ואז $\\dim(\\mathrm{Im}\\,T)=2$.\n$$\\to\\left(\\begin{array}{cccc|c}1&1&1&1&0\\\\0&0&1&1&0\\\\0&0&0&0&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&1&0&0&0\\\\0&0&1&1&0\\\\0&0&0&0&0\\end{array}\\right)\\Rightarrow\\begin{cases}x_1=-t\\\\x_2=t\\\\x_3=-s\\\\x_4=s\\end{cases}\\Rightarrow\\begin{pmatrix}x_1\\\\x_2\\\\x_3\\\\x_4\\end{pmatrix}=t\\begin{pmatrix}-1\\\\1\\\\0\\\\0\\end{pmatrix}+s\\begin{pmatrix}0\\\\0\\\\-1\\\\1\\end{pmatrix}$$\nאז $\\mathrm{Ker}\\,T$ בסיס של $\\mathrm{Nul}\\,A$ הוא $\\left\\{\\begin{pmatrix}-1\\\\1\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\0\\\\-1\\\\1\\end{pmatrix}\\right\\}$ ואז $\\dim(\\mathrm{Ker}\\,T)=2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 4,
+   "question": "האם $T$ חד חד ערכית? האם $T$ על? נמקו.",
+   "solution": "$T$ לא חד חד ערכית כי $\\dim\\mathrm{Ker}\\,T=2\\neq0$, ו-$T$ לא על כי $\\dim(\\mathrm{Im}\\,T)=2\\neq3=\\dim\\mathbb{R}_2[t]$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 4,
+   "question": "לאילו ערכים של פרמטר $k$ מתקיים $k+11t+t^2\\in\\mathrm{Im}\\,T$?",
+   "solution": "$$k+11t+t^2\\in\\mathrm{Im}\\,T\\ \\Leftrightarrow\\ \\begin{pmatrix}k\\\\11\\\\1\\end{pmatrix}\\in\\mathrm{Col}\\,A\\ \\Leftrightarrow\\ \\begin{pmatrix}k\\\\11\\\\1\\end{pmatrix}=x_1\\begin{pmatrix}1\\\\1\\\\-1\\end{pmatrix}+x_2\\begin{pmatrix}1\\\\3\\\\1\\end{pmatrix}$$\n$$\\left(\\begin{array}{cc|c}1&1&k\\\\1&3&11\\\\-1&1&1\\end{array}\\right)\\to\\left(\\begin{array}{cc|c}1&1&k\\\\0&2&11-k\\\\0&2&1+k\\end{array}\\right)\\to\\left(\\begin{array}{cc|c}1&1&k\\\\0&2&11-k\\\\0&0&-10+2k\\end{array}\\right)\\Rightarrow-10+2k=0\\Rightarrow k=5$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 5,
+   "question": "נתונה העתקה לינארית $F:\\mathbb{R}_1[x]\\to\\mathbb{R}_1[x]$ כך ש-$F(a+bx)=(a-2b)+(-2a+4b)x$. מצאו את המטריצה המייצגת $[F]_B^B$ של $F$, כאשר $B=\\{1-x,1+x\\}$ בסיס של $\\mathbb{R}_1[x]$.",
+   "solution": "$E=(1,x)$ בסיס סטנדרטי של $\\mathbb{R}_1[x]$. $B=\\{1-x,1+x\\}$ בסיס אחר של $\\mathbb{R}_1[x]$.\n$\\left|\\begin{matrix}1&1\\\\-1&1\\end{matrix}\\right|=2\\neq0$ אז $B=(1-x,1+x)$ בסיס של $\\mathbb{R}_1[x]$. לכן $[I]_E^B=\\begin{pmatrix}1&1\\\\-1&1\\end{pmatrix}$.\n$$F(a+bx)=(a-2b)+(-2a+4b)x\\ \\Rightarrow\\ F(1-x)=3-6x,\\ F(1+x)=-1+2x\\ \\Rightarrow\\ [F]_E^B=\\begin{pmatrix}3&-1\\\\-6&2\\end{pmatrix}$$\n$$[F]_B^B=[I]_B^E[F]_E^B[I]_B^B=\\begin{pmatrix}1&1\\\\-1&1\\end{pmatrix}^{-1}\\begin{pmatrix}3&-1\\\\-6&2\\end{pmatrix}\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}=\\frac{1}{2}\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}\\begin{pmatrix}3&-1\\\\-6&2\\end{pmatrix}$$\n$$=\\frac{1}{2}\\begin{pmatrix}9&-3\\\\-3&1\\end{pmatrix}=\\begin{pmatrix}\\frac{9}{2}&-\\frac{3}{2}\\\\-\\frac{3}{2}&\\frac{1}{2}\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  }
+ ]
+}

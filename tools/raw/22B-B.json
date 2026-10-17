@@ -1,0 +1,273 @@
+{
+ "examCode": "22B-B",
+ "examLabel": "מבחן סוף סמסטר ב׳ תשפ״ב, מועד ב׳ (04.07.2022)",
+ "year": 2022,
+ "examDate": "04.07.2022",
+ "sourceFile": "22B-B exam + official solution (PDF)",
+ "solutionFile": "22B-B exam + official solution (PDF)",
+ "contexts": {
+  "c2": {
+   "kind": "text",
+   "title": "שאלה 2 - מערכת עם פרמטר",
+   "text": "נתונה מערכת המשוואות כאשר $k$ הוא פרמטר ממשי:\n$$\\begin{cases} kx+k^2y+kz=1\\\\ x+ky-kz=1\\\\ x+y+z=1\\end{cases}$$"
+  },
+  "c3": {
+   "kind": "text",
+   "title": "שאלה 3 - סעיפים א ו-ב",
+   "text": "נתונה המטריצה $A=\\begin{pmatrix}1&4&0\\\\0&1&2\\\\3&12&3\\end{pmatrix}$."
+  },
+  "c4": {
+   "kind": "text",
+   "title": "שאלה 4 - תתי מרחבים של פולינומים",
+   "text": "יהיו $W_1$ ו-$W_2$ שני תתי מרחבים של מרחב הפולינומים ממעלה 3 ומטה $\\mathbb{R}_{\\leq3}[x]$ המוגדרים ע״י\n$W_1=\\{p(x)\\in\\mathbb{R}_{\\leq3}[x]:\\ p(-1)=p(1)\\}$\n$W_2=\\{p(x)\\in\\mathbb{R}_{\\leq3}[x]:\\ p(2)=0\\}$"
+  },
+  "c5": {
+   "kind": "text",
+   "title": "שאלה 5 - ההעתקה T",
+   "text": "נתונה העתקה לינארית $T:\\mathbb{R}_2[x]\\to\\mathbb{R}^4$ המוגדרת על ידי:\n$$T(1)=\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix},\\quad T(x)=\\begin{pmatrix}1\\\\1\\\\2\\\\-1\\end{pmatrix},\\quad T\\left(x^2\\right)=\\begin{pmatrix}1\\\\2\\\\k^2+3\\\\-2\\end{pmatrix}$$"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "part": "א",
+   "kind": "proof",
+   "topic": "eigen_diagonalization",
+   "points": 8,
+   "question": "הוכיחו שאם $a,b,c,d$ הם מספרים ממשיים כאלה ש-$a+b=c+d$, אז מטריצה $A=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}$ בעלת הערכים העצמיים השלמים $\\lambda_1=a+b$ ו-$\\lambda_2=a-c$.",
+   "solution": "ראשית, נבנה את הפולינום האופייני של $A$, כלומר\n$$\\det(A-\\lambda I)=\\begin{vmatrix}a-\\lambda&b\\\\c&d-\\lambda\\end{vmatrix}=\\lambda^2-(a+d)\\lambda+ad-bc$$\nמכאן נובע כי הערכים העצמיים של $A$ נקבעים לפי\n$$\\lambda_{1,2}=\\frac{(a+d)\\pm\\sqrt{(a+d)^2-4ad+4bc}}{2}=\\frac{(a+d)\\pm\\sqrt{(a-d)^2+4bc}}{2}$$\nמהנתון $a+b=c+d$ נובע כי $a-d=c-b$ ולכן\n$$\\lambda_{1,2}=\\frac{(a+d)\\pm\\sqrt{(c-b)^2+4bc}}{2}=\\frac{(a+d)\\pm\\sqrt{(c+b)^2}}{2}=\\frac{(a+d)\\pm(c+b)}{2}$$\nמכאן מקבלים סופית ש-\n$$\\lambda_1=\\frac{(a+d)+(c+b)}{2}=\\frac{(a+b)+(c+d)}{2}=\\frac{2(a+b)}{2}=a+b$$\n$$\\lambda_2=\\frac{(a+d)-(c+b)}{2}=\\frac{(a-c)+(d-b)}{2}=\\frac{2(a-c)}{2}=a-c$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "kind": "proof",
+   "topic": "eigen_diagonalization",
+   "points": 5,
+   "question": "הוכיחו שאם $\\lambda$ הוא ערך עצמי של מטריצה הפיכה $B$ ו-$\\vec{\\mathbf{u}}$ הוא וקטור עצמי שמתאים ל-$\\lambda$, אז $1/\\lambda$ יהיה ערך עצמי של $B^{-1}$ עם אותו הווקטור העצמי $\\vec{\\mathbf{u}}$.",
+   "solution": "נתון ש-$B\\vec{\\mathbf{u}}=\\lambda\\vec{\\mathbf{u}}$. מכיוון ש-$B$ הפיכה, אז $B^{-1}$ קיימת ואם נכפול את $B\\vec{\\mathbf{u}}=\\lambda\\vec{\\mathbf{u}}$ משמאל ב-$B^{-1}$, אז נקבל\n$$B^{-1}B\\vec{\\mathbf{u}}=B^{-1}\\left(\\lambda\\vec{\\mathbf{u}}\\right)\\ \\Leftarrow\\ \\vec{\\mathbf{u}}=\\lambda\\left(B^{-1}\\vec{\\mathbf{u}}\\right)$$\nאו $B^{-1}\\vec{\\mathbf{u}}=\\frac{1}{\\lambda}\\vec{\\mathbf{u}}$ וזה מוכיח את הנדרש.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "kind": "proof",
+   "topic": "eigen_diagonalization",
+   "points": 5,
+   "question": "הוכיחו שאם $\\lambda$ הוא ערך עצמי של מטריצה הפיכה $C$ ו-$\\vec{\\mathbf{u}}$ הוא וקטור עצמי שמתאים ל-$\\lambda$ ו-$s$ הוא סקלר, אז $\\lambda-s$ יהיה ערך עצמי של $C-sI$ עם אותו הווקטור העצמי $\\vec{\\mathbf{u}}$.",
+   "solution": "נתון ש-$C\\vec{\\mathbf{u}}=\\lambda\\vec{\\mathbf{u}}$. נתבונן ב-\n$$(C-sI)\\vec{\\mathbf{u}}=C\\vec{\\mathbf{u}}-sI\\vec{\\mathbf{u}}=\\lambda\\vec{\\mathbf{u}}-s\\vec{\\mathbf{u}}=(\\lambda-s)\\vec{\\mathbf{u}}$$\nמכאן מייד נובע כי $\\lambda-s$ מהווה ערך עצמי של $C-sI$ עם אותו הווקטור העצמי $\\vec{\\mathbf{u}}$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 1,
+   "part": "ד",
+   "kind": "proof",
+   "topic": "eigen_diagonalization",
+   "points": 7,
+   "question": "נניח ש-$D,E$ ו-$P$ הן מטריצות $n\\times n$ וידוע ש-$P$ הפיכה וגם $PD=EP$. הוכח שכל ערך עצמי של $D$ הוא גם ערך עצמי של $E$.",
+   "solution": "נניח ש-$\\lambda$ הוא ערך עצמי של מטריצה $D$ ו-$\\vec{\\mathbf{u}}$ הוא ווקטור עצמי שמתאים לו, כלומר $D\\vec{\\mathbf{u}}=\\lambda\\vec{\\mathbf{u}}$. אם נכפול את זה משמאל במטריצה $P$, אז נקבל\n$$PD\\vec{\\mathbf{u}}=P\\lambda\\vec{\\mathbf{u}}=\\lambda P\\vec{\\mathbf{u}}$$\nמכיוון ש-$PD=EP$, אז $EP\\vec{\\mathbf{u}}=\\lambda P\\vec{\\mathbf{u}}$. אם נסמן עכשיו $P\\vec{\\mathbf{u}}=\\mathbf{x}$, אז נקבל $E\\mathbf{x}=\\lambda\\mathbf{x}$ וזה מוכיח שהמספר $\\lambda$ הוא גם ערך עצמי של מטריצה $E$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 6,
+   "question": "עבור איזה ערך של הפרמטר $k$ יש פתרון יחיד למערכת? מצאו את הפתרון.",
+   "solution": "נדרג את מטריצת המקדמים של המערכת ונמצא:\n$$\\left(\\begin{array}{ccc|c}k&k^2&k&1\\\\1&k&-k&1\\\\1&1&1&1\\end{array}\\right)\\xrightarrow{\\frac{1}{k}R_1\\to R_1\\ (k\\neq0)}\\left(\\begin{array}{ccc|c}1&k&1&\\frac{1}{k}\\\\1&k&-k&1\\\\1&1&1&1\\end{array}\\right)\\xrightarrow{\\substack{R_1-R_2\\to R_2\\\\R_1-R_3\\to R_3}}\\left(\\begin{array}{ccc|c}1&k&1&\\frac{1}{k}\\\\0&0&1+k&\\frac{1}{k}-1\\\\0&k-1&0&\\frac{1}{k}-1\\end{array}\\right)$$\n$$\\xrightarrow{\\substack{\\frac{1}{1+k}R_2\\to R_2\\\\kR_3\\to R_3\\\\k\\neq-1}}\\left(\\begin{array}{ccc|c}1&k&1&\\frac{1}{k}\\\\0&0&1&\\frac{1-k}{k(1+k)}\\\\0&k(k-1)&0&1-k\\end{array}\\right)\\xrightarrow{\\substack{R_1-R_2\\to R_1\\\\R_2\\leftrightarrow R_3}}\\left(\\begin{array}{ccc|c}1&k&0&\\frac{2}{k+1}\\\\0&k(k-1)&0&1-k\\\\0&0&1&\\frac{1-k}{k(1+k)}\\end{array}\\right)$$\nבעקבות הדירוג מצאנו שלושה ערכים חשודים, $k=-1,0,1$. נבדוק את הפתרון עבור כל ערך חשוד.\nעבור $k\\neq0,\\pm1$ ישנו פתרון יחיד למערכת, והוא מתקבל מהצבה:\n$$x=\\frac{k+3}{k+1},\\qquad y=-\\frac{1}{k},\\qquad z=\\frac{1-k}{k(k+1)}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 6,
+   "question": "עבור איזה ערך של הפרמטר $k$ אין פתרון למערכת?",
+   "solution": "במקרה ש-$k=0$ נציב $k=0$ במטריצה המקורית ונקבל סתירה בשורה הראשונה, $0\\neq1$: משמע אין פתרון.\nבמקרה ש-$k=-1$ נציב ונקבל:\n$$\\left(\\begin{array}{ccc|c}-1&1&-1&1\\\\1&-1&1&1\\\\1&1&1&1\\end{array}\\right)$$\nסכום שתי השורות הראשונות והאמצעות ייתן לנו סתירה, $2\\neq0$, משמע שגם עבור ערך זה אין פתרון.\nלכן אין פתרון עבור $k=0$ ו-$k=-1$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 7,
+   "question": "עבור איזה ערך של הפרמטר $k$ יש אינסוף פתרונות למערכת? מצאו הצגה פרמטרית של הפתרונות. הראו שפתרון זה הוא סכום של הפתרון של מערכת המשוואות ההומוגנית יחד עם פתרון פרטי של מערכת המשוואות הלא-הומוגנית המקורית.",
+   "solution": "עבור $k=1$ נקבל אינסוף פתרונות מהצורה:\n$$\\left(\\begin{array}{ccc|c}1&1&1&1\\\\1&1&-1&1\\\\1&1&1&1\\end{array}\\right)\\Rightarrow\\begin{cases}x+y+z=1\\\\x+y-z=1\\end{cases}\\Rightarrow x+y=1,\\ z=0$$\nלפיכך הפתרון הכללי הוא מהצורה:\n$$(x,y,z)=(1-y,\\,y,\\,0)=(1,0,0)+y(-1,1,0)$$\nכאשר $(1,0,0)$ הוא הפתרון הפרטי של המערכת המקורית, ו-$(x=-t,\\ y=t,\\ z=0),\\ t\\in\\mathbb{R}$ הוא פתרון כללי של המערכת ההומוגנית:\n$$\\begin{cases}kx+k^2y+kz=0\\\\x+ky-kz=0\\\\x+y+z=0\\end{cases}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "complex_numbers",
+   "points": 6,
+   "question": "נתונים שני וקטורים: $\\vec{u}=(z,-1,2)$, $\\vec{v}=(z,z,1)$. עבור איזה ערך של הפרמטר המרוכב $z$ הם מאונכים זה לזה? נא לכתוב את הפתרונות בצורה $x+iy$.",
+   "solution": "שני וקטורים מאונכים זה לזה אם המכפלה הסקלרית שלהם שווה לאפס. במקרה שלנו $\\vec{u}=(z,-1,2)$, $\\vec{v}=(z,z,1)$, ולכן נדרוש את השוויון:\n$$\\vec{u}\\cdot\\vec{v}=(z,-1,2)\\cdot(z,z,1)=z^2-z+2=0$$\nשורשי המשוואה הזו הם:\n$$z_1=\\frac{1}{2}+i\\frac{\\sqrt7}{2},\\qquad z_2=\\frac{1}{2}-i\\frac{\\sqrt7}{2}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 6,
+   "question": "הוכיחו ש-$A$ הפיכה על ידי מציאת המטריצה $A^{-1}$.",
+   "solution": "נחשב את $A^{-1}$:\n$$\\left(\\begin{array}{ccc|ccc}1&4&0&1&0&0\\\\0&1&2&0&1&0\\\\3&12&3&0&0&1\\end{array}\\right)\\xrightarrow{R_3\\to R_3-3R_1}\\left(\\begin{array}{ccc|ccc}1&4&0&1&0&0\\\\0&1&2&0&1&0\\\\0&0&3&-3&0&1\\end{array}\\right)\\xrightarrow{R_3\\to\\frac{1}{3}R_3}\\left(\\begin{array}{ccc|ccc}1&4&0&1&0&0\\\\0&1&2&0&1&0\\\\0&0&1&-1&0&\\frac{1}{3}\\end{array}\\right)\\xrightarrow{R_2\\to R_2-2R_3}\\left(\\begin{array}{ccc|ccc}1&4&0&1&0&0\\\\0&1&0&2&1&-\\frac{2}{3}\\\\0&0&1&-1&0&\\frac{1}{3}\\end{array}\\right)\\xrightarrow{R_1\\to R_1-4R_2}\\left(\\begin{array}{ccc|ccc}1&0&0&-7&-4&\\frac{8}{3}\\\\0&1&0&2&1&-\\frac{2}{3}\\\\0&0&1&-1&0&\\frac{1}{3}\\end{array}\\right)$$\nקיבלנו שהמטריצה ההופכית היא:\n$$A^{-1}=\\begin{pmatrix}-7&-4&\\frac{8}{3}\\\\2&1&-\\frac{2}{3}\\\\-1&0&\\frac{1}{3}\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 7,
+   "question": "הציגו את $A^{-1}$ בצורת כפל של מטריצות אלמנטריות.",
+   "solution": "כעת נשתמש בדירוג הנ״ל ונכתוב את $A^{-1}$ כמכפלה של מטריצות אלמנטריות:\n$$A^{-1}=\\begin{pmatrix}1&-4&0\\\\0&1&0\\\\0&0&1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&-2\\\\0&0&1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&\\frac{1}{3}\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\-3&0&1\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 12,
+   "question": "נתונה מטריצה $B=\\begin{pmatrix}5&0&1\\\\0&4&0\\\\1&0&5\\end{pmatrix}$. האם $B$ ניתנת לליכסון? במידה וכן, מצאו מטריצה הפיכה $P$ ומטריצה אלכסונית $D$ כך שמתקיים $D=P^{-1}BP$.",
+   "solution": "תחילה נמצא את כל הערכים העצמיים והווקטורים העצמיים של $B$. נחשב את הדטרמיננטה הבאה לפי שורה שנייה:\n$$|\\lambda I-B|=\\begin{vmatrix}\\lambda-5&0&-1\\\\0&\\lambda-4&0\\\\-1&0&\\lambda-5\\end{vmatrix}=(\\lambda-4)\\begin{vmatrix}\\lambda-5&-1\\\\-1&\\lambda-5\\end{vmatrix}=(\\lambda-4)\\left[(\\lambda-5)^2-1\\right]=(\\lambda-4)(\\lambda^2-10\\lambda+24)=(\\lambda-4)(\\lambda-4)(\\lambda-6)$$\nקיבלנו שהערכים העצמיים הם: $\\lambda_1=\\lambda_2=4$ ו-$\\lambda_3=6$. כעת נמצא את הווקטורים העצמיים.\n**עבור ע״ע** $\\lambda_1=\\lambda_2=4$:\n$$\\begin{pmatrix}-1&0&-1\\\\0&0&0\\\\-1&0&-1\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&0&1\\\\0&0&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $y=t,\\ z=s$ ונקבל: $x=-s$. הווקטורים העצמיים המתקבלים הם: $(-1,0,1)^T,\\ (0,1,0)^T$.\n**עבור ע״ע** $\\lambda_3=6$:\n$$\\begin{pmatrix}1&0&-1\\\\0&2&0\\\\-1&0&1\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&0&-1\\\\0&1&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $z=t$ ונקבל: $x=t,\\ y=0$. הווקטור העצמי המתקבל הוא: $(1,0,1)^T$.\nהמטריצה ניתנת לליכסון (שלושה וקטורים עצמיים בלתי תלויים). כעת נמצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$:\n$$D=\\begin{pmatrix}4&0&0\\\\0&4&0\\\\0&0&6\\end{pmatrix},\\qquad P=\\begin{pmatrix}-1&0&1\\\\0&1&0\\\\1&0&1\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצאו בסיס ומימד של $W_1$ ו-$W_2$.",
+   "solution": "יהי $p(x)=a_3x^3+a_2x^2+a_1x+a_0\\in\\mathbb{R}_{\\leq3}[x]$. אזי\n$$p\\in W_1\\ \\Leftrightarrow\\ p(-1)=p(1)\\ \\Leftrightarrow\\ -a_3+a_2-a_1+a_0=a_3+a_2+a_1+a_0\\ \\Leftrightarrow\\ a_1+a_3=0$$\nהמשתנים החופשיים במערכת המשוואות הזו הם $a_0,a_2,a_3$. נבצע פרמטריזציה $a_0=t_1,\\ a_2=t_2,\\ a_3=t_3$ ונקבל ש-$a_1=-a_3=-t_3$. מכאן נקבל ש-\n$$p\\in W_1\\ \\Leftrightarrow\\ p(x)=t_1\\cdot1+t_2x^2+t_3\\left(x^3-x\\right),\\qquad t_1,t_2,t_3\\in\\mathbb{R}$$\nוקבוצת הפולינומים $B_{W_1}=\\left\\{1,\\ x^2,\\ \\left(x^3-x\\right)\\right\\}$ מהווה בסיס של $W_1$. מכאן גם $\\dim W_1=3$.\nבאופן דומה,\n$$p\\in W_2\\ \\Leftrightarrow\\ p(2)=0\\ \\Leftrightarrow\\ 8a_3+4a_2+2a_1+a_0=0$$\nניקח את המשתנים החופשיים במערכת משוואות זו להיות $a_0,a_1,a_2$. נבצע פרמטריזציה $a_0=t_1,\\ a_1=t_2,\\ a_2=t_3$ ונקבל ש-$a_3=-\\frac{1}{8}t_1-\\frac{1}{4}t_2-\\frac{1}{2}t_3$. מכאן נקבל ש-\n$$p\\in W_2\\ \\Leftrightarrow\\ p(x)=\\left(-\\frac{1}{8}t_1-\\frac{1}{4}t_2-\\frac{1}{2}t_3\\right)x^3+t_3x^2+t_2x+t_1\\cdot1=$$\n$$=t_1\\left(-\\frac{1}{8}x^3+1\\right)+t_2\\left(-\\frac{1}{4}x^3+x\\right)+t_3\\left(-\\frac{1}{2}x^3+x^2\\right)=\\tilde t_1\\left(-x^3+8\\right)+\\tilde t_2\\left(-x^3+4x\\right)+\\tilde t_3\\left(-x^3+2x^2\\right)$$\nוקבוצת הפולינומים $B_{W_2}=\\left\\{\\left(-x^3+8\\right),\\left(-x^3+4x\\right),\\left(-x^3+2x^2\\right)\\right\\}$ מהווה בסיס של $W_2$. מכאן גם $\\dim W_2=3$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצאו בסיס ומימד של $W_1+W_2$.",
+   "solution": "(ב)+(ג): לכל אחד מוקטורי הבסיס ב-$B_{W_1}$ ו-$B_{W_2}$ נשייך את וקטור הקואורדינטות המתאים ביחס לבסיס הסטנדרטי $E=\\{1,x,x^2,x^3\\}$ של $\\mathbb{R}_{\\leq3}[x]$ (למעשה אנו עושים שימוש באיזומורפיזם בין $\\mathbb{R}^4$ ו-$\\mathbb{R}_{\\leq3}[x]$).\n$$B_{W_1}:\\ [1]_E=\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix},\\ [x^2]_E=\\begin{pmatrix}0\\\\0\\\\1\\\\0\\end{pmatrix},\\ [x^3-x]_E=\\begin{pmatrix}0\\\\-1\\\\0\\\\1\\end{pmatrix}$$\n$$B_{W_2}:\\ [-x^3+8]_E=\\begin{pmatrix}8\\\\0\\\\0\\\\-1\\end{pmatrix},\\ [-x^3+4x]_E=\\begin{pmatrix}0\\\\4\\\\0\\\\-1\\end{pmatrix},\\ [-x^3+2x^2]_E=\\begin{pmatrix}0\\\\0\\\\2\\\\-1\\end{pmatrix}$$\nכדי למצוא בסיס עבור $W_1+W_2$ נבנה מטריצה שעמודותיה הן וקטורי הקואורדינטות הנ״ל ונדרג\n$$\\left(\\begin{array}{ccc|ccc}1&0&0&8&0&0\\\\0&0&-1&0&4&0\\\\0&1&0&0&0&2\\\\0&0&1&-1&-1&-1\\end{array}\\right)\\xrightarrow{R_2\\leftrightarrow R_3}\\left(\\begin{array}{ccc|ccc}1&0&0&8&0&0\\\\0&1&0&0&0&2\\\\0&0&-1&0&4&0\\\\0&0&1&-1&-1&-1\\end{array}\\right)$$\n$$\\xrightarrow{R_3\\leftrightarrow R_4}\\left(\\begin{array}{ccc|ccc}1&0&0&8&0&0\\\\0&1&0&0&0&2\\\\0&0&1&-1&-1&-1\\\\0&0&-1&0&4&0\\end{array}\\right)\\xrightarrow{R_4+R_3\\to R_4}\\left(\\begin{array}{ccc|ccc}1&0&0&8&0&0\\\\0&1&0&0&0&2\\\\0&0&1&-1&-1&-1\\\\0&0&0&-1&3&-1\\end{array}\\right)$$\nאנו רואים שבשתי העמודות האחרונות אין איבר מוביל. מכאן אנו מקבלים שקבוצת הפולינומים $B_{W_1+W_2}=\\left\\{1,x^2,\\left(x^3-x\\right),\\left(-x^3+8\\right)\\right\\}$ הוא בסיס של $W_1+W_2$ ו-$\\dim(W_1+W_2)=4$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצאו בסיס ומימד של $W_1\\cap W_2$.",
+   "solution": "כדי למצוא בסיס עבור $W_1\\cap W_2$ עלינו לפתור את מערכת המשוואות המתקבלת מדירוג המטריצה הנ״ל. נמשיך את הדירוג ונקבל\n$$\\left(\\begin{array}{ccc|ccc}1&0&0&8&0&0\\\\0&1&0&0&0&2\\\\0&0&1&-1&-1&-1\\\\0&0&0&-1&3&-1\\end{array}\\right)\\xrightarrow{\\substack{R_1+8R_4\\to R_1\\\\R_3-R_4\\to R_3}}\\left(\\begin{array}{ccc|ccc}1&0&0&0&24&-8\\\\0&1&0&0&0&2\\\\0&0&1&0&-4&0\\\\0&0&0&-1&3&-1\\end{array}\\right)\\to\\left(\\begin{array}{ccc|ccc}1&0&0&0&24&-8\\\\0&1&0&0&0&2\\\\0&0&1&0&-4&0\\\\0&0&0&1&-3&1\\end{array}\\right)$$\nאם נסמן את המקדמים של $1,x^2,\\left(x^3-x\\right)$ ב-$\\alpha_1,\\alpha_2,\\alpha_3$ בהתאמה ואת המקדמים של $\\left(-x^3+8\\right),\\left(-x^3+4x\\right),\\left(-x^3+2x^2\\right)$ ב-$\\beta_1,\\beta_2,\\beta_3$, בהתאמה, נקבל מהשורה האחרונה של המטריצה המדורגת הנ״ל את המשוואה $\\beta_1-3\\beta_2+\\beta_3=0$. נבצע פרמטריזציה $\\beta_3=t_2,\\ \\beta_2=t_1$ ונקבל $\\beta_1=3t_1-t_2$. מכאן,\n$$p\\in W_1\\cap W_2\\ \\Leftrightarrow\\ p=(3t_1-t_2)\\left(-x^3+8\\right)+t_1\\left(-x^3+4x\\right)+t_2\\left(-x^3+2x^2\\right)=$$\n$$=t_1\\left(-4x^3+4x+24\\right)+t_2\\left(2x^2-8\\right)=4t_1\\left(-x^3+x+6\\right)+2t_2\\left(x^2-4\\right)$$\nמכאן ש-$B_{W_1\\cap W_2}=\\left\\{\\left(-x^3+x+6\\right),\\left(x^2-4\\right)\\right\\}$, $\\dim(W_1\\cap W_2)=2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 4,
+   "question": "האם הפולינום $p(x)=-x^3+2x^2+x-2$ שייך אל $W_1\\cap W_2$?",
+   "solution": "כיוון ש-\n$$-x^3+2x^2+x-2=\\left(-x^3+x+6\\right)+2\\left(x^2-4\\right)$$\nמתקיים $-x^3+2x^2+x-2\\in W_1\\cap W_2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 5,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 6,
+   "question": "לאילו ערכי הפרמטר $k$ מתקיים $\\begin{pmatrix}1\\\\1\\\\2\\\\k\\end{pmatrix}\\in\\mathrm{Im}\\,T$?",
+   "solution": "המטריצה המייצגת של ההעתקה היא\n$$A=\\begin{pmatrix}1&1&1\\\\0&1&2\\\\0&2&k^2+3\\\\0&-1&-2\\end{pmatrix}$$\n$$\\left(\\begin{array}{ccc|c}1&1&1&1\\\\0&1&2&1\\\\0&2&k^2+3&2\\\\0&-1&-2&k\\end{array}\\right)\\xrightarrow{\\substack{R_3\\leftarrow R_3-2R_2\\\\R_4\\leftarrow R_4+R_2}}\\left(\\begin{array}{ccc|c}1&1&1&1\\\\0&1&2&1\\\\0&0&k^2-1&0\\\\0&0&0&k+1\\end{array}\\right)$$\nכלומר יהיה פתרון למערכת רק אם $k=-1$. אחרת תהיה שורת סתירה למערכת. רק עבור $k=-1$ מתקיים $\\begin{pmatrix}1\\\\1\\\\2\\\\k\\end{pmatrix}\\in\\mathrm{Im}\\,T$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 8,
+   "question": "לאילו ערכי הפרמטר $k$ ההעתקה הלינארית $T$ היא על? לאילו ערכי הפרמטר $k$ ההעתקה הלינארית $T$ היא חח״ע?",
+   "solution": "לאחר דירוג המטריצה המייצגת היא\n$$\\begin{pmatrix}1&1&1\\\\0&1&2\\\\0&0&k^2-1\\\\0&0&0\\end{pmatrix}$$\nההעתקה בכל מקרה לא על כי עמודות לא פורשות את $\\mathbb{R}^4$ (או בגלל שיש רק 3 עמודות, או בגלל שיש שורת אפסים בצורה המדורגת). כדי להיות חח״ע צריך שלא יהיה משתנה חופשי. כלומר צריך ש-$k^2-1\\neq0$, כלומר ההעתקה חח״ע אם $k\\neq\\pm1$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 6,
+   "question": "עבור $k=1$ מצאו את המימד והבסיס של $\\mathrm{Ker}\\,T$.",
+   "solution": "אם $k=1$ ראינו שמטריצה מדורגת היא\n$$\\begin{pmatrix}1&1&1\\\\0&1&2\\\\0&0&0\\\\0&0&0\\end{pmatrix}\\longrightarrow\\begin{pmatrix}1&0&-1\\\\0&1&2\\\\0&0&0\\\\0&0&0\\end{pmatrix}\\longrightarrow t\\begin{pmatrix}1\\\\-2\\\\1\\end{pmatrix}$$\nבסיס של $\\mathrm{Ker}\\,T$: $\\left(1-2t+t^2\\right)$, $\\dim\\mathrm{Ker}\\,T=1$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 5,
+   "question": "נתונה העתקה לינארית $F:\\mathbb{R}^2\\to\\mathbb{R}^2$ לפי $F\\left(\\begin{pmatrix}1\\\\1\\end{pmatrix}\\right)=\\begin{pmatrix}2\\\\2\\end{pmatrix},\\ F\\left(\\begin{pmatrix}3\\\\4\\end{pmatrix}\\right)=\\begin{pmatrix}5\\\\0\\end{pmatrix}$. מצאו את המטריצה המייצגת הסטנדרטית $[F]_E^E$ של $F$ ($E$ בסיס סטנדרטי של $\\mathbb{R}^2$).",
+   "solution": "$\\left|\\begin{matrix}1&3\\\\1&4\\end{matrix}\\right|=1\\neq0$ אז $B=\\left(\\begin{pmatrix}1\\\\1\\end{pmatrix},\\begin{pmatrix}3\\\\4\\end{pmatrix}\\right)$ בסיס של $\\mathbb{R}^2$. לכן $[I]_E^B=\\begin{pmatrix}1&3\\\\1&4\\end{pmatrix}$.\n$$F\\left(\\begin{pmatrix}1\\\\1\\end{pmatrix}\\right)=\\begin{pmatrix}2\\\\2\\end{pmatrix},\\ F\\left(\\begin{pmatrix}3\\\\4\\end{pmatrix}\\right)=\\begin{pmatrix}5\\\\0\\end{pmatrix}\\ \\Rightarrow\\ [F]_E^B=\\begin{pmatrix}2&5\\\\2&0\\end{pmatrix}$$\n$$[F]_E^E=[I]_E^E[F]_E^B[I]_B^E=\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}\\begin{pmatrix}2&5\\\\2&0\\end{pmatrix}\\begin{pmatrix}1&3\\\\1&4\\end{pmatrix}^{-1}=\\begin{pmatrix}2&5\\\\2&0\\end{pmatrix}\\begin{pmatrix}4&-3\\\\-1&1\\end{pmatrix}=\\begin{pmatrix}3&-1\\\\8&-6\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  }
+ ]
+}

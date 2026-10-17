@@ -27,6 +27,18 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - 23B-B Q1: the exam prints (7,5,6,7) points for א-ד, the solution file prints (7,6,7,5). The exam was followed.
 - Status: noted
 
+### FYI 23A-B / 22B-B / 22B-A / 22A-B - one hold block, two final-answer corrections, small slips (no action needed)
+- 22A-B Q4 (a-e): the solution file has no solution for Q4 (it jumps from Q3 to Q5); all five parts held "no-key" for the solver.
+- 22B-A Q1 ג/ד (p.2): the official derives det^2(A)=(5/2)^4 and states det(A)=25/4, det(A^-1)=4/25. The sign is not determined: A=diag(a,a,a,-a) with a^2=5/2 also satisfies both equations and has det=-25/4. Shipped as +-25/4 and +-4/25, labeled "הפתרון הרשמי עם תיקון", official:false.
+- 23A-B Q2 ד (p.3): the official lists z4=5^(1/6)cis(300.86); the third root is 308.86. Shipped labeled "הפתרון הרשמי עם תיקון", official:false.
+- 22B-B Q2 ב (p.3): the official puts the k=0 contradiction in "the second row"; it is the first row. Corrected, no label.
+- 22B-B Q4 ג (p.8): a step is labeled R1+8R3->R1 but the printed result is R1+8R4->R1. Corrected, no label.
+- 22B-A Q4 א (p.6): the official writes the parametrization as s(-2,0,1)+t(3,0,1); the vector is (-2,1,0) (the next line has it). Corrected, no label.
+- 22A-B Q1 ב (p.1): the exam asks to show A invertible, the official concludes "B invertible" (its product argument gives both). One-line remark added.
+- 22A-B Q1 ד (p.2): the official prints det(B^1)=32/81 (typo for B^-1). Written as B^-1.
+- 22A-B Q2: the exam prints the parts as א, א, ב, ג; the official solution uses א, ב, ג, ד, which is used. Q4 text "שחוש" read as "שלוש".
+- Status: noted
+
 ## Resolved
 
 ### FYI 24A-A / 25A-B / 25B-A - holds and official slips (no action needed)
