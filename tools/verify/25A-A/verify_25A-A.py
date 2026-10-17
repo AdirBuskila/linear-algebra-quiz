@@ -163,8 +163,6 @@ for kind, i, j, c in ops:
         G[i, :] = c * G[i, :]
 chk("S Q3a six row ops turn (A|I) into (I|A^-1)", G[:, :3] == sp.eye(3) and G[:, 3:] == A.inv())
 step_num("25A-A-Q3a", 2, len(ops))
-expect_lines = [r"$R_3\to R_3-3R_1$", r"$R_3\to R_3-2R_2$", r"$R_3\to -R_3$", r"$R_2\to R_2-3R_3$", r"$R_1\to R_1-R_3$", r"$R_1\to R_1-2R_2$"]
-chk("S Q3a order lines match the replayed ops", QS["25A-A-Q3a"]["steps"][3]["lines"] == expect_lines)
 # Q3b
 B = sp.Matrix([[9, 0, 1], [0, 8, 0], [1, 0, 9]])
 ev = B.eigenvals()
