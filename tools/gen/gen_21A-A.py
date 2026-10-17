@@ -2,10 +2,19 @@
 """Generator for tools/raw/21A-A.json -- linear algebra, semester A 2021, moed A (24.01.2021), bank sitting.
 Run: PYTHONUTF8=1 py -W error::SyntaxWarning tools/gen/gen_21A-A.py
 
-Source: one PDF (3pp, exam only; page 3 is blank). There is NO answer source for this sitting (GATE1: 21A-A has no
-solution), so every item was held "no-key" and then solved by the solver (solutionSource "solved", official false,
-checked in tools/verify/21A-A/verify_21A-A.py). Q3 b stays held: A is singular at the printed a=2 (det A=-6(a-2)(6a+7)).
-Q1 c/d: the data fix |A|^2=27/8 only; both signs occur (A=+-sqrt(3/2) I), so the answer is +-3sqrt6/4.
+Source: exam PDF (3pp, exam only; page 3 is blank) + solution file "סמ׳ א מועד א פתרון.pdf" (14pp; typed Q1-Q3, Q5,
+handwritten Q4). The triage paired that solution file with 20A-A, but its content is the 21A-A solution (AA^T+A^2=3I,
+this system, these A and B, T on M2x2, Q4 on R2[x]); rendered pages are in tools/raw/20A-A-SOL/.
+Official solutions transcribed for 19 of 20 items, checked in tools/verify/21A-A/verify_21A-A.py.
+- Q1 c/d: the official gives |A|=sqrt(27/8), |A^-1|=sqrt(8/27); the data fix only |A|^2=27/8 and both signs occur
+  (A=+-sqrt(3/2) I). Shipped as +-, labeled "הפתרון הרשמי עם תיקון", official false.
+- Q3 b (A^-1 at a=2) stays held: A is singular at a=2 (det A=-6(a-2)(6a+7)), and the solution file belongs to a version
+  of the exam without this part (its Q3 is 8+9+8 points: invertibility, eigenpairs, D/P).
+- Q4 b: the handwritten step label R4->R4+2R2 gives (0,2,3), not the printed row (0,0,2); the operation is R4->R4+R2.
+  Corrected without a label (intermediate slip), logged in ASK_ADIR.
+- Q2 c: the official prints the s-direction as (0,-1,1), which is not in the plane x-y+z=0; its own line x=t-s-1
+  gives (-1,0,1). Final answer corrected, labeled, official false.
+- Q2 d: explicit values of the three cube roots added in one bracketed line.
 Five questions of 25 points (best 4 count), 20 items. No figures.
 
 Transcription notes
@@ -54,16 +63,20 @@ contexts = {
                      r"$$T\left(" + pm("a&b", "c&d") + r"\right)=" + pm("a+b", "b+c", "b+d") + "$$")},
 }
 
-HOLD_Q3B = ("misprint: det A = -6(a-2)(6a+7), so A is singular exactly at a=2 (rows 1 and 2 both equal (4,3,6)); "
-            "A^-1 does not exist for the printed value and the intended a is unknown")
+HOLD_Q3B = ("misprint/not covered: det A = -6(a-2)(6a+7), so A is singular exactly at the printed a=2 (rows 1 and 2 both "
+            "equal (4,3,6)); A^-1 does not exist there. The official solution file belongs to a version of the exam without "
+            "this part (its Q3 A is one 8-pt item), so the intended a is unknown")
+
+FIX = r"**הפתרון הרשמי עם תיקון:** "
 
 
-def S(num, part, kind, topic, question, solution, points, ctx=None):
-    """solved by the solver (no answer source exists for this sitting)"""
+def O(num, part, kind, topic, question, solution, points, ctx=None, **kw):
+    """official solution (lecturer's typed/handwritten solution file)"""
     q = {"num": num, "part": part, "kind": kind, "topic": topic, "points": points, "question": question,
-         "solution": solution, "solutionSource": "solved", "official": False, "confidence": "high"}
+         "solution": solution, "solutionSource": "official-pdf", "official": True, "confidence": "high"}
     if ctx:
         q["contextId"] = ctx
+    q.update(kw)
     return q
 
 
@@ -77,160 +90,195 @@ def arrow(op):
     return r"\xrightarrow{" + op + "}"
 
 
+def col(*v):
+    return pm(*[[c] for c in v])
+
+
 M2 = lambda a, b, c, d: pm(f"{a}&{b}", f"{c}&{d}")
-KER5 = M2(-1, 1, -1, -1)
+FR = lambda n, d: r"\frac{" + str(n) + "}{" + str(d) + "}"
+RR = r"\frac{1-a}{a-2}"
+ECH = [[1, 0, -1, 0], [0, 1, "(a-1)", "-a"], [0, 0, "-(a+1)(a-2)", "(a+1)(a-1)"]]
 
 questions = [
     # ------------------------------------------------------------------ Q1
-    S(1, "א", "proof", "matrix_proofs", r"הראו כי $A$ הפיכה ע״י מציאת ביטוי של המטריצה ההפוכה באמצעות $A$.",
-      J(r"נחסר את המשוואה השנייה מהראשונה:",
-        r"$$\left(AA^T+A^2\right)-\left(AA^T-A^2\right)=3I-0\ \Rightarrow\ 2A^2=3I\ \Rightarrow\ A\cdot\left(\frac23A\right)=I$$",
-        r"באותו אופן, חיבור שתי המשוואות נותן $2AA^T=3I$, כלומר $A\cdot\left(\frac23A^T\right)=I$.",
-        r"עבור מטריצות ריבועיות, אם $AB=I$ אז $A$ הפיכה ו-$B=A^{-1}$. לכן $A$ הפיכה ו-",
-        r"$$A^{-1}=\frac23A$$",
-        r"(ובאותו אופן גם $A^{-1}=\frac23A^T$)."),
+    O(1, "א", "proof", "matrix_proofs", r"הראו כי $A$ הפיכה ע״י מציאת ביטוי של המטריצה ההפוכה באמצעות $A$.",
+      J(r"מהמשוואה $AA^T+A^2=3I$ נקבל $\frac13A\left(A^T+A\right)=A\cdot\frac13\left(A+A^T\right)=I$, כלומר קיימת הפיכה",
+        r"$$A^{-1}=\frac13\left(A+A^T\right)$$"),
       7, "c1"),
-    S(1, "ב", "proof", "matrix_proofs", r"הוכיחו כי $A^{-1}$ מטריצה סימטרית.",
-      J(r"מסעיף (א) $A^{-1}=\frac23A$ וגם $A^{-1}=\frac23A^T$. לכן $\frac23A=\frac23A^T$, כלומר $A^T=A$. מכאן",
-        r"$$\left(A^{-1}\right)^T=\left(\frac23A\right)^T=\frac23A^T=\frac23A=A^{-1}$$",
-        r"ולכן $A^{-1}$ מטריצה סימטרית."),
+    O(1, "ב", "proof", "matrix_proofs", r"הוכיחו כי $A^{-1}$ מטריצה סימטרית.",
+      J(r"נרשום",
+        r"$$\left(A^{-1}\right)^T=\left(\frac13\left(A+A^T\right)\right)^T=\frac13A^T+\frac13\left(A^T\right)^T=\frac13\left(A+A^T\right)=A^{-1}$$"),
       7, "c1"),
-    S(1, "ג", "computation", "determinants", r"חשבו את הדטרמיננטה $|A|$.",
-      J(r"מסעיף (א) $2A^2=3I$, כלומר $A^2=\frac32I$. נפעיל דטרמיננטה (המטריצה מסדר $3$, ולכן $|cI|=c^3$):",
-        r"$$|A|^2=\left|A^2\right|=\left|\frac32I\right|=\left(\frac32\right)^3=\frac{27}{8}\ \Rightarrow\ |A|=\pm\sqrt{\frac{27}{8}}=\pm\frac{3\sqrt6}{4}$$",
-        r"הנתונים אינם קובעים את הסימן: המטריצות $A=\sqrt{\frac32}\,I$ ו-$A=-\sqrt{\frac32}\,I$ סימטריות, ולכן לשתיהן $AA^T=A^2=\frac32I$, והן מקיימות את שתי המשוואות הנתונות. הדטרמיננטות שלהן הן $\frac{3\sqrt6}{4}$ ו-$-\frac{3\sqrt6}{4}$.",
-        r"לכן $|A|=\pm\frac{3\sqrt6}{4}$."),
-      7, "c1"),
-    S(1, "ד", "computation", "determinants", r"חשבו את הדטרמיננטה $\left|A^{-1}\right|$.",
-      J(r"מתקיים $\left|A^{-1}\right|=\frac{1}{|A|}$, ולכן מסעיף (ג):",
-        r"$$\left|A^{-1}\right|=\pm\frac{4}{3\sqrt6}=\pm\frac{2\sqrt6}{9}$$",
-        r"(עם אותו סימן כמו $|A|$). בדיקה: $\left|A^{-1}\right|=\left|\frac23A\right|=\left(\frac23\right)^3|A|=\frac{8}{27}\cdot\left(\pm\frac{3\sqrt6}{4}\right)=\pm\frac{2\sqrt6}{9}$."),
-      4, "c1"),
+    O(1, "ג", "computation", "determinants", r"חשבו את הדטרמיננטה $|A|$.",
+      J(FIX + r"בפתרון הרשמי נקבע $|A|=\sqrt{\frac{27}{8}}$; מהשוויון $|A|^2=\frac{27}{8}$ נובע רק ש-$|A|=\pm\sqrt{\frac{27}{8}}$.",
+        r"נחלץ מהמשוואה $AA^T-A^2=0$ את $AA^T$, נציב ב-$AA^T+A^2=3I$ ונקבל $2A^2=3I$. לכן",
+        r"$$\left|2A^2\right|=2^3|A|^2=3^3|I|$$",
+        r"ונקבל לבסוף $|A|^2=\frac{27}{8}$, כלומר",
+        r"$$|A|=\pm\sqrt{\frac{27}{8}}=\pm\frac{3\sqrt6}{4}$$",
+        r"**הערה:** שני הסימנים אפשריים. המטריצות $A=\sqrt{\frac32}\,I$ ו-$A=-\sqrt{\frac32}\,I$ סימטריות, ולכן לשתיהן $AA^T=A^2=\frac32I$ והן מקיימות את שתי המשוואות; הדטרמיננטות שלהן הן $\frac{3\sqrt6}{4}$ ו-$-\frac{3\sqrt6}{4}$."),
+      7, "c1", solutionSource="solved", official=False),
+    O(1, "ד", "computation", "determinants", r"חשבו את הדטרמיננטה $\left|A^{-1}\right|$.",
+      J(FIX + r"בפתרון הרשמי נקבע $\left|A^{-1}\right|=\sqrt{\frac{8}{27}}$; בהתאם לסעיף הקודם התוצאה היא $\pm\sqrt{\frac{8}{27}}$.",
+        r"מאחר ו-$A$ הפיכה",
+        r"$$\left|A^{-1}\right|=|A|^{-1}=\pm\sqrt{\frac{8}{27}}=\pm\frac{2\sqrt6}{9}$$",
+        r"(עם אותו סימן כמו $|A|$)."),
+      4, "c1", solutionSource="solved", official=False),
 
     # ------------------------------------------------------------------ Q2
-    S(2, "א", "computation", "linear_systems", r"הביאו את המטריצה המורחבת של המערכת לצורת מדורגת קנונית.",
-      J(r"המטריצה המורחבת ודירוג שלה:",
-        "$$" + aug([[1, -1, "-a", "a"], ["a", 1, -1, "-a"], [1, "a", 1, -1]])
-        + arrow(r"\substack{R_2\to R_2-aR_1\\R_3\to R_3-R_1}")
-        + aug([[1, -1, "-a", "a"], [0, "a+1", "a^2-1", "-a^2-a"], [0, "a+1", "a+1", "-a-1"]]) + "$$",
-        r"**המקרה $a=-1$:** השורות השנייה והשלישית מתאפסות, ונקבל את הצורה המדורגת הקנונית",
+    O(2, "א", "computation", "linear_systems", r"הביאו את המטריצה המורחבת של המערכת לצורת מדורגת קנונית.",
+      J(r"מטריצת המקדמים המורחבת של המערכת הינה",
+        "$$" + aug([[1, -1, "-a", "a"], ["a", 1, -1, "-a"], [1, "a", 1, -1]]) + "$$",
+        r"נבצע דירוג כדלקמן:",
+        "$$" + aug([[1, -1, "-a", "a"], ["a", 1, -1, "-a"], [1, "a", 1, -1]]) + arrow(r"\substack{R_2\to R_2-aR_1\\R_3\to R_3-R_1}")
+        + aug([[1, -1, "-a", "a"], [0, "1+a", "a^2-1", "-a^2-a"], [0, "1+a", "1+a", "-a-1"]]) + "$$",
+        "$$" + arrow(r"R_3\to R_3-R_2") + aug([[1, -1, "-a", "a"], [0, "1+a", "a^2-1", "-a^2-a"], [0, 0, "-a^2+a+2", "a^2-1"]])
+        + "=" + aug([[1, -1, "-a", "a"], [0, "1+a", "(a+1)(a-1)", "-a(a+1)"], [0, 0, "-(a+1)(a-2)", "(a+1)(a-1)"]]) + "$$",
+        r"עבור המקרה $a=-1$ נקבל",
         "$$" + aug([[1, -1, 1, -1], [0, 0, 0, 0], [0, 0, 0, 0]]) + "$$",
-        r"**המקרה $a\neq-1$:** נחלק את השורות השנייה והשלישית ב-$a+1$ (שימו לב ש-$a^2-1=(a-1)(a+1)$ ו-$-a^2-a=-a(a+1)$):",
-        "$$" + arrow(r"\substack{R_2\to\frac{1}{a+1}R_2\\R_3\to\frac{1}{a+1}R_3}")
-        + aug([[1, -1, "-a", "a"], [0, 1, "a-1", "-a"], [0, 1, 1, -1]])
-        + arrow(r"R_3\to R_3-R_2")
-        + aug([[1, -1, "-a", "a"], [0, 1, "a-1", "-a"], [0, 0, "2-a", "a-1"]]) + "$$",
-        r"**המקרה $a=2$:** השורה האחרונה היא $(0\ 0\ 0\,|\,1)$. נמשיך ($R_1\to R_1+R_2$, ואז ניקוי העמודה האחרונה בעזרת $R_3$):",
-        "$$" + aug([[1, -1, -2, 2], [0, 1, 1, -2], [0, 0, 0, 1]]) + r"\to" + aug([[1, 0, -1, 0], [0, 1, 1, 0], [0, 0, 0, 1]]) + "$$",
-        r"**המקרה $a\neq2,-1$:** נחלק את $R_3$ ב-$2-a$ ונקבל $z=\frac{a-1}{2-a}=\frac{1-a}{a-2}$. אחר כך $R_2\to R_2-(a-1)R_3$, $R_1\to R_1+aR_3$ ולבסוף $R_1\to R_1+R_2$. נקבל את הצורה המדורגת הקנונית",
-        "$$" + aug([[1, 0, 0, r"\frac{1-a}{a-2}"], [0, 1, 0, r"\frac{1}{a-2}"], [0, 0, 1, r"\frac{1-a}{a-2}"]]) + "$$",
-        r"למשל $y=-a-(a-1)\cdot\frac{a-1}{2-a}=\frac{-a(2-a)-(a-1)^2}{2-a}=\frac{-1}{2-a}=\frac{1}{a-2}$, ו-$x=a+y+az=\frac{a(a-2)+1+a(1-a)}{a-2}=\frac{1-a}{a-2}$."),
+        r"נניח כי $a\neq-1$ ונמשיך בדירוג:",
+        "$$" + arrow(r"R_2\to\frac{1}{a+1}R_2") + aug([[1, -1, "-a", "a"], [0, 1, "(a-1)", "-a"], [0, 0, "-(a+1)(a-2)", "(a+1)(a-1)"]])
+        + arrow(r"R_1\to R_1+R_2") + aug(ECH) + "$$",
+        r"נניח כי $a=2$ ונקבל",
+        "$$" + aug([[1, 0, -1, 0], [0, 1, 1, -2], [0, 0, 0, 3]]) + "$$",
+        r"נניח כי $a\neq2$ ונמשיך בדירוג:",
+        "$$" + aug(ECH) + arrow(r"R_3\to-\frac{1}{(a+1)(a-2)}R_3") + aug([[1, 0, -1, 0], [0, 1, "(a-1)", "-a"], [0, 0, 1, RR]]) + "$$",
+        "$$" + arrow(r"\substack{R_1\to R_1+R_3\\R_2\to R_2-(a-1)R_3}") + aug([[1, 0, 0, RR], [0, 1, 0, r"\frac{1}{a-2}"], [0, 0, 1, RR]]) + "$$"),
       9, "c2"),
-    S(2, "ב", "computation", "linear_systems", r"מצאו עבור אילו ערכי $a$ יש למערכת אינסוף פתרונות, פתרון יחיד או שאין לה פתרון כלל.",
-      J(r"מהדירוג בסעיף (א):",
-        r"**פתרון יחיד:** עבור $a\neq2,-1$ מתקיים $r(A)=r(A|b)=3$, והפתרון הוא $\left(\frac{1-a}{a-2},\ \frac{1}{a-2},\ \frac{1-a}{a-2}\right)$.",
-        r"**אין פתרון:** עבור $a=2$ מתקבלת השורה $(0\ 0\ 0\,|\,1)$, כלומר $r(A)=2<r(A|b)=3$.",
-        r"**אינסוף פתרונות:** עבור $a=-1$ מתקיים $r(A)=r(A|b)=1<3$, ויש שני משתנים חופשיים.",
-        r"(בהתאם לכך $|A|=-(a-2)(a+1)^2$, שמתאפס בדיוק עבור $a=2$ ו-$a=-1$.)"),
+    O(2, "ב", "computation", "linear_systems", r"מצאו עבור אילו ערכי $a$ יש למערכת אינסוף פתרונות, פתרון יחיד או שאין לה פתרון כלל.",
+      J(r"מהדירוג בסעיף הקודם אנו רואים כי למערכת שלושה מצבים:",
+        r"1. $a=-1$: למערכת אינסוף פתרונות, מאחר ומתקבלות שתי שורות אפסים במטריצה המורחבת המדורגת:",
+        "$$" + aug([[1, -1, 1, -1], [0, 0, 0, 0], [0, 0, 0, 0]]) + "$$",
+        r"2. $a=2$: אין פתרונות, מאחר ומתקבלת שורת סתירה במטריצה המורחבת המדורגת:",
+        "$$" + aug([[1, 0, -1, 0], [0, 1, 1, -2], [0, 0, 0, 3]]) + "$$",
+        r"3. בשאר המצבים, $a\neq-1,2$, מתקבל פתרון יחיד שהוא",
+        r"$$" + col("x", "y", "z") + "=" + col(RR, r"\frac{1}{a-2}", RR) + "$$"),
       8, "c2"),
-    S(2, "ג", "computation", "linear_systems", r"עבור $a=-1$ פתרו את המערכת וכתבו את כל הפתרונות.",
-      J(r"עבור $a=-1$ שלוש המשוואות הן $x-y+z=-1$, $-x+y-z=1$, $x-y+z=-1$, כלומר כולן אותה משוואה (ראו סעיף (א)):",
-        r"$$x-y+z=-1$$",
-        r"נבחר $y=s$, $z=t$ חופשיים ונקבל $x=-1+s-t$. אוסף כל הפתרונות:",
-        r"$$\left\{\begin{pmatrix}-1+s-t\\s\\t\end{pmatrix}:\ s,t\in\mathbb{R}\right\}=\left\{\begin{pmatrix}-1\\0\\0\end{pmatrix}+s\begin{pmatrix}1\\1\\0\end{pmatrix}+t\begin{pmatrix}-1\\0\\1\end{pmatrix}:\ s,t\in\mathbb{R}\right\}$$"),
-      4, "c2"),
-    S(2, "ד", "computation", "complex_numbers", r"מצאו את כל הפתרונות המרוכבים של המשוואה $z^4+8z=0$.",
-      J(r"$$z^4+8z=z\left(z^3+8\right)=0$$",
-        r"ולכן $z=0$ או $z^3=-8$. נכתוב $-8=8\,\mathrm{cis}(\pi)$, ולפי נוסחת השורשים:",
-        r"$$z_k=\sqrt[3]{8}\,\mathrm{cis}\left(\frac{\pi+2\pi k}{3}\right)=2\,\mathrm{cis}\left(\frac{\pi+2\pi k}{3}\right),\quad k=0,1,2$$",
-        r"$$z_0=2\,\mathrm{cis}\left(\frac{\pi}{3}\right)=1+\sqrt3\,i,\qquad z_1=2\,\mathrm{cis}(\pi)=-2,\qquad z_2=2\,\mathrm{cis}\left(\frac{5\pi}{3}\right)=1-\sqrt3\,i$$",
-        r"לכן ארבעת הפתרונות הם $z=0,\ -2,\ 1+\sqrt3\,i,\ 1-\sqrt3\,i$."),
+    O(2, "ג", "computation", "linear_systems", r"עבור $a=-1$ פתרו את המערכת וכתבו את כל הפתרונות.",
+      J(FIX + r"בפתרון הרשמי הווקטור הכופל את $s$ מודפס $" + col(0, -1, 1) + r"$; הוא אינו פותר את המשוואה ההומוגנית $x-y+z=0$ ($0+1+1\neq0$). מהשוויון $x=t-s-1$ שבפתרון עצמו הווקטור הוא $" + col(-1, 0, 1) + "$.",
+        r"עבור $a=-1$ מתקבלת המערכת שהמטריצה המורחבת שלה הינה",
+        "$$" + aug([[1, -1, 1, -1], [0, 0, 0, 0], [0, 0, 0, 0]]) + "$$",
+        r"המשתנים החופשיים הינם $y,z$. נקבע משתנים אלו על ידי הפרמטרים $y=t,\ z=s$ כאשר $t,s\in\mathbb{R}$. ערך המשתנה המוביל $x$ נקבע על ידי",
+        r"$$x-y+z=-1\ \Rightarrow\ x=t-s-1$$",
+        r"ולכן מרחב הפתרונות נתון על ידי",
+        r"$$" + col("x", "y", "z") + "=" + col(-1, 0, 0) + "+t" + col(1, 1, 0) + "+s" + col(-1, 0, 1) + "$$",
+        r"כלומר מרחב הפתרונות הוא מישור במרחב $\mathbb{R}^3$."),
+      4, "c2", solutionSource="solved", official=False),
+    O(2, "ד", "computation", "complex_numbers", r"מצאו את כל הפתרונות המרוכבים של המשוואה $z^4+8z=0$.",
+      J(r"נשים לב כי מתקיים",
+        r"$$F(z)=z^4+8z=z\left(z^3+8\right)$$",
+        r"נסתכל על האפסים של המשוואה $z^3+8=0$, כלומר $z^3=-8$. הפתרונות של משוואה זו הינם",
+        r"$$z_k=2\left(\cos\left(\frac{2\pi k}{3}+\frac{\pi}{3}\right)+i\sin\left(\frac{2\pi k}{3}+\frac{\pi}{3}\right)\right)$$",
+        r"עבור $k=0,1,2$. ולכן הפתרונות של המשוואה המקורית $z^4+8z=0$ הינם $z_0,z_1,z_2$ יחד עם $z=0$.",
+        r"(במפורש: $z_0=1+\sqrt3\,i$, $z_1=-2$, $z_2=1-\sqrt3\,i$.)"),
       4),
 
     # ------------------------------------------------------------------ Q3
-    S(3, "א", "computation", "rank_inverse", r"עבור אילו ערכי $a$ המטריצה $A$ הפיכה?",
-      J(r"$A$ הפיכה אם ורק אם $|A|\neq0$. נפתח לפי השורה הראשונה:",
-        r"$$|A|=2a\begin{vmatrix}a+1&4a-2\\5&2\end{vmatrix}-3\begin{vmatrix}4&4a-2\\1&2\end{vmatrix}+6\begin{vmatrix}4&a+1\\1&5\end{vmatrix}$$",
-        r"$$=2a(2a+2-20a+10)-3(8-4a+2)+6(20-a-1)=2a(12-18a)-3(10-4a)+6(19-a)$$",
-        r"$$=-36a^2+30a+84=-6\left(6a^2-5a-14\right)=-6(a-2)(6a+7)$$",
-        r"לכן $A$ הפיכה עבור $a\neq2$ ו-$a\neq-\frac76$."),
+    O(3, "א", "computation", "rank_inverse", r"עבור אילו ערכי $a$ המטריצה $A$ הפיכה?",
+      J(r"נחשב את הדטרמיננטה של $A$ (לפי פיתוח שורה ראשונה):",
+        r"$$|A|=\begin{vmatrix}2a&3&6\\4&a+1&4a-2\\1&5&2\end{vmatrix}=2a\cdot(2a+2-20a+10)-3\cdot(8-4a+2)+6\cdot(20-a-1)=-36a^2+30a+84$$",
+        r"עבור $a=2,-\frac76$ מתקבלת דטרמיננטה $0$, ולכן המטריצה לא הפיכה. מכאן שעבור $a\neq2,-\frac76$ המטריצה $A$ הפיכה.",
+        r"(ואכן $-36a^2+30a+84=-6(a-2)(6a+7)$.)"),
       6, "c3a"),
     dict(H(3, "ב", "computation", "rank_inverse", r"מצאו את $A^{-1}$ עבור $a=2$.", 6, "c3a"), hold=HOLD_Q3B),
-    S(3, "ג", "computation", "eigen_diagonalization", r"מצאו את כל הערכים העצמיים והווקטורים העצמיים של $B$.",
-      J(r"$$|\lambda I-B|=\begin{vmatrix}\lambda-6&0&-2\\-1&\lambda-4&0\\0&0&\lambda-3\end{vmatrix}=(\lambda-3)\begin{vmatrix}\lambda-6&0\\-1&\lambda-4\end{vmatrix}=(\lambda-3)(\lambda-4)(\lambda-6)$$",
-        r"(פיתוח לפי השורה השלישית). הערכים העצמיים הם $3,4,6$.",
-        r"**עבור $\lambda=3$:** $B-3I=" + pm("3&0&2", "1&1&0", "0&0&0") + r"$. מהשורה השנייה $y=-x$ ומהראשונה $z=-\frac32x$. נבחר $x=-2$: הווקטור העצמי $\begin{pmatrix}-2\\2\\3\end{pmatrix}$ (וכל כפולה שלו שונה מאפס).",
-        r"**עבור $\lambda=4$:** $B-4I=" + pm("2&0&2", "1&0&0", "0&0&-1") + r"$. מהשורה השנייה $x=0$, מהשלישית $z=0$, ו-$y$ חופשי: הווקטור העצמי $\begin{pmatrix}0\\1\\0\end{pmatrix}$.",
-        r"**עבור $\lambda=6$:** $B-6I=" + pm("0&0&2", "1&-2&0", "0&0&-3") + r"$. מהשורה הראשונה $z=0$ ומהשנייה $x=2y$: הווקטור העצמי $\begin{pmatrix}2\\1\\0\end{pmatrix}$."),
+    O(3, "ג", "computation", "eigen_diagonalization", r"מצאו את כל הערכים העצמיים והווקטורים העצמיים של $B$.",
+      J(r"$$|\lambda I-B|=\begin{vmatrix}\lambda-6&0&-2\\-1&\lambda-4&0\\0&0&\lambda-3\end{vmatrix}=(\lambda-3)\begin{vmatrix}\lambda-6&0\\-1&\lambda-4\end{vmatrix}=(\lambda-3)(\lambda-6)(\lambda-4)$$",
+        r"קיבלנו שהערכים העצמיים הם $3,4,6$. כל הע״ע שונים זה מזה ולכן יתקבלו עבורם ו״ע בת״ל. מכאן שמטריצה $B$ ניתנת לליכסון. כעת נמצא את הווקטורים העצמיים.",
+        r"**עבור ע״ע $3$:**",
+        "$$" + pm("-3&0&-2", "-1&-1&0", "0&0&0") + r"\to\dots\to" + pm(r"1&0&\frac23", r"0&1&-\frac23", "0&0&0") + "$$",
+        r"נסמן $z=t$ ונקבל $x=-\frac23t,\ y=\frac23t$. הווקטור העצמי המתקבל הוא $" + col(r"-\frac23", r"\frac23", 1) + "$.",
+        r"**עבור ע״ע $4$:**",
+        "$$" + pm("-2&0&-2", "-1&0&0", "0&0&1") + r"\to\dots\to" + pm("1&0&0", "0&0&1", "0&0&0") + "$$",
+        r"נסמן $y=t$ ונקבל $x=0,\ z=0$. הווקטור העצמי המתקבל הוא $" + col(0, 1, 0) + "$.",
+        r"**עבור ע״ע $6$:**",
+        "$$" + pm("0&0&-2", "-1&2&0", "0&0&3") + r"\to\dots\to" + pm("1&-2&0", "0&0&1", "0&0&0") + "$$",
+        r"נסמן $y=t$ ונקבל $x=2t,\ z=0$. הווקטור העצמי המתקבל הוא $" + col(2, 1, 0) + "$."),
       8, "c3b"),
-    S(3, "ד", "computation", "eigen_diagonalization", r"מצאו את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$.",
-      J(r"ל-$B$ שלושה ערכים עצמיים שונים, ולכן שלושת הווקטורים העצמיים מסעיף (ג) בלתי תלויים לינארית ו-$B$ לכסינה. נשים אותם כעמודות של $P$, ואת הערכים העצמיים באותו סדר על האלכסון של $D$:",
-        "$$D=" + pm("3&0&0", "0&4&0", "0&0&6") + r",\qquad P=" + pm("-2&0&2", "2&1&1", "3&0&0") + "$$",
-        r"בדיקה: $|P|=3\cdot\begin{vmatrix}0&2\\1&1\end{vmatrix}=-6\neq0$, ו-$BP=PD=" + pm("-6&0&12", "6&4&6", "9&0&0") + "$."),
+    O(3, "ד", "computation", "eigen_diagonalization", r"מצאו את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$.",
+      J(r"נמצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$:",
+        "$$D=" + pm("3&0&0", "0&4&0", "0&0&6") + r",\qquad P=" + pm(r"-\frac23&0&2", r"\frac23&1&1", "1&0&0") + "$$"),
       5, "c3b"),
 
-    # ------------------------------------------------------------------ Q4
-    S(4, "א", "computation", "vector_spaces", r"מצאו בסיס ומימד של תתי המרחבים $U$ ו-$W$.",
-      J(r"נשתמש בהצגה הקואורדינטית $a_0+a_1x+a_2x^2\ \longleftrightarrow\ (a_0,a_1,a_2)$.",
-        r"**בסיס ל-$U$:** נדרג מטריצה ששורותיה הן $1+x,\ 2-x^2,\ 2x+x^2$:",
+    # ------------------------------------------------------------------ Q4 (official, handwritten)
+    O(4, "א", "computation", "vector_spaces", r"מצאו בסיס ומימד של תתי המרחבים $U$ ו-$W$.",
+      J(r"פולינום כללי $p(x)\in\mathbb{R}_2[x]$ הוא מהצורה $p(x)=a+bx+cx^2$ עבור $a,b,c\in\mathbb{R}$. ההצגה הווקטורית שלו היא $" + col("a", "b", "c") + "$.",
+        r"**$U$:** בהצגה וקטורית תת המרחב $U$ הוא",
+        r"$$U=\mathrm{Sp}\left\{" + col(1, 1, 0) + "," + col(2, 0, -1) + "," + col(0, 2, 1) + r"\right\}$$",
+        r"קבוצת וקטורים זו מהווה קבוצה יוצרת עבור $U$. על מנת לבנות בסיס ל-$U$, יש לצמצם את הקבוצה עד קבלת קבוצה בלתי תלויה לינארית:",
         "$$" + pm("1&1&0", "2&0&-1", "0&2&1") + arrow(r"R_2\to R_2-2R_1") + pm("1&1&0", "0&-2&-1", "0&2&1") + arrow(r"R_3\to R_3+R_2") + pm("1&1&0", "0&-2&-1", "0&0&0") + "$$",
-        r"התקבלה שורת אפס: אכן $2x+x^2=2(1+x)-\left(2-x^2\right)$. שני הפולינומים הראשונים אינם פרופורציוניים, ולכן",
-        r"$$B_U=\left\{1+x,\ 2-x^2\right\},\qquad \dim U=2$$",
-        r"**בסיס ל-$W$:** $p'(1)=a_1+2a_2=0$, כלומר $a_1=-2a_2$, ולכן",
-        r"$$p(x)=a_0-2a_2x+a_2x^2=a_0\cdot1+a_2\left(x^2-2x\right),\quad a_0,a_2\in\mathbb{R}$$",
+        r"מכאן, הבסיס ל-$U$: $B_U=\left\{" + col(1, 1, 0) + "," + col(0, 2, 1) + r"\right\}$, ובהצגה פולינומיאלית",
+        r"$$B_U=\left\{1+x,\ 2x+x^2\right\},\qquad \dim U=2$$",
+        r"**$W$:** בנוגע לתת מרחב $W$, הוא נתון על ידי $p(x)\in\mathbb{R}_2[x]$ כך ש-",
+        r"$$p'(x)\big|_{x=1}=b+2cx\big|_{x=1}=b+2c=0$$",
+        r"כלומר הם מהצורה",
+        r"$$p(x)=a-2cx+cx^2=a+c\left(x^2-2x\right),\quad a,c\in\mathbb{R}$$",
+        r"כך ש-$W=\mathrm{Sp}\left\{1,\ x^2-2x\right\}$, או בהצגה וקטורית $W=\mathrm{Sp}\left\{" + col(1, 0, 0) + "," + col(0, -2, 1) + r"\right\}$. "
+        r"שני וקטורי הבסיס אינם פרופורציוניים, כתוצאה הם בלתי תלויים. אז הבסיס",
         r"$$B_W=\left\{1,\ x^2-2x\right\},\qquad \dim W=2$$"),
       6, "c4"),
-    S(4, "ב", "computation", "vector_spaces", r"חשבו תת מרחב $U+W$, מצאו בסיס ומימד של תת מרחב זה.",
-      J(r"$U+W=\mathrm{Sp}\left\{1+x,\ 2-x^2,\ 1,\ x^2-2x\right\}$. נדרג מטריצה ששורותיה הן הווקטורים הקואורדינטיים:",
-        "$$" + pm("1&0&0", "1&1&0", "2&0&-1", "0&-2&1") + arrow(r"\substack{R_2\to R_2-R_1\\R_3\to R_3-2R_1}") + pm("1&0&0", "0&1&0", "0&0&-1", "0&-2&1")
-        + arrow(r"\substack{R_4\to R_4+2R_2\\R_4\to R_4+R_3}") + pm("1&0&0", "0&1&0", "0&0&-1", "0&0&0") + "$$",
-        r"הדרגה היא $3=\dim\mathbb{R}_2[x]$, ולכן $U+W=\mathbb{R}_2[x]$:",
+    O(4, "ב", "computation", "vector_spaces", r"חשבו תת מרחב $U+W$, מצאו בסיס ומימד של תת מרחב זה.",
+      J(r"$$U+W=\mathrm{Sp}\left\{B_U,B_W\right\}=\mathrm{Sp}\left\{" + col(1, 1, 0) + "," + col(0, 2, 1) + "," + col(1, 0, 0) + "," + col(0, -2, 1) + r"\right\}$$",
+        r"נצמצם קבוצה זו עד קבלת קבוצה בלתי תלויה לינארית:",
+        "$$" + pm("1&1&0", "0&2&1", "1&0&0", "0&-2&1") + arrow(r"\substack{R_1\to R_1-R_3\\R_4\to R_4+R_2}") + pm("0&1&0", "0&2&1", "1&0&0", "0&0&2")
+        + arrow(r"R_2\to R_2-2R_1") + pm("0&1&0", "0&0&1", "1&0&0", "0&0&2") + arrow(r"R_4\to R_4-2R_2") + pm("1&0&0", "0&1&0", "0&0&1", "0&0&0") + "$$",
+        r"(בשלב האחרון גם סידור השורות מחדש.) מכאן $B_{U+W}=\left\{" + col(1, 0, 0) + "," + col(0, 1, 0) + "," + col(0, 0, 1) + r"\right\}$, כך ש-",
         r"$$B_{U+W}=\left\{1,\ x,\ x^2\right\},\qquad \dim(U+W)=3$$"),
       8, "c4"),
-    S(4, "ג", "computation", "vector_spaces", r"חשבו תת מרחב $U\cap W$, מצאו בסיס ומימד של תת מרחב זה.",
-      J(r"פולינום כללי ב-$U$ הוא",
-        r"$$p(x)=\alpha(1+x)+\beta\left(2-x^2\right)=(\alpha+2\beta)+\alpha x-\beta x^2$$",
-        r"והוא שייך ל-$W$ אם $p'(1)=a_1+2a_2=\alpha-2\beta=0$, כלומר $\alpha=2\beta$. אז",
-        r"$$p(x)=2\beta(1+x)+\beta\left(2-x^2\right)=\beta\left(4+2x-x^2\right),\quad \beta\in\mathbb{R}$$",
-        r"$$B_{U\cap W}=\left\{4+2x-x^2\right\},\qquad \dim(U\cap W)=1$$",
-        r"בדיקה לפי משפט המימדים: $\dim(U+W)=\dim U+\dim W-\dim(U\cap W)=2+2-1=3$, בהתאם לסעיף (ב)."),
+    O(4, "ג", "computation", "vector_spaces", r"חשבו תת מרחב $U\cap W$, מצאו בסיס ומימד של תת מרחב זה.",
+      J(r"מכיוון ש-$B_U=\left\{" + col(1, 1, 0) + "," + col(0, 2, 1) + r"\right\}$ ו-$B_W=\left\{" + col(1, 0, 0) + "," + col(0, -2, 1) + r"\right\}$, "
+        r"כל וקטור $\vec v\in U\cap W$ ניתן לכתיבה בצורה:",
+        r"$$\vec v=\alpha_1" + col(1, 1, 0) + r"+\alpha_2" + col(0, 2, 1) + r"=-\beta_1" + col(1, 0, 0) + r"-\beta_2" + col(0, -2, 1) + "$$",
+        r"לאחר העברת אגפים נקבל את המערכת ההומוגנית",
+        r"$$" + pm("1&0&1&0", "1&2&0&-2", "0&1&0&1") + col(r"\alpha_1", r"\alpha_2", r"\beta_1", r"\beta_2") + "=" + col(0, 0, 0) + "$$",
+        r"פתרון המערכת:",
+        "$$" + pm("1&0&1&0", "1&2&0&-2", "0&1&0&1") + arrow(r"R_2\to R_2-R_1") + pm("1&0&1&0", "0&2&-1&-2", "0&1&0&1")
+        + arrow(r"R_2\to R_2-2R_3") + pm("1&0&1&0", "0&0&-1&-4", "0&1&0&1") + arrow(r"R_2\leftrightarrow R_3") + pm("1&0&1&0", "0&1&0&1", "0&0&-1&-4") + "$$",
+        r"משתנה חופשי: $\beta_2=t\in\mathbb{R}$, ולכן $\beta_1=-4\beta_2=-4t$. מכאן",
+        r"$$\vec v=4t" + col(1, 0, 0) + "-t" + col(0, -2, 1) + "=t" + col(4, 2, -1) + "$$",
+        r"לכן $U\cap W=\mathrm{Sp}\left\{" + col(4, 2, -1) + r"\right\}$, ובהצגה פולינומיאלית",
+        r"$$B_{U\cap W}=\left\{4+2x-x^2\right\},\qquad \dim(U\cap W)=1$$"),
       8, "c4"),
-    S(4, "ד", "computation", "vector_spaces", r"יהי $q(x)$ פולינום כלשהו השייך לתת מרחב $U\cap W$. מצאו $q(2)+q(-2)$.",
-      J(r"מסעיף (ג) $q(x)=\beta\left(4+2x-x^2\right)$ עבור $\beta\in\mathbb{R}$ כלשהו. לכן",
-        r"$$q(2)=\beta(4+4-4)=4\beta,\qquad q(-2)=\beta(4-4-4)=-4\beta$$",
-        r"$$q(2)+q(-2)=4\beta-4\beta=0$$",
-        r"התשובה היא $0$ לכל פולינום ב-$U\cap W$."),
+    O(4, "ד", "computation", "vector_spaces", r"יהי $q(x)$ פולינום כלשהו השייך לתת מרחב $U\cap W$. מצאו $q(2)+q(-2)$.",
+      J(r"לכל פולינום השייך ל-$U\cap W$ יש צורה $q(x)=c\left(4+2x-x^2\right)$ כאשר $c\in\mathbb{R}$. אז:",
+        r"$$q(x)+q(-x)=c\left(4+2x-x^2\right)+c\left(4-2x-x^2\right)=2c\left(4-x^2\right)$$",
+        r"כתוצאה,",
+        r"$$q(2)+q(-2)=0$$"),
       3, "c4"),
 
     # ------------------------------------------------------------------ Q5
-    S(5, "א", "proof", "linear_maps", r"הוכיחו כי $T$ היא העתקה לינארית.",
-      J(r"יהיו $M_1=" + M2("a_1", "b_1", "c_1", "d_1") + r"$, $M_2=" + M2("a_2", "b_2", "c_2", "d_2") + r"$ ו-$\alpha\in\mathbb{R}$. **חיבור:**",
-        r"$$T(M_1+M_2)=T\left(" + M2("a_1+a_2", "b_1+b_2", "c_1+c_2", "d_1+d_2") + r"\right)=" + pm("(a_1+a_2)+(b_1+b_2)", "(b_1+b_2)+(c_1+c_2)", "(b_1+b_2)+(d_1+d_2)") + "="
-        + pm("a_1+b_1", "b_1+c_1", "b_1+d_1") + "+" + pm("a_2+b_2", "b_2+c_2", "b_2+d_2") + r"=T(M_1)+T(M_2)$$",
-        r"**כפל בסקלר:**",
-        r"$$T(\alpha M_1)=T\left(" + M2(r"\alpha a_1", r"\alpha b_1", r"\alpha c_1", r"\alpha d_1") + r"\right)=" + pm(r"\alpha a_1+\alpha b_1", r"\alpha b_1+\alpha c_1", r"\alpha b_1+\alpha d_1") + r"=\alpha" + pm("a_1+b_1", "b_1+c_1", "b_1+d_1") + r"=\alpha T(M_1)$$",
-        r"שני התנאים מתקיימים, ולכן $T$ העתקה לינארית."),
+    O(5, "א", "proof", "linear_maps", r"הוכיחו כי $T$ היא העתקה לינארית.",
+      J(r"נסמן $A=" + M2("a_1", "b_1", "c_1", "d_1") + r"$, $B=" + M2("a_2", "b_2", "c_2", "d_2") + r"$. אז $A+B=" + M2("a_1+a_2", "b_1+b_2", "c_1+c_2", "d_1+d_2") + "$ ו-",
+        r"$$T(A+B)=T" + M2("a_1+a_2", "b_1+b_2", "c_1+c_2", "d_1+d_2") + "=" + col("a_1+a_2+b_1+b_2", "b_1+b_2+c_1+c_2", "b_1+b_2+d_1+d_2") + "="
+        + col("a_1+b_1", "b_1+c_1", "b_1+d_1") + "+" + col("a_2+b_2", "b_2+c_2", "b_2+d_2") + "=T(A)+T(B)$$",
+        r"בנוסף, $\alpha A=" + M2(r"\alpha a_1", r"\alpha b_1", r"\alpha c_1", r"\alpha d_1") + "$ ו-",
+        r"$$T(\alpha A)=T" + M2(r"\alpha a_1", r"\alpha b_1", r"\alpha c_1", r"\alpha d_1") + "=" + col(r"\alpha a_1+\alpha b_1", r"\alpha b_1+\alpha c_1", r"\alpha b_1+\alpha d_1")
+        + r"=\alpha" + col("a_1+b_1", "b_1+c_1", "b_1+d_1") + r"=\alpha T(A)$$",
+        r"ולכן העתקה $T$ היא לינארית."),
       6, "c5"),
-    S(5, "ב", "computation", "linear_maps", r"מצאו את הבסיסים והמימדים של $\mathrm{Ker}(T)$ ו-$\mathrm{Im}(T)$.",
-      J(r"**הגרעין:** $T\left(" + M2("a", "b", "c", "d") + r"\right)=\vec 0$ אם ורק אם",
-        r"$$\begin{cases}a+b=0\\b+c=0\\b+d=0\end{cases}\ \Rightarrow\ a=-b,\ c=-b,\ d=-b$$",
-        r"$$\mathrm{Ker}(T)=\left\{" + M2("-b", "b", "-b", "-b") + r":\ b\in\mathbb{R}\right\}=\mathrm{Sp}\left\{" + KER5 + r"\right\}$$",
-        r"בסיס: $\left\{" + KER5 + r"\right\}$, ו-$\dim\mathrm{Ker}(T)=1$.",
-        r"**התמונה:** לפי משפט המימדים $\dim\mathrm{Im}(T)=\dim\mathbb{M}_2(\mathbb{R})-\dim\mathrm{Ker}(T)=4-1=3=\dim\mathbb{R}^3$, ולכן $\mathrm{Im}(T)=\mathbb{R}^3$. "
-        r"ואכן $T\left(" + M2(1, 0, 0, 0) + r"\right)=" + pm("1", "0", "0") + r"$, $T\left(" + M2(0, 0, 1, 0) + r"\right)=" + pm("0", "1", "0") + r"$, $T\left(" + M2(0, 0, 0, 1) + r"\right)=" + pm("0", "0", "1") + "$.",
-        r"בסיס: $\left\{" + pm("1", "0", "0") + "," + pm("0", "1", "0") + "," + pm("0", "0", "1") + r"\right\}$, ו-$\dim\mathrm{Im}(T)=3$."),
+    O(5, "ב", "computation", "linear_maps", r"מצאו את הבסיסים והמימדים של $\mathrm{Ker}(T)$ ו-$\mathrm{Im}(T)$.",
+      J(r"אם $A=" + M2("a", "b", "c", "d") + r"\in\ker(T)$, אז",
+        r"$$T(A)=T" + M2("a", "b", "c", "d") + "=" + col(0, 0, 0) + r"\ \Rightarrow\ \begin{cases}a+b=0\\b+c=0\\b+d=0\end{cases}$$",
+        "$$" + pm("1&1&0&0", "0&1&1&0", "0&1&0&1") + r"\to" + pm("1&1&0&0", "0&1&1&0", "0&0&-1&1") + r"\to" + pm("1&1&0&0", "0&1&0&1", "0&0&-1&1") + r"\to" + pm("1&0&0&-1", "0&1&0&1", "0&0&1&-1") + "$$",
+        r"המשוואות המתאימות לצורה המדורגת כאן הן $a-d=0,\ b+d=0,\ c-d=0$, ולכן $d=t,\ a=t,\ b=-t,\ c=t$, והפתרון מתקבל בצורה $" + M2("t", "-t", "t", "t") + "=t" + M2(1, -1, 1, 1) + "$. "
+        r"במילים אחרות, $A\in\ker(T)$ אם ורק אם היא בעלת הצורה $t" + M2(1, -1, 1, 1) + "$. סיכום:",
+        r"$$\ker(T)=\mathrm{Sp}\left\{" + M2(1, -1, 1, 1) + r"\right\},\qquad \dim(\ker(T))=1$$",
+        r"**נעבור אל התמונה של $T$:**",
+        r"$$T" + M2("a", "b", "c", "d") + "=" + col("a+b", "b+c", "b+d") + "=a" + col(1, 0, 0) + "+b" + col(1, 1, 1) + "+c" + col(0, 1, 0) + "+d" + col(0, 0, 1) + "$$",
+        r"ומכאן נובע ש-$\mathrm{Im}(T)=\mathrm{Sp}\left\{" + col(1, 0, 0) + "," + col(1, 1, 1) + "," + col(0, 1, 0) + "," + col(0, 0, 1) + r"\right\}$, כלומר קבוצת וקטורים זו מהווה קבוצה פורשת עבור התמונה. "
+        r"ברור שאחד הווקטורים בקבוצה הזאת מיותר, והבסיס עבור התמונה ניתן לקחת בצורה",
+        r"$$\left\{" + col(1, 0, 0) + "," + col(1, 1, 1) + "," + col(0, 1, 0) + r"\right\},\qquad \dim(\mathrm{Im}(T))=3$$"),
       9, "c5"),
-    S(5, "ג", "computation", "linear_maps", r"האם $T$ חד-חד ערכית? האם היא על? נמקו את תשובתכם.",
-      J(r"$T$ **אינה** חד-חד ערכית, כי $\mathrm{Ker}(T)\neq\{0\}$ ($\dim\mathrm{Ker}(T)=1$): למשל $T\left(" + KER5 + r"\right)=\vec 0=T(0)$.",
-        r"$T$ **היא** על, כי $\mathrm{Im}(T)=\mathbb{R}^3$ ($\dim\mathrm{Im}(T)=3=\dim\mathbb{R}^3$)."),
+    O(5, "ג", "computation", "linear_maps", r"האם $T$ חד-חד ערכית? האם היא על? נמקו את תשובתכם.",
+      J(r"מכיוון ש-$\dim(\ker(T))=1$, אז $\ker(T)\neq\{0\}$, ולכן $T$ אינה חד-חד-ערכית.",
+        r"מכיוון ש-$\dim(\mathrm{Im}(T))=3$, אז $\mathrm{Im}(T)=\mathbb{R}^3$, ולכן $T$ היא העתקת על."),
       3, "c5"),
-    S(5, "ד", "computation", "linear_maps",
+    O(5, "ד", "computation", "linear_maps",
       r"מצאו את כל המטריצות ב-$\mathbb{M}_2(\mathbb{R})$ שתמונתם נותנת וקטור $" + pm("1", "1", "1") + r"$. האם הן מהוות תת מרחב של $\mathbb{M}_2(\mathbb{R})$?",
-      J(r"נפתור $T\left(" + M2("a", "b", "c", "d") + r"\right)=" + pm("1", "1", "1") + "$:",
-        r"$$\begin{cases}a+b=1\\b+c=1\\b+d=1\end{cases}\ \Rightarrow\ a=1-t,\ b=t,\ c=1-t,\ d=1-t,\quad t\in\mathbb{R}$$",
-        r"$$\left\{" + M2("1-t", "t", "1-t", "1-t") + r":\ t\in\mathbb{R}\right\}=\left\{" + M2(1, 0, 1, 1) + "+t" + KER5 + r":\ t\in\mathbb{R}\right\}$$",
-        r"(פתרון פרטי ועוד הגרעין מסעיף (ב)).",
-        r"הקבוצה **אינה** תת מרחב: מטריצת האפס אינה שייכת אליה, כי $T(0)=\vec 0\neq" + pm("1", "1", "1") + r"$ (ובאופן ישיר: $b=t=0$ ו-$a=1-t=0$ אינם מתקיימים יחד)."),
+      J(r"$$T(A)=T" + M2("a", "b", "c", "d") + "=" + col(1, 1, 1) + r"\ \Rightarrow\ \begin{cases}a+b=1\\b+c=1\\b+d=1\end{cases}$$",
+        "$$" + aug([[1, 1, 0, 0, 1], [0, 1, 1, 0, 1], [0, 1, 0, 1, 1]], 4) + r"\to" + aug([[1, 1, 0, 0, 1], [0, 1, 1, 0, 1], [0, 0, -1, 1, 0]], 4)
+        + r"\Rightarrow\begin{cases}a+b=1\\b+c=1\\-c+d=0\\d=t\end{cases}\Rightarrow\begin{cases}a=t\\b=1-t\\c=t\\d=t\end{cases}$$",
+        r"לכן, כל המטריצות ב-$\mathbb{M}_2(\mathbb{R})$ שתמונתן היא $" + col(1, 1, 1) + "$ הן מטריצות בעלות הצורה",
+        r"$$A=" + M2("a", "b", "c", "d") + "=" + M2("t", "1-t", "t", "t") + "=" + M2("t", "-t", "t", "t") + "+" + M2(0, 1, 0, 0) + "=t" + M2(1, -1, 1, 1) + "+" + M2(0, 1, 0, 0) + "$$",
+        r"לא קשה לראות שהקבוצה הזאת אינה מכילה בתוכה מטריצת אפסים, ולכן אינה מהווה תת מרחב של $\mathbb{M}_2(\mathbb{R})$."),
       7, "c5"),
 ]
 
