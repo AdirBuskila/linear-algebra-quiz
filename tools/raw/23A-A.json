@@ -38,7 +38,61 @@
    "solution": "נתון שמתקיים $\\begin{cases}A\\vec v=\\lambda\\vec v\\\\ A\\vec w=\\lambda\\vec w\\end{cases}$. מכאן\n$$A(c\\vec v+d\\vec w)=c(A\\vec v)+d(A\\vec w)=c\\lambda\\vec v+d\\lambda\\vec w=\\lambda(c\\vec v+d\\vec w)$$\nוזה מוכיח ש-$c\\vec v+d\\vec w$ הוא וקטור עצמי נוסף של מטריצה $A$.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הנחה: $A\\vec v=\\lambda\\vec v$ ו-$A\\vec w=\\lambda\\vec w$",
+     "points": 1
+    },
+    {
+     "text": "לינאריות: $A(c\\vec v+d\\vec w)=c(A\\vec v)+d(A\\vec w)$",
+     "points": 2
+    },
+    {
+     "text": "הצבת הנתון והוצאת $\\lambda$ כגורם משותף",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: $c\\vec v+d\\vec w$ וקטור עצמי של $A$ עם אותו $\\lambda$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בשני ערכים עצמיים שונים במקום באותו $\\lambda$.",
+    "לשכוח להוציא את $\\lambda$ כגורם משותף, ולכן לא לקבל את הצורה של $\\lambda$ כפול הווקטור."
+   ],
+   "steps": [
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי החישוב.",
+     "lines": [
+      "$A(c\\vec v+d\\vec w)=c(A\\vec v)+d(A\\vec w)$",
+      "$=c\\lambda\\vec v+d\\lambda\\vec w$",
+      "$=\\lambda(c\\vec v+d\\vec w)$"
+     ],
+     "explain": "שרשרת שוויונות: לינאריות, הצבת הנתון, הוצאת $\\lambda$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בחישוב הבא שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$A(c\\vec v+d\\vec w)=c(A\\vec v)+d(A\\vec w)$",
+      "$=c\\lambda\\vec v+d\\lambda^2\\vec w$",
+      "$=\\lambda(c\\vec v+d\\vec w)$"
+     ],
+     "bugIndex": 1,
+     "explain": "מ-$A\\vec w=\\lambda\\vec w$ מתקבל $d(A\\vec w)=d\\lambda\\vec w$ ולא $d\\lambda^2\\vec w$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\mathrm{diag}(3,3,5)$, $\\vec v=(1,0,0)$, $\\vec w=(0,1,0)$ (שניהם עם $\\lambda=3$), מהי הכניסה השנייה של $A(2\\vec v+3\\vec w)$?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$A(2\\vec v+3\\vec w)=3(2\\vec v+3\\vec w)=(6,9,0)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -50,7 +104,75 @@
    "solution": "נתון שמתקיים $\\begin{cases}B\\vec v=\\lambda_1\\vec v\\\\ B\\vec w=\\lambda_2\\vec w\\end{cases}$ כאשר $\\lambda_1\\neq\\lambda_2$. מכאן, $c\\neq0,\\ d\\neq0$ ואם $B(c\\vec v+d\\vec w)=c(B\\vec v)+d(B\\vec w)=c\\lambda_1\\vec v+d\\lambda_2\\vec w$, אז אין שום אפשרות להגיע לשוויון $B(c\\vec v+d\\vec w)=\\lambda(c\\vec v+d\\vec w)$.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הנחה: $B\\vec v=\\lambda_1\\vec v$ ו-$B\\vec w=\\lambda_2\\vec w$ עם $\\lambda_1\\neq\\lambda_2$",
+     "points": 1
+    },
+    {
+     "text": "חישוב $B(c\\vec v+d\\vec w)=c\\lambda_1\\vec v+d\\lambda_2\\vec w$",
+     "points": 1
+    },
+    {
+     "text": "אין אפשרות לקבל $B(c\\vec v+d\\vec w)=\\lambda(c\\vec v+d\\vec w)$ כש-$c,d\\neq0$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: הצירוף אינו וקטור עצמי",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק שהצירוף אינו עצמי רק כי הערכים העצמיים שונים, בלי להשוות את שני האגפים.",
+    "לבלבל עם סעיף א: שם הערך העצמי משותף ולכן הצירוף כן עצמי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה שוויון מבטא (לפי ההגדרה) את הטענה ש-$c\\vec v+d\\vec w$ הוא וקטור עצמי של $B$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "קיים סקלר $\\lambda$ כך ש-$B(c\\vec v+d\\vec w)=\\lambda(c\\vec v+d\\vec w)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$B(c\\vec v+d\\vec w)=c\\lambda_1\\vec v+d\\lambda_2\\vec w$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$B(c\\vec v+d\\vec w)=c\\vec v+d\\vec w$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$B(c\\vec v+d\\vec w)=\\vec 0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "זו ההגדרה של וקטור עצמי. השוויון הראשון תמיד נכון (הוא החישוב עצמו, לא תנאי); השני דורש $\\lambda=1$ דווקא ($B=2I$ היא דוגמה שבה הצירוף עצמי ועדיין השוויון נכשל); השלישי דורש $\\lambda=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $B=\\mathrm{diag}(1,2)$, $\\vec v=(1,0)$, $\\vec w=(0,1)$, מהי הכניסה השנייה של $B(\\vec v+\\vec w)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$B(\\vec v+\\vec w)=(1,2)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של המטריצה שעמודותיה $(1,1)$ ו-$(1,2)$ (הצירוף $\\vec v+\\vec w$ והתוצאה $B(\\vec v+\\vec w)$)?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "הדטרמיננטה שונה מאפס, ולכן $(1,2)$ אינו כפולה של $(1,1)$: הצירוף אינו עצמי."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -62,7 +184,82 @@
    "solution": "ראשית, $\\det\\left(C^3\\right)=\\det(C\\cdot C\\cdot C)=\\det{}^3(C)=65-64=1\\neq0$ וגם $\\det\\left(C^5\\right)=3206-3205=1\\neq0$ (שימו לב: בטקסט הרשמי כתוב $3206-3205$, אך החישוב הנכון הוא $34\\cdot89-55^2=3026-3025=1$; המסקנה $\\det\\left(C^5\\right)=1$ נכונה). ולכן $\\det(C)\\neq0$ ו-$C$ היא מטריצה הפיכה.\nמכיוון ש-$C^5$ היא מטריצה ריבועית מסדר 2, אז $C^{-5}=\\left(C^5\\right)^{-1}$, ומדובר כאן במטריצות ריבועיות מסדר 2, ולכן $C^{-5}=\\begin{pmatrix}89&55\\\\55&34\\end{pmatrix}$. מכאן נקבל ש\n$$C^{-2}=C^3\\cdot C^{-5}=\\begin{pmatrix}5&-8\\\\-8&13\\end{pmatrix}\\cdot\\begin{pmatrix}89&55\\\\55&34\\end{pmatrix}=\\begin{pmatrix}5&3\\\\3&2\\end{pmatrix}$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "$\\det(C^3)=\\det{}^3(C)=1\\neq0$, ולכן $\\det C\\neq0$ ו-$C$ הפיכה",
+     "points": 2
+    },
+    {
+     "text": "$C^{-5}=\\left(C^5\\right)^{-1}=\\begin{pmatrix}89&55\\\\55&34\\end{pmatrix}$",
+     "points": 2
+    },
+    {
+     "text": "$C^{-2}=C^3\\cdot C^{-5}$",
+     "points": 1
+    },
+    {
+     "text": "המכפלה $\\begin{pmatrix}5&3\\\\3&2\\end{pmatrix}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב ישירות את $C$ במקום להשתמש בחזקות הנתונות.",
+    "להפוך מטריצה $2\\times2$ בלי להחליף את האלכסון הראשי ובלי לשנות סימן לאלכסון המשני."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det(C^3)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$5\\cdot13-(-8)(-8)=65-64=1\\neq0$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו מכפלה נותנת את $C^{-2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$C^5\\cdot C^{-3}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$C^3\\cdot C^{-5}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$C^5\\cdot C^3$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(C^3\\right)^{-1}C^5$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$C^3C^{-5}=C^{-2}$. האפשרויות האחרות נותנות $C^2$, $C^8$ ו-$C^2$ בהתאמה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 1 של $C^{-2}$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$C^{-2}=\\begin{pmatrix}5&3\\\\3&2\\end{pmatrix}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 2 עמודה 2 של $C^{-2}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מאותה מטריצה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -74,7 +271,74 @@
    "solution": "אם נניח ש-$A$ הפיכה, אז $0\\neq\\det(A)=\\det\\left(P^{-1}BP\\right)=\\det\\left(P^{-1}\\right)\\det(B)\\det(P)$ ומכיוון ש-$P$ הפיכה, אז $\\det(P)\\neq0$, והשוויון האחרון יתקיים רק כאשר $\\det(B)\\neq0$, כלומר $B$ הפיכה.\nמצד שני, אם נניח ש-$B$ הפיכה ועבור $\\det(B)\\neq0$, אז $0\\neq\\det(A)=\\det\\left(P^{-1}BP\\right)=\\det\\left(P^{-1}\\right)\\det(B)\\det(P)$, כלומר גם $A$ הפיכה.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "שימוש בכפליות הדטרמיננטה: $\\det\\left(P^{-1}BP\\right)=\\det\\left(P^{-1}\\right)\\det(B)\\det(P)$",
+     "points": 2
+    },
+    {
+     "text": "אם $A$ הפיכה אז $\\det(A)\\neq0$, ו-$\\det(P)\\neq0$ ולכן $\\det(B)\\neq0$",
+     "points": 3
+    },
+    {
+     "text": "אם $B$ הפיכה אז $\\det(A)\\neq0$ ולכן $A$ הפיכה",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להוכיח רק כיוון אחד של ה\"אם ורק אם\".",
+    "לשכוח ש-$\\det(P)$ ו-$\\det\\left(P^{-1}\\right)$ שונים מאפס כי $P$ הפיכה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו תכונה של הדטרמיננטה משתמשת ההוכחה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\det(X+Y)=\\det(X)+\\det(Y)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\det(cX)=c\\det(X)$ לכל מטריצה $X$ מסדר $n\\geq2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\det(XY)=\\det(X)\\det(Y)$, ולכן $\\det\\left(P^{-1}BP\\right)=\\det\\left(P^{-1}\\right)\\det(B)\\det(P)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\det\\left(X^T\\right)=-\\det(X)$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "שלוש התכונות האחרות שגויות: $\\det(I+I)=4\\neq2$ עבור מסדר 2, $\\det(2I_2)=4\\neq2$, ו-$\\det\\left(X^T\\right)=\\det(X)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $P=\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}$ ו-$B=\\mathrm{diag}(2,3)$, מהו $\\det\\left(P^{-1}BP\\right)$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$1\\cdot2\\cdot3\\cdot1=6=\\det B$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הוכחת הכיוון הראשון.",
+     "lines": [
+      "נניח ש-$A$ הפיכה. אז $0\\neq\\det(A)=\\det\\left(P^{-1}BP\\right)$",
+      "$=\\det\\left(P^{-1}\\right)\\det(B)\\det(P)$",
+      "מכיוון ש-$P$ הפיכה, $\\det(P)\\neq0$, ולכן $\\det(B)\\neq0$, כלומר $B$ הפיכה"
+     ],
+     "explain": "הנחה, כפליות הדטרמיננטה, מסקנה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -87,7 +351,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המורחבת של המערכת",
+     "points": 1
+    },
+    {
+     "text": "סידור השורות כך ששורה 1 היא $(1,2,k\\,|\\,1)$",
+     "points": 2
+    },
+    {
+     "text": "איפוס עמודה 1: שורות $(0,2,k+3\\,|\\,4)$ ו-$(0,4-k,2k+1\\,|\\,4)$",
+     "points": 3
+    },
+    {
+     "text": "איפוס עמודה 2 בשורה 3 וקבלת $\\left(0,0,k^2+3k-10\\,|\\,4k-8\\right)$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לכפול ב-$-1$ בעת סידור השורות ולקבל סימן הפוך בשורות 2 ו-3.",
+    "לחלק ב-$4-k$ או ב-$2$ מבלי להשתמש בפעולה $2R_3-(4-k)R_2$ שנמנעת מחילוק."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בשורה 3 של המטריצה אחרי איפוס עמודה 1 הכניסה בעמודה 2 היא $4-k$. מה ערכה עבור $k=1$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$4-1=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בשורה האחרונה $(0,0,\\,k^2+3k-10\\,|\\,4k-8)$, מהי הכניסה השלישית עבור $k=1$?",
+     "answer": -6,
+     "tol": 0,
+     "explain": "$1+3-10=-6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באותה שורה, מה ערך אגף ימין $4k-8$ עבור $k=1$?",
+     "answer": -4,
+     "tol": 0,
+     "explain": "$4-8=-4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -100,7 +411,74 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "השורה האחרונה בצורה המדורגת: $(k+5)(k-2)z=4(k-2)$",
+     "points": 2
+    },
+    {
+     "text": "$k=-5$: שורת סתירה ואין פתרון",
+     "points": 1
+    },
+    {
+     "text": "$k=2$: שורת אפסים ואינסוף פתרונות",
+     "points": 1
+    },
+    {
+     "text": "בשאר הערכים פתרון יחיד",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שגם ב-$k=2$ אין פתרון: אגף ימין $4(k-2)$ מתאפס גם הוא."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו אגף ימין $4k-8$ בשורה האחרונה עבור $k=-5$?",
+     "answer": -28,
+     "tol": 0,
+     "explain": "$4(-5)-8=-28$, בעוד המקדם של $z$ מתאפס."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $k=2$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "השורה האחרונה מתאפסת."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה מיפוי נכון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אין פתרון: $k=2$; אינסוף פתרונות: $k=-5$; פתרון יחיד: כל שאר הערכים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אין פתרון: $k=-5$ וגם $k=2$; פתרון יחיד: כל שאר הערכים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינסוף פתרונות: $k=-5$ וגם $k=2$; פתרון יחיד: כל שאר הערכים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין פתרון: $k=-5$; אינסוף פתרונות: $k=2$; פתרון יחיד: כל שאר הערכים"
+      }
+     ],
+     "correctId": "d",
+     "explain": "ב-$k=-5$ דרגת המקדמים 2 ודרגת המורחבת 3 (סתירה), וב-$k=2$ שתיהן 2 (אינסוף)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -113,7 +491,57 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "הצבת $k=2$ וקבלת שתי משוואות $x+2y+2z=1$ ו-$2y+5z=4$",
+     "points": 1
+    },
+    {
+     "text": "$z=t$ משתנה חופשי",
+     "points": 1
+    },
+    {
+     "text": "$y=2-2.5t$",
+     "points": 1
+    },
+    {
+     "text": "$x=-3+3t$",
+     "points": 1
+    },
+    {
+     "text": "כתיבת הפתרון בצורה פרמטרית",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בסימן ב-$y=\\frac{4-5z}{2}$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $k=2$ ו-$z=2$, מהו $y$?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "$y=\\frac{4-5\\cdot2}2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $k=2$ ו-$z=2$, מהו $x$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$x=1-2y-2z=1+6-4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה משתנים חופשיים יש בפתרון עבור $k=2$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$z$ בלבד."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -126,7 +554,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "נוסחת השורשים של המשוואה הריבועית",
+     "points": 1
+    },
+    {
+     "text": "חישוב הדיסקרימיננטה $(3i-4)^2-8i=7-32i$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $\\sqrt{7-32i}\\approx\\pm(4.46-3.59i)$",
+     "points": 2
+    },
+    {
+     "text": "הצבה בנוסחה וקבלת $z_1\\approx4.23-3.295i$ ו-$z_2\\approx-0.23+0.295i$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ששורש של מספר מרוכב נותן שני ערכים, $\\pm w$.",
+    "טעות סימן בעת חישוב $(3i-4)^2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו החלק הממשי של הדיסקרימיננטה $(3i-4)^2-8i$?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "$(3i-4)^2=-9-24i+16$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו החלק המדומה של הדיסקרימיננטה?",
+     "answer": -32,
+     "tol": 0,
+     "explain": "$-24i-8i$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו החלק הממשי של $z_1=\\frac{(4-3i)+\\sqrt{7-32i}}{2}$ בקירוב (טולרנס 0.01)?",
+     "answer": 4.23,
+     "tol": 0.01,
+     "explain": "$\\sqrt{7-32i}\\approx4.46-3.59i$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -139,7 +614,61 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "$R_2\\to R_2-2R_1$",
+     "points": 1
+    },
+    {
+     "text": "$R_2\\to R_2+2R_3$",
+     "points": 1
+    },
+    {
+     "text": "$R_1\\to R_1-R_3$ ו-$R_1\\to R_1-5R_2$",
+     "points": 2
+    },
+    {
+     "text": "קריאת $A^{-1}=\\begin{pmatrix}11&-5&-11\\\\-2&1&2\\\\0&0&1\\end{pmatrix}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לדרג את החלק הימני $I$ יחד עם החלק השמאלי.",
+    "לאפס את עמודה 2 בשורה 1 לפני שאיפסנו את הכניסה של $z$ בשורה 2."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det A$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "הדטרמיננטה שונה מאפס, ולכן $A$ הפיכה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 1 של $A^{-1}$?",
+     "answer": 11,
+     "tol": 0,
+     "explain": "$A^{-1}=\\begin{pmatrix}11&-5&-11\\\\-2&1&2\\\\0&0&1\\end{pmatrix}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 3 של $A^{-1}$?",
+     "answer": -11,
+     "tol": 0,
+     "explain": "מאותה מטריצה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 2 עמודה 1 של $A^{-1}$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "מאותה מטריצה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -152,7 +681,74 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "כל פעולת שורה מתאימה למטריצה אלמנטרית",
+     "points": 2
+    },
+    {
+     "text": "ארבע המטריצות: $R_2-2R_1$, $R_2+2R_3$, $R_1-R_3$, $R_1-5R_2$",
+     "points": 2
+    },
+    {
+     "text": "$E_4E_3E_2E_1A=I$",
+     "points": 1
+    },
+    {
+     "text": "$A^{-1}=E_4E_3E_2E_1$ בסדר הפוך לסדר הפעולות",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב את המטריצות בסדר הפעולות ולא בסדר ההפוך."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה מטריצות אלמנטריות מופיעות בפירוק?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "פעולה אחת לכל צעד דירוג."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 2 עמודה 3 במטריצה האלמנטרית של $R_2\\to R_2+2R_3$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מוסיפים פעמיים את שורה 3 לשורה 2."
+    },
+    {
+     "type": "choice",
+     "prompt": "בסימון $E_1,\\dots,E_4$ לפי סדר הפעולות, איזה ביטוי שווה ל-$A^{-1}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$E_4E_3E_2E_1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$E_1E_2E_3E_4$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$E_1E_2E_3E_4A$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפעולה האחרונה משמאל. שלוש האפשרויות האחרות אינן $A^{-1}$ (בדיקה ישירה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -164,7 +760,86 @@
    "solution": "תחילה נמצא את כל הערכים העצמיים והווקטורים העצמיים של $B$. נחשב את הדטרמיננטה הבאה לפי שורה ראשונה:\n$$|\\lambda I-B|=\\begin{vmatrix}\\lambda-1&0&0\\\\1&\\lambda-6&-1\\\\1&-5&\\lambda-2\\end{vmatrix}=(\\lambda-1)\\begin{vmatrix}\\lambda-6&-1\\\\-5&\\lambda-2\\end{vmatrix}=(\\lambda-1)[(\\lambda-6)(\\lambda-2)-5]=(\\lambda-1)(\\lambda^2-8\\lambda+7)=(\\lambda-1)(\\lambda-1)(\\lambda-7)$$\nקיבלנו שהערכים העצמיים הם: $1,1,7$. כעת נמצא את הווקטורים העצמיים.\n**עבור ע״ע 1:**\n$$\\begin{pmatrix}0&0&0\\\\1&-5&-1\\\\1&-5&-1\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&-5&-1\\\\0&0&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $y=t,\\ z=s$ ונקבל $x=5t+s$. הווקטורים העצמיים המתקבלים הם $(5,1,0)^T,\\ (1,0,1)^T$.\n**עבור ע״ע 7:**\n$$\\begin{pmatrix}6&0&0\\\\1&1&-1\\\\1&-5&5\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&0&0\\\\0&1&-1\\\\0&0&0\\end{pmatrix}$$\nנסמן $z=t$ ונקבל $x=0,\\ y=t$. הווקטור העצמי המתקבל הוא $(0,1,1)^T$.\nהמטריצה ניתנת לליכסון (שלושה וקטורים עצמיים בלתי תלויים). כעת נמצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$:\n$$D=\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&7\\end{pmatrix},\\qquad P=\\begin{pmatrix}5&1&0\\\\1&0&1\\\\0&1&1\\end{pmatrix}$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "חישוב הפולינום האופייני $(\\lambda-1)^2(\\lambda-7)$ והערכים העצמיים $1,1,7$",
+     "points": 3
+    },
+    {
+     "text": "וקטורים עצמיים של $\\lambda=1$: $(5,1,0)$ ו-$(1,0,1)$",
+     "points": 3
+    },
+    {
+     "text": "וקטור עצמי של $\\lambda=7$: $(0,1,1)$",
+     "points": 2
+    },
+    {
+     "text": "קביעה שהמטריצה ניתנת לליכסון (שלושה וקטורים בלתי תלויים)",
+     "points": 2
+    },
+    {
+     "text": "כתיבת $D$ ו-$P$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקבוע שהמטריצה אינה ניתנת לליכסון רק כי $1$ הוא ערך עצמי כפול.",
+    "לחשב $B+\\lambda I$ במקום $B-\\lambda I$ כשמחפשים את המרחב העצמי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי העקבה (trace) של $B$? (היא שווה לסכום הערכים העצמיים)",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$1+1+7=9$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המימד של המרחב העצמי של $\\lambda=1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "הדרגה של $B-I$ היא 1, ולכן מימד הגרעין $3-1=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det B$?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "מכפלת הערכים העצמיים $1\\cdot1\\cdot7$."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $B$ ניתנת לליכסון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי יש ערך עצמי כפול"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן, כי מימד המרחב העצמי של כל ערך עצמי שווה לריבוי האלגברי שלו"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כן, כי יש שלושה ערכים עצמיים שונים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא, כי $B$ אינה סימטרית"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הערך $1$ כפול אך מרחבו העצמי ממימד 2, ויחד עם וקטור עצמי של $7$ מתקבלים שלושה בלתי תלויים. אין שלושה ערכים שונים, ואי-סימטריה אינה מונעת ליכסון."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -177,7 +852,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "כתיבת תנאי תלות לינארית $aM_1+bM_2+cM_3=0$",
+     "points": 2
+    },
+    {
+     "text": "המערכת ההומוגנית בארבע משוואות",
+     "points": 2
+    },
+    {
+     "text": "פתרון יחיד $a=b=c=0$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: בסיס עם $\\dim U=3$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב את המטריצות כשורות/עמודות בסדר שונה ולקבל משוואות שגויות.",
+    "להסיק $\\dim U=4$ כי $U\\subseteq M_{2\\times2}(\\mathbb{R})$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכניסה בשורה 2 עמודה 2 של $aM_1+bM_2+cM_3$ מתקבל $4a+b+3c$. מהו המקדם של $c$ שם?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "הכניסה בשורה 2 עמודה 2 של $M_3$ היא 3."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה $4\\times3$ של המערכת ההומוגנית?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "רק הפתרון הטריוויאלי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim U$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "שלוש מטריצות בלתי תלויות הפורשות את $U$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -190,7 +912,74 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "תנאי הסימטריה $A=A^T$ נותן $c=b$",
+     "points": 2
+    },
+    {
+     "text": "תנאי העקבה $\\mathrm{Tr}(A)=0$ נותן $d=-a$",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\left\\{\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix},\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\right\\}$",
+     "points": 1
+    },
+    {
+     "text": "$\\dim W=2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את אחד משני האילוצים, ולקבל מימד 3 או 4."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "ארבעה משתנים פחות שני אילוצים בלתי תלויים ($c=b$ ו-$d=-a$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אם $A=\\begin{pmatrix}a&b\\\\b&d\\end{pmatrix}$ ועקבתה אפס ו-$a=5$, מהו $d$?",
+     "answer": -5,
+     "tol": 0,
+     "explain": "$a+d=0$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה היא בסיס של $W$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left\\{\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix},\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\right\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left\\{\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix},\\begin{pmatrix}0&1\\\\-1&0\\end{pmatrix}\\right\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left\\{\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix},\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\right\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left\\{\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}\\right\\}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "במועמד הראשון המטריצה $I$ אינה בעלת עקבה אפס, בשני המטריצה השנייה אינה סימטרית, והשלישי פורש רק ישר ולכן אינו פורש את $W$ (המטריצה $\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\in W$ אינה כפולה שלו)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -203,7 +992,75 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "כתיבת בסיסי $U$ ו-$W$ כשורות במטריצה $5\\times4$",
+     "points": 2
+    },
+    {
+     "text": "דירוג וקבלת דרגה 4",
+     "points": 2
+    },
+    {
+     "text": "$\\dim(U+W)=4=\\dim V$ ולכן $U+W=V$",
+     "points": 1
+    },
+    {
+     "text": "הבסיס הסטנדרטי של $M_{2\\times2}(\\mathbb{R})$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את חמש המטריצות כבסיס של $U+W$ בלי להסיר תלות.",
+    "לטעון $U+W=V$ רק כי $3+2>4$, בלי לחשב את הדרגה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה $5\\times4$ שמרכיבים הבסיסים של $U$ ו-$W$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "הדרגה היא 4."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה שורות אפס מתקבלות בדירוג?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$5-4=1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $U+W=V$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי $3+2=5>4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי $U$ ו-$W$ תתי מרחבים של $V$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $\\dim U=3$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $U+W\\subseteq V$ ו-$\\dim(U+W)=4=\\dim V$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הסכום $3+2>4$ אינו מספיק (אילו $W\\subseteq U$ היה $\\dim(U+W)=3$), והיות תתי מרחבים של $V$ או $\\dim U=3$ אינם מבטיחים שהסכום כל $V$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -216,7 +1073,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "השוואת צירוף של בסיס $U$ לצירוף של בסיס $W$",
+     "points": 2
+    },
+    {
+     "text": "פתרון המערכת: $c=-2a$ ו-$b=\\frac32a$",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\left\\{\\begin{pmatrix}1&7\\\\7&-1\\end{pmatrix}\\right\\}$ ו-$\\dim(U\\cap W)=1$",
+     "points": 2
+    },
+    {
+     "text": "אימות משפט המימדים: $4=3+2-1$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שהחיתוך מוגדר על ידי שוויון בין צירוף של $U$ לצירוף של $W$, לא על ידי סכום.",
+    "טעות סימן ב-$4a+b+3c=-e$ כשמעבירים אגף."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "לפי משפט המימדים, מהו $\\dim(U\\cap W)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$3+2-4=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=2$ (ולכן $b=3$, $c=-4$), מהי הכניסה בשורה 1 עמודה 2 של $aM_1+bM_2+cM_3$?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "$2\\cdot2+3\\cdot1+(-4)\\cdot0=7$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באותו צירוף, מהי הכניסה בשורה 2 עמודה 2?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$2\\cdot4+3\\cdot1+(-4)\\cdot3=-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -229,7 +1133,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המייצגת $A$ מהתמונות של $E_1,\\dots,E_4$",
+     "points": 2
+    },
+    {
+     "text": "דירוג ל-2 עמודות מובילות",
+     "points": 3
+    },
+    {
+     "text": "בסיס $\\mathrm{Im}\\,T$ מעמודות 1,2 של $A$ ו-$\\dim=2$",
+     "points": 2
+    },
+    {
+     "text": "פתרון המערכת ההומוגנית ובסיס $\\mathrm{Ker}\\,T$",
+     "points": 2
+    },
+    {
+     "text": "$\\dim\\mathrm{Ker}\\,T=2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את עמודות המטריצה המדורגת בתור בסיס ל-$\\mathrm{Im}\\,T$.",
+    "לשכוח להחזיר את וקטורי הגרעין למטריצות $2\\times2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה המייצגת?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "יש שני איברים מובילים."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה היא בסיס של $\\mathrm{Im}\\,T$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "עמודות 1 ו-2 של $A$ (העמודות המובילות)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שלוש העמודות הראשונות של $A$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "עמודות 1 ו-2 של המטריצה המדורגת"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "עמודה 1 של $A$ בלבד"
+      }
+     ],
+     "correctId": "a",
+     "explain": "עמודה 3 שווה לסכום עמודות 1 ו-2 ולכן שלוש העמודות תלויות; עמודות המדורגת $(1,0,0,0)$ ו-$(1,1,0,0)$ אינן ב-$\\mathrm{Im}\\,T$; ועמודה אחת אינה פורשת (המימד 2)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפתרון ההומוגני $x_2=-t+4s$. מהו $x_2$ עבור $t=0,\\ s=1$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$-0+4\\cdot1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Ker}\\,T$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$4-2=2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -242,7 +1225,63 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "חישוב $\\dim\\mathrm{Ker}\\,T=2$ ו-$\\dim\\mathrm{Im}\\,T=2$",
+     "points": 1
+    },
+    {
+     "text": "$T$ אינה חח״ע כי $\\dim\\mathrm{Ker}\\,T\\neq0$",
+     "points": 1
+    },
+    {
+     "text": "$T$ אינה על כי $\\dim\\mathrm{Im}\\,T\\neq\\dim\\mathbb{R}^4=4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשוות ל-$\\dim M_{2\\times2}$ במקום למימד הטווח $\\mathbb{R}^4$ (במקרה זה שניהם 4, אבל הנימוק צריך להתבסס על הטווח)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Im}\\,T$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מסעיף א."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קביעה נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T$ חד חד ערכית אך אינה על"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T$ אינה חד חד ערכית ואינה על"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T$ על אך אינה חד חד ערכית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T$ חד חד ערכית ועל"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\dim\\mathrm{Ker}\\,T=2\\neq0$ ולכן לא חח״ע, ו-$\\dim\\mathrm{Im}\\,T=2<4$ ולכן לא על."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -255,7 +1294,53 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "הווקטור ב-$\\mathrm{Im}\\,T$ אם ורק אם הוא צירוף של בסיס התמונה",
+     "points": 1
+    },
+    {
+     "text": "כתיבת המערכת עם העמודה $(11,12,34,q)$",
+     "points": 1
+    },
+    {
+     "text": "דירוג עד לשורה $0=q-35$",
+     "points": 2
+    },
+    {
+     "text": "$q=35$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לדרג רק את מטריצת המקדמים ולשכוח את עמודת אגף ימין עם $q$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "אם $(11,12,34,q)=\\alpha(1,1,3,3)+\\beta(1,2,4,5)$, מהו $\\beta$ (מהפרש הקואורדינטות הראשונה והשנייה)?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$(\\alpha+2\\beta)-(\\alpha+\\beta)=12-11$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\alpha$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$\\alpha+\\beta=11$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $q$?",
+     "answer": 35,
+     "tol": 0,
+     "explain": "$q=3\\alpha+5\\beta=30+5$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -268,7 +1353,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "הגדרת $[T]_C^B$: העמודות הן $(T(b_i))_C$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $T(b_1),\\dots,T(b_4)$ מהנוסחה",
+     "points": 2
+    },
+    {
+     "text": "פירוק כל תמונה לפי הבסיס $C$",
+     "points": 2
+    },
+    {
+     "text": "כתיבת המטריצה המייצגת",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לפרק לפי הבסיס הסטנדרטי במקום לפי $C$.",
+    "לשכוח שבסיס $C$ כולל סימני מינוס, ולכן הקואורדינטות הראשונות הן הנגדיות של הרכיבים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב השלישי של $T(b_1)$ עבור $b_1=\\begin{pmatrix}0&0\\\\2&0\\end{pmatrix}$?",
+     "answer": 14,
+     "tol": 0,
+     "explain": "$3a+4b+7c+2d$ עם $c=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב הראשון של $(T(b_1))_C$? (הווקטור הראשון של $C$ הוא $(0,0,-1,0)$)",
+     "answer": -14,
+     "tol": 0,
+     "explain": "מקדם הווקטור $(0,0,-1,0)$ הוא הנגדי של הרכיב השלישי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 4 עמודה 4 של $[T]_C^B$?",
+     "answer": -4,
+     "tol": 0,
+     "explain": "$(T(b_4))_C=(-4,4,4,-4)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

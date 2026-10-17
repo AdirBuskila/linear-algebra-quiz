@@ -38,7 +38,76 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "זיהוי הוקטורים הנורמליים $\\vec N_1=(-k^2,-1,k+1)$ ו-$\\vec N_2=(1,k,2k-3)$",
+     "points": 2
+    },
+    {
+     "text": "תנאי ניצבות: $\\vec N_1\\cdot\\vec N_2=0$",
+     "points": 2
+    },
+    {
+     "text": "פתיחת הסוגריים וקבלת המשוואה $k^2-2k-3=0$",
+     "points": 3
+    },
+    {
+     "text": "פתרון $k=-1$ או $k=3$ ובחירת $k=-1$ מהתנאי $k<0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לדרוש שהוקטורים הנורמליים יהיו מקבילים (תנאי למישורים מקבילים) במקום ניצבים.",
+    "טעות סימן בפתיחת $(k+1)(2k-3)$.",
+    "לשכוח את התנאי $k<0$ ולהשאיר גם את $k=3$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו התנאי לכך ששני מישורים מאונכים זה לזה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "המכפלה הסקלרית של שני הוקטורים הנורמליים שווה לאפס"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הוקטורים הנורמליים מקבילים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "המכפלה הוקטורית של הוקטורים הנורמליים שווה לאפס"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לשני הוקטורים הנורמליים אותו אורך"
+      }
+     ],
+     "correctId": "a",
+     "explain": "מישורים מאונכים אם ורק אם הנורמלים מאונכים. נורמלים מקבילים (או מכפלה וקטורית אפס) מתאימים למישורים מקבילים, ושוויון אורכים אינו קשור לזווית."
+    },
+    {
+     "type": "numeric",
+     "prompt": "המשוואה שמתקבלת מ-$\\vec N_1\\cdot\\vec N_2=0$ היא $k^2-2k-c=0$. מהו $c$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$-k^2-k+(k+1)(2k-3)=k^2-2k-3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הפתרון של המשוואה המקיים $k<0$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "השורשים הם $-1$ ו-$3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -50,7 +119,61 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "הצבת $k=-1$ וקבלת $S_1:\\ -x-y=2$ ו-$S_2:\\ x-y-5z=1$",
+     "points": 1
+    },
+    {
+     "text": "דירוג המערכת ושימוש ב-$z$ כמשתנה חופשי",
+     "points": 3
+    },
+    {
+     "text": "הצגה פרמטרית $\\left(-\\frac12,-\\frac32,0\\right)+t\\left(\\frac52,-\\frac52,1\\right)$",
+     "points": 2
+    },
+    {
+     "text": "בדיקה ש-$p_0$ על $\\ell$: $t=5$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בסימן של $2k-3$ כשמציבים $k=-1$ (הערך הנכון הוא $-5$).",
+    "לבדוק רק קואורדינטה אחת של $p_0$ ולא את שלושתן עם אותו $t$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם של $z$ במשוואת $S_2$ כאשר $k=-1$?",
+     "answer": -5,
+     "tol": 0,
+     "explain": "$2k-3=-5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_2\\to R_2+R_1$ מתקבלת השורה $(0,\\,-2,\\,-5\\,|\\,c)$. מהו $c$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$1+2=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "וקטור הכיוון של $\\ell$ הוא כפולה של $(5,-5,m)$. מהו $m$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מהצורה $\\left(\\frac52,-\\frac52,1\\right)=\\frac12(5,-5,2)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור איזה $t$ מתקבלת הנקודה $p_0(12,-14,5)$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "מהקואורדינטה השלישית $z=t=5$, ושתי האחרות מתאימות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -62,7 +185,66 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "$S_3$ מאונך ל-$S_1$ ול-$S_2$, ולכן $\\vec N_1,\\vec N_2$ מקבילים ל-$S_3$",
+     "points": 3
+    },
+    {
+     "text": "הצבת $k=-1$: $\\vec N_1=(-1,-1,0)$ ו-$\\vec N_2=(1,-1,-5)$",
+     "points": 2
+    },
+    {
+     "text": "הצגה פרמטרית דרך $p_0$: $(12,-14,5)+s\\vec N_1+t\\vec N_2$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בכיוון ישר החיתוך $\\ell$ ככיוון של $S_3$ במקום בנורמלים (הוא נורמל של $S_3$).",
+    "לשכוח שהצגה פרמטרית של מישור דורשת שני וקטורי כיוון בלתי תלויים."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אילו שני וקטורים מהווים וקטורי כיוון של $S_3$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\vec N_1$ וכיוון ישר החיתוך $(5,-5,2)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\vec N_1$ ו-$\\vec N_2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כיוון ישר החיתוך $(5,-5,2)$ ו-$\\vec N_1\\times\\vec N_2$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הנורמל של $S_3$ מאונך ל-$\\vec N_1$ ול-$\\vec N_2$, כלומר הוא כיוון ישר החיתוך $(5,-5,2)$. לכן $(5,-5,2)$ אינו מקביל ל-$S_3$, ו-$\\vec N_1\\times\\vec N_2$ הוא אותו כיוון ולכן שני הוקטורים בצירוף האחרון פורשים רק ישר."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\vec N_1\\cdot\\vec N_2$ עבור $k=-1$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$-1+1+0=0$: שני המישורים מאונכים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב השלישי של $\\vec N_2$ עבור $k=-1$?",
+     "answer": -5,
+     "tol": 0,
+     "explain": "$2k-3=-5$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -75,7 +257,75 @@
    "official": true,
    "confidence": "high",
    "points": 8,
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המורחבת של המערכת ההומוגנית",
+     "points": 1
+    },
+    {
+     "text": "הפעולות $R_2\\to R_2-aR_1$ ו-$R_3\\to R_3-R_1$",
+     "points": 3
+    },
+    {
+     "text": "החלוקות $R_2\\cdot\\frac1{a(1-a)}$ ו-$R_3\\cdot\\frac1{2(a+1)}$",
+     "points": 3
+    },
+    {
+     "text": "ציון הערכים $a=0,1,-1$ שבהם אסור לחלק",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחלק ב-$a(1-a)$ או ב-$2(a+1)$ מבלי לציין שהם מתאפסים ב-$a=0,1,-1$.",
+    "טעות בחישוב $a^2-a\\cdot a$ ו-$a^2-a-(-a)\\cdot a$ בשורה 2."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_2\\to R_2-aR_1$ ו-$R_3\\to R_3-R_1$ הכניסה בשורה 3 עמודה 3 היא $2a+2$. מה ערכה עבור $a=4$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$2\\cdot4+2=10$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באותה מטריצה, מה ערך הכניסה בשורה 2 עמודה 2 עבור $a=3$?",
+     "answer": -6,
+     "tol": 0,
+     "explain": "הכניסה היא $a-a^2=3-9=-6$."
+    },
+    {
+     "type": "choice",
+     "prompt": "עבור אילו ערכי $a$ מתאפסים המחלקים $a(1-a)$ ו-$2(a+1)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=0$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a=1$ ו-$a=-1$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a=0$, $a=1$ ו-$a=-1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a=0$ ו-$a=-1$ בלבד"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$a(1-a)=0$ עבור $a=0,1$ ו-$2(a+1)=0$ עבור $a=-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -88,7 +338,49 @@
    "official": true,
    "confidence": "high",
    "points": 5,
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "פתרון טריוויאלי בלבד שקול ל-$r(A)=3$",
+     "points": 2
+    },
+    {
+     "text": "$r(A)=3$ בדיוק כאשר שלושת האיברים המובילים שונים מאפס",
+     "points": 2
+    },
+    {
+     "text": "המסקנה: $a\\neq0,1,-1$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את $a=-1$, שבו שורה 3 מתאפסת אחרי הדירוג."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $a=2$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "אין חלוקה אסורה, ולכן שלושה איברים מובילים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $a=-1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שורה 3 מתאפסת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה ערכים של $a$ נפסלים (דרגה קטנה מ-3)?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$a=0,1,-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -101,7 +393,61 @@
    "official": true,
    "confidence": "high",
    "points": 6,
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "עבור $a=-1$: $r(A)=2$ ולכן משתנה חופשי אחד",
+     "points": 1
+    },
+    {
+     "text": "פתרון $a=-1$: $z=2y$, $x=-3y$",
+     "points": 2
+    },
+    {
+     "text": "עבור $a=1$: דירוג ל-$r(A)=2$",
+     "points": 1
+    },
+    {
+     "text": "פתרון $a=1$: $z=0$, $y=-x$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להציב $a=1$ ולהניח $r(A)=3$ בלי להמשיך לדרג עד שורת האפס.",
+    "טעות סימן ב-$x=-y-z$ כשמציבים $z=2y$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=-1$, אם $y=1$ מהו $z$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מהמשוואה השנייה $z=2y$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=-1$, אם $y=1$ מהו $x$?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "$x=-y-z=-1-2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $a=1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "אחרי $R_3\\to R_3-4R_2$ שורה 3 מתאפסת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=1$, אם $x=1$ מהו $y$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$z=0$ ולכן $y=-x$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -114,7 +460,53 @@
    "official": true,
    "confidence": "high",
    "points": 6,
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "הצבת $a=0$ בשלב שלפני החילוק",
+     "points": 1
+    },
+    {
+     "text": "דירוג לשורה אחת לא אפסית: $r(A)=1$",
+     "points": 2
+    },
+    {
+     "text": "מהמשוואה הראשונה $z=0$",
+     "points": 1
+    },
+    {
+     "text": "$x,y$ חופשיים ופתרון כללי $(x,y,0)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחלק ב-$a$ כאשר $a=0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $a=0$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "נשארת שורה אחת לא אפסית $(0,0,-1)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה משתנים חופשיים יש עבור $a=0$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$3-1=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $z$ בכל פתרון עבור $a=0$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$-z=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -126,7 +518,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "דירוג $(A\\,|\\,I)$: $R_2-2R_1$, $R_3-3R_1$",
+     "points": 2
+    },
+    {
+     "text": "$R_1-R_2$, $R_3-5R_2$, $R_3\\to-R_3$, $R_1-R_3$",
+     "points": 3
+    },
+    {
+     "text": "קריאת $A^{-1}=\\begin{pmatrix}10&-6&1\\\\-2&1&0\\\\-7&5&-1\\end{pmatrix}$",
+     "points": 2
+    },
+    {
+     "text": "תיעוד כל פעולה כמטריצה אלמנטרית",
+     "points": 1
+    },
+    {
+     "text": "כתיבת $A^{-1}$ כמכפלה של שש מטריצות בסדר ההפוך",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב את המטריצות האלמנטריות בסדר הפעולות ולא בסדר ההפוך.",
+    "לשכוח שפעולה $R_3\\to-R_3$ גם היא מטריצה אלמנטרית (אלכסונית)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det A$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "הדטרמיננטה שונה מאפס ולכן $A$ הפיכה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 1 של $A^{-1}$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$A^{-1}=\\begin{pmatrix}10&-6&1\\\\-2&1&0\\\\-7&5&-1\\end{pmatrix}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 3 עמודה 1 של $A^{-1}$?",
+     "answer": -7,
+     "tol": 0,
+     "explain": "מהמטריצה ההפוכה."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה גורם עומד משמאל במכפלת המטריצות האלמנטריות שנותנת את $A^{-1}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "המטריצה של הפעולה הראשונה, $R_2\\to R_2-2R_1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "המטריצה של $R_3\\to-R_3$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "המטריצה של $R_3\\to R_3-5R_2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "המטריצה של הפעולה האחרונה, $R_1\\to R_1-R_3$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "אם $E_6\\cdots E_1A=I$ אז $A^{-1}=E_6\\cdots E_1$: הפעולה האחרונה משמאל. העברת כל אחד מהגורמים האחרים לצד שמאל משנה את המכפלה (בדיקה ישירה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -138,47 +609,145 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "points": 15
+   "points": 15,
+   "rubric": [
+    {
+     "text": "חישוב הפולינום האופייני $\\lambda^2(3-\\lambda)$ והערכים העצמיים $0,0,3$",
+     "points": 4
+    },
+    {
+     "text": "וקטורים עצמיים של $\\lambda=0$: $(-1,1,0)$ ו-$(-1,0,1)$",
+     "points": 3
+    },
+    {
+     "text": "וקטור עצמי של $\\lambda=3$: $(1,1,1)$",
+     "points": 3
+    },
+    {
+     "text": "קביעה שהמטריצה ניתנת לליכסון וכתיבת $P$ ו-$D$",
+     "points": 3
+    },
+    {
+     "text": "בדיקת $BP=PD$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקבוע שהמטריצה אינה ניתנת לליכסון כי $0$ ערך עצמי כפול או כי $B$ אינה הפיכה.",
+    "לשכוח שבעבור $\\lambda=0$ נדרשים שני וקטורים עצמיים בלתי תלויים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת $B$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "שלוש השורות זהות."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המימד של המרחב העצמי של $\\lambda=0$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$3-1=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך העצמי השונה מ-$0$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$\\det(B-\\lambda I)=\\lambda^2(3-\\lambda)$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $B$ ניתנת לליכסון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מימד המרחב העצמי של $0$ הוא 2 (כריבוי האלגברי) ושל $3$ הוא 1, ולכן יש שלושה וקטורים עצמיים בלתי תלויים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "יש לה שלושה ערכים עצמיים שונים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינה הפיכה ולכן ניתנת לליכסון"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "יש לה ערך עצמי כפול ולכן אינה ניתנת לליכסון"
+      }
+     ],
+     "correctId": "a",
+     "explain": "יש רק שני ערכים עצמיים שונים ($0$ ו-$3$); אי-הפיכות אינה קשורה לליכסון; וערך כפול אינו מונע ליכסון כשמימד המרחב העצמי שווה לריבוי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 1 של $BP=PD$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$BP=PD=\\begin{pmatrix}3&0&0\\\\3&0&0\\\\3&0&0\\end{pmatrix}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
    "part": "א",
    "kind": "computation",
    "topic": "vector_spaces",
-   "points": 6,
    "question": "מצאו בסיס ומימד של תתי המרחבים $W_1$ ו-$W_2$.",
-   "contextId": "c4",
-   "hold": "no-key"
+   "solution": "נשתמש בהצגה הקואורדינטית $p(x)=ax^3+bx^2+cx+d\\ \\longleftrightarrow\\ (a,b,c,d)$.\n**בסיס ל-$W_1$:** $p(0)=d$, $p'(x)=3ax^2+2bx+c$ ולכן $p'(0)=c$, $p''(x)=6ax+2b$ ולכן $p''(0)=2b$. התנאי $p(0)=p'(0)=p''(0)$ נותן $d=c=2b$, ולכן\n$$p(x)=ax^3+bx^2+2bx+2b=a\\cdot x^3+b\\left(x^2+2x+2\\right),\\quad a,b\\in\\mathbb{R}$$\nשני הפולינומים $x^3$ ו-$x^2+2x+2$ אינם פרופורציוניים, ולכן בלתי תלויים:\n$$B_{W_1}=\\left\\{x^3,\\ x^2+2x+2\\right\\},\\qquad \\dim W_1=2$$\n**בסיס ל-$W_2$:** $q'(0)=c=0$, ולכן $q(x)=ax^3+bx^2+d=a\\cdot x^3+b\\cdot x^2+d\\cdot1$, $a,b,d\\in\\mathbb{R}$:\n$$B_{W_2}=\\left\\{x^3,\\ x^2,\\ 1\\right\\},\\qquad \\dim W_2=3$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "points": 6,
+   "contextId": "c4"
   },
   {
    "num": 4,
    "part": "ב",
    "kind": "computation",
    "topic": "vector_spaces",
-   "points": 8,
    "question": "חשבו את תת המרחב $W_1+W_2$, מצאו בסיס ומימד של תת מרחב זה.",
-   "contextId": "c4",
-   "hold": "no-key"
+   "solution": "$W_1+W_2=\\mathrm{Sp}\\left(B_{W_1}\\cup B_{W_2}\\right)=\\mathrm{Sp}\\left\\{x^3,\\ x^2+2x+2,\\ x^2,\\ 1\\right\\}$ (את $x^3$ אין צורך לכתוב פעמיים). נדרג מטריצה ששורותיה הן הווקטורים הקואורדינטיים:\n$$\\begin{pmatrix}1&0&0&0\\\\0&1&2&2\\\\0&1&0&0\\\\0&0&0&1\\end{pmatrix}\\xrightarrow{R_2\\leftrightarrow R_3}\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&1&2&2\\\\0&0&0&1\\end{pmatrix}\\xrightarrow{\\substack{R_3\\to R_3-R_2\\R_3\\to R_3-2R_4}}\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&2&0\\\\0&0&0&1\\end{pmatrix}$$\nהדרגה $4=\\dim\\mathbb{R}_3[x]$, ולכן $W_1+W_2=\\mathbb{R}_3[x]$:\n$$B_{W_1+W_2}=\\left\\{1,\\ x,\\ x^2,\\ x^3\\right\\},\\qquad \\dim(W_1+W_2)=4$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "points": 8,
+   "contextId": "c4"
   },
   {
    "num": 4,
    "part": "ג",
    "kind": "computation",
    "topic": "vector_spaces",
-   "points": 8,
    "question": "חשבו את תת המרחב $W_1\\cap W_2$, מצאו בסיס ומימד של תת מרחב זה.",
-   "contextId": "c4",
-   "hold": "no-key"
+   "solution": "פולינום ב-$W_1$ הוא $p(x)=ax^3+bx^2+2bx+2b$ (סעיף (א)). הוא שייך ל-$W_2$ אם $p'(0)=0$, כלומר המקדם של $x$ מתאפס: $2b=0$, ולכן $b=0$ ו-$p(x)=ax^3$.\n$$W_1\\cap W_2=\\left\\{ax^3:\\ a\\in\\mathbb{R}\\right\\}=\\mathrm{Sp}\\left\\{x^3\\right\\},\\qquad B_{W_1\\cap W_2}=\\left\\{x^3\\right\\},\\qquad \\dim(W_1\\cap W_2)=1$$\nבדיקה לפי משפט המימדים: $\\dim(W_1+W_2)=\\dim W_1+\\dim W_2-\\dim(W_1\\cap W_2)=2+3-1=4$, בהתאם לסעיף (ב).",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "points": 8,
+   "contextId": "c4"
   },
   {
    "num": 4,
    "part": "ד",
    "kind": "computation",
    "topic": "vector_spaces",
-   "points": 3,
    "question": "האם הפולינום $Q(x)=x^3+2x^2+3$ שייך לתת מרחב $W_1+W_2$? נמקו את תשובתכם.",
-   "contextId": "c4",
-   "hold": "no-key"
+   "solution": "**כן.** לפי סעיף (ב) $W_1+W_2=\\mathbb{R}_3[x]$, ו-$Q(x)$ הוא פולינום ממעלה $3$, ולכן הוא שייך. במפורש, כצירוף של איברי הבסיס:\n$$Q(x)=1\\cdot x^3+2\\cdot x^2+0\\cdot x+3\\cdot1$$\nואפילו כסכום של איבר מ-$W_1$ ואיבר מ-$W_2$: $Q(x)=0+\\left(x^3+2x^2+3\\right)$, כאשר $Q'(0)=0$ ולכן $Q\\in W_2$ עצמו.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "points": 3,
+   "contextId": "c4"
   },
   {
    "num": 5,
@@ -191,7 +760,82 @@
    "official": true,
    "confidence": "high",
    "points": 12,
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המייצגת $A$ בבסיסים הסטנדרטיים",
+     "points": 2
+    },
+    {
+     "text": "דירוג ל-2 עמודות מובילות (1 ו-3)",
+     "points": 3
+    },
+    {
+     "text": "בסיס $\\mathrm{Im}\\,T$ מעמודות 1,3 של $A$ ו-$\\dim=2$",
+     "points": 3
+    },
+    {
+     "text": "פתרון המערכת ההומוגנית ובסיס $\\mathrm{Ker}\\,T$ עם $\\dim=2$",
+     "points": 4
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את עמודות המטריצה המדורגת בתור בסיס ל-$\\mathrm{Im}\\,T$.",
+    "לבחור עמודות 1 ו-2 של $A$ שהן זהות ולכן תלויות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה המייצגת?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שני איברים מובילים."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה היא בסיס של $\\mathrm{Im}\\,T$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "עמודות 1 ו-2 של $A$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "עמודות 1 ו-3 של $A$ (העמודות המובילות)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "עמודות 1 ו-3 של המטריצה המדורגת"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כל ארבע העמודות של $A$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "עמודות 1 ו-2 של $A$ זהות, ארבע העמודות תלויות (הדרגה 2), ועמודות המדורגת $(1,0,0,0)$ ו-$(1,1,0,0)$ אינן ב-$\\mathrm{Im}\\,T$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפתרון ההומוגני $x_3=-s$. מהו $x_3$ עבור $s=2$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$x_3=-s$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Ker}\\,T$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$4-2=2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -204,7 +848,63 @@
    "official": true,
    "confidence": "high",
    "points": 3,
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "חישוב $\\dim\\mathrm{Ker}\\,T=2$ ו-$\\dim\\mathrm{Im}\\,T=2$",
+     "points": 1
+    },
+    {
+     "text": "$T$ אינה חח״ע כי $\\dim\\mathrm{Ker}\\,T\\neq0$",
+     "points": 1
+    },
+    {
+     "text": "$T$ אינה על כי $\\dim\\mathrm{Im}\\,T\\neq\\dim\\mathbb{R}_3[x]=4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשוות ל-$\\dim\\mathbb{R}^3$ במקום ל-$\\dim\\mathbb{R}_3[x]=4$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Ker}\\,T$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מסעיף א."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קביעה נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T$ חד חד ערכית אך אינה על"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T$ על אך אינה חד חד ערכית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T$ אינה חד חד ערכית ואינה על"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T$ חד חד ערכית ועל"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\dim\\mathrm{Ker}\\,T=2\\neq0$ ולכן לא חח״ע, ו-$\\dim\\mathrm{Im}\\,T=2<4=\\dim\\mathbb{R}_3[x]$ ולכן לא על."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -217,7 +917,60 @@
    "official": true,
    "confidence": "high",
    "points": 5,
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "הפולינום ב-$\\mathrm{Im}\\,T$ אם ורק אם וקטור הקואורדינטות $(4,6,k,m)$ הוא צירוף של בסיס התמונה",
+     "points": 1
+    },
+    {
+     "text": "כתיבת המערכת עם העמודה $(4,6,k,m)$",
+     "points": 1
+    },
+    {
+     "text": "דירוג עד לשורות $0=k-10$ ו-$0=m-16$",
+     "points": 2
+    },
+    {
+     "text": "$k=10,\\ m=16$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לדרג רק את מטריצת המקדמים ולשכוח את הפרמטרים $k,m$ בעמודת אגף ימין."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "אם $(4,6,k,m)=\\alpha(1,1,2,3)+\\beta(1,2,3,5)$, מהו $\\beta$ (מהפרש הקואורדינטות הראשונות)?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$(\\alpha+2\\beta)-(\\alpha+\\beta)=6-4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\alpha$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$\\alpha+\\beta=4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $k$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$k=2\\alpha+3\\beta=4+6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $m$?",
+     "answer": 16,
+     "tol": 0,
+     "explain": "$m=3\\alpha+5\\beta=6+10$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -229,7 +982,82 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "points": 5
+   "points": 5,
+   "rubric": [
+    {
+     "text": "כתיבת $[I]_E^B$ ו-$[I]_E^C$ לפי הבסיס הסטנדרטי $E=(1,x)$",
+     "points": 1
+    },
+    {
+     "text": "הנוסחה $[I]_C^B=\\left([I]_E^C\\right)^{-1}[I]_E^B$",
+     "points": 1
+    },
+    {
+     "text": "חישוב ההופכית $\\begin{pmatrix}10&-3\\\\-3&1\\end{pmatrix}$",
+     "points": 1
+    },
+    {
+     "text": "המכפלה $\\begin{pmatrix}140&178\\\\-40&-51\\end{pmatrix}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב את המכפלה בסדר הפוך.",
+    "לכתוב את הפולינומים כשורות במקום כעמודות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו נוסחה נותנת את $[I]_C^B$ (המעבר מבסיס $B$ לבסיס $C$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$[I]_E^B\\left([I]_E^C\\right)^{-1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$[I]_E^C[I]_E^B$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left([I]_E^B\\right)^{-1}[I]_E^C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left([I]_E^C\\right)^{-1}[I]_E^B$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הנוסחה הרשמית עוברת מ-$B$ אל הבסיס הסטנדרטי ומשם אל $C$. שלוש האחרות נותנות מטריצות שונות (בדיקה ישירה)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det[I]_E^C$ עבור $[I]_E^C=\\begin{pmatrix}1&3\\\\3&10\\end{pmatrix}$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$10-9=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 1 של $[I]_C^B$?",
+     "answer": 140,
+     "tol": 0,
+     "explain": "$10\\cdot20-3\\cdot20$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 2 עמודה 2 של $[I]_C^B$?",
+     "answer": -51,
+     "tol": 0,
+     "explain": "$-3\\cdot25+1\\cdot24$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
