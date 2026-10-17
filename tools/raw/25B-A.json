@@ -1,0 +1,295 @@
+{
+ "examCode": "25B-A",
+ "examLabel": "מבחן סוף סמסטר ב׳ תשפ״ה, מועד א׳ (07.07.2025)",
+ "year": 2025,
+ "examDate": "07.07.2025",
+ "sourceFile": "25B-A exam (phone photo)",
+ "solutionFile": "25B-A official solution (typed, solution-only PDF)",
+ "contexts": {
+  "c1": {
+   "kind": "text",
+   "title": "שאלה 1 - שלושה מישורים",
+   "text": "נתונים שלושה מישורים:\n$S_1:\\ x+y+z=0,\\qquad S_2:\\ 2x-y+2z=1,\\qquad S_3:\\ x-y+2z=-1$"
+  },
+  "c2": {
+   "kind": "text",
+   "title": "שאלה 2 - מערכת משוואות עם פרמטר",
+   "text": "נתונה מערכת המשוואות הלינאריות\n$$\\begin{cases} x-y+2z=0,\\\\ -x+ay+(a-3)z=a,\\\\ (a-1)y+2az=2a+1,\\\\ x+(a-2)y+(2a+2)z=2a+1.\\end{cases}$$\nעם פרמטר ממשי $a$."
+  },
+  "c3": {
+   "kind": "text",
+   "title": "שאלה 3.א - המטריצה A",
+   "text": "נתונה המטריצה $A=\\begin{pmatrix}1&-1&0\\\\0&1&1\\\\5&-5&9\\end{pmatrix}$."
+  },
+  "c4": {
+   "kind": "text",
+   "title": "שאלה 4 - מטריצות סימטריות",
+   "text": "יהי $V=M_{2\\times2}(\\mathbb{R})$ מרחב וקטורי של מטריצות ריבועיות מסדר $2\\times2$. בו נתונות שתי קבוצות\n$$W=\\{A\\in V:\\ A=A^T\\},\\qquad U=\\mathrm{span}\\left\\{\\begin{pmatrix}1&2\\\\-1&3\\end{pmatrix},\\begin{pmatrix}2&0\\\\-3&2\\end{pmatrix}\\right\\}$$"
+  },
+  "c5": {
+   "kind": "text",
+   "title": "שאלה 5.א - העתקה ממטריצות ל-R^4",
+   "text": "נתונה העתקה לינארית $T:M_{2\\times2}(\\mathbb{R})\\to\\mathbb{R}^4$ המוגדרת על ידי:\n$$T\\left(\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}\\right)=\\begin{pmatrix}a+b+c+d\\\\2a+2c+5d\\\\3a+b+3c+6d\\\\6a+2b+6c+12d\\end{pmatrix}$$"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "part": "א",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "question": "מצאו את ישר החיתוך $\\ell_1$ של המישורים $S_1$ ו-$S_2$ ואת ישר החיתוך $\\ell_2$ של המישורים $S_1$ ו-$S_3$.",
+   "solution": "למציאת ישר החיתוך $\\ell_1$ נזכור שכל נקודה על $\\ell_1$ מקיימת את המשוואה של $S_1$ וגם את המשוואה של $S_2$. על כן נפתור את מערכת המשוואות\n$$\\left(\\begin{array}{ccc|c}1&1&1&0\\\\2&-1&2&1\\end{array}\\right)\\xrightarrow{R_2-2R_1\\to R_2}\\left(\\begin{array}{ccc|c}1&1&1&0\\\\0&-3&0&1\\end{array}\\right)\\xrightarrow{3R_1+R_2\\to R_1}\\left(\\begin{array}{ccc|c}3&0&3&1\\\\0&-3&0&1\\end{array}\\right)\\to\\left(\\begin{array}{ccc|c}1&0&1&1/3\\\\0&1&0&-1/3\\end{array}\\right)$$\nכאן $z$ הוא משתנה חופשי. נבצע פרמטריזציה $z=t,\\ t\\in\\mathbb{R}$ ונקבל\n$$x=\\frac13-t,\\quad y=-\\frac13\\ \\Rightarrow\\ \\ell_1:\\ (x(t),y(t),z(t))=\\left(\\frac13,-\\frac13,0\\right)+t(-1,0,1)$$\nלמציאת ישר החיתוך $\\ell_2$ נזכור שכל נקודה על $\\ell_2$ מקיימת גם את המשוואה של $S_1$ וגם את המשוואה של $S_3$. על כן נפתור את מערכת המשוואות\n$$\\left(\\begin{array}{ccc|c}1&1&1&0\\\\1&-1&2&-1\\end{array}\\right)\\xrightarrow{R_2-R_1\\to R_2}\\left(\\begin{array}{ccc|c}1&1&1&0\\\\0&-2&1&-1\\end{array}\\right)\\xrightarrow{2R_1+R_2\\to R_1}\\left(\\begin{array}{ccc|c}2&0&3&-1\\\\0&-2&1&-1\\end{array}\\right)\\to\\left(\\begin{array}{ccc|c}1&0&3/2&-1/2\\\\0&1&-1/2&1/2\\end{array}\\right)$$\nכאן $z$ הוא משתנה חופשי. נבצע פרמטריזציה $z=s,\\ s\\in\\mathbb{R}$ ונקבל\n$$x=-\\frac12-\\frac32s,\\quad y=\\frac12+\\frac12s\\ \\Rightarrow\\ \\ell_2:\\ (x(s),y(s),z(s))=\\left(-\\frac12,\\frac12,0\\right)+\\frac12s(-3,1,2)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 9,
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "question": "מצאו משוואת מישור $S_4$ המכיל את $\\ell_1$ ומאונך למישור $S_1$ ומשוואת מישור $S_5$ המכיל את $\\ell_2$ ומאונך למישור $S_1$.",
+   "solution": "ממשוואת המישור $S_1$ נקבל שהוקטור הנורמלי ל-$S_1$ הוא $\\vec N_1=(1,1,1)$. בנוסף, וקטורי הכיוון של $\\ell_1$ ו-$\\ell_2$ הם, בהתאמה, $\\vec L_1=(-1,0,1)$ ו-$\\vec L_2=(-3,1,2)$. לכן וקטור נורמלי למישור $S_4$ מתקבל ע״י מכפלה וקטורית\n$$\\vec N_4=\\vec N_1\\times\\vec L_1=\\begin{vmatrix}\\hat\\imath&\\hat\\jmath&\\hat k\\\\1&1&1\\\\-1&0&1\\end{vmatrix}=\\hat\\imath-2\\hat\\jmath+\\hat k=(1,-2,1)$$\nכיוון ש-$\\ell_1$ מוכל ב-$S_4$ הנקודה $p_1\\left(\\frac13,-\\frac13,0\\right)$ נמצאת על $S_4$. מכאן נוכל למצוא את משוואת המישור $S_4$:\n$$S_4:\\ \\left(x-\\frac13,\\,y+\\frac13,\\,z-0\\right)\\cdot(1,-2,1)=0\\ \\Rightarrow\\ x-2y+z=1$$\nבאופן דומה, וקטור נורמלי למישור $S_5$ מתקבל ע״י המכפלה הוקטורית\n$$\\vec N_5=\\vec N_1\\times\\vec L_2=\\begin{vmatrix}\\hat\\imath&\\hat\\jmath&\\hat k\\\\1&1&1\\\\-3&1&2\\end{vmatrix}=\\hat\\imath-5\\hat\\jmath+4\\hat k=(1,-5,4)$$\nכיוון ש-$\\ell_2$ מוכל ב-$S_5$ הנקודה $p_2\\left(-\\frac12,\\frac12,0\\right)$ נמצאת על $S_5$. מכאן נוכל למצוא את משוואת המישור $S_5$:\n$$S_5:\\ \\left(x+\\frac12,\\,y-\\frac12,\\,z-0\\right)\\cdot(1,-5,4)=0\\ \\Rightarrow\\ x-5y+4z=-3$$\nנסכם:\n$$S_4:\\ x-2y+z=1,\\qquad S_5:\\ x-5y+4z=-3$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 8,
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "question": "מצאו את נקודת החיתוך בין הישרים $\\ell_1$ ו-$\\ell_2$ ואת ישר החיתוך בין $S_4$ ו-$S_5$.",
+   "solution": "למציאת נקודת החיתוך $p_0$ בין $\\ell_1$ ו-$\\ell_2$ נפתור את המשוואה\n$$\\left(\\frac13,-\\frac13,0\\right)+t(-1,0,1)=\\left(-\\frac12,\\frac12,0\\right)+s(-3,1,2)$$\nממשוואה זו נקבל שלוש משוואות על הרכיבים\n$$(I)\\ \\frac13-t=-\\frac12-3s,\\qquad(II)\\ -\\frac13=\\frac12+s,\\qquad(III)\\ t=2s$$\nממשוואה $(II)$ נקבל ש-$s=-\\frac56$ וניתן לבדוק ע״י שימוש בשתי המשוואות הנוספות שלא מתקבלת סתירה והמערכת ניתנת לפתרון. נציב את הערך של $s$ שקיבלנו בביטוי עבור $\\ell_2$ ונקבל\n$$p_0=\\left(x\\left(-\\frac56\\right),y\\left(-\\frac56\\right),z\\left(-\\frac56\\right)\\right)=\\left(-\\frac12,\\frac12,0\\right)+\\left(-\\frac56\\right)(-3,1,2)=\\frac16(-3,3,0)+\\frac16(15,-5,-10)=\\left(2,-\\frac13,-\\frac53\\right)$$\n(הערת תמלול: בסעיף א׳ הפתרון הרשמי כותב את $\\ell_2$ עם הכיוון $\\frac12s(-3,1,2)$, ואילו כאן הוא פותר עם הכיוון $s(-3,1,2)$; הנקודה המתקבלת נכונה.)\nבנוסף, כיוון ש-$S_5$ ו-$S_4$ שניהם מאונכים ל-$S_1$, וקטור הכיוון בכיוון ישר החיתוך שלהם הוא $\\vec N_1$. אם נסמן את ישר החיתוך של $S_5$ ו-$S_4$ ב-$\\ell_3$ נקבל ש\n$$\\ell_3:\\ (x(t),y(t),z(t))=\\left(2,-\\frac13,-\\frac53\\right)+t(1,1,1)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 8,
+   "contextId": "c1"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "question": "הביאו את המטריצה המורחבת המתאימה למערכת לצורתה המדורגת.",
+   "solution": "$$\\left(\\begin{array}{ccc|c}1&-1&2&0\\\\-1&a&a-3&a\\\\0&a-1&2a&2a+1\\\\1&a-2&2a+2&2a+1\\end{array}\\right)\\xrightarrow{\\substack{R_2+R_1\\to R_2\\\\R_4-R_1\\to R_4}}\\left(\\begin{array}{ccc|c}1&-1&2&0\\\\0&a-1&a-1&a\\\\0&a-1&2a&2a+1\\\\0&a-1&2a&2a+1\\end{array}\\right)$$\n$$\\xrightarrow{R_4-R_3\\to R_4}\\left(\\begin{array}{ccc|c}1&-1&2&0\\\\0&a-1&a-1&a\\\\0&a-1&2a&2a+1\\\\0&0&0&0\\end{array}\\right)\\xrightarrow{R_3-R_2\\to R_3}\\left(\\begin{array}{ccc|c}1&-1&2&0\\\\0&a-1&a-1&a\\\\0&0&a+1&a+1\\\\0&0&0&0\\end{array}\\right)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 8,
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "question": "עבור אילו ערכים של $a$ יש פתרון יחיד למערכת? עבור אילו ערכים של $a$ אין פתרון למערכת? עבור אילו ערכים של $a$ יש למערכת אינסוף פתרונות?",
+   "solution": "אם $a\\neq\\pm1$ יש למערכת **פתרון אחד ויחיד**,\nאם $a=1$ יש שורת סתירה (שורה שניה) ואז **אין פתרון** למערכת,\nאם $a=-1$ יש למערכת **אינסוף פתרונות**.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 9,
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "question": "מצאו פתרונות המערכת עבור $a=-1$.",
+   "solution": "אם $a=-1$ המערכת שקולה ל-\n$$\\begin{cases}x-y+2z=0\\\\-2y-2z=-1\\end{cases}$$\n$$z=t,\\quad y=\\frac12-t,\\quad x=\\frac12-3t$$\n$$\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}=\\begin{pmatrix}0.5\\\\0.5\\\\0\\end{pmatrix}+t\\begin{pmatrix}-3\\\\-1\\\\1\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 3,
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "complex_numbers",
+   "question": "פתרו את המשוואה $\\left(\\bar z+\\dfrac{7-i}{3+i}\\right)^3=8i$.",
+   "solution": "$$\\frac{7-i}{3+i}=\\frac{(7-i)(3-i)}{10}=2-i$$\nנסמן $w=\\bar z+\\dfrac{7-i}{3+i}=\\bar z+2-i$, לכן $z=\\overline{w}-2-i$.\n$$w^3=8i,\\qquad 8i=8\\left(\\cos\\frac\\pi2+i\\sin\\frac\\pi2\\right)$$\n$$w_k=\\sqrt[3]{8i}=2\\left(\\cos\\frac{\\frac\\pi2+2\\pi k}{3}+i\\sin\\frac{\\frac\\pi2+2\\pi k}{3}\\right)$$\n$$w_0=2\\left(\\cos\\frac\\pi6+i\\sin\\frac\\pi6\\right)=\\sqrt3+i$$\n$$w_1=2\\left(\\cos\\frac{5\\pi}6+i\\sin\\frac{5\\pi}6\\right)=-\\sqrt3+i$$\n$$w_2=2\\left(\\cos\\frac{9\\pi}6+i\\sin\\frac{9\\pi}6\\right)=-2i$$\n$$z_0=-2+\\sqrt3-2i$$\n$$z_1=-2-\\sqrt3-2i$$\n$$z_2=-2+i$$\n(הערת תמלול: בפתרון הרשמי הפתרון השלישי מסומן $z_3$; זהו הפתרון השלישי, $z_2$.)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 5
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "question": "הוכיחו ש-$A$ הפיכה ע״י מציאת המטריצה $A^{-1}$.",
+   "solution": "נחשב את $A^{-1}$:\n$$\\left(\\begin{array}{ccc|ccc}1&-1&0&1&0&0\\\\0&1&1&0&1&0\\\\5&-5&9&0&0&1\\end{array}\\right)\\xrightarrow{R_3\\to R_3-5R_1}\\left(\\begin{array}{ccc|ccc}1&-1&0&1&0&0\\\\0&1&1&0&1&0\\\\0&0&9&-5&0&1\\end{array}\\right)\\xrightarrow{R_3\\to\\frac19R_3}\\left(\\begin{array}{ccc|ccc}1&-1&0&1&0&0\\\\0&1&1&0&1&0\\\\0&0&1&-\\frac59&0&\\frac19\\end{array}\\right)$$\n$$\\xrightarrow{R_2\\to R_2-R_3}\\left(\\begin{array}{ccc|ccc}1&-1&0&1&0&0\\\\0&1&0&\\frac59&1&-\\frac19\\\\0&0&1&-\\frac59&0&\\frac19\\end{array}\\right)\\xrightarrow{R_1\\to R_1+R_2}\\left(\\begin{array}{ccc|ccc}1&0&0&\\frac{14}9&1&-\\frac19\\\\0&1&0&\\frac59&1&-\\frac19\\\\0&0&1&-\\frac59&0&\\frac19\\end{array}\\right)$$\nקיבלנו שהמטריצה ההופכית היא:\n$$A^{-1}=\\begin{pmatrix}\\frac{14}9&1&-\\frac19\\\\\\frac59&1&-\\frac19\\\\-\\frac59&0&\\frac19\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 6,
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "question": "הציגו את $A^{-1}$ בצורת כפל של מטריצות אלמנטריות.",
+   "solution": "כעת נשתמש בדירוג הנ״ל ונכתוב את $A^{-1}$ כמכפלה של מטריצות אלמנטריות:\n$$A^{-1}=\\begin{pmatrix}1&1&0\\\\0&1&0\\\\0&0&1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&-1\\\\0&0&1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&\\frac19\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\-5&0&1\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7,
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "question": "נתונה מטריצה $B=\\begin{pmatrix}7&0&1\\\\0&6&0\\\\1&0&7\\end{pmatrix}$. האם $B$ ניתנת לליכסון? במידה וכן, מצאו מטריצה הפיכה $P$ ומטריצה אלכסונית $D$ כך שמתקיים $PD=BP$. הראו שהשוויון באמת מתקיים.",
+   "solution": "תחילה נמצא את כל הערכים העצמיים. נחשב את הדטרמיננטה הבאה לפי שורה שניה (בפתרון הרשמי המטריצה מסומנת $A$ במקום $B$):\n$$|\\lambda I-B|=\\begin{vmatrix}\\lambda-7&0&-1\\\\0&\\lambda-6&0\\\\-1&0&\\lambda-7\\end{vmatrix}=(\\lambda-6)\\begin{vmatrix}\\lambda-7&-1\\\\-1&\\lambda-7\\end{vmatrix}=(\\lambda-6)\\left[(\\lambda-7)^2-1\\right]=(\\lambda-6)\\left(\\lambda^2-14\\lambda+48\\right)=(\\lambda-6)(\\lambda-6)(\\lambda-8)$$\nקיבלנו שהערכים העצמיים הם: $6,6,8$. כעת נמצא את הוקטורים העצמיים.\nעבור ע״ע $6$:\n$$\\begin{pmatrix}-1&0&-1\\\\0&0&0\\\\-1&0&-1\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&0&1\\\\0&0&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $y=t,\\ z=s$ ונקבל $x=-s$. הוקטורים העצמיים המתקבלים הם: $\\begin{pmatrix}-1\\\\0\\\\1\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}$.\nעבור ע״ע $8$:\n$$\\begin{pmatrix}1&0&-1\\\\0&2&0\\\\-1&0&1\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&0&-1\\\\0&2&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $z=t$ ונקבל $x=t,\\ y=0$. הוקטור העצמי המתקבל הוא: $\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}$.\nכעת נמצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $PD=BP$:\n$$D=\\begin{pmatrix}6&0&0\\\\0&6&0\\\\0&0&8\\end{pmatrix},\\qquad P=\\begin{pmatrix}-1&0&1\\\\0&1&0\\\\1&0&1\\end{pmatrix}$$\nנבדוק שמתקיים $PD=BP$:\n$$PD=\\begin{pmatrix}-1&0&1\\\\0&1&0\\\\1&0&1\\end{pmatrix}\\begin{pmatrix}6&0&0\\\\0&6&0\\\\0&0&8\\end{pmatrix}=\\begin{pmatrix}-6&0&8\\\\0&6&0\\\\6&0&8\\end{pmatrix}$$\n$$BP=\\begin{pmatrix}7&0&1\\\\0&6&0\\\\1&0&7\\end{pmatrix}\\begin{pmatrix}-1&0&1\\\\0&1&0\\\\1&0&1\\end{pmatrix}=\\begin{pmatrix}-6&0&8\\\\0&6&0\\\\6&0&8\\end{pmatrix}$$\nואכן מתקיים השוויון.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 12
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "kind": "proof",
+   "topic": "vector_spaces",
+   "question": "הוכיחו כי $W$ מהווה תת מרחב של $V$.",
+   "solution": "נתבונן בקבוצה $W=\\{A\\in V:\\ A=A^T\\}$.\n$$W=\\left\\{\\begin{pmatrix}a&b\\\\b&c\\end{pmatrix}:\\ a,b,c\\in\\mathbb{R}\\right\\}=\\mathrm{Span}\\left\\{\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix},\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix},\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}\\right\\}$$\nלפי המשפט שהוכח בכיתה כל פרישה לינארית היא תת מרחב.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 5,
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "question": "מצאו בסיס ומימד ל-$W$.",
+   "solution": "הקבוצה היא בת״ל לכן מהווה בסיס:\n$$\\alpha_1\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix}+\\alpha_2\\begin{pmatrix}0\\\\1\\\\1\\\\0\\end{pmatrix}+\\alpha_3\\begin{pmatrix}0\\\\0\\\\0\\\\1\\end{pmatrix}=\\begin{pmatrix}0\\\\0\\\\0\\\\0\\end{pmatrix}$$\n$$\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&1&0\\\\0&0&1\\end{pmatrix}\\xrightarrow{-R_2+R_3\\to R_3}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&0\\\\0&0&1\\end{pmatrix}\\xrightarrow{R_3\\leftrightarrow R_4}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&1\\\\0&0&0\\end{pmatrix}$$\nלכן שלושת הווקטורים בלתי תלויים לינארית, הם בסיס של $W$ ו-$\\dim W=3$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 5,
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "question": "מצאו בסיסים ואת ממדים לתתי מרחב $U+W$ ו-$U\\cap W$.",
+   "solution": "**$U+W$:**\n$$U+W=\\mathrm{Span}\\left\\{\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix},\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix},\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix},\\begin{pmatrix}1&2\\\\-1&3\\end{pmatrix},\\begin{pmatrix}2&0\\\\-3&2\\end{pmatrix}\\right\\}$$\n$$\\begin{pmatrix}1&0&0&1&2\\\\0&1&0&2&0\\\\0&1&0&-1&-3\\\\0&0&1&3&2\\end{pmatrix}\\longrightarrow\\cdots\\longrightarrow\\begin{pmatrix}1&0&0&1&2\\\\0&1&0&2&0\\\\0&0&1&3&2\\\\0&0&0&1&1\\end{pmatrix}$$\nבסיס של $U+W$ הוא\n$$B=\\left\\{\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix},\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix},\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix},\\begin{pmatrix}1&2\\\\-1&3\\end{pmatrix}\\right\\},\\qquad\\dim(U+W)=4$$\n**$U\\cap W$:**\n$v\\in U\\cap W\\Rightarrow v=c_1\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix}+c_2\\begin{pmatrix}0\\\\1\\\\1\\\\0\\end{pmatrix}+c_3\\begin{pmatrix}0\\\\0\\\\0\\\\1\\end{pmatrix}=d_1\\begin{pmatrix}1\\\\2\\\\-1\\\\3\\end{pmatrix}+d_2\\begin{pmatrix}2\\\\0\\\\-3\\\\2\\end{pmatrix}$\n$$c_1\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix}+c_2\\begin{pmatrix}0\\\\1\\\\1\\\\0\\end{pmatrix}+c_3\\begin{pmatrix}0\\\\0\\\\0\\\\1\\end{pmatrix}+d_1\\begin{pmatrix}-1\\\\-2\\\\1\\\\-3\\end{pmatrix}+d_2\\begin{pmatrix}-2\\\\0\\\\3\\\\-2\\end{pmatrix}=\\begin{pmatrix}0\\\\0\\\\0\\\\0\\end{pmatrix}$$\n$$\\begin{pmatrix}1&0&0&-1&-2\\\\0&1&0&-2&0\\\\0&1&0&1&3\\\\0&0&1&-3&-2\\end{pmatrix}\\longrightarrow\\cdots\\longrightarrow\\begin{pmatrix}1&0&0&-1&-2\\\\0&1&0&-2&0\\\\0&0&1&-3&-2\\\\0&0&0&1&1\\end{pmatrix}$$\nנקבל $d_2=1\\Rightarrow d_1=-1\\Rightarrow$\n$$v=d_1\\begin{pmatrix}1\\\\2\\\\-1\\\\3\\end{pmatrix}+d_2\\begin{pmatrix}2\\\\0\\\\-3\\\\2\\end{pmatrix}=\\begin{pmatrix}1\\\\2\\\\-1\\\\3\\end{pmatrix}-\\begin{pmatrix}2\\\\0\\\\-3\\\\2\\end{pmatrix}=\\begin{pmatrix}-1\\\\2\\\\2\\\\1\\end{pmatrix}$$\nולכן $B=\\left\\{\\begin{pmatrix}-1&2\\\\2&1\\end{pmatrix}\\right\\}$ הוא בסיס של $U\\cap W$, $\\dim(U\\cap W)=1$.\n(הערת תמלול: עם $d_1=-1,\\ d_2=1$ מתקבל $-(1,2,-1,3)+(2,0,-3,2)=(1,-2,-2,-1)$, כלומר הנגדי של הוקטור שנכתב בפתרון הרשמי; הישר הנפרש והבסיס נכונים, והחישוב ה״מפורש״ בפתרון הרשמי מתאים ל-$d_1=1,\\ d_2=-1$.)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 10,
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "question": "האם הוקטור $\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}$ שייך לתת מרחב $U\\cap W$?",
+   "solution": "הוקטור $\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}$ אינו שייך לתת מרחב $U\\cap W$ כי היא בת״ל מוקטור $\\begin{pmatrix}-1&2\\\\2&1\\end{pmatrix}$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 5,
+   "contextId": "c4"
+  },
+  {
+   "num": 5,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "question": "מצאו את הממד והבסיס של $\\mathrm{Im}\\,T$, $\\mathrm{Ker}\\,T$.",
+   "solution": "נגדיר $F=\\left(E_1=\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix},E_2=\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix},E_3=\\begin{pmatrix}0&0\\\\1&0\\end{pmatrix},E_4=\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}\\right)$ בסיס סטנדרטי של $M_{2\\times2}(\\mathbb{R})$ ו-$E$ בסיס סטנדרטי של $\\mathbb{R}^4$. אז נקבל ש-\n$$T(E_1)=\\begin{pmatrix}1\\\\2\\\\3\\\\6\\end{pmatrix},\\ T(E_2)=\\begin{pmatrix}1\\\\0\\\\1\\\\2\\end{pmatrix},\\ T(E_3)=\\begin{pmatrix}1\\\\2\\\\3\\\\6\\end{pmatrix},\\ T(E_4)=\\begin{pmatrix}1\\\\5\\\\6\\\\12\\end{pmatrix}$$\nמכאן נובע שהמטריצה המייצגת הסטנדרטית היא $A=[T]_E^F=\\begin{pmatrix}1&1&1&1\\\\2&0&2&5\\\\3&1&3&6\\\\6&2&6&12\\end{pmatrix}$ ואחרי הדירוג\n$$\\left(\\begin{array}{cccc|c}1&1&1&1&0\\\\2&0&2&5&0\\\\3&1&3&6&0\\\\6&2&6&12&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&1&1&1&0\\\\0&-2&0&3&0\\\\0&-2&0&3&0\\\\0&-4&0&6&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&1&1&1&0\\\\0&-2&0&3&0\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{array}\\right)$$\nעמודות מס׳ 1,2 של המטריצה המדורגת מובילות, אז $\\mathrm{Col}A$ הוא בסיס של $\\mathrm{Im}\\,T$ ואז $\\mathrm{Im}\\,T=\\mathrm{span}\\left\\{\\begin{pmatrix}1\\\\2\\\\3\\\\6\\end{pmatrix},\\begin{pmatrix}1\\\\0\\\\1\\\\2\\end{pmatrix}\\right\\}$ ו-$\\dim\\mathrm{Im}\\,T=2$. בנוסף לזאת,\n$$\\left(\\begin{array}{cccc|c}1&1&1&1&0\\\\0&1&0&-1.5&0\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&0&1&2.5&0\\\\0&1&0&-1.5&0\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{array}\\right)\\Rightarrow\\begin{cases}x_1=-t-2.5s\\\\x_2=1.5s\\\\x_3=t\\\\x_4=s\\end{cases}\\Rightarrow\\begin{pmatrix}x_1\\\\x_2\\\\x_3\\\\x_4\\end{pmatrix}=t\\begin{pmatrix}-1\\\\0\\\\1\\\\0\\end{pmatrix}+s\\begin{pmatrix}-2.5\\\\1.5\\\\0\\\\1\\end{pmatrix}$$\nאז $\\mathrm{Nul}A$ הוא בסיס של $\\left(\\begin{pmatrix}-1\\\\0\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}-2.5\\\\1.5\\\\0\\\\1\\end{pmatrix}\\right)$ ו-$\\mathrm{Ker}\\,T$ הוא בסיס של $\\left(\\begin{pmatrix}-1&0\\\\1&0\\end{pmatrix},\\begin{pmatrix}-2.5&1.5\\\\0&1\\end{pmatrix}\\right)$ ואז $\\dim\\mathrm{Ker}\\,T=2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 12,
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "question": "האם $T$ חד-חד ערכית? האם $T$ על? נמקו.",
+   "solution": "$T$ לא חד חד ערכית כי $\\dim\\mathrm{Ker}\\,T=2\\neq0$, $T$ לא על כי $\\dim\\mathrm{Im}\\,T=2\\neq\\dim\\mathbb{R}^4$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 3,
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "question": "לאילו ערכים של פרמטר $m$ מתקיים $\\begin{pmatrix}11\\\\2\\\\13\\\\m\\end{pmatrix}\\in\\mathrm{Im}\\,T$?",
+   "solution": "$$\\left(\\begin{array}{cc|c}1&1&11\\\\2&0&2\\\\3&1&13\\\\6&2&m\\end{array}\\right)\\to\\left(\\begin{array}{cc|c}1&1&11\\\\0&-2&-20\\\\0&-2&-20\\\\0&-4&m-66\\end{array}\\right)\\to\\left(\\begin{array}{cc|c}1&1&11\\\\0&-2&-20\\\\0&0&0\\\\0&0&m-26\\end{array}\\right)$$\nולכן $m=26$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 4,
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "question": "נתונים בסיסים $B=(1+3x,\\ 2+4x)$, $C=(1+4x,\\ 3+8x)$ של מרחב פולינומים $\\mathbb{R}_1[x]$. מצאו את $[p(x)]_C$ אם $[p(x)]_B=\\begin{pmatrix}20\\\\25\\end{pmatrix}$, כאשר $p(x)\\in\\mathbb{R}_1[x]$.",
+   "solution": "נגדיר בסיס סטנדרטי של $\\mathbb{R}_1[x]$ $A=(1,x)$. אז\n$$B=(1+3x,2+4x),\\quad C=(1+4x,3+8x)$$\n$$[I]_A^B=\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix},\\qquad[I]_A^C=\\begin{pmatrix}1&3\\\\4&8\\end{pmatrix}$$\n$$[I]_C^B=[I]_C^A[I]_A^B=\\left([I]_A^C\\right)^{-1}[I]_A^B=\\begin{pmatrix}1&3\\\\4&8\\end{pmatrix}^{-1}\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}=-\\frac14\\begin{pmatrix}8&-3\\\\-4&1\\end{pmatrix}\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}=-\\frac14\\begin{pmatrix}-1&4\\\\-1&-4\\end{pmatrix}=\\begin{pmatrix}0.25&-1\\\\0.25&1\\end{pmatrix}$$\n$$[p(x)]_C=[I]_C^B[p(x)]_B=-\\frac14\\begin{pmatrix}-1&4\\\\-1&-4\\end{pmatrix}\\begin{pmatrix}20\\\\25\\end{pmatrix}=-\\frac14\\begin{pmatrix}80\\\\-120\\end{pmatrix}=\\begin{pmatrix}-20\\\\30\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 6
+  },
+  {
+   "num": 6,
+   "part": "א",
+   "kind": "proof",
+   "topic": "matrix_proofs",
+   "points": 9,
+   "question": "נניח ש-$H$ ו-$D$ מטריצות הפיכות המקיימות $HD^2=D^3H^{-1}$. הוכיחו ש-$\\det(D)>0$.",
+   "hold": "no-key"
+  },
+  {
+   "num": 6,
+   "part": "ב",
+   "kind": "proof",
+   "topic": "matrix_proofs",
+   "points": 9,
+   "question": "הוכיחו שאם $\\lambda$ הוא ערך עצמי של מטריצה הפיכה $A$ ו-$\\vec u$ הוא וקטור עצמי שמתאים ל-$\\lambda$, אז $1/\\lambda$ יהיה ערך עצמי של $A^{-1}$ עם אותו הווקטור העצמי $\\vec u$.",
+   "hold": "no-key"
+  },
+  {
+   "num": 6,
+   "part": "ג",
+   "kind": "proof",
+   "topic": "matrix_proofs",
+   "points": 7,
+   "question": "נתונות שתי מטריצות הפיכות $B,C$ באותו הגודל. אילו מהמטריצות הבאות **תמיד** יהיו הפיכות? נמקו!!!\n1) $BC$\n2) $B+C$\n3) $\\alpha C$ כאשר $\\alpha\\in\\mathbb{R}$.",
+   "hold": "no-key"
+  }
+ ]
+}
