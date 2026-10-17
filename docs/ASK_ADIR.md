@@ -19,6 +19,14 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Q5 b: official says dim Im T != dim R^4; the codomain is M2x2 (dim 4). Conclusion unaffected; labeled note in the solution.
 - Status: noted
 
+### FYI 23A-A / 23B-B - no holds, official slips flagged, 2 codes have no source (no action needed)
+- 24A-B and 23B-A: no such file in either source tree (2024 holds only moed A, 2023 has A-A, A-B, B-B). Nothing transcribed.
+- 23A-A Q1 ג (p.2): the official writes det(C^5)=3206-3205; the product is 34*89-55*55=3026-3025. Conclusion (det=1) right; labeled note in the solution.
+- 23A-A Q4 ג (p.6): a middle matrix of the official reduction has a slipped fourth row; rank 4 is right. Labeled note in the solution.
+- 23A-A Q2 ד: the official roots are decimal approximations; exact form added in the solution.
+- 23B-B Q1: the exam prints (7,5,6,7) points for א-ד, the solution file prints (7,6,7,5). The exam was followed.
+- Status: noted
+
 ## Resolved
 
 ### FYI 24A-A / 25A-B / 25B-A - holds and official slips (no action needed)
