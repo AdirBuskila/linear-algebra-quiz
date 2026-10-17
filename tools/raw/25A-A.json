@@ -1,0 +1,250 @@
+{
+ "examCode": "25A-A",
+ "examLabel": "מבחן סוף סמסטר א׳ תשפ״ה, מועד א׳ (23.02.2025)",
+ "year": 2025,
+ "examDate": "23.02.2025",
+ "sourceFile": "25A-A exam + official solution (single PDF)",
+ "solutionFile": "25A-A exam + official solution (single PDF)",
+ "contexts": {
+  "c1": {
+   "kind": "text",
+   "title": "שאלה 1 - שני ישרים",
+   "text": "נתונים שני הישרים\n$\\ell_1:\\ (x,y,z)=(0,a,-a)+s(1,0,1),\\ s\\in\\mathbb{R}$\n$\\ell_2:\\ (x,y,z)=(5,-4,-1)+t(a,-3,0),\\ t\\in\\mathbb{R}$\nכאשר $a\\neq 0$ מספר ממשי."
+  },
+  "c2": {
+   "kind": "text",
+   "title": "שאלה 2 - מערכת הומוגנית עם פרמטר",
+   "text": "תהי המערכת הלינארית ההומוגנית הבאה:\n$$\\begin{cases} ax+ay-z=0\\\\ a^2x+ay+(a^2-a)z=0\\\\ ax+ay+(2a+1)z=0\\end{cases}$$"
+  },
+  "c4": {
+   "kind": "text",
+   "title": "שאלה 4 - תתי מרחבים של פולינומים",
+   "text": "יהי $\\mathbb{R}_3[x]$ מרחב של פולינומים ממשיים ממעלה שלוש לכל היותר. נגדיר שני תתי מרחבים של מרחב זה:\n$W_1=\\{p(x)\\in\\mathbb{R}_3[x]:\\ p(0)=p'(0)=p''(0)\\}$\n$W_2=\\{q(x)\\in\\mathbb{R}_3[x]:\\ q'(0)=0\\}$"
+  },
+  "c5": {
+   "kind": "text",
+   "title": "שאלה 5 - העתקה מפולינומים למטריצות",
+   "text": "נתונה העתקה לינארית $T:\\mathbb{R}_3[x]\\to M_{2\\times2}(\\mathbb{R})$ ממרחב הפולינומים ממעלה 3 ומטה אל מרחב המטריצות הריבועיות $2\\times 2$, המוגדרת על ידי:\n$$T(1)=\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix},\\quad T(x)=\\begin{pmatrix}2&0\\\\2&5\\end{pmatrix},\\quad T(x^2)=\\begin{pmatrix}12&10\\\\12&15\\end{pmatrix},\\quad T(x^3)=\\begin{pmatrix}21&1\\\\21&51\\end{pmatrix}$$"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "part": "א",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "points": 9,
+   "question": "מצאו $a>0$ עבורו $\\ell_1$ ו-$\\ell_2$ הם ישרים נחתכים.",
+   "solution": "וקטורי הכיוון של $\\ell_1$ ו-$\\ell_2$ הם, בהתאמה, $\\vec L_1=(1,0,1)$ ו-$\\vec L_2=(a,-3,0)$. נשים לב לכך שלא קיים $\\alpha\\in\\mathbb{R}$ סקלארי כך ש-$\\vec L_2=\\alpha\\vec L_1$, ולכן הישרים אינם מקבילים. כדי לבדוק האם $\\ell_1$ ו-$\\ell_2$ נחתכים או מצטלבים ננסה למצוא נקודה משותפת:\n$$(0,a,-a)+s(1,0,1)=(5,-4,-1)+t(a,-3,0),\\quad s,t\\in\\mathbb{R}$$\nמכאן נקבל שלוש משוואות:\n$$(I)\\ s=5+at,\\qquad (II)\\ a=-4-3t,\\qquad (III)\\ -a+s=-1$$\nממשוואה $(III)$ נקבל $s=a-1$. נציב ב-$(I)$ ונקבל $a-1=5+at$. ממשוואה $(II)$ נקבל $t=-\\frac{a+4}{3}$. נציב במשוואה הנ״ל ונקבל:\n$$a-1=5+a\\cdot\\left(-\\frac{a+4}{3}\\right)\\ \\Rightarrow\\ 3a-18=-a(a+4)\\ \\Rightarrow\\ a^2+7a-18=0$$\n$$a_{1,2}=\\frac{-7\\pm\\sqrt{49+4\\cdot 18}}{2}=\\frac{-7\\pm 11}{2}\\ \\Rightarrow\\ a_1=-9,\\quad a_2=2$$\nוכיוון ש-$a>0$ נקבל $a=2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "points": 8,
+   "question": "עבור הערך של $a$ מסעיף (א), מצאו את המשוואה של המישור המכיל את הישרים הנתונים $\\ell_1$ ו-$\\ell_2$.",
+   "solution": "נסמן את המישור המבוקש ב-$S_1$. נציב $a=2$ בוקטורי הכיוון מסעיף (א) ונקבל $\\vec L_2=(2,-3,0)$ ו-$\\vec L_1=(1,0,1)$. עתה נוכל למצוא וקטור נורמלי ל-$S_1$ ע״י\n$$\\vec N_1=\\vec L_1\\times\\vec L_2=\\begin{vmatrix}\\hat\\imath&\\hat\\jmath&\\hat k\\\\1&0&1\\\\2&-3&0\\end{vmatrix}=3\\hat\\imath+2\\hat\\jmath-3\\hat k=(3,2,-3)$$\nבנוסף, כיוון ש-$\\ell_1$ מוכל ב-$S_1$, נקבל שאם נציב $s=0$ בביטוי עבור $\\ell_1$, הנקודה $p_0(0,2,-2)\\in S_1$. לכן, אם $p(x,y,z)\\in S_1$, משוואת המישור ניתנת ע״י $\\overrightarrow{p_0p}\\cdot\\vec N_1=0$:\n$$(x-0,\\,y-2,\\,z+2)\\cdot(3,2,-3)=0\\ \\Rightarrow\\ 3x+2(y-2)-3(z+2)=0\\ \\Rightarrow\\ 3x+2y-3z=10$$\nעל-כן הצורה הקנונית של משוואת המישור $S_1$ היא $S_1:\\ 3x+2y-3z=10$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "points": 8,
+   "question": "מצאו את המשוואה השל המישור המכיל את הישר $\\ell_1$ ומאונך למישור שמצאתם בסעיף (ב).",
+   "solution": "נסמן את המישור המבוקש ב-$S_2$. וקטור נורמלי ל-$S_2$, $\\vec N_2$, צריך להיות מאונך ל-$\\vec L_1$ ול-$\\vec N_1$. מכאן נקבל\n$$\\vec N_2=\\vec L_1\\times\\vec N_1=\\begin{vmatrix}\\hat\\imath&\\hat\\jmath&\\hat k\\\\1&0&1\\\\3&2&-3\\end{vmatrix}=-2\\hat\\imath+6\\hat\\jmath+2\\hat k=2(-1,3,1)$$\nבנוסף, כיוון ש-$\\ell_1$ מוכל ב-$S_2$ ומתקיים $p_0(0,2,-2)\\in S_2$, אם $p(x,y,z)\\in S_2$ אז $\\overrightarrow{p_0p}\\cdot\\vec N_2=0$:\n$$(x-0,\\,y-2,\\,z+2)\\cdot(-1,3,1)=0\\ \\Rightarrow\\ -x+3(y-2)+(z+2)=0\\ \\Rightarrow\\ -x+3y+z=4$$\nעל-כן המשוואה הקנונית של המישור $S_2$ היא $S_2:\\ -x+3y+z=4$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c1"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 8,
+   "question": "מצאו צורה מדורגת של מטריצה מורחבת.",
+   "solution": "המטריצה המורחבת של המערכת, ודירוג שלה:\n$$\\left(\\begin{array}{ccc|c}a&a&-1&0\\\\a^2&a&a^2-a&0\\\\a&a&2a+1&0\\end{array}\\right)\\xrightarrow{\\substack{R_2\\to R_2-a\\cdot R_1\\\\R_3\\to R_3-R_1}}\\left(\\begin{array}{ccc|c}a&a&-1&0\\\\0&a-a^2&a^2&0\\\\0&0&2a+2&0\\end{array}\\right)$$\nמתקיים:\n$$\\left(\\begin{array}{ccc|c}a&a&-1&0\\\\0&a-a^2&a^2&0\\\\0&0&2a+2&0\\end{array}\\right)\\xrightarrow{\\substack{R_2\\to R_2\\cdot\\frac{1}{a(1-a)}\\\\R_3\\to R_3\\cdot\\frac{1}{2(a+1)}}}\\left(\\begin{array}{ccc|c}a&a&-1&0\\\\0&1&\\frac{a}{1-a}&0\\\\0&0&1&0\\end{array}\\right)$$\nכאשר החילוק בשורה 2 מותר עבור $a\\neq 0,1$ והחילוק בשורה 3 מותר עבור $a\\neq -1$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 5,
+   "question": "עבור אילו ערכי $a$ יש למערכת פתרון טריוויאלי בלבד (כלומר רק וקטור ה-$0$)?",
+   "solution": "עבור $a\\neq 0,1,-1$ מתקיים $r(A)=3$, ולכן יש למערכת **פתרון יחיד** והוא הפתרון הטריוויאלי.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 6,
+   "question": "עבור אילו ערכי $a$ הפתרון הכללי של המערכת הינו ישר (איבר חופשי אחד)?",
+   "solution": "**עבור $a=-1$:** נציב $a=-1$ בשלב שלפני החלוקה ונקבל את המטריצה\n$$\\begin{pmatrix}-1&-1&-1\\\\0&-2&1\\\\0&0&0\\end{pmatrix}$$\nולכן עבור $a=-1$ מתקיים $r(A)=2$ ולמערכת **יש אינסוף פתרונות עם מקדם חופשי אחד**. מהמשוואה השנייה נובע כי $z=2y$, ואם נציב קשר זה במשוואה הראשונה נקבל $x=-y-z=-y-2y=-3y$; $y$ משתנה חופשי. מרחב הפתרונות במקרה זה נתון ע״י\n$$\\left\\{\\begin{pmatrix}-3y\\\\y\\\\2y\\end{pmatrix}:\\ y\\in\\mathbb{R}\\right\\}$$\n**עבור $a=1$:** נציב $a=1$ בשלב שלפני החלוקה ונקבל את המטריצה\n$$\\begin{pmatrix}1&1&-1\\\\0&0&1\\\\0&0&4\\end{pmatrix}\\xrightarrow{R_3\\to R_3-4R_2}\\begin{pmatrix}1&1&-1\\\\0&0&1\\\\0&0&0\\end{pmatrix}$$\nולכן עבור $a=1$ מתקיים $r(A)=2$ ולמערכת **יש אינסוף פתרונות עם מקדם חופשי אחד**. מהמשוואה השנייה נובע כי $z=0$, ואם נציב זאת במשוואה הראשונה נקבל $x+y+0=0\\Rightarrow y=-x$; $x$ משתנה חופשי. מרחב הפתרונות במקרה זה נתון ע״י\n$$\\left\\{\\begin{pmatrix}t\\\\-t\\\\0\\end{pmatrix}:\\ t\\in\\mathbb{R}\\right\\}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 6,
+   "question": "עבור אילו ערכי $a$ הפתרון הכללי של המערכת הינו מישור (2 איברים חופשיים)?",
+   "solution": "**עבור $a=0$:** נציב $a=0$ בשלב שלפני החלוקה ונקבל את המטריצה\n$$\\begin{pmatrix}0&0&-1\\\\0&0&0\\\\0&0&2\\end{pmatrix}\\xrightarrow{R_3\\to R_3+2R_1}\\begin{pmatrix}0&0&-1\\\\0&0&0\\\\0&0&0\\end{pmatrix}$$\nולכן במקרה זה $r(A)=1$ ולמערכת יש **אינסוף פתרונות עם 2 מקדמים חופשיים**. מהמשוואה הראשונה נובע מיד כי $z=0$, ואילו $x,y$ משתנים חופשיים. מרחב הפתרונות במקרה זה נתון ע״י\n$$\\left\\{\\begin{pmatrix}x\\\\y\\\\0\\end{pmatrix}:\\ x,y\\in\\mathbb{R}\\right\\}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 10,
+   "question": "נתונה המטריצה $A=\\begin{pmatrix}1&2&1\\\\0&1&3\\\\3&8&8\\end{pmatrix}$. מצאו את $A^{-1}$ וכתבו אותה כמכפלה של מטריצות אלמנטריות.",
+   "solution": "תחילה נחשב את $A^{-1}$:\n$$\\left(\\begin{array}{ccc|ccc}1&2&1&1&0&0\\\\0&1&3&0&1&0\\\\3&8&8&0&0&1\\end{array}\\right)\\xrightarrow{R_3\\to R_3-3R_1}\\left(\\begin{array}{ccc|ccc}1&2&1&1&0&0\\\\0&1&3&0&1&0\\\\0&2&5&-3&0&1\\end{array}\\right)$$\n$$\\xrightarrow{R_3\\to R_3-2R_2}\\left(\\begin{array}{ccc|ccc}1&2&1&1&0&0\\\\0&1&3&0&1&0\\\\0&0&-1&-3&-2&1\\end{array}\\right)\\xrightarrow{R_3\\to -R_3}\\left(\\begin{array}{ccc|ccc}1&2&1&1&0&0\\\\0&1&3&0&1&0\\\\0&0&1&3&2&-1\\end{array}\\right)$$\n$$\\xrightarrow{R_2\\to R_2-3R_3}\\left(\\begin{array}{ccc|ccc}1&2&1&1&0&0\\\\0&1&0&-9&-5&3\\\\0&0&1&3&2&-1\\end{array}\\right)\\xrightarrow{R_1\\to R_1-R_3}\\left(\\begin{array}{ccc|ccc}1&2&0&-2&-2&1\\\\0&1&0&-9&-5&3\\\\0&0&1&3&2&-1\\end{array}\\right)$$\n$$\\xrightarrow{R_1\\to R_1-2R_2}\\left(\\begin{array}{ccc|ccc}1&0&0&16&8&-5\\\\0&1&0&-9&-5&3\\\\0&0&1&3&2&-1\\end{array}\\right)$$\nקיבלנו שהמטריצה ההופכית היא:\n$$A^{-1}=\\begin{pmatrix}16&8&-5\\\\-9&-5&3\\\\3&2&-1\\end{pmatrix}$$\nכעת נשתמש בדירוג הנ״ל ונכתוב את $A^{-1}$ כמכפלה של מטריצות אלמנטריות:\n$$A^{-1}=\\begin{pmatrix}1&-2&0\\\\0&1&0\\\\0&0&1\\end{pmatrix}\\begin{pmatrix}1&0&-1\\\\0&1&0\\\\0&0&1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&-3\\\\0&0&1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&-1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&-2&1\\end{pmatrix}\\begin{pmatrix}1&0&0\\\\0&1&0\\\\-3&0&1\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 15,
+   "question": "נתונה מטריצה $B=\\begin{pmatrix}9&0&1\\\\0&8&0\\\\1&0&9\\end{pmatrix}$. האם $B$ ניתנת לליכסון? במידה וכן, מצאו מטריצה הפיכה $P$ ומטריצה אלכסונית $D$ כך שמתקיים $BP=PD$ (יש לבדוק שהשוויון מתקיים).",
+   "solution": "**1. הערכים העצמיים והווקטורים העצמיים של $B$.**\n$$|\\lambda I-B|=\\begin{vmatrix}\\lambda-9&0&-1\\\\0&\\lambda-8&0\\\\-1&0&\\lambda-9\\end{vmatrix}=(\\lambda-8)\\begin{vmatrix}\\lambda-9&-1\\\\-1&\\lambda-9\\end{vmatrix}=$$\n$$=(\\lambda-8)\\left[(\\lambda-9)^2-1\\right]=(\\lambda-8)(\\lambda^2-18\\lambda+80)=(\\lambda-8)(\\lambda-8)(\\lambda-10)$$\nקיבלנו שהערכים העצמיים הם $8,10$. כעת נמצא את הווקטורים העצמיים.\n**עבור $\\lambda=8$:**\n$$\\begin{pmatrix}-1&0&-1\\\\0&0&0\\\\-1&0&-1\\end{pmatrix}\\to\\dots\\to\\begin{pmatrix}1&0&1\\\\0&0&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $y=t,\\ z=s$ ונקבל $x=-s$. הוקטורים העצמיים המתקבלים הם $\\begin{pmatrix}-1\\\\0\\\\1\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}$.\n**עבור $\\lambda=10$:**\n$$\\begin{pmatrix}1&0&-1\\\\0&2&0\\\\-1&0&1\\end{pmatrix}\\to\\dots\\to\\begin{pmatrix}1&0&-1\\\\0&2&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $z=t$ ונקבל $x=t,\\ y=0$. הוקטור העצמי המתקבל הוא $\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}$.\n**2.** נמצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$:\n$$D=\\begin{pmatrix}8&0&0\\\\0&8&0\\\\0&0&10\\end{pmatrix},\\qquad P=\\begin{pmatrix}-1&0&1\\\\0&1&0\\\\1&0&1\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 6,
+   "question": "מצאו בסיס ומימד של תתי המרחבים $W_1$ ו-$W_2$.",
+   "solution": "נגדיר את ההצגה הקואורדינטית של פולינום $p(x)\\in\\mathbb{R}_3[x]$ בבסיס הסטנדרטי: $p(x)=ax^3+bx^2+cx+d\\ \\longleftrightarrow\\ (a,b,c,d)$.\n**מציאת בסיס ל-$W_1$:**\n$$p(x)=ax^3+bx^2+cx+d,\\ p(0)=d;\\quad p'(x)=3ax^2+2bx+c,\\ p'(0)=c;\\quad p''(x)=6ax+2b,\\ p''(0)=2b$$\nולכן $d=c=2b$. אם כן, הפולינום ב-$W_1$ הוא מהצורה\n$$p(x)=ax^3+bx^2+2bx+2b=ax^3+b(x^2+2x+2),\\quad a,b\\in\\mathbb{R}$$\nובהצגה הקואורדינטית $W_1=\\mathrm{Sp}\\left\\{\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\2\\\\2\\end{pmatrix}\\right\\}$. הבסיס הוא $B_{W_1}=\\{x^3,\\ x^2+2x+2\\}$ (שני וקטורים שאינם כפולה אחד של השני), ו-$\\dim W_1=2$.\n**מציאת בסיס ל-$W_2$:** $q(x)=ax^3+bx^2+cx+d$, $q'(x)=3ax^2+2bx+c$, $q'(0)=c$, ולכן $c=0$. אם כן, הפולינום ב-$W_2$ הוא מהצורה $q(x)=ax^3+bx^2+d$, $a,b,d\\in\\mathbb{R}$, כלומר $W_2=\\mathrm{Sp}\\{x^3,x^2,1\\}$. בהצגה הקואורדינטית $W_2=\\mathrm{Sp}\\left\\{\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\0\\\\0\\\\1\\end{pmatrix}\\right\\}$. הבסיס הוא $B_{W_2}=\\{x^3,x^2,1\\}$, ו-$\\dim W_2=3$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 8,
+   "question": "חשבו תת מרחב $W_1+W_2$, מצא בסיס ומימד של תת מרחב זה.",
+   "solution": "$W_1+W_2=\\mathrm{Sp}\\{B_{W_1},B_{W_2}\\}=\\mathrm{Sp}\\{x^3,\\ x^2+2x+2,\\ x^3,\\ x^2,\\ 1\\}$, כלומר בהצגה הקואורדינטית\n$$W_1+W_2=\\mathrm{Sp}\\left\\{\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\2\\\\2\\end{pmatrix},\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\0\\\\0\\\\1\\end{pmatrix}\\right\\}$$\nמכיוון שהווקטור הראשון והשלישי זהים, ניתן לפסול אחד מהם, ולבדוק האם הקבוצה הנותרת בת״ל ע״י דירוג מטריצה שכל שורה בה היא וקטור:\n$$\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&1&2&2\\\\0&0&0&1\\end{pmatrix}\\xrightarrow{R_3\\to R_3-R_2}\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&2&2\\\\0&0&0&1\\end{pmatrix}\\xrightarrow{\\substack{R_3\\to R_3/2\\\\R_3\\to R_3-R_4}}\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\end{pmatrix}$$\nקיבלנו מטריצה יחידה, ולכן 4 הווקטורים שנותרו מהווים קבוצה בת״ל. אם כן\n$$B_{W_1+W_2}=\\{x^3,x^2,x,1\\},\\qquad \\dim(W_1+W_2)=4$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 8,
+   "question": "חשבו תת מרחב $W_1\\cap W_2$, מצא בסיס ומימד של תת מרחב זה.",
+   "solution": "נחפש וקטורים משותפים: נבחר צירוף לינארי של בסיס $W_1$ ובסיס $W_2$, ונדרוש ששני הצירופים שווים, כלומר\n$$\\alpha_1\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix}+\\alpha_2\\begin{pmatrix}0\\\\1\\\\2\\\\2\\end{pmatrix}+\\beta_1\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix}+\\beta_2\\begin{pmatrix}0\\\\1\\\\0\\\\0\\end{pmatrix}+\\beta_3\\begin{pmatrix}0\\\\0\\\\0\\\\1\\end{pmatrix}=\\begin{pmatrix}0\\\\0\\\\0\\\\0\\end{pmatrix}$$\n(הסימון $\\beta_i$ כולל את הסימן המינוס של צד $W_2$). נדרג את מטריצת המקדמים:\n$$\\begin{pmatrix}1&0&1&0&0\\\\0&1&0&1&0\\\\0&2&0&0&0\\\\0&2&0&0&1\\end{pmatrix}\\to\\dots\\to\\begin{pmatrix}1&0&1&0&0\\\\0&1&0&0&0\\\\0&0&0&1&0\\\\0&0&0&0&1\\end{pmatrix}$$\nנקבל $\\beta_1=t\\in\\mathbb{R}$ ו-$\\beta_2=\\beta_3=0$, ולכן $W_1\\cap W_2=\\mathrm{Sp}\\left\\{t\\begin{pmatrix}1\\\\0\\\\0\\\\0\\end{pmatrix}\\right\\}$. אם כן\n$$B_{W_1\\cap W_2}=\\{x^3\\},\\qquad \\dim(W_1\\cap W_2)=1$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 3,
+   "question": "האם הפולינום $Q(x)=x^3+2x^2+3$ שייך לתת מרחב $W_1+W_2$? נמקו את תשובתכם.",
+   "solution": "כן. $Q(x)=x^3+2x^2+3$ שייך ל-$W_1+W_2$ כי ניתן להציגו כצירוף לינארי של איברי הבסיס $B_{W_1+W_2}=\\{x^3,x^2,x,1\\}$:\n$$Q(x)=1\\cdot x^3+2\\cdot x^2+0\\cdot x+3\\cdot 1$$\n(הערת תמלול: בפתרון הרשמי כתוב בכתב יד $Q(x)=1\\cdot x^2+2\\cdot x^2+0\\cdot x+1\\cdot 1$ - טעות כתיבה; הצירוף הנכון הוא כמוצג למעלה.)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4"
+  },
+  {
+   "num": 5,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 12,
+   "question": "מצאו את המימד ובסיס של $\\mathrm{Im}\\,T$, $\\mathrm{Ker}\\,T$.",
+   "solution": "בסיס סטנדרטי של $M_{2\\times2}(\\mathbb{R})$ הוא\n$$E=\\left(\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix},\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix},\\begin{pmatrix}0&0\\\\1&0\\end{pmatrix},\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}\\right)$$\nו-$F=(1,x,x^2,x^3)$ הוא בסיס סטנדרטי של $\\mathbb{R}_3[x]$. המטריצה המייצגת הסטנדרטית היא\n$$A=[T]_E^F=\\begin{pmatrix}1&2&12&21\\\\1&0&10&1\\\\1&2&12&21\\\\1&5&15&51\\end{pmatrix}$$\n$$\\left(\\begin{array}{cccc|c}1&2&12&21&0\\\\1&0&10&1&0\\\\1&2&12&21&0\\\\1&5&15&51&0\\end{array}\\right)\\Leftrightarrow\\left(\\begin{array}{cccc|c}1&2&12&21&0\\\\0&-2&-2&-20&0\\\\0&0&0&0&0\\\\0&3&3&30&0\\end{array}\\right)\\Leftrightarrow\\left(\\begin{array}{cccc|c}1&2&12&21&0\\\\0&1&1&10&0\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{array}\\right)$$\nעמודות מס׳ 1,2 של המטריצה המדורגת מובילות, אז $\\mathrm{Col}A$ בסיס של\n$$\\left(\\begin{pmatrix}1\\\\1\\\\1\\\\1\\end{pmatrix},\\begin{pmatrix}2\\\\0\\\\2\\\\5\\end{pmatrix}\\right)$$\nז״א בסיס של $\\mathrm{Im}\\,T$ הוא $\\left(\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix},\\begin{pmatrix}2&0\\\\2&5\\end{pmatrix}\\right)$ ו-$\\dim\\mathrm{Im}\\,T=2$.\nבנוסף לזאת:\n$$\\left(\\begin{array}{cccc|c}1&0&10&1&0\\\\0&1&1&10&0\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{array}\\right)\\Leftrightarrow\\begin{cases}x_1=-10s_1-1s_2\\\\x_2=-s_1-10s_2\\\\x_3=s_1\\\\x_4=s_2\\end{cases}\\Leftrightarrow\\begin{pmatrix}x_1\\\\x_2\\\\x_3\\\\x_4\\end{pmatrix}=s_1\\begin{pmatrix}-10\\\\-1\\\\1\\\\0\\end{pmatrix}+s_2\\begin{pmatrix}-1\\\\-10\\\\0\\\\1\\end{pmatrix}$$\nאז $\\mathrm{Nul}A$ בסיס של $\\left(\\begin{pmatrix}-10\\\\-1\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}-1\\\\-10\\\\0\\\\1\\end{pmatrix}\\right)$, ז״א בסיס של $\\mathrm{Ker}\\,T$ הוא $\\left(-10-x+x^2,\\ -1-10x+x^3\\right)$ ו-$\\dim\\mathrm{Ker}\\,T=2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 3,
+   "question": "האם $T$ חח״ע? האם $T$ על? נמקו.",
+   "solution": "$T$ לא חח״ע כי $\\dim\\mathrm{Ker}\\,T=2\\neq 0$, ו-$T$ לא על כי $\\dim\\mathrm{Im}\\,T=2\\neq\\dim M_{2\\times2}(\\mathbb{R})=4$.\n(הערת תמלול: בפתרון הרשמי כתוב $\\dim\\mathbb{R}^4$ במקום $\\dim M_{2\\times2}(\\mathbb{R})$ - אין זה משנה את המסקנה, כי $\\dim M_{2\\times2}(\\mathbb{R})=4$.)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 5,
+   "question": "לאילו ערכים של פרמטרים $a,b$ מתקיים $22+22x+ax^2+bx^3\\in\\mathrm{Ker}\\,T$?",
+   "solution": "הפולינום שייך ל-$\\mathrm{Ker}\\,T$ אם ורק אם וקטור הקואורדינטות שלו $(22,22,a,b)$ הוא צירוף לינארי של בסיס ה-$\\mathrm{Ker}\\,T$, כלומר המערכת עם העמודה האחרונה $(22,22,a,b)$ פתירה:\n$$\\left(\\begin{array}{cc|c}-10&-1&22\\\\-1&-10&22\\\\1&0&a\\\\0&1&b\\end{array}\\right)\\to\\left(\\begin{array}{cc|c}-1&-10&22\\\\-10&-1&22\\\\1&0&a\\\\0&1&b\\end{array}\\right)\\to\\left(\\begin{array}{cc|c}-1&-10&22\\\\0&99&-198\\\\0&-10&a+22\\\\0&1&b\\end{array}\\right)\\to\\left(\\begin{array}{cc|c}-1&-10&22\\\\0&1&-2\\\\0&-10&a+22\\\\0&1&b\\end{array}\\right)\\to\\left(\\begin{array}{cc|c}-1&-10&22\\\\0&1&-2\\\\0&0&a+2\\\\0&0&b+2\\end{array}\\right)$$\n$$\\begin{cases}a+2=0\\\\b+2=0\\end{cases}\\Rightarrow\\begin{cases}a=-2\\\\b=-2\\end{cases}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 5,
+   "question": "נתונים בסיסים $B=\\left(\\begin{pmatrix}2\\\\2\\end{pmatrix},\\begin{pmatrix}0\\\\5\\end{pmatrix}\\right)$, $C=\\left(\\begin{pmatrix}1\\\\3\\end{pmatrix},\\begin{pmatrix}2\\\\7\\end{pmatrix}\\right)$ של מרחב $\\mathbb{R}^2$. מצאו את מטריצת המעבר $[I]_C^B$ מבסיס $B$ לבסיס $C$. (שאלה 5 סעיף 2; אין קשר בין סעיף 1 לסעיף 2.)",
+   "solution": "נסמן ב-$E$ בסיס סטנדרטי של $\\mathbb{R}^2$:\n$$[I]_E^B=\\begin{pmatrix}2&0\\\\2&5\\end{pmatrix},\\qquad [I]_E^C=\\begin{pmatrix}1&2\\\\3&7\\end{pmatrix}$$\n**שיטה 1:**\n$$[I]_C^B=[I]_C^E[I]_E^B=\\left([I]_E^C\\right)^{-1}[I]_E^B=\\begin{pmatrix}1&2\\\\3&7\\end{pmatrix}^{-1}\\begin{pmatrix}2&0\\\\2&5\\end{pmatrix}=\\begin{pmatrix}7&-2\\\\-3&1\\end{pmatrix}\\begin{pmatrix}2&0\\\\2&5\\end{pmatrix}=\\begin{pmatrix}10&-10\\\\-4&5\\end{pmatrix}$$\n**שיטה 2:**\n$$\\left(\\begin{array}{cc|cc}1&2&2&0\\\\3&7&2&5\\end{array}\\right)\\to\\left(\\begin{array}{cc|cc}1&2&2&0\\\\0&1&-4&5\\end{array}\\right)\\to\\left(\\begin{array}{cc|cc}1&0&10&-10\\\\0&1&-4&5\\end{array}\\right)\\to[I]_C^B=\\begin{pmatrix}10&-10\\\\-4&5\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 # STATUS - linear-algebra
 
-Resume here: phase 0 - not started
+Resume here: phase 2 - flagship 25A-A transcribed (17 items, validated, built); next: steps + refuter pass, then Adir tries it (gate 2)
 Opus sessions: 0 of 2
 Engine: open   Format: unknown   Cutoff: unknown
 
@@ -17,10 +17,10 @@ Gates 1, 2 and 7 always stop for Adir.
   - [ ] Adir approved
   - [ ] config.overlay.json written, app repo scaffolded (triage stays in the factory)
 - [ ] Phase 2 - flagship  (GATE 2: Adir tries it in the browser)
-  - [ ] topic taxonomy chosen
-  - [ ] flagship sitting transcribed + validated
+  - [x] topic taxonomy chosen
+  - [x] flagship sitting transcribed + validated (25A-A: 5 Qs, 17 items, sympy-checked, 0 holds)
   - [ ] steps (if open questions) + refuter pass
-  - [ ] smoke / verify_dom green, running locally
+  - [ ] smoke / verify_dom green, running locally (verify_dom green on the transcribed bank; re-run after steps)
   - [ ] Adir tried it
 - [ ] Phase 3 - bank
   - [ ] all in-scope sittings transcribed (batches of <=4)
@@ -55,3 +55,4 @@ Gates 1, 2 and 7 always stop for Adir.
   - [ ] registry status = live
 
 ## Notes
+- 2026-10-17 flagship 25A-A: chosen because 25B-A (no solution for Q6) and 25A-B (no solution for Q4) are incomplete. The printed exam has 5 questions (triage said 6). Official slips flagged inside the solution text: Q4d handwritten combination, Q5b says R^4 instead of M2x2.
