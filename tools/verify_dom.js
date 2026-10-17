@@ -29,7 +29,7 @@ function boot(opts = {}) {
   const vc = new VirtualConsole();
   vc.on("jsdomError", e => errors.push("jsdomError: " + (e.message || e)));
   vc.on("error", (...a) => errors.push("console.error: " + a.join(" ")));
-  const dom = new JSDOM(html, { pretendToBeVisual: true, runScripts: "outside-only", url: "http://localhost/index.html", virtualConsole: vc });
+  const dom = new JSDOM(html, { pretendToBeVisual: true, runScripts: "outside-only", url: "http://localhost/index.html" + (opts.search || ""), virtualConsole: vc });
   const { window } = dom;
   window.scrollTo = () => {};
   window.matchMedia = window.matchMedia || (q => ({ matches: false, media: q, addEventListener() {}, removeEventListener() {} }));
@@ -43,6 +43,7 @@ function boot(opts = {}) {
   const scripts = [...window.document.querySelectorAll("script[src]")]
     .map(s => s.getAttribute("src")).filter(s => !/^(https?:)?\/\//.test(s)).map(s => s.split("?")[0]);
   for (const f of scripts) {
+    if (f === "learn.js" && !fs.existsSync(path.join(ROOT, f))) continue;   // no briefs built yet
     try { window.eval(fs.readFileSync(path.join(ROOT, f), "utf8")); }
     catch (e) { errors.push(`eval ${f}: ${e.message}`); }
   }
@@ -125,7 +126,8 @@ console.log("1. boot");
   const A = boot();
   const B = A.window.OPEN_BANK;
   assert(B && Array.isArray(B.questions) && B.questions.length > 0, "OPEN_BANK loaded with questions: " + QS.length);
-  assert(A.scripts.join() === "questions.js,courses.js,normalize.js,steps.js,aiprompt.js,app.js,course-ui.js", "scripts: " + A.scripts.join(", "));
+  const SCRIPTS = ["questions.js", "learn.js", "courses.js", "normalize.js", "steps.js", "aiprompt.js", "app.js", "course-ui.js"];
+  assert(A.scripts.join() === SCRIPTS.join(), "scripts: " + A.scripts.join(", "));
   assert(A.doc.documentElement.getAttribute("dir") === "rtl", "page is dir=rtl");
   assert(B.meta.course.storePrefix === CFG.storePrefix, `bank meta storePrefix == course.config.json (${CFG.storePrefix})`);
   assert(A.$$("#topicGrid .topic-btn").length === B.meta.topics.length + 1, "topic buttons = topics + all");
@@ -285,6 +287,91 @@ console.log("7. exam simulation");
   assert(new RegExp(`^${rubricMax} / ${maxPts}`).test(txt()), `all rubrics ticked -> ${rubricMax} / ${maxPts}: "${txt()}"`);
   assert(A.$$("#screen-results .rev").length === exam.length, "one review block per question");
   assert(A.errors.length === 0, "no errors: " + A.errors.join(" | "));
+}
+
+/* 7b. learn mode (learn.js from tools/build_learn.py); skipped when absent or empty */
+console.log("7b. learn mode");
+{
+  const A = boot();
+  const L = A.window.LEARN;
+  const ch = Array.isArray(L) ? L : ((L || {}).chapters || []);
+  if (!ch.length) {
+    console.log("learn: none built yet (skipped)");
+    assert(A.$("#learnEntry").style.display === "none", "learn entry hidden (no chapters)");
+  } else {
+    const TOPIC_KEYS = new Set(A.$$("#topicGrid .topic-btn").map(b => b.dataset.topic).filter(t => t !== "all"));
+    const qids = new Set(QS.map(q => q.id));
+    const chIds = ch.map(c => c.id);
+    assert(A.$("#learnEntry").style.display !== "none", "learn entry visible");
+    assert(new Set(chIds).size === chIds.length && chIds.every(Boolean), `learn: ${chIds.length} chapters, unique ids`);
+    assert(ch.every(c => c.title && c.html), "learn: every chapter has a title and html");
+    const badTopic = ch.filter(c => c.topic && !TOPIC_KEYS.has(c.topic)).map(c => c.id);
+    assert(badTopic.length === 0, `learn: chapter topics are in the closed topic list${badTopic.length ? " BAD: " + badTopic : ""}`);
+    const covered = new Set(ch.filter(c => c.kind !== "cheat").map(c => c.topic));
+    for (const t of TOPIC_KEYS) if (!covered.has(t)) console.log(`WARN  learn: topic "${t}" has no brief`);
+    const dangling = [], deadX = [], mathBad = [], preBad = [];
+    let nRefs = 0, nMath = 0;
+    for (const c of ch) {
+      const frag = A.doc.createElement("div"); frag.innerHTML = c.html;
+      for (const b of frag.querySelectorAll(".qref")) { nRefs++; if (!qids.has(b.dataset.q)) dangling.push(`${c.id}:${b.dataset.q}`); }
+      for (const a of frag.querySelectorAll(".xref")) if (!chIds.includes(a.dataset.chapter)) deadX.push(`${c.id}->${a.dataset.chapter}`);
+      for (const m of frag.querySelectorAll("math")) { nMath++; if (m.getAttribute("dir") !== "ltr" || /[֐-׿]/.test(m.textContent)) mathBad.push(c.id); }
+      for (const p of frag.querySelectorAll("pre")) if (p.getAttribute("dir") !== "ltr") preBad.push(c.id);
+    }
+    assert(dangling.length === 0, `learn: all ${nRefs} question refs resolve${dangling.length ? " DANGLING: " + dangling.join(", ") : ""}`);
+    assert(deadX.length === 0, `learn: all cross-references resolve${deadX.length ? " DEAD: " + deadX.join(", ") : ""}`);
+    assert(mathBad.length === 0, `learn: all ${nMath} <math> are dir=ltr with no Hebrew${mathBad.length ? " BAD in: " + [...new Set(mathBad)] : ""}`);
+    assert(preBad.length === 0, "learn: every code block is dir=ltr");
+    for (const c of ch) if (c.kind !== "cheat" && c.topic && !QS.some(q => q.topic === c.topic))
+      console.log(`WARN  learn: chapter "${c.id}" (topic ${c.topic}) has 0 questions in the bank`);
+
+    A.click(A.$("#learnEntry"));
+    assert(A.visible(A.$("#screen-learn")), "learn: screen opens from the entry button");
+    assert(A.$$("#learnToc button").length === ch.length, `learn: TOC lists ${ch.length} chapters`);
+    const seen = [];
+    for (let i = 0; i < ch.length; i++) {
+      seen.push(A.$("#learnContent").dataset.chapter);
+      if (!A.$("#learnContent .learn-h")) { assert(false, `learn: chapter ${i} has no heading`); break; }
+      const t = ch[i].topic, n = t ? QS.filter(q => q.topic === t).length : 0;
+      if (n && !A.$("#learnContent .learn-drill")) assert(false, `learn: chapter ${ch[i].id} missing the practice button`);
+      if (i < ch.length - 1) A.click(A.$("#learnNext"));
+    }
+    assert(seen.join() === chIds.join(), "learn: next-button walk visits every chapter in order");
+    assert(A.$("#learnNext").disabled, "learn: next disabled on the last chapter");
+
+    const withRef = ch.findIndex(c => /class="qref"/.test(c.html));
+    if (withRef >= 0) {
+      A.click(A.$$("#learnToc button")[withRef]);
+      const ref = A.$$("#learnContent .qref").find(b => qids.has(b.dataset.q)) || A.$("#learnContent .qref");
+      A.click(ref);
+      assert(A.visible(A.$("#qpeek")), `learn: clicking ${ref.dataset.q} opens the peek`);
+      assert(A.$("#qpeekBody .qpeek-q") && A.$("#qpeekBody .qpeek-q").textContent.trim().length > 0, "learn: the peek shows the question text");
+      A.doc.dispatchEvent(new A.window.KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+      assert(!A.visible(A.$("#qpeek")) && A.visible(A.$("#screen-learn")), "learn: Escape closes the peek, stays in learn");
+    }
+    const withX = ch.findIndex(c => /class="xref"/.test(c.html));
+    if (withX >= 0) {
+      A.click(A.$$("#learnToc button")[withX]);
+      const x = A.$("#learnContent .xref");
+      A.click(x);
+      assert(A.$("#learnContent").dataset.chapter === x.dataset.chapter, `learn: xref jumps to ${x.dataset.chapter}`);
+    }
+    // "practice this topic" -> topic practice in the open app
+    const di = ch.findIndex(c => c.topic && QS.some(q => q.topic === c.topic));
+    if (di >= 0) {
+      A.click(A.$$("#learnToc button")[di]);
+      A.click(A.$("#learnContent .learn-drill"));
+      const shown = byId(A.qid());
+      assert(A.visible(A.$("#screen-question")) && shown && shown.topic === ch[di].topic, `learn: practice button starts ${ch[di].topic} topic practice`);
+      A.click(A.$("#quitBtn"));
+      assert(A.visible(A.$("#screen-start")), "learn: back on the start screen after quitting practice");
+    }
+    // deep link ?learn=<id>
+    const last = chIds[chIds.length - 1];
+    const D = boot({ search: "?learn=" + encodeURIComponent(last) });
+    assert(D.visible(D.$("#screen-learn")) && D.$("#learnContent").dataset.chapter === last, `learn: deep link ?learn=${last} opens it`);
+    assert(A.errors.length === 0 && D.errors.length === 0, "learn: no JS errors: " + A.errors.concat(D.errors).join(" | "));
+  }
 }
 
 /* 8. guided "צריך עזרה?" courses (course-ui.js + courses.js), any needHelp list */
@@ -508,6 +595,23 @@ else {
     assert(types.includes("tf") && types.includes("self"), `boss exercises tf and self-marked kinds (${types})`);
     assert(/0%/.test(B.$("#crsSum .big").textContent), "boss all wrong scores 0%");
     assert(B.errors.length === 0, "no errors: " + B.errors.join(" | "));
+  }
+}
+
+/* 9. inline figures in rich text (![alt](images/exams/x.png) lines) render as clickable .rt-fig */
+console.log("9. inline figures");
+{
+  const withFig = QS.filter(q => /rt-fig/.test(JSON.stringify(q)));
+  if (!withFig.length) console.log("no inline figures in the bank (skipped)");
+  else {
+    const q = withFig[0], A = boot();
+    openQ(A, q);
+    if (A.$(".sol-panel > summary")) A.click(A.$(".sol-panel > summary"));
+    const img = A.$(".rt-fig img");
+    assert(!!img && !!img.getAttribute("src") && !!A.$(".rt-fig figcaption"), `${q.id}: .rt-fig renders an img with a caption`);
+    assert(img && fs.existsSync(path.join(ROOT, img.getAttribute("src"))), `${q.id}: the figure file exists on disk`);
+    if (img) { A.click(img); assert(A.visible(A.$("#lightbox")), "clicking the figure opens the lightbox"); }
+    assert(A.errors.length === 0, "no errors: " + A.errors.join(" | "));
   }
 }
 

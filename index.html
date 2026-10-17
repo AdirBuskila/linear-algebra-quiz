@@ -6,7 +6,7 @@
 <title>אלגברה ליניארית</title>
 <meta name="description" content="תרגול מבחנים - אלגברה ליניארית">
 <link rel="icon" href="favicon.svg?v=1" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css?v=3">
 <script>
   // Apply saved theme before first paint to avoid a flash of the wrong theme.
   (function(){ try{ var t=localStorage.getItem("linear-algebra_theme"); if(t==="light"||t==="dark") document.documentElement.dataset.theme=t; }catch(e){} })();
@@ -24,6 +24,7 @@
   </div>
   <div class="topbar-right">
     <div class="topstats" id="topStats"></div>
+    <button id="learnEntry" class="btn ghost learn-entry" type="button">📖 מצב לימוד</button>
     <button id="helpEntry" class="btn ghost crs-entry" type="button" title="קורסים מודרכים בנושאים הקשים: משיעור קצר ועד שאלות מבחן" style="display:none">🧭 צריך עזרה?</button>
     <button id="themeToggle" class="theme-toggle" type="button" aria-label="החלפת מצב תצוגה (בהיר/כהה)" title="מצב בהיר/כהה"></button>
   </div>
@@ -114,6 +115,25 @@
     </div>
   </section>
 
+  <!-- LEARN (filled from learn.js; the entry button hides itself when there are no chapters) -->
+  <section id="screen-learn" class="screen hidden">
+    <div class="learn-bar">
+      <button id="learnBackBtn" class="btn ghost">⟵ חזרה לתרגול</button>
+      <div class="learn-progress" aria-hidden="true"><div id="learnProgressFill"></div></div>
+      <button id="learnTocToggle" class="btn ghost learn-toc-toggle" type="button" aria-expanded="false">☰ פרקים</button>
+    </div>
+    <div class="learn-layout">
+      <nav id="learnToc" class="learn-toc" aria-label="ניווט פרקים"></nav>
+      <article id="learnContent" class="card learn-content" tabindex="-1"></article>
+    </div>
+    <div id="learnBackdrop" class="learn-backdrop hidden"></div>
+    <div class="learn-foot">
+      <button id="learnPrev" class="btn ghost">⟶ הקודם</button>
+      <span id="learnPos" class="learn-pos"></span>
+      <button id="learnNext" class="btn primary">הבא ⟵</button>
+    </div>
+  </section>
+
   <!-- GUIDED COURSE ("צריך עזרה?"): level map -> lesson -> quiz -> summary (course-ui.js) -->
   <section id="screen-course" class="screen hidden">
     <div id="crsMapView">
@@ -171,6 +191,21 @@
   <img id="lightboxImg" src="" alt="">
 </div>
 
+<div id="qpeek" class="qpeek hidden" role="dialog" aria-modal="true" aria-label="תצוגת שאלה מהמאגר">
+  <div class="qpeek-panel" role="document">
+    <div class="qpeek-head">
+      <span id="qpeekId" class="chip mono"></span>
+      <span id="qpeekSource" class="chip soft"></span>
+      <span id="qpeekBadge" class="chip"></span>
+      <button id="qpeekClose" class="qpeek-close" type="button" aria-label="סגירה">✕</button>
+    </div>
+    <div id="qpeekBody" class="qpeek-body"></div>
+    <div class="qpeek-foot">
+      <button id="qpeekDrill" class="btn primary" type="button">תרגל את הנושא ▶</button>
+    </div>
+  </div>
+</div>
+
 <footer class="appfoot">
   <span id="datasetInfo"></span> ·
   <button id="resetProgress" class="linkbtn">איפוס התקדמות</button>
@@ -182,11 +217,12 @@
 </footer>
 
 <script src="questions.js?v=1"></script>
+<script src="learn.js?v=1"></script>
 <script src="courses.js?v=1"></script>
 <script src="normalize.js?v=1"></script>
 <script src="steps.js?v=1"></script>
 <script src="aiprompt.js?v=1"></script>
-<script src="app.js?v=2"></script>
+<script src="app.js?v=3"></script>
 <script src="course-ui.js?v=1"></script>
 </body>
 </html>

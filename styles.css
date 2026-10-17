@@ -685,3 +685,230 @@ pre.code-block{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   padding:.6em .85em;margin:.5em 0;font-size:.88em;line-height:1.55;tab-size:4}
 pre.code-block code{font:inherit;white-space:pre;direction:ltr;text-align:left;background:none;
   border:0;padding:0;border-radius:0}
+
+/* inline figure inside rich text (a line of exactly ![alt](images/exams/<file>.png)) */
+.rt-fig{margin:.7rem auto;max-width:100%;text-align:center}
+.rt-fig img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:8px;
+  background:#fff;cursor:zoom-in}
+.rt-fig figcaption{margin-top:.3rem;font-size:.78rem;color:var(--muted);overflow-wrap:anywhere}
+
+/* ---------------- learning section ---------------- */
+.learn-entry{font-size:.84rem;padding:.45rem .8rem;white-space:nowrap}
+
+#screen-learn{max-width:1040px;margin-inline:auto}
+.learn-bar{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.learn-progress{flex:1;height:7px;background:var(--card2);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+#learnProgressFill{height:100%;width:0;background:var(--grad);border-radius:20px;transition:width .3s ease}
+.learn-toc-toggle{display:none}
+
+.learn-layout{display:grid;grid-template-columns:240px 1fr;gap:1rem;align-items:start}
+
+.learn-toc{
+  position:sticky;top:5rem;display:flex;flex-direction:column;gap:.2rem;
+  background:var(--card);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);
+  padding:.6rem;max-height:calc(100vh - 6.5rem);overflow:auto
+}
+.learn-toc button{
+  text-align:right;border:none;background:transparent;color:var(--muted);font:inherit;font-size:.86rem;
+  padding:.5rem .7rem;border-radius:10px;cursor:pointer;transition:background .12s,color .12s;line-height:1.35
+}
+.learn-toc button:hover{background:var(--card2);color:var(--ink)}
+.learn-toc button.active{background:color-mix(in srgb,var(--brand) 16%,var(--card2));color:var(--ink);font-weight:700}
+
+.learn-content{padding:1.6rem 1.8rem;min-height:60vh;animation:rise .3s ease both;
+  min-width:0;overflow-wrap:anywhere;word-break:break-word}
+.learn-content h2.learn-h{font-size:1.5rem;font-weight:800;margin-bottom:1rem;
+  padding-bottom:.7rem;border-bottom:1px solid var(--line)}
+.learn-content h3{font-size:1.08rem;color:var(--ink);font-weight:700;margin:1.5rem 0 .5rem}
+.learn-content p{margin:.6rem 0;color:var(--ink)}
+.learn-content ul,.learn-content ol{margin:.5rem 0;padding-inline-start:1.4rem;display:flex;flex-direction:column;gap:.3rem}
+.learn-content li{line-height:1.6}
+.learn-content li::marker{color:var(--brand)}
+.learn-content strong{color:var(--ink);font-weight:800}
+.learn-content code{
+  font-family:"Consolas",ui-monospace,monospace;font-size:.86em;direction:ltr;display:inline-block;
+  background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:.05em .4em
+}
+.learn-content pre{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;overflow:auto;direction:ltr}
+.learn-content pre code{border:none;background:none;padding:0}
+.learn-content hr{border:none;border-top:1px solid var(--line);margin:1.2rem 0}
+.learn-content a{color:var(--brand)}
+.learn-content table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.86rem;overflow:hidden;
+  border-radius:10px;border:1px solid var(--line)}
+.learn-content th,.learn-content td{border:1px solid var(--line);padding:.5rem .7rem;text-align:right}
+.learn-content thead th{background:var(--card2);color:var(--ink);font-weight:800}
+.learn-content tbody tr:nth-child(even){background:var(--card2)}
+
+/* --- exam-technique briefs (learn-briefs.js) --- */
+.learn-content h4{font-size:.98rem;color:var(--ink);font-weight:800;margin:1.1rem 0 .4rem}
+.learn-content h5{font-size:.92rem;color:var(--muted);font-weight:800;margin:.9rem 0 .35rem}
+.learn-note{
+  margin:.9rem 0;padding:.7rem .95rem;background:var(--card2);
+  border:1px solid var(--line);border-inline-start:3px solid var(--brand);
+  border-radius:var(--radius-xs)
+}
+.learn-note>:first-child{margin-top:0}
+.learn-note>:last-child{margin-bottom:0}
+.learn-note h3,.learn-note h4,.learn-note h5{margin-top:.2rem}
+.learn-note table{font-size:.82rem}
+.learn-math{margin:.9rem 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+.learn-content ul.learn-check{padding-inline-start:.2rem;list-style:none;gap:.42rem}
+.learn-content ul.learn-check li{
+  position:relative;padding-inline-start:1.5rem;line-height:1.55;color:var(--ink)
+}
+.learn-content ul.learn-check li::before{
+  content:"☐";position:absolute;inset-inline-start:0;top:-.05em;
+  color:var(--brand);font-size:1.05em
+}
+.learn-tablewrap{overflow-x:auto;margin:1rem 0}
+.learn-tablewrap>table{margin:0;min-width:100%}
+
+.learn-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;margin-top:1.4rem}
+.learn-fig{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card2);
+  display:flex;flex-direction:column}
+.learn-fig img{width:100%;height:auto;display:block;cursor:zoom-in;background:#0b1020;transition:transform .2s}
+.learn-fig img:hover{transform:scale(1.02)}
+.learn-fig figcaption{padding:.55rem .7rem;font-size:.78rem;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
+
+.learn-foot{display:flex;align-items:center;gap:.6rem;margin-top:1.1rem}
+.learn-pos{flex:1;text-align:center;font-size:.84rem;color:var(--muted);font-weight:600}
+
+/* ================= learn mode: briefs (docs/briefs -> tools/build_learn.py -> learn.js) =========== */
+/* chapter title sits beside its "drill this topic" entry point */
+.learn-head{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;
+  padding-bottom:.7rem;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.learn-head h2.learn-h{margin:0;padding:0;border:none;flex:1;min-width:0}
+.learn-kind{display:inline-block;font-size:.72rem;font-weight:800;color:var(--brand2);
+  border:1px solid color-mix(in srgb,var(--brand2) 40%,transparent);border-radius:20px;
+  padding:.05em .6em;margin-inline-start:.5rem;vertical-align:middle}
+.learn-drill{white-space:nowrap;font-size:.86rem;padding:.5rem .9rem;flex:none}
+.learn-drill .n{display:inline-block;margin-inline-start:.35rem;padding:.05em .45em;border-radius:20px;
+  background:rgba(255,255,255,.22);font-size:.82em;font-weight:800}
+.learn-toc button.cheat{font-style:normal}
+.learn-toc button.cheat::before{content:"📋 "}
+
+/* section headings from the briefs' "## " structure */
+.learn-content h2:not(.learn-h){font-size:1.2rem;font-weight:800;color:var(--ink);
+  margin:2rem 0 .7rem;padding-inline-start:.7rem;border-inline-start:4px solid var(--brand);line-height:1.4}
+.learn-content h2:not(.learn-h):first-child{margin-top:.4rem}
+
+/* cross-reference to another chapter */
+.xref{color:var(--brand);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.xref:hover{color:var(--brand2)}
+
+/* a question id: click to peek at the real question */
+.qref{
+  font-family:"Consolas",ui-monospace,monospace;font-size:.84em;direction:ltr;unicode-bidi:isolate;
+  background:color-mix(in srgb,var(--brand) 13%,transparent);color:var(--brand);
+  border:1px solid color-mix(in srgb,var(--brand) 34%,transparent);
+  border-radius:6px;padding:.08em .45em;margin-inline:.1em;cursor:pointer;font-weight:700;
+  white-space:nowrap;transition:background .12s,color .12s,border-color .12s
+}
+.qref:hover,.qref:focus-visible{background:var(--brand);color:var(--brand-ink);border-color:transparent}
+
+/* auto-generated "שאלות מבחן בנושא" list */
+.learn-qs{margin-top:2.2rem;padding-top:.4rem;border-top:1px dashed var(--line-strong)}
+.learn-qs-note,.learn-qs-empty{font-size:.84rem;color:var(--muted) !important}
+.learn-content ul.learn-qs-list{list-style:none;padding:0;gap:.5rem}
+.learn-qs-list li{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .6rem;
+  padding:.5rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--card2)}
+.learn-qs-exam{font-weight:700;font-size:.88rem;min-width:7.5rem}
+.learn-qs-btns{display:flex;flex-wrap:wrap;gap:.3rem}
+.learn-qs-btns .qref{font-family:inherit;direction:rtl;font-size:.8rem;margin:0}
+
+/* tables scroll inside their own box so a wide one never stretches the page */
+.tbl-wrap{overflow-x:auto;margin:1.1rem 0;border:1px solid var(--line);border-radius:10px;
+  -webkit-overflow-scrolling:touch}
+.learn-content .tbl-wrap table{margin:0;border:none;border-radius:0;
+  min-width:calc(var(--cols,3) * 5.5rem)}
+.learn-content .tbl-wrap th,.learn-content .tbl-wrap td{
+  border-inline:none;overflow-wrap:break-word;word-break:normal;vertical-align:top}
+.learn-content .tbl-wrap th{white-space:nowrap}
+
+/* callouts: the briefs' emoji vocabulary, one colour per meaning */
+.learn-content blockquote.cal{
+  margin:1.1rem 0;padding:.75rem 1rem;border-radius:12px;
+  background:var(--card2);border:1px solid var(--line);
+  border-inline-start:4px solid var(--muted)
+}
+.learn-content blockquote.cal>*:first-child{margin-top:0}
+.learn-content blockquote.cal>*:last-child{margin-bottom:0}
+.cal-trap{border-inline-start-color:color-mix(in srgb,var(--warn) 60%,var(--bad)) !important;
+  background:color-mix(in srgb,var(--warn) 11%,transparent) !important}
+.cal-alarm{border-inline-start-color:var(--bad) !important;background:var(--bad-bg) !important}
+.cal-warn{border-inline-start-color:var(--warn) !important;
+  background:color-mix(in srgb,var(--warn) 8%,transparent) !important}
+.cal-key{border-inline-start-color:var(--brand2) !important;
+  background:color-mix(in srgb,var(--brand2) 12%,transparent) !important}
+.cal-tip{border-inline-start-color:var(--brand) !important;
+  background:color-mix(in srgb,var(--brand) 9%,transparent) !important}
+.cal-yes{border-inline-start-color:var(--ok) !important;background:var(--ok-bg) !important}
+.cal-no{border-inline-start-color:var(--bad) !important;background:var(--bad-bg) !important}
+
+/* math inside briefs */
+.learn-content .math-block{margin:1rem 0;padding:.8rem .6rem;
+  background:var(--card2);border:1px solid var(--line);border-radius:12px}
+.learn-content .math-inline{vertical-align:middle}
+.learn-content .tbl-wrap .math-inline{white-space:nowrap;max-width:none;overflow:visible}
+/* edge shadow marking a box whose content runs past its sides */
+.math-block.scrollable,.tbl-wrap.scrollable{
+  box-shadow:inset 15px 0 11px -12px var(--scroll-hint),
+             inset -15px 0 11px -12px var(--scroll-hint)}
+.learn-content .math-fail{color:var(--bad)}
+
+/* ---- question peek (opened from a `26B-B-Q3` chip inside a brief) ---- */
+.qpeek{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:1.5rem;
+  background:rgba(4,6,16,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  animation:rise .18s ease both}
+.qpeek.hidden{display:none}
+.qpeek-panel{width:min(700px,100%);max-height:88vh;display:flex;flex-direction:column;
+  background:var(--card-solid);border:1px solid var(--line-strong);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;min-width:0}
+.qpeek-head{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;
+  padding:.9rem 1.1rem;border-bottom:1px solid var(--line);background:var(--card2)}
+.chip.mono{font-family:"Consolas",ui-monospace,monospace;direction:ltr;unicode-bidi:isolate;font-weight:700}
+.qpeek-close{margin-inline-start:auto;width:2.1rem;height:2.1rem;border-radius:50%;flex:none;
+  border:1px solid var(--line);background:transparent;color:var(--ink);font-size:.95rem;cursor:pointer}
+.qpeek-close:hover{border-color:var(--brand);color:var(--brand)}
+.qpeek-body{padding:1.1rem;overflow:auto;flex:1;min-width:0;overflow-wrap:anywhere}
+.qpeek-q{font-size:1.02rem;font-weight:700;line-height:1.65;color:var(--ink);margin-bottom:.9rem}
+.qpeek-foot{padding:.8rem 1.1rem;border-top:1px solid var(--line);background:var(--card2);
+  display:flex;justify-content:flex-end}
+.qpeek .q-img{max-width:100%;border-radius:10px}
+
+@media(max-width:860px){
+  .learn-head{gap:.7rem}
+  .learn-drill{width:100%;justify-content:center}
+}
+@media(max-width:560px){
+  .qpeek{padding:.6rem}
+  .qpeek-panel{max-height:94vh}
+  .qpeek-body{padding:.9rem}
+  .learn-qs-exam{min-width:0;flex-basis:100%}
+}
+
+
+@media(max-width:860px){
+  .learn-entry{padding:.45rem .7rem}
+  .learn-layout{grid-template-columns:1fr}
+  .learn-toc-toggle{display:inline-block}
+  .learn-toc{display:none;position:static;width:auto;max-height:none;margin-bottom:.9rem;top:auto}
+  .learn-toc.open{display:flex}
+  .learn-toc button{font-size:.92rem;padding:.6rem .8rem}
+  .learn-backdrop{display:none !important}
+}
+@media(max-width:860px){
+  .learn-head{gap:.7rem}
+  .learn-drill{width:100%;justify-content:center}
+}
+@media(max-width:560px){
+  .qpeek{padding:.6rem}
+  .qpeek-panel{max-height:94vh}
+  .qpeek-body{padding:.9rem}
+  .learn-qs-exam{min-width:0;flex-basis:100%}
+}
+@media(max-width:560px){
+  .learn-content{padding:1.2rem 1.1rem}
+  .learn-content h2.learn-h{font-size:1.3rem}
+}

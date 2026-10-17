@@ -78,6 +78,24 @@ variant changes exactly one line; steps never contradict the solution.
   **No Hebrew inside `$…$`.** Literal `$` → `\$`.
 - `**bold**`, `` `code` `` (LTR), `\n` = line break.
 - **Fenced code block** (multi-line code: C, MIPS, C++): a line that is exactly three backticks (optionally followed by a short language tag: `c`, `cpp`, `asm`) opens it and a line that is exactly three backticks closes it. The content is literal: HTML-escaped only, no `$` math, no `**`, no backtick parsing, indentation and blank lines preserved. It renders as an LTR, left-aligned `<pre class="code-block">` that scrolls sideways by itself. An unclosed fence fails `validate.py` and the build, naming the item id. Never write multi-line code as one `` `backtick span` `` per line.
+- **Inline figure** (a plot or sketch inside a solution, explanation or brief): a line consisting only of `![alt text](images/exams/<file>.png)`. It renders as `<figure class="rt-fig"><img ...><figcaption>alt text</figcaption></figure>` (responsive, click to zoom). The file must exist under `images/exams/` (crop it with `tools/crop.py`); a missing file fails `validate.py`, the build and `course_lint.js`, naming the item id. The alt text is shown as the caption and goes through the `redact.txt` check. Any other use of `![` is an error.
+
+## Learn mode (briefs)
+Every app has a learn mode: one Hebrew brief per topic, built to `learn.js` (never hand-edited, gitignored).
+- `course.config.json` `briefs`: `[["01 - topic.md", "chapter_id", "topic_key", "topic"|"cheat"], ...]` in study order.
+  `"topic"` chapters get a "practice this topic" button (jumps to topic practice) and an auto list of that topic's
+  exam questions; `"cheat"` chapters are cross-topic cheat sheets. Empty `briefs` = no learn mode (entry button hidden,
+  `build_learn.py` writes nothing). A topic without a brief only warns.
+- `docs/briefs/<file>.md`: first `# ` line = chapter title; the rest is markdown (`## ` sections, lists, tables,
+  `> 💡/🪤/⚠️/🔑/✅/❌` callouts) plus the bank's rich text: `$..$` / `$$..$$` math (rendered to MathML at build, no Hebrew
+  inside), `` `code` ``, ``` fenced code blocks (LTR `<pre class="code-block">`), inline figure lines
+  `![alt](images/exams/<file>.png)`, `` `24B-A-Q3` `` (a backticked question id becomes a button that peeks at the question;
+  an unknown id fails), `[[chapter_id]]` / `[[chapter_id|label]]` (cross-reference; unknown id fails).
+- Build: `PYTHONUTF8=1 py tools/build_learn.py` (after `build_questions.py`; rerun when the bank changes).
+  `tools/redact.txt` names in a brief fail the build. Check: `node tools/verify_learn.js` (390px/1000px, no overflow, no
+  console errors) and the learn section of `node tools/verify_dom.js` (skipped with a message when `learn.js` is absent).
+- Deep link: `index.html?learn=<chapter_id>`. Files named `*demo*` under `docs/briefs/` are template demos; `new_app.py`
+  does not copy them.
 
 ## Derived at build (do NOT put in raw)
 `id`, `partKey`, `examCode`, `examLabel`, `year`, `source`, `topicLabel`, `pointsTotal` (sum of rubric
