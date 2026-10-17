@@ -1,0 +1,87 @@
+{
+  "slug": "linear-algebra",
+  "titleHe": "אלגברה ליניארית",
+  "descriptionHe": "תרגול מבחנים - אלגברה ליניארית",
+  "accent": "#818cf8",
+  "accent2": "#7c3aed",
+  "sourceFolder": "C:/Users/Adir/Desktop/BSC/שנה א/סמסטר א/אלגברה לינארית",
+  "topics": [
+    [
+      "vectors_geometry",
+      "וקטורים ומכפלות"
+    ],
+    [
+      "lines_planes",
+      "ישרים ומישורים"
+    ],
+    [
+      "complex_numbers",
+      "מספרים מרוכבים"
+    ],
+    [
+      "linear_systems",
+      "מערכות משוואות לינאריות"
+    ],
+    [
+      "matrix_algebra",
+      "אלגברת מטריצות"
+    ],
+    [
+      "rank_inverse",
+      "דרגה והפכית"
+    ],
+    [
+      "determinants",
+      "דטרמיננטות"
+    ],
+    [
+      "vector_spaces",
+      "תת-מרחבים, בסיס ומימד"
+    ],
+    [
+      "linear_maps",
+      "העתקות לינאריות"
+    ],
+    [
+      "eigen_diagonalization",
+      "ערכים עצמיים וליכסון"
+    ],
+    [
+      "matrix_proofs",
+      "הוכחות על מטריצות"
+    ]
+  ],
+  "briefs": [],
+  "needHelp": [
+    {
+      "id": "param_systems",
+      "titleHe": "מערכות משוואות עם פרמטר",
+      "icon": "🧩",
+      "topic": "linear_systems",
+      "entryLabelHe": "צריך עזרה במערכות משוואות עם פרמטר?"
+    },
+    {
+      "id": "basis_dim",
+      "titleHe": "תת-מרחבים, בסיס ומימד",
+      "icon": "📐",
+      "topic": "vector_spaces",
+      "entryLabelHe": "צריך עזרה בתת-מרחבים, בסיס ומימד?"
+    },
+    {
+      "id": "kernel_image",
+      "titleHe": "העתקות לינאריות: גרעין ותמונה",
+      "icon": "🔀",
+      "topic": "linear_maps",
+      "entryLabelHe": "צריך עזרה בגרעין ותמונה?"
+    },
+    {
+      "id": "diagonalization",
+      "titleHe": "ליכסון",
+      "icon": "♦️",
+      "topic": "eigen_diagonalization",
+      "entryLabelHe": "צריך עזרה בליכסון?"
+    }
+  ],
+  "storePrefix": "linear-algebra",
+  "includeDrafts": false
+}
