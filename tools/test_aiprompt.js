@@ -18,7 +18,8 @@ function boot(full) {
   const files = full
     ? [...w.document.querySelectorAll("script[src]")].map(s => s.getAttribute("src").split("?")[0]).filter(s => !/^(https?:)?\/\//.test(s))
     : ["aiprompt.js"];
-  for (const f of files) { try { w.eval(read(f)); } catch (e) { errors.push(f + ": " + e.message); } }
+  for (const f of files) { if (f === "learn.js" && !fs.existsSync(path.join(ROOT, f))) continue;   // optional: only built when briefs exist (same as verify_dom)
+    try { w.eval(read(f)); } catch (e) { errors.push(f + ": " + e.message); } }
   return { w, errors };
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
