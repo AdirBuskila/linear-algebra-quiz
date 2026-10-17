@@ -1,0 +1,745 @@
+{
+ "examCode": "23A-A",
+ "role": "refuter",
+ "scope": "ai-draft steps, rubrics, pitfalls; recomputed with sympy (tools/verify/23A-A/refute_sympy_*.py)",
+ "items": {
+  "1א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "findbug",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "note": "agree with caveat: cv+dw can be the zero vector (e.g. w=-v, c=d=1), which is not an eigenvector; the statement, solution, rubric and steps ignore this. Official gap, not an author error."
+  },
+  "1ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree",
+     "note": "agree; distractor b is a true equality (the computation itself), wrong only as 'the definition of eigenvector'. Soft: consider rewording as 'which condition is required'."
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "1ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree",
+     "note": "weak: computing C directly (C=[[1,-1],[-1,2]]) is valid, just slower; not an error."
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "1ד": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "order",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "2א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "2ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "2ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "2ד": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "note": "agree; exact z1=4.22926-3.29432i, z2=-0.22926+0.29432i; official rounded values -3.295 / 0.295 are off in the 3rd decimal (rounding of sqrt to 2 dp). Step tol 0.01 on 4.23 is fine."
+  },
+  "3א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "3ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "3ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4ד": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "5א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "5ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "5ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "5ד": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  }
+ },
+ "answers": {
+  "1א": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "1ב": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "1ג": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "1ד": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "2א": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "2ב": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "2ג": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "2ד": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "3א": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "3ב": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "3ג": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "4א": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "4ב": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "4ג": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "4ד": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "5א": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "5ב": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "5ג": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  },
+  "5ד": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": ""
+  }
+ }
+}
