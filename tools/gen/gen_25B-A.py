@@ -6,7 +6,8 @@ Sources: the exam is a 3-page phone photo (tools/raw/25B-A-SRC); the answers com
 PDF (8pp, tools/raw/25B-A-SOL). The solution header prints "semester A ... moed H', 16.06.2025", which mismatches the
 photo (semester B, moed A, 07.07.2025), but Q1 (S1,S2,S3), Q2 (a-system), Q3, Q4 (symmetric matrices and U) and Q5 match
 the photo question by question, so it is the same exam. Six questions of 25 points (best 4 count), 21 items.
-The solution file stops after Q5: Q6 (3 parts) has NO official solution and is held "no-key" (routed to the solver).
+The solution file stops after Q5: Q6 (3 parts) has NO official solution; it was held "no-key" and is now solved by
+the solver (solutionSource "solved", official false; checks appended to verify_25B-A.py).
 
 Transcription notes
 - Parts are single letters in the raw schema. Printed numbering -> raw part: Q3: 1 -> א, 2 -> ב, "ב" -> ג;
@@ -309,15 +310,40 @@ questions.append(Q(
     r"$$[p(x)]_C=[I]_C^B[p(x)]_B=-\frac14" + pm("-1&4", "-1&-4") + col(20, 25) + r"=-\frac14" + col(80, -120) + "=" + col(-20, 30) + "$$",
     6))
 
-# ------------------------------------------------------------------ Q6 (no official solution: held)
-for part, qtext, pts in [
-    ("א", r"נניח ש-$H$ ו-$D$ מטריצות הפיכות המקיימות $HD^2=D^3H^{-1}$. הוכיחו ש-$\det(D)>0$.", 9),
-    ("ב", r"הוכיחו שאם $\lambda$ הוא ערך עצמי של מטריצה הפיכה $A$ ו-$\vec u$ הוא וקטור עצמי שמתאים ל-$\lambda$, אז $1/\lambda$ יהיה ערך עצמי של $A^{-1}$ עם אותו הווקטור העצמי $\vec u$.", 9),
-    ("ג", r"נתונות שתי מטריצות הפיכות $B,C$ באותו הגודל. אילו מהמטריצות הבאות **תמיד** יהיו הפיכות? נמקו!!!" "\n"
-          r"1) $BC$" "\n" r"2) $B+C$" "\n" r"3) $\alpha C$ כאשר $\alpha\in\mathbb{R}$.", 7),
-]:
-    questions.append({"num": 6, "part": part, "kind": "proof", "topic": "matrix_proofs", "points": pts,
-                      "question": qtext, "hold": "no-key"})
+# ------------------------------------------------------------------ Q6 (no official solution: solved by the solver)
+def S6(part, question, solution, points):
+    return Q(6, part, "proof", "matrix_proofs", question, solution, points, solutionSource="solved", official=False)
+
+
+questions.append(S6(
+    "א", r"נניח ש-$H$ ו-$D$ מטריצות הפיכות המקיימות $HD^2=D^3H^{-1}$. הוכיחו ש-$\det(D)>0$.",
+    r"נפעיל דטרמיננטה על שני האגפים ונשתמש ב-$\det(XY)=\det X\cdot\det Y$ וב-$\det\left(H^{-1}\right)=\frac{1}{\det H}$:" "\n"
+    r"$$\det H\cdot(\det D)^2=(\det D)^3\cdot\frac{1}{\det H}$$" "\n"
+    r"נכפיל ב-$\det H$ (שונה מאפס כי $H$ הפיכה):" "\n"
+    r"$$(\det H)^2(\det D)^2=(\det D)^3$$" "\n"
+    r"$D$ הפיכה ולכן $\det D\neq0$, ומותר לחלק ב-$(\det D)^2$:" "\n"
+    r"$$\det D=(\det H)^2$$" "\n"
+    r"$\det H$ מספר ממשי שונה מאפס, ולכן $(\det H)^2>0$, כלומר $\det(D)>0$.",
+    9))
+
+questions.append(S6(
+    "ב", r"הוכיחו שאם $\lambda$ הוא ערך עצמי של מטריצה הפיכה $A$ ו-$\vec u$ הוא וקטור עצמי שמתאים ל-$\lambda$, אז $1/\lambda$ יהיה ערך עצמי של $A^{-1}$ עם אותו הווקטור העצמי $\vec u$.",
+    r"נתון $A\vec u=\lambda\vec u$ עם $\vec u\neq\vec 0$." "\n"
+    r"**$\lambda\neq0$:** אילו $\lambda=0$, היה מתקיים $A\vec u=\vec 0$ עם $\vec u\neq\vec 0$, כלומר למערכת ההומוגנית $A\vec x=\vec 0$ פתרון לא טריוויאלי, בסתירה להפיכות $A$. לכן $\frac1\lambda$ מוגדר." "\n"
+    r"נכפיל את $A\vec u=\lambda\vec u$ משמאל ב-$A^{-1}$:" "\n"
+    r"$$A^{-1}A\vec u=\lambda A^{-1}\vec u\ \Rightarrow\ \vec u=\lambda A^{-1}\vec u\ \Rightarrow\ A^{-1}\vec u=\frac{1}{\lambda}\vec u$$" "\n"
+    r"ומכיוון ש-$\vec u\neq\vec 0$, הווקטור $\vec u$ הוא וקטור עצמי של $A^{-1}$ השייך לערך העצמי $\frac1\lambda$.",
+    9))
+
+questions.append(S6(
+    "ג", r"נתונות שתי מטריצות הפיכות $B,C$ באותו הגודל. אילו מהמטריצות הבאות **תמיד** יהיו הפיכות? נמקו!!!" "\n"
+         r"1) $BC$" "\n" r"2) $B+C$" "\n" r"3) $\alpha C$ כאשר $\alpha\in\mathbb{R}$.",
+    r"**1) $BC$ תמיד הפיכה:** $\det(BC)=\det B\cdot\det C\neq0$ כי שני הגורמים שונים מאפס. (ובמפורש $(BC)^{-1}=C^{-1}B^{-1}$.)" "\n"
+    r"**2) $B+C$ לא תמיד הפיכה:** דוגמה נגדית: $B=I$, $C=-I$ הפיכות, אבל $B+C=0$ אינה הפיכה." "\n"
+    r"**3) $\alpha C$ לא תמיד הפיכה:** עבור $\alpha=0$ מתקבלת מטריצת האפס, שאינה הפיכה. (עבור $\alpha\neq0$ היא הפיכה, כי $\det(\alpha C)=\alpha^n\det C\neq0$, אבל השאלה היא על **כל** $\alpha\in\mathbb{R}$.)" "\n"
+    r"לכן רק $BC$ הפיכה תמיד.",
+    7))
+
 
 # ---- rubric / pitfalls / steps (ai-draft); every number is re-derived with sympy in tools/verify/<CODE>/verify_steps_<CODE>.py ----
 IDS = "abcdef"
@@ -633,7 +659,9 @@ ENR[(5, "ד")] = dict(
 for q in questions:
     if q.get("hold"):
         continue
-    e = ENR[(q["num"], q["part"])]
+    e = ENR.get((q["num"], q["part"]))
+    if e is None:  # solver-solved items (Q6) have no rubric/steps yet
+        continue
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])

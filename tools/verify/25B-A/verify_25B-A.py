@@ -169,5 +169,18 @@ chk("Q5d -1/4 [[8,-3],[-4,1]] [[1,2],[3,4]] = -1/4 [[-1,4],[-1,-4]]", -R(1, 4) *
 chk("Q5d [p]_C = (-20, 30)", res * V([20, 25]) == V([-20, 30]))
 chk("Q5d check: C-coordinates (-20,30) give the same polynomial as B-coordinates (20,25)", EC * V([-20, 30]) == EB * V([20, 25]))
 
+# ---- Q6 (no official solution; solved by the solver) ----
+_h, _d = sp.symbols("h d", real=True, nonzero=True)
+chk("Q6a det: h*d^2 = d^3/h with d!=0 gives d = h^2", sp.solve(sp.Eq(_h * _d**2, _d**3 / _h), _d) == [_h**2])
+_H = sp.Matrix([[0, 1], [2, 0]]); _D = 2 * sp.eye(2)
+chk("Q6a model H^2=2I, D=2I satisfies HD^2 = D^3 H^-1 and det D > 0", _H * _D**2 == _D**3 * _H.inv() and _D.det() == _H.det() ** 2 > 0)
+_A = sp.Matrix([[2, 1], [0, 3]])
+chk("Q6b A^-1 has eigenpairs (1/lam, u)", all(_A.inv() * v[0] == v[0] / lam for lam, _m, vs in _A.eigenvects() for v in [vs]))
+_B = sp.eye(2); _C = -sp.eye(2)
+chk("Q6c BC invertible, B+C=0 singular, 0*C singular", (_B * _C).det() != 0 and (_B + _C).det() == 0 and (0 * _C).det() == 0)
+_B2 = sp.Matrix([[1, 2], [3, 5]]); _C2 = sp.Matrix([[2, 1], [7, 4]])
+chk("Q6c det(BC)=det B det C", (_B2 * _C2).det() == _B2.det() * _C2.det() != 0)
+
 print("")
 print("TOTAL MISMATCHES:", len(bad))
+assert not bad, bad
