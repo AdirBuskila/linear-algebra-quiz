@@ -1,0 +1,341 @@
+{
+ "examCode": "20B-A",
+ "examLabel": "מבחן סוף סמסטר ב׳ תש״פ, מועד א׳ (18.06.2020)",
+ "year": 2020,
+ "examDate": "18.06.2020",
+ "sourceFile": "20B-A exam + official solution (scanned PDF, 11pp)",
+ "solutionFile": "20B-A exam + official solution (scanned PDF, 11pp)",
+ "contexts": {
+  "c1": {
+   "kind": "text",
+   "title": "שאלה 1 - שני ישרים",
+   "text": "נתונים שני ישרים $l_1$ ו-$l_2$ כאשר $k\\in\\mathbb{R}$ הוא פרמטר ממשי:\n$$l_1:\\ \\frac{x-1}{1}=\\frac{y-2}{k}=\\frac{z}{2},\\qquad l_2:\\ \\frac{x}{2}=\\frac{y-3}{1}=\\frac{z+2}{1}$$"
+  },
+  "c2": {
+   "kind": "text",
+   "title": "שאלה 2 - מערכת עם פרמטר",
+   "text": "נתונה מערכת של משוואות לינאריות, כאשר $k\\in\\mathbb{R}$ הוא פרמטר ממשי:\n$$\\begin{cases} x-y+z=1\\\\ (k-1)x+(k+1)y+(k+1)z=k+1\\\\ kx-(2+k)y-kz=1\\end{cases}$$"
+  },
+  "c3": {
+   "kind": "text",
+   "title": "שאלה 3 - המטריצה A",
+   "text": "נתונה מטריצה $A=\\begin{pmatrix}1&0&1&1\\\\1&1&2&0\\\\0&1&1&-1\\end{pmatrix}$."
+  },
+  "c4a": {
+   "kind": "text",
+   "title": "שאלה 4 - סעיף א",
+   "text": "תהי נתונה המטריצה $A=\\begin{pmatrix}2a&4&4+2a\\\\a&3&5\\\\1&1&a\\end{pmatrix}$ כאשר $a$ הוא פרמטר ממשי."
+  },
+  "c4b": {
+   "kind": "text",
+   "title": "שאלה 4 - סעיף ב",
+   "text": "תהי נתונה מטריצה $B=\\begin{pmatrix}3&1&0\\\\0&2&0\\\\1&1&4\\end{pmatrix}$."
+  },
+  "c5": {
+   "kind": "text",
+   "title": "שאלה 5 - תתי הקבוצות W ו-U",
+   "text": "יהי $V=M_{2\\times2}$ מרחב המטריצות בגודל $2\\times2$ ויהיו $U,W$ תתי קבוצות כך ש-$U,W\\subseteq V$.\n$$W=\\left\\{\\begin{pmatrix}a&2a\\\\b&c\\end{pmatrix}\\ \\middle|\\ a,b,c\\in\\mathbb{R},\\ a+b=0\\right\\},\\qquad U=\\mathrm{sp}\\left\\{\\begin{pmatrix}-1&2\\\\1&-3\\end{pmatrix},\\begin{pmatrix}1&0\\\\-1&2\\end{pmatrix}\\right\\}$$"
+  },
+  "c6": {
+   "kind": "text",
+   "title": "שאלה 6 - ההעתקה T",
+   "text": "תהי $T$ העתקה לינארית $T:M_{2\\times2}\\to\\mathbb{R}^3$ הנתונה על ידי:\n$$T\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=\\begin{pmatrix}a+b\\\\b+c\\\\b+d\\end{pmatrix}$$"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "part": "א",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "points": 6,
+   "question": "מצא את ערכו של הפרמטר $k$ שעבורו הישרים יהיו נחתכים.",
+   "solution": "**הפתרון הרשמי עם תיקון:** בפתרון הרשמי נרשם $\\overrightarrow{M_1M_2}=(-1,3,-2)$ ומתקבל $k=-4$. אך $\\overrightarrow{M_1M_2}=M_2-M_1=(0-1,\\ 3-2,\\ -2-0)=(-1,1,-2)$, והערך הנכון הוא $k=-1$ (עבור $k=-4$ הישרים אינם נחתכים).\n$M_1(1,2,0)\\in l_1$ וקטור כיוון של הישר $l_1$ הוא $\\vec a_1=(1,k,2)$.\n$M_2(0,3,-2)\\in l_2$ וקטור כיוון של הישר $l_2$ הוא $\\vec a_2=(2,1,1)$.\n$\\vec a_1,\\vec a_2$ לא מקבילים כי $\\frac{1}{2}=\\frac{k}{1}=\\frac{2}{1}$ לא מתקיים לכל $k$. אז מספיק להוכיח ש-$\\vec a_1,\\vec a_2,\\overrightarrow{M_1M_2}$ קומפלנרים.\n$$\\overrightarrow{M_1M_2}=(-1,1,-2)$$\n$$0=\\begin{vmatrix}-1&1&-2\\\\1&k&2\\\\2&1&1\\end{vmatrix}=-1\\cdot(k-2)-1\\cdot(1-4)-2\\cdot(1-2k)=-k+2+3-2+4k=3k+3\\Rightarrow k=-1$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "points": 7,
+   "question": "עבור $k=2$ מצא את המרחק בין הישרים הנתונים.",
+   "solution": "**הפתרון הרשמי עם תיקון:** בפתרון הרשמי נעשה שימוש בווקטור $(-1,3,-2)$ ומתקבלים $18$ ו-$d=3\\sqrt2$. עם הווקטור הנכון $\\overrightarrow{M_1M_2}=(-1,1,-2)$ מתקבל $d=\\frac{3\\sqrt2}{2}$.\n$$d=\\frac{\\left|\\left(\\vec a_1\\times\\vec a_2\\right)\\cdot\\overrightarrow{M_1M_2}\\right|}{\\left\\|\\vec a_1\\times\\vec a_2\\right\\|}$$\n$$\\left(\\vec a_1\\times\\vec a_2\\right)\\cdot\\overrightarrow{M_1M_2}=\\begin{vmatrix}-1&1&-2\\\\1&2&2\\\\2&1&1\\end{vmatrix}=3+6=9$$\n$$\\vec a_1\\times\\vec a_2=\\left(\\begin{vmatrix}2&2\\\\1&1\\end{vmatrix},\\ -\\begin{vmatrix}1&2\\\\2&1\\end{vmatrix},\\ \\begin{vmatrix}1&2\\\\2&1\\end{vmatrix}\\right)=(0,3,-3)$$\n$$\\left\\|\\vec a_1\\times\\vec a_2\\right\\|=\\sqrt{0^2+3^2+(-3)^2}=3\\sqrt2$$\n$$d=\\frac{9}{3\\sqrt2}=\\frac{3}{\\sqrt2}=\\frac{3\\sqrt2}{2}$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "kind": "proof",
+   "topic": "vectors_geometry",
+   "points": 6,
+   "question": "הוכח או הפרך עם דוגמה נגדית: אם $\\vec a\\times\\vec b=\\vec a\\times\\vec c\\neq\\vec 0$ אז $\\vec b=\\vec c$.",
+   "solution": "הטענה אינה נכונה. $\\vec a\\times\\left(\\vec b-\\vec c\\right)=\\vec 0$ אינו מחייב $\\vec b=\\vec c$.\nדוגמה נגדית:\n$$\\vec a=(1,0,0),\\ \\vec b=(1,1,0),\\ \\vec c=(0,1,0)$$\n$$\\vec a\\times\\vec b=(0,0,1)\\neq\\vec 0,\\qquad\\vec a\\times\\vec c=(0,0,1)\\neq\\vec 0,\\qquad\\vec b\\neq\\vec c$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 1,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "complex_numbers",
+   "points": 6,
+   "question": "פתור את המשוואה מעל מספרים מרוכבים $z^3+(3i-4)z=0$.",
+   "hold": "no-key"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 8,
+   "question": "רשום את מערכת כמטריצה מורחבת, הבא אותה לצורה מדורגת.",
+   "solution": "$$\\left(\\begin{array}{ccc|c}1&-1&1&1\\\\k-1&k+1&k+1&k+1\\\\k&-2-k&-k&1\\end{array}\\right)\\xrightarrow{\\substack{R_2-(k-1)R_1\\to R_2\\\\R_3-kR_1\\to R_3}}\\left(\\begin{array}{ccc|c}1&-1&1&1\\\\0&2k&2&2\\\\0&-2&-2k&1-k\\end{array}\\right)\\xrightarrow{R_2\\leftrightarrow-R_3}\\left(\\begin{array}{ccc|c}1&-1&1&1\\\\0&2&2k&k-1\\\\0&2k&2&2\\end{array}\\right)$$\n$$\\xrightarrow{R_3-kR_2\\to R_3}\\left(\\begin{array}{ccc|c}1&-1&1&1\\\\0&2&2k&k-1\\\\0&0&2-2k^2&2+k-k^2\\end{array}\\right)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 9,
+   "question": "מצא עבור אילו ערכי $k$ יש למערכת אינסוף פתרונות, פתרון יחיד או אין לה פתרונות כלל.",
+   "solution": "אם $k=1$ למערכת אין פתרון כי בשורה השלישית נקבל שורת סתירה.\n$$\\left(\\begin{array}{ccc|c}1&-1&1&1\\\\0&2&2&0\\\\0&0&0&2\\end{array}\\right)$$\nאם $k\\neq1$ וגם $k\\neq-1$ למערכת יש פתרון יחיד.\nאם $k=-1$ השורה השלישית היא $(0\\ 0\\ 0\\mid0)$ ולמערכת יש אינסוף פתרונות (ראו סעיף ג׳).",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 8,
+   "question": "עבור $k=-1$ מצא את הפתרונות של המערכת.",
+   "solution": "**הפתרון הרשמי עם תיקון:** בפתרון הרשמי נרשמה השורה השנייה $(0\\ 1\\ 1\\mid-1)$ ונקבע $x=-2z$, $y=-1-z$. אך השורה השנייה במטריצה המדורגת היא $(0\\ \\ 2\\ \\ 2k\\mid k-1)$, ועבור $k=-1$ היא $(0\\ 2\\ -2\\mid-2)$, כלומר $y-z=-1$. (גם ישירות: השורה השנייה של המערכת המקורית היא $-2x=0$.)\nאם $k=-1$ למערכת יש אינסוף פתרונות, נקבל\n$$\\left(\\begin{array}{ccc|c}1&-1&1&1\\\\0&2&-2&-2\\\\0&0&0&0\\end{array}\\right)\\to\\left(\\begin{array}{ccc|c}1&-1&1&1\\\\0&1&-1&-1\\\\0&0&0&0\\end{array}\\right)\\Rightarrow\\begin{cases}x=0\\\\y=-1+z\\\\z=z\\in\\mathbb{R}\\end{cases}$$\n$$\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}=\\begin{pmatrix}0\\\\-1\\\\0\\end{pmatrix}+z\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c2"
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "נגדיר את **מרחב האפס** של מטריצה $A$ כאוסף הפתרונות $\\mathbf{x}$ של מערכת משוואות הומוגנית $A\\mathbf{x}=\\mathbf{0}$. מצא בסיס של מרחב האפס וגם את מימדו.",
+   "solution": "אם $A\\mathbf{x}=\\mathbf{0}$, אז\n$$A=\\begin{pmatrix}1&0&1&1\\\\1&1&2&0\\\\0&1&1&-1\\end{pmatrix}\\to\\begin{pmatrix}1&0&1&1\\\\0&1&1&-1\\\\0&1&1&-1\\end{pmatrix}\\to\\begin{pmatrix}1&0&1&1\\\\0&1&1&-1\\\\0&0&0&0\\end{pmatrix}$$\nומכאן נובע ש-\n$$\\mathbf{x}=\\begin{pmatrix}x_1\\\\x_2\\\\x_3\\\\x_4\\end{pmatrix}=\\begin{pmatrix}-s-t\\\\-s+t\\\\s\\\\t\\end{pmatrix}=s\\begin{pmatrix}-1\\\\-1\\\\1\\\\0\\end{pmatrix}+t\\begin{pmatrix}-1\\\\1\\\\0\\\\1\\end{pmatrix}$$\nלכן נקבל ש-\n$$\\mathrm{null\\,sp}(A)=\\mathrm{sp}\\left\\{\\begin{pmatrix}-1\\\\-1\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}-1\\\\1\\\\0\\\\1\\end{pmatrix}\\right\\},\\qquad\\dim(\\mathrm{null\\,sp}(A))=2$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצא בסיס של מרחב השורות של מטריצה $A$ ואת מימדו.",
+   "solution": "מהדירוג של הסעיף א׳ נקבל ש-\n$$\\mathrm{row\\,sp}(A)=\\mathrm{sp}\\left\\{[1\\ 0\\ 1\\ 1],\\ [0\\ 1\\ 1\\ -1]\\right\\}=\\mathrm{sp}\\left\\{[1\\ 0\\ 1\\ 1],\\ [1\\ 1\\ 2\\ 0]\\right\\}$$\nוכתוצאה מכך $\\dim(\\mathrm{row\\,sp}(A))=2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצא בסיס של מרחב העמודות של מטריצה $A$ ואת מימדו.",
+   "solution": "מהצורה המדורגת (סעיף א׳) נבע שהעמודות הראשונה והשנייה הן עמודות הציר של המטריצה $A$. כלומר, העמודות הראשונה והשנייה בצורה המקורית של $A$ יוצרות בסיס במרחב העמודות של $A$, כלומר\n$$\\mathrm{col\\,sp}(A)=\\mathrm{sp}\\left\\{\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}\\right\\}$$\nולכן $\\dim(\\mathrm{col\\,sp}(A))=2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 4,
+   "question": "בדוק שהסכום של מימד מרחב האפס ומימד של מרחב העמודות שווה למספר העמודות של $A$.",
+   "solution": "$$\\dim(\\mathrm{null\\,sp}(A))+\\dim(\\mathrm{col\\,sp}(A))=2+2=4$$ וזה שווה למספר העמודות של $A$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c3"
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "kind": "computation",
+   "topic": "determinants",
+   "points": 5,
+   "question": "עבור אילו ערכי $a$ המטריצה $A$ הפיכה?",
+   "solution": "נחשב את הדטרמיננטה של $A$:\n$$\\begin{vmatrix}2a&4&4+2a\\\\a&3&5\\\\1&1&a\\end{vmatrix}=1\\cdot\\begin{vmatrix}4&4+2a\\\\3&5\\end{vmatrix}-1\\cdot\\begin{vmatrix}2a&4+2a\\\\a&5\\end{vmatrix}+a\\cdot\\begin{vmatrix}2a&4\\\\a&3\\end{vmatrix}=$$\n$$=(20-12-6a)-\\left(10a-4a-2a^2\\right)+a(6a-4a)=4a^2-12a+8=4\\left(a^2-3a+2\\right)=4(a-2)(a-1)$$\nעבור $a=1,2$ הדטרמיננטה מתאפסת, ולכן המטריצה $A$ אינה הפיכה. ומכאן שכאשר $a\\neq1,2$ המטריצה $A$ הפיכה.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4a"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 5,
+   "question": "חשב את $A^{-1}$ עבור $a=0$.",
+   "solution": "נציב $a=0$ ב-$A$ ונקבל $\\begin{pmatrix}0&4&4\\\\0&3&5\\\\1&1&0\\end{pmatrix}$, נחשב את ההופכית שלה:\n$$\\left(\\begin{array}{ccc|ccc}0&4&4&1&0&0\\\\0&3&5&0&1&0\\\\1&1&0&0&0&1\\end{array}\\right)\\xrightarrow{R_1\\leftrightarrow R_3}\\left(\\begin{array}{ccc|ccc}1&1&0&0&0&1\\\\0&3&5&0&1&0\\\\0&4&4&1&0&0\\end{array}\\right)\\xrightarrow{R_2\\leftarrow R_2/3}\\left(\\begin{array}{ccc|ccc}1&1&0&0&0&1\\\\0&1&5/3&0&1/3&0\\\\0&4&4&1&0&0\\end{array}\\right)$$\n$$\\xrightarrow{R_3\\leftarrow R_3-4R_2}\\left(\\begin{array}{ccc|ccc}1&1&0&0&0&1\\\\0&1&5/3&0&1/3&0\\\\0&0&-8/3&1&-4/3&0\\end{array}\\right)\\xrightarrow{R_3\\leftarrow R_3/(-8/3)}\\left(\\begin{array}{ccc|ccc}1&1&0&0&0&1\\\\0&1&5/3&0&1/3&0\\\\0&0&1&-3/8&1/2&0\\end{array}\\right)$$\n$$\\xrightarrow{R_2\\leftarrow R_2-(5/3)R_3}\\left(\\begin{array}{ccc|ccc}1&1&0&0&0&1\\\\0&1&0&5/8&-1/2&0\\\\0&0&1&-3/8&1/2&0\\end{array}\\right)\\xrightarrow{R_1\\leftarrow R_1-R_2}\\left(\\begin{array}{ccc|ccc}1&0&0&-5/8&1/2&1\\\\0&1&0&5/8&-1/2&0\\\\0&0&1&-3/8&1/2&0\\end{array}\\right)$$\nולכן קיבלנו:\n$$\\begin{pmatrix}0&4&4\\\\0&3&5\\\\1&1&0\\end{pmatrix}^{-1}=\\begin{pmatrix}-5/8&1/2&1\\\\5/8&-1/2&0\\\\-3/8&1/2&0\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4a"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 9,
+   "question": "מצא את כל הערכים העצמיים והווקטורים העצמיים של $B$.",
+   "solution": "$$|\\lambda I-B|=\\begin{vmatrix}\\lambda-3&-1&0\\\\0&\\lambda-2&0\\\\-1&-1&\\lambda-4\\end{vmatrix}=(\\lambda-2)\\begin{vmatrix}\\lambda-3&0\\\\-1&\\lambda-4\\end{vmatrix}=(\\lambda-2)[(\\lambda-3)(\\lambda-4)-0]=(\\lambda-2)(\\lambda-3)(\\lambda-4)$$\nקיבלנו שהערכים העצמיים הם $2,3,4$. כל הע״ע שונים זה מזה ולכן יתקבלו עבורם וי״ע בת״ל. מכאן שמטריצה $B$ ניתנת לליכסון. כעת נמצא את הווקטורים העצמיים.\nעבור ע״ע $2$:\n$$\\begin{pmatrix}-1&-1&0\\\\0&0&0\\\\-1&-1&-2\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&1&0\\\\0&0&1\\\\0&0&0\\end{pmatrix}$$\nנסמן $y=t$ ונקבל $x=-t$, $z=0$. הוקטור העצמי המתקבל הוא: $\\begin{pmatrix}-1\\\\1\\\\0\\end{pmatrix}$.\nעבור ע״ע $3$:\n$$\\begin{pmatrix}0&-1&0\\\\0&1&0\\\\-1&-1&-1\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&0&1\\\\0&1&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $z=t$ ונקבל $x=-t$, $y=0$. הוקטור העצמי המתקבל הוא: $\\begin{pmatrix}-1\\\\0\\\\1\\end{pmatrix}$.\nעבור ע״ע $4$:\n$$\\begin{pmatrix}1&-1&0\\\\0&2&0\\\\-1&-1&0\\end{pmatrix}\\to\\cdots\\to\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&0\\end{pmatrix}$$\nנסמן $z=t$ ונקבל $x=0$, $y=0$. הוקטור העצמי המתקבל הוא: $\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4b"
+  },
+  {
+   "num": 4,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 6,
+   "question": "מצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$.",
+   "solution": "$$D=\\begin{pmatrix}2&0&0\\\\0&3&0\\\\0&0&4\\end{pmatrix},\\qquad P=\\begin{pmatrix}-1&-1&0\\\\1&0&0\\\\0&1&1\\end{pmatrix}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c4b"
+  },
+  {
+   "num": 5,
+   "part": "א",
+   "kind": "proof",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "הוכח כי $W$ הוא תת מרחב.",
+   "solution": "נתונה הקבוצה $W$, ראשית נפשט אותה:\n$$W=\\left\\{\\begin{pmatrix}a&2a\\\\b&c\\end{pmatrix}\\ \\middle|\\ a,b,c\\in\\mathbb{R},\\ a+b=0\\right\\}=\\left\\{\\begin{pmatrix}a&2a\\\\b&c\\end{pmatrix}\\ \\middle|\\ a,b,c\\in\\mathbb{R},\\ b=-a\\right\\}=\\left\\{\\begin{pmatrix}a&2a\\\\-a&c\\end{pmatrix}\\ \\middle|\\ a,c\\in\\mathbb{R}\\right\\}$$\nנוכיח כי $W$ תת מרחב.\nנראה כי $W$ אינה קבוצה ריקה: $\\vec 0\\in W\\Rightarrow W\\neq\\emptyset$.\nעבור שתי המטריצות המשתייכות ל-$W$ נראה כי הסכום שלהן גם שייך ל-$W$. עבור $A,B\\in W$, $A=\\begin{pmatrix}a_1&2a_1\\\\-a_1&c_1\\end{pmatrix}$, $B=\\begin{pmatrix}a_2&2a_2\\\\-a_2&c_2\\end{pmatrix}$:\n$$A+B=\\begin{pmatrix}a_1&2a_1\\\\-a_1&c_1\\end{pmatrix}+\\begin{pmatrix}a_2&2a_2\\\\-a_2&c_2\\end{pmatrix}=\\begin{pmatrix}a_1+a_2&2(a_1+a_2)\\\\-(a_1+a_2)&c_1+c_2\\end{pmatrix}\\in W$$\nסגירות לכפל בסקלר: עבור $A\\in W$ ו-$\\alpha\\in\\mathbb{R}$, $A=\\begin{pmatrix}a_1&2a_1\\\\-a_1&c_1\\end{pmatrix}$:\n$$\\alpha A=\\alpha\\begin{pmatrix}a_1&2a_1\\\\-a_1&c_1\\end{pmatrix}=\\begin{pmatrix}\\alpha a_1&2(\\alpha a_1)\\\\-(\\alpha a_1)&\\alpha c_1\\end{pmatrix}\\in W$$\nראינו כי 3 התנאים מתקיימים ולכן הקבוצה היא תת מרחב.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצא בסיס ומימד של $W$.",
+   "solution": "$$W=\\left\\{\\begin{pmatrix}a&2a\\\\-a&c\\end{pmatrix}\\ \\middle|\\ a,c\\in\\mathbb{R}\\right\\}=\\left\\{a\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix}+c\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}\\ \\middle|\\ a,c\\in\\mathbb{R}\\right\\}=\\mathrm{sp}\\left\\{\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix},\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}\\right\\}$$\n$$B_W=\\left\\{\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix},\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}\\right\\},\\qquad\\dim(W)=2$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 6,
+   "question": "מצא בסיס ומימד למרחב $W\\cap U$.",
+   "solution": "כדי לפתור זאת ״נישר״ את המטריצות ונעביר אותן למרחב ווקטורים של $\\mathbb{R}^4$ ונכתוב אותם כוקטורים במטריצה. נחפש צירוף $\\alpha_1\\vec w_1+\\alpha_2\\vec w_2+\\beta_1\\vec u_1+\\beta_2\\vec u_2=\\vec 0$ כאשר $\\vec w_1,\\vec w_2$ הבסיס של $W$ ו-$\\vec u_1,\\vec u_2$ המטריצות הפורשות את $U$:\n$$\\left(\\begin{array}{cccc|c}1&0&-1&1&0\\\\2&0&2&0&0\\\\-1&0&1&-1&0\\\\0&1&-3&2&0\\end{array}\\right)\\xrightarrow{\\substack{R_2\\to R_2-2R_1\\\\R_3\\to R_3+R_1}}\\left(\\begin{array}{cccc|c}1&0&-1&1&0\\\\0&0&4&-2&0\\\\0&0&0&0&0\\\\0&1&-3&2&0\\end{array}\\right)\\xrightarrow{R_4\\leftrightarrow R_3}\\left(\\begin{array}{cccc|c}1&0&-1&1&0\\\\0&0&4&-2&0\\\\0&1&-3&2&0\\\\0&0&0&0&0\\end{array}\\right)$$\n$$\\xrightarrow{R_2\\leftrightarrow R_3}\\left(\\begin{array}{cccc|c}1&0&-1&1&0\\\\0&1&-3&2&0\\\\0&0&4&-2&0\\\\0&0&0&0&0\\end{array}\\right)$$\n$$\\begin{cases}\\beta_2=t\\\\4\\beta_1-2\\beta_2=0\\end{cases}\\Rightarrow\\begin{cases}\\beta_2=t\\\\\\beta_1=0.5t\\end{cases}$$\n$$W\\cap U=0.5t\\begin{pmatrix}-1&2\\\\1&-3\\end{pmatrix}+t\\begin{pmatrix}1&0\\\\-1&2\\end{pmatrix}=t\\begin{pmatrix}0.5&1\\\\-0.5&0.5\\end{pmatrix}=\\mathrm{sp}\\left\\{\\begin{pmatrix}0.5&1\\\\-0.5&0.5\\end{pmatrix}\\right\\}$$\n$$B_{W\\cap U}=\\left\\{\\begin{pmatrix}1&2\\\\-1&1\\end{pmatrix}\\right\\},\\qquad\\dim(W\\cap U)=1$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 5,
+   "question": "תן דוגמא למטריצה השייכת למרחב $M_{2\\times2}$, שאינה נמצאת בקבוצה $W$.",
+   "solution": "המטריצה $C$ לא נמצאת ב-$W$, וכן שייכת למרחב המטריצות $2\\times2$,\n$$C=\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}\\notin W$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c5"
+  },
+  {
+   "num": 6,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 7,
+   "question": "מצא בסיס ומימד ל-$\\mathrm{Ker}(T)$.",
+   "solution": "$\\mathrm{Ker}(T)$: תהי $A=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}$ בגרעין של $T$, אז:\n$$T(A)=T\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=(0,0,0)\\ \\Rightarrow\\ (a+b,\\ b+c,\\ b+d)=0$$\n$$\\begin{cases}a+b=0\\\\b+c=0\\\\b+d=0\\end{cases}\\qquad\\left(\\begin{array}{cccc|c}1&1&0&0&0\\\\0&1&1&0&0\\\\0&1&0&1&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&1&0&0&0\\\\0&1&1&0&0\\\\0&0&-1&1&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&1&0&0&0\\\\0&1&0&1&0\\\\0&0&-1&1&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&0&0&-1&0\\\\0&1&0&1&0\\\\0&0&1&-1&0\\end{array}\\right)$$\n$n=4,\\ r=3\\ \\Rightarrow\\ \\dim\\ker T=4-3=1$\n$$\\begin{cases}a-d=0\\\\b+d=0\\\\c-d=0\\end{cases}\\qquad d=t,\\ a=t,\\ b=-t,\\ c=t\\qquad(a,b,c,d)=(t,-t,t,t)=t(1,-1,1,1)$$\nלכן, מטריצה $A=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}$ נמצאת בגרעין אם ורק אם היא מהצורה\n$$A=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=\\begin{pmatrix}t&-t\\\\t&t\\end{pmatrix}=t\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}$$\nלכן, בסיס ל-$\\mathrm{Ker}(T)$ הוא: $\\left\\{\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}\\right\\}$ ומימד הגרעין הוא 1.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c6"
+  },
+  {
+   "num": 6,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 7,
+   "question": "מצא בסיס ומימד ל-$\\mathrm{Im}(T)$.",
+   "solution": "לפי משפט, אם $T:V\\to W$ אז: $\\dim V=\\dim\\mathrm{Ker}(T)+\\dim\\mathrm{Im}(T)$. במקרה שלנו, $\\dim V=4$ ולפי סעיף א׳, $\\dim\\mathrm{Ker}(T)=1$ לכן, $\\dim\\mathrm{Im}(T)=3$. כיוון ש-$\\mathrm{Im}(T)$ הוא תת מרחב של $\\mathbb{R}^3$ ממימד 3, הרי ש-$\\mathrm{Im}T=\\mathbb{R}^3$ וכל בסיס של $\\mathbb{R}^3$ הוא גם בסיס של $\\mathrm{Im}T$. נבחר, למשל את הבסיס הסטנדרטי:\n$$\\{(1,0,0),\\ (0,1,0),\\ (0,0,1)\\}$$\nאפשרות אחרת:\n$$T(A)=T\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=(a+b,\\ b+c,\\ b+d)=a(1,0,0)+b(1,1,1)+c(0,1,0)+d(0,0,1)$$\nלכן, הקבוצה $\\{(1,0,0),(1,1,1),(0,1,0),(0,0,1)\\}$ פורשת את $\\mathrm{Im}(T)$, ואם נשמיט את הוקטורים התלויים נקבל בסיס לתמונה, למשל:\n$$\\{(1,0,0),\\ (0,1,0),\\ (0,0,1)\\}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c6"
+  },
+  {
+   "num": 6,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 5,
+   "question": "האם $T$ היא חח״ע? האם $T$ על? נמק!",
+   "solution": "לפי משפט, העתקה $T$ היא חח״ע (1:1) אםם $\\mathrm{Ker}(T)=\\{0\\}$. לפי סעיף א׳, $\\mathrm{Ker}(T)\\neq\\{0\\}$, לכן $T$ לא חח״ע.\nלפי משפט, העתקה $T$ היא על אםם $\\dim\\mathrm{Im}(T)=\\dim U$. לפי סעיף ב׳, $\\dim\\mathrm{Im}(T)=\\dim U=\\dim\\mathbb{R}^3=3$, לכן $T$ היא על.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c6"
+  },
+  {
+   "num": 6,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 6,
+   "question": "מצא את כל המטריצות ב-$\\mathbb{R}^{2\\times2}$ שתמונתם נותנת וקטור $(1,1,1)$. האם הן מהוות תת מרחב של $\\mathbb{R}^{2\\times2}$? נמק!",
+   "solution": "יש למצוא את כל המקורות של $(1,1,1)$, כלומר את כל המטריצות $A$ כך ש-$T(A)=(1,1,1)$:\n$$T(A)=T\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=(a+b,\\ b+c,\\ b+d)=(1,1,1)$$\n$$\\begin{cases}a+b=1\\\\b+c=1\\\\b+d=1\\end{cases}\\qquad\\left(\\begin{array}{cccc|c}1&1&0&0&1\\\\0&1&1&0&1\\\\0&1&0&1&1\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&0&-1&0&0\\\\0&1&1&0&1\\\\0&0&-1&1&0\\end{array}\\right)\\to\\left(\\begin{array}{cccc|c}1&0&0&-1&0\\\\0&1&0&1&1\\\\0&0&-1&1&0\\end{array}\\right)$$\n$$\\begin{cases}a-d=0\\\\b+d=1\\\\c-d=0\\end{cases}\\qquad a=c=d,\\ b=1-d$$\n$$A=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=\\begin{pmatrix}d&1-d\\\\d&d\\end{pmatrix}=d\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}+\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$$\nלכן, אוסף המקורות של הוקטור $(1,1,1)$ הוא כל המטריצות מהצורה $\\left\\{\\begin{pmatrix}d&1-d\\\\d&d\\end{pmatrix}\\right\\}$.\nמאחר שאוסף זה אינו מכיל את מטריצת ה-0 (מטריצת ה-0 היא מקור רק של וקטור ה-0 ולכן אינה נמצאת בין המקורות של הוקטור $(1,1,1)$), הרי שאוסף זה אינו מהווה תת-מרחב וקטורי של $\\mathbb{R}^{2\\times2}$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "contextId": "c6"
+  }
+ ]
+}

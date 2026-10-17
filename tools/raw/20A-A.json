@@ -1,0 +1,241 @@
+{
+ "examCode": "20A-A",
+ "examLabel": "מבחן סוף סמסטר א׳ תש״פ, מועד א׳ (16.02.2020)",
+ "year": 2020,
+ "examDate": "16.02.2020",
+ "sourceFile": "20A-A exam (PDF, 2pp, exam only)",
+ "solutionFile": "none",
+ "contexts": {
+  "c1": {
+   "kind": "text",
+   "title": "שאלה 1 - שני מישורים",
+   "text": "נתונים שני מישורים כאשר $k$ הוא פרמטר ממשי:\n$$\\begin{cases}\\pi_1:\\ x-2y+z+5=0\\\\ \\pi_2:\\ kx-y+kz-2=0\\end{cases}$$"
+  },
+  "c2": {
+   "kind": "text",
+   "title": "שאלה 2 - המטריצה A",
+   "text": "נתונה מטריצה $A=\\begin{pmatrix}1&0&1&1\\\\1&1&2&0\\\\0&1&1&-1\\end{pmatrix}$."
+  },
+  "c3a": {
+   "kind": "text",
+   "title": "שאלה 3 - סעיף א",
+   "text": "תהי נתונה המטריצה $A=\\begin{pmatrix}2&1&-1\\\\1&a&1\\\\3&1&-a\\end{pmatrix}$ כאשר $a$ הוא פרמטר ממשי."
+  },
+  "c3b": {
+   "kind": "text",
+   "title": "שאלה 3 - סעיף ב",
+   "text": "תהי נתונה מטריצה $A=\\begin{pmatrix}1&1&-1\\\\1&1&1\\\\1&1&1\\end{pmatrix}$."
+  },
+  "c4": {
+   "kind": "text",
+   "title": "שאלה 4 - שני תתי מרחבים של המרחב",
+   "text": "יהיו $W_1$ ו-$W_2$ שני תתי מרחבים של $\\mathbb{R}^3$ המוגדרים כדלקמן:\n$$W_1=\\mathrm{Sp}\\left\\{\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix},\\begin{pmatrix}2\\\\3\\\\1\\end{pmatrix},\\begin{pmatrix}3\\\\1\\\\2\\end{pmatrix},\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}\\right\\}$$\n$$W_2=\\left\\{\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}\\ \\middle|\\ x-y=z+y;\\ x,y,z\\in\\mathbb{R}\\right\\}$$"
+  },
+  "c5": {
+   "kind": "text",
+   "title": "שאלה 5 - ההעתקה T",
+   "text": "תהי $T:\\mathbb{R}^3\\to\\mathbb{R}^3$ ההעתקה הלינארית כך ש-$T\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}=\\begin{pmatrix}x-y\\\\-2x+2y\\\\2z\\end{pmatrix}$."
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "part": "א",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "points": 6,
+   "question": "חשב את ערכו של $k$ כך שהמישורים יהיו מקבילים וחשב את המרחק ביניהם.",
+   "hold": "no-key",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "points": 6,
+   "question": "חשב את ערכו של $k$ כך שהמישורים יהיו מאונכים.",
+   "hold": "no-key",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "lines_planes",
+   "points": 7,
+   "question": "עבור $k=2$ מצא מישור שמאונך ל-$\\pi_1$ ו-$\\pi_2$ ועובר דרך הנק׳ $(1,1,1)$.",
+   "hold": "no-key",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "complex_numbers",
+   "points": 6,
+   "question": "פתור את המשוואה $z^5=3i+5$.",
+   "hold": "no-key"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "נגדיר את **מרחב האפס** של מטריצה $A$ כאוסף הפתרונות $\\mathbf{x}$ של מערכת משוואות הומוגנית $A\\mathbf{x}=\\mathbf{0}$. מצא בסיס של מרחב האפס וגם את מימדו.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצא בסיס של מרחב השורות של מטריצה $A$ ואת מימדו.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "מצא בסיס של מרחב העמודות של מטריצה $A$ ואת מימדו.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 4,
+   "question": "בדוק שהסכום של מימד מרחב האפס ומימד של מרחב העמודות שווה למספר העמודות של $A$.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 5,
+   "question": "עבור אילו ערכי $a$ המטריצה $A$ הפיכה?",
+   "hold": "no-key",
+   "contextId": "c3a"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 5,
+   "question": "חשב את $A^{-1}$ עבור $a=1$.",
+   "hold": "no-key",
+   "contextId": "c3a"
+  },
+  {
+   "num": 3,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 9,
+   "question": "מצא את כל הערכים העצמיים והווקטורים העצמיים של $A$.",
+   "hold": "no-key",
+   "contextId": "c3b"
+  },
+  {
+   "num": 3,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 6,
+   "question": "מצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}AP$.",
+   "hold": "no-key",
+   "contextId": "c3b"
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 6,
+   "question": "מצא בסיס ומימד של תתי מרחבים $W_1$ ו-$W_2$.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "חשב תת מרחב $W_1+W_2$, מצא בסיס ומימד של תת מרחב זה.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 7,
+   "question": "חשב תת מרחב $W_1\\cap W_2$, מצא בסיס ומימד של תת מרחב זה.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 5,
+   "question": "האם הווקטור $\\begin{pmatrix}3\\\\1\\\\-1\\end{pmatrix}$ שייך לתת מרחב $W_1\\cap W_2$?",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 5,
+   "part": "א",
+   "kind": "proof",
+   "topic": "linear_maps",
+   "points": 6,
+   "question": "הראה כי $T$ היא העתקה לינארית.",
+   "hold": "no-key",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 8,
+   "question": "מצא הבסיסים והמימדים של $\\mathrm{Ker}(T)$ ו-$\\mathrm{Im}(T)$.",
+   "hold": "no-key",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 4,
+   "question": "האם $T$ חד-חד ערכית? האם היא על? נמקו את תשובתכם.",
+   "hold": "no-key",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 7,
+   "question": "מצא את המטריצה המייצגת $T_{B_2}^{B_1}$ של ההעתקה ביחס לבסיסים $B_1=\\left\\{\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix},\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\right\\}$ ו-$B_2=\\left\\{\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix},\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\right\\}$.",
+   "hold": "no-key",
+   "contextId": "c5"
+  }
+ ]
+}

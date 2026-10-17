@@ -48,6 +48,16 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - 22A-B Q2: the exam prints the parts as א, א, ב, ג; the official solution uses א, ב, ג, ד, which is used. Q4 text "שחוש" read as "שלוש".
 - Status: noted
 
+### FYI 19A-A / 20A-A / 20B-A - last three sittings; one whole sitting held, one question held, five corrected final answers, one misfiled key (no action needed)
+- 20A-A (all 20 items): held "no-key". The file paired with it in triage (the 14pp "פתרון" file of the 2020 folder) is NOT the 20A-A solution: its questions (AA^T+A^2=3I, the system with a, A with 2a, B=(6 0 2;1 4 0;0 0 3), W,U in R_2[x], T on M_2x2) are the questions of 21A-A. It looks like the key source for 21A-A (Q1, Q2 a-c, Q3, Q5 typed; Q4 handwritten; Q2 d). The orchestrator may wish to feed it to 21A-A instead of the solver.
+- 20B-A Q1 ד (p.2 of the solution): no solution in the source (it jumps from Q1 ב to Q2). Held "no-key".
+- 20B-A Q1 א/ב (p.2): the official takes M1M2=(-1,3,-2), but M2-M1=(-1,1,-2). Its k=-4 is wrong (the lines meet for k=-1) and its distance 3*sqrt2 should be 3*sqrt2/2. Both shipped corrected, labeled, official:false.
+- 20B-A Q2 ג (p.3): the official's k=-1 solution x=-2z, y=-1-z is wrong (row 2 is y-z=-1, x=0). Shipped as (0,-1,0)+t(0,1,1), labeled, official:false.
+- 19A-A Q3 א (p.3): the official's E,F,G are the reducing operations (EFGB=R), not the factors of B=EFGR. Shipped with the inverse operations, labeled, official:false.
+- 19A-A Q4 ב (p.4): the official basis of W has the second element (0 1;1 0), not in W; correct is (0 1;1 1). Shipped corrected, labeled, official:false. Q4 ג (p.4) lists the same slip inside the span and row 5; corrected silently (final basis unchanged).
+- 20B-A Q2 א (p.3) labels a step R3+kR1 (it is R3-kR1); Q2 ב writes "או" for "וגם"; Q6 ב writes T:V->V for T:V->R^3. All corrected silently.
+- Status: noted
+
 ## Resolved
 
 ### FYI 24A-A / 25A-B / 25B-A - holds and official slips (no action needed)
