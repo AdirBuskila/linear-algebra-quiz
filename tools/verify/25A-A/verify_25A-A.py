@@ -103,4 +103,106 @@ chk("Q5c a=b=-2", solc == [{aa: -2, bb: -2}])
 EB = sp.Matrix([[2, 0], [2, 5]]); EC = sp.Matrix([[1, 2], [3, 7]])
 chk("Q5d [I]_C^B = (E^C)^-1 E^B = [[10,-10],[-4,5]]", EC.inv() * EB == sp.Matrix([[10, -10], [-4, 5]]))
 
+# ======================================================================================
+# STEPS: every expected value stored in tools/raw/25A-A.json steps is recomputed with sympy and compared.
+import json, pathlib
+RAW = json.loads((pathlib.Path(__file__).resolve().parents[2] / "raw" / "25A-A.json").read_text(encoding="utf-8"))
+QS = {"25A-A-Q%d%s" % (q["num"], {"א": "a", "ב": "b", "ג": "c", "ד": "d"}[q["part"]]): q for q in RAW["questions"]}
+
+
+def step_num(qid, idx, expected):
+    st = QS[qid]["steps"][idx]
+    chk("STEP %s[%d] numeric" % (qid, idx), st["type"] == "numeric" and sp.nsimplify(st["answer"]) == sp.nsimplify(expected),
+        "json=%s sympy=%s" % (st.get("answer"), expected))
+
+
+def step_choice(qid, idx, expected_value):
+    st = QS[qid]["steps"][idx]
+    val = [o["value"] for o in st["options"] if o["id"] == st["correctId"]][0]
+    chk("STEP %s[%d] choice" % (qid, idx), st["type"] == "choice" and val == expected_value, val)
+
+
+a, s, t = sp.symbols("a s t")
+# Q1a : c in a^2+7a-c, positive root
+resid = sp.expand(3 * ((s_ := a - 1) - 5 - a * (-(a + 4) / 3)))   # (I) with s from (III), t from (II)
+chk("S Q1a quadratic is a^2+7a-18", sp.expand(resid - (a**2 + 7*a - 18)) == 0, str(resid))
+step_num("25A-A-Q1a", 1, -resid.subs(a, 0))
+step_num("25A-A-Q1a", 2, [r for r in sp.solve(resid, a) if r > 0][0])
+# Q1b / Q1c
+L1 = sp.Matrix([1, 0, 1]); L2 = sp.Matrix([2, -3, 0]); P0 = sp.Matrix([0, 2, -2])
+N1 = L1.cross(L2); N2 = L1.cross(N1)
+step_num("25A-A-Q1b", 1, N1[1]); step_num("25A-A-Q1b", 2, (N1.T * P0)[0])
+step_num("25A-A-Q1c", 1, N2[2]); step_num("25A-A-Q1c", 2, ((sp.Matrix([-1, 3, 1])).T * P0)[0])
+# Q2
+a = sp.symbols("a")
+M = sp.Matrix([[a, a, -1], [a**2, a, a**2 - a], [a, a, 2*a + 1]])
+R = M.copy(); R[1, :] = R[1, :] - a * R[0, :]; R[2, :] = R[2, :] - R[0, :]
+step_num("25A-A-Q2a", 0, R[2, 2].subs(a, 3)); step_num("25A-A-Q2a", 1, R[1, 1].subs(a, 3))
+bad_a = sorted(set(sp.solve(a * (1 - a), a)) | set(sp.solve(2 * (a + 1), a)))
+chk("S Q2a forbidden division set {-1,0,1}", bad_a == [-1, 0, 1])
+step_choice("25A-A-Q2a", 2, r"$a\in\{0,1,-1\}$")
+step_num("25A-A-Q2b", 1, M.subs(a, 2).rank())
+dets = sorted(sp.solve(M.det(), a)); step_num("25A-A-Q2b", 2, len(dets))
+chk("S Q2b det zeros {-1,0,1}", dets == [-1, 0, 1]); step_choice("25A-A-Q2b", 3, r"$a\neq0,\ 1,\ -1$")
+step_num("25A-A-Q2c", 0, M.subs(a, -1).rank())
+v = M.subs(a, -1).nullspace()[0]; v = v / v[1]
+step_num("25A-A-Q2c", 1, v[0]); chk("S Q2c z=2y at a=-1", v[2] == 2)
+step_num("25A-A-Q2c", 2, M.subs(a, 1).rank())
+line_a = [av for av in (0, 1, -1, 2) if 3 - M.subs(a, av).rank() == 1]
+chk("S Q2c line values {-1,1}", line_a == [1, -1] or sorted(line_a) == [-1, 1]); step_choice("25A-A-Q2c", 3, r"$a=1$ ו-$a=-1$")
+step_num("25A-A-Q2d", 0, M.subs(a, 0).rank()); step_num("25A-A-Q2d", 1, 3 - M.subs(a, 0).rank())
+# Q3a : replay the six row operations on (A|I)
+A = sp.Matrix([[1, 2, 1], [0, 1, 3], [3, 8, 8]])
+step_num("25A-A-Q3a", 0, A.det()); step_num("25A-A-Q3a", 1, A.inv()[0, 0])
+G = A.row_join(sp.eye(3))
+ops = [("add", 2, 0, -3), ("add", 2, 1, -2), ("mul", 2, None, -1), ("add", 1, 2, -3), ("add", 0, 2, -1), ("add", 0, 1, -2)]
+for kind, i, j, c in ops:
+    if kind == "add":
+        G[i, :] = G[i, :] + c * G[j, :]
+    else:
+        G[i, :] = c * G[i, :]
+chk("S Q3a six row ops turn (A|I) into (I|A^-1)", G[:, :3] == sp.eye(3) and G[:, 3:] == A.inv())
+step_num("25A-A-Q3a", 2, len(ops))
+expect_lines = [r"$R_3\to R_3-3R_1$", r"$R_3\to R_3-2R_2$", r"$R_3\to -R_3$", r"$R_2\to R_2-3R_3$", r"$R_1\to R_1-R_3$", r"$R_1\to R_1-2R_2$"]
+chk("S Q3a order lines match the replayed ops", QS["25A-A-Q3a"]["steps"][3]["lines"] == expect_lines)
+# Q3b
+B = sp.Matrix([[9, 0, 1], [0, 8, 0], [1, 0, 9]])
+ev = B.eigenvals()
+step_num("25A-A-Q3b", 0, [e for e in ev if e != 8][0])
+dim8 = 3 - (8 * sp.eye(3) - B).rank(); step_num("25A-A-Q3b", 1, dim8)
+dim_total = sum(len((B - e * sp.eye(3)).nullspace()) for e in ev)
+chk("S Q3b diagonalizable (sum of eigenspace dims = 3, 8 has multiplicity 2)", dim_total == 3 and ev[8] == 2 and B.is_diagonalizable())
+step_choice("25A-A-Q3b", 2, r"כן, כי לכל ערך עצמי המימד של המרחב העצמי שווה לריבוי האלגברי")
+# Q4
+x, pa, pb, pc, pd = sp.symbols("x pa pb pc pd")
+pp = pa * x**3 + pb * x**2 + pc * x + pd
+step_num("25A-A-Q4a", 0, sp.diff(pp, x, 2).subs(x, 0).coeff(pb))
+w1 = sp.Matrix([[1, 0, 0, 0], [0, 1, 2, 2]]); w2 = sp.Matrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]])
+step_num("25A-A-Q4a", 1, w1.rank()); step_num("25A-A-Q4a", 2, w2.rank())
+four = sp.Matrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 1, 2, 2], [0, 0, 0, 1]])
+step_num("25A-A-Q4b", 1, four.rank()); step_num("25A-A-Q4b", 2, sp.Matrix.vstack(w1, w2).rank())
+C45 = sp.Matrix.hstack(*(list(w1.T.columnspace() and [w1[0, :].T, w1[1, :].T]) + [-w2[0, :].T, -w2[1, :].T, -w2[2, :].T]))
+step_num("25A-A-Q4c", 0, C45.rank()); step_num("25A-A-Q4c", 1, C45.shape[1] - C45.rank())
+step_num("25A-A-Q4c", 2, len(C45.nullspace()))
+Qc = sp.Matrix([1, 2, 0, 3])
+step_num("25A-A-Q4d", 1, Qc[2]); step_num("25A-A-Q4d", 2, Qc[3])
+# Q5
+T = sp.Matrix([[1, 2, 12, 21], [1, 0, 10, 1], [1, 2, 12, 21], [1, 5, 15, 51]])
+step_num("25A-A-Q5a", 0, T.rank()); step_num("25A-A-Q5a", 1, 4 - T.rank())
+chk("S Q5a pivots are columns 1,2 of the original A", T.rref()[1] == (0, 1)); step_choice("25A-A-Q5a", 2, r"מהעמודות המקוריות של $A$ שבמקומן יש איברים מובילים אחרי הדירוג")
+kk = T.nullspace(); kb1 = sp.Matrix([-10, -1, 1, 0])
+chk("S Q5a (c,-1,1,0) with c=-10 in Ker", T * kb1 == sp.zeros(4, 1) and len(kk) == 2); step_num("25A-A-Q5a", 3, kb1[0])
+step_num("25A-A-Q5b", 0, 4)
+chk("S Q5b dim Ker 2 != 0 and rank 2 < 4", len(kk) == 2 and T.rank() < 4)
+step_choice("25A-A-Q5b", 1, r"לא, כי הגרעין אינו טריוויאלי ($\dim\mathrm{Ker}\,T=2$)")
+step_choice("25A-A-Q5b", 2, r"לא, כי $\dim\mathrm{Im}\,T=2<4=\dim M_{2\times2}(\mathbb{R})$")
+s1, s2 = sp.symbols("s1 s2")
+sc = sp.solve([-10*s1 - s2 - 22, -s1 - 10*s2 - 22], [s1, s2], dict=True)[0]
+step_num("25A-A-Q5c", 0, sc[s2]); step_num("25A-A-Q5c", 1, sc[s1]); step_num("25A-A-Q5c", 2, sc[s2])
+chk("S Q5c polynomial 22+22x+ax^2+bx^3 (a=b=-2) in Ker T", T * sp.Matrix([22, 22, -2, -2]) == sp.zeros(4, 1))
+EB = sp.Matrix([[2, 0], [2, 5]]); EC = sp.Matrix([[1, 2], [3, 7]])
+step_num("25A-A-Q5d", 1, EC.det()); step_num("25A-A-Q5d", 2, EC.inv()[0, 0]); step_num("25A-A-Q5d", 3, (EC.inv() * EB)[1, 0])
+chk("S every item has rubric (points sum), pitfalls, steps", all(q.get("rubric") and q.get("pitfalls") and q.get("steps") and
+    sum(r["points"] for r in q["rubric"]) == q["points"] for q in QS.values()) and len(QS) == 17)
+
 print("DONE, mismatches:", bad if bad else "none")
