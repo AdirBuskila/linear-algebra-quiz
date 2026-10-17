@@ -46,11 +46,27 @@
     var ctx = contextText(opts.context);
     if (ctx) out.push("רקע לשאלה:\n" + ctx);
     out.push("השאלה:\n" + str(q.question));
-    out.push((q.official ? "הפתרון הרשמי" : "פתרון לדוגמה (לא רשמי)") + ":\n" + str(q.solution));
-    var rub = Array.isArray(q.rubric) ? q.rubric : [];
+    if (q.image) out.push("(לשאלה מצורף איור שאינו כלול בטקסט הזה.)");
+    var choices = Array.isArray(q.options) ? q.options : [];
+    if (choices.length) {
+      out.push("האפשרויות:\n" + choices.map(function (o) {
+        return str(o.id) + ". " + (str(o.value) || "(אפשרות בתמונה)");
+      }).join("\n"));
+    }
+    var label = q.official ? "הפתרון הרשמי" : "פתרון לדוגמה (לא רשמי)";
+    var sol = str(q.solution);
+    if (!sol && choices.length && q.correctId != null) {
+      var ids = [q.correctId].concat(Array.isArray(q.acceptedIds) ? q.acceptedIds : []).map(String);
+      sol = "התשובה הנכונה: " + ids.join(", ");
+      var ex = str(q.explanation);
+      if (ex) sol += "\n" + ex;
+    }
+    if (sol) out.push(label + ":\n" + sol);
+    else out.push("(אין פתרון זמין לשאלה הזו. בדוק לפי הידע שלך ומחוון סביר.)");
+    var rub = (Array.isArray(q.rubric) ? q.rubric : []).filter(function (r) { return r && str(r.text); });
     if (rub.length) {
       out.push("המחוון:\n" + rub.map(function (r, i) {
-        return (i + 1) + ". " + str(r.text) + " (" + r.points + " נק׳)";
+        return (i + 1) + ". " + str(r.text) + (r.points != null ? " (" + r.points + " נק׳)" : "");
       }).join("\n"));
     }
     out.push("הוראות בדיקה:\n" + COMMON + "\n" + (KIND[q.kind] || ""));
