@@ -54,14 +54,14 @@ ASCII `a-z` is accepted as-is. A trailing `'` / geresh / `.` / `)` is ignored. S
 - Every kind except `mcq` needs `solution` (+ `solutionSource`) **or** a `hold` reason.
 - `steps` and `rubric` require a `solution` (they are derived from it); `rubric`/`steps` are optional
   (warned as "not yet") so a bank can be transcribed before the step-author phase.
-- `mcq`: `options` (2–6, ids `a..f`), `correctId`, optional `acceptedIds` (>=2, starts with `correctId`),
+- `mcq`: `options` (2–8, ids `a..h`), `correctId`, optional `acceptedIds` (>=2, starts with `correctId`),
   `lockOrder`, `explanation`; `solution` optional. `options`/`correctId`/… on any other kind is an error.
 - `truefalse`: `verdict` boolean (the student's first choice); proof steps follow.
 
 ## Steps (2–6 typical; each gets `prompt` rich text, optional `explain`)
 | type | fields |
 |---|---|
-| `choice` | `options` (as mcq, ids a..f), `correctId`. Also used for a **trace** ("state after step k") |
+| `choice` | `options` (as mcq, ids a..h), `correctId`. Also used for a **trace** ("state after step k") |
 | `numeric` | `answer` number, `tol` >= 0 (default 0). A numeric **trace** is just this |
 | `text` | `accept` [strings], `normalize`: `none` (default) \| `complexity` (`O(n log n)` ~ `O(nlogn)`) \| `lower` |
 | `order` | `lines` — stored in the **correct order**; the UI shuffles. Identical lines are allowed (two `}`) |

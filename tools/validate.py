@@ -23,7 +23,7 @@ TOPICS = {k for k, _ in _load_cfg()["topics"]}   # closed list, single source
 KINDS = ("computation", "proof", "algorithm", "code", "mcq", "truefalse")
 STEP_TYPES = ("choice", "numeric", "text", "order", "findbug", "fillblank")
 OPT_TYPES = {"text", "math", "image"}
-OPT_IDS = ("a", "b", "c", "d", "e", "f")
+OPT_IDS = ("a", "b", "c", "d", "e", "f", "g", "h")
 CONFIDENCE = {"high", "med", "low"}
 RUBRIC_SOURCES = {"official", "ai-draft", "ai-verified"}
 STEPS_SOURCES = {"official", "ai-draft", "ai-verified"}
@@ -230,7 +230,7 @@ def check_options(w, opts, P, root, rich=True):
         ow = f"{w} opt {o.get('id')}"
         unknown_keys(ow, o, OPTION_KEYS, P)
         if o.get("id") not in OPT_IDS:
-            P(f"{ow}: option id must be one of a..f")
+            P(f"{ow}: option id must be one of a..h")
         t = o.get("type", "text")
         if t not in OPT_TYPES:
             P(f"{ow}: bad type {t}")
