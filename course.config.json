@@ -51,7 +51,80 @@
       "הוכחות על מטריצות"
     ]
   ],
-  "briefs": [],
+  "briefs": [
+    [
+      "01 - vectors_geometry.md",
+      "vectors_geometry",
+      "vectors_geometry",
+      "topic"
+    ],
+    [
+      "02 - lines_planes.md",
+      "lines_planes",
+      "lines_planes",
+      "topic"
+    ],
+    [
+      "03 - complex_numbers.md",
+      "complex_numbers",
+      "complex_numbers",
+      "topic"
+    ],
+    [
+      "04 - linear_systems.md",
+      "linear_systems",
+      "linear_systems",
+      "topic"
+    ],
+    [
+      "05 - matrix_algebra.md",
+      "matrix_algebra",
+      "matrix_algebra",
+      "topic"
+    ],
+    [
+      "06 - rank_inverse.md",
+      "rank_inverse",
+      "rank_inverse",
+      "topic"
+    ],
+    [
+      "07 - determinants.md",
+      "determinants",
+      "determinants",
+      "topic"
+    ],
+    [
+      "08 - vector_spaces.md",
+      "vector_spaces",
+      "vector_spaces",
+      "topic"
+    ],
+    [
+      "09 - linear_maps.md",
+      "linear_maps",
+      "linear_maps",
+      "topic"
+    ],
+    [
+      "10 - eigen_diagonalization.md",
+      "eigen_diagonalization",
+      "eigen_diagonalization",
+      "topic"
+    ],
+    [
+      "11 - matrix_proofs.md",
+      "matrix_proofs",
+      "matrix_proofs",
+      "topic"
+    ],
+    [
+      "12 - cheat_sheet.md",
+      "cheat_sheet",
+      "matrix_proofs",
+      "cheat"
+    ]
+  ],
   "needHelp": [
     {
       "id": "param_systems",
