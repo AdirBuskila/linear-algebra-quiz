@@ -1,0 +1,264 @@
+# -*- coding: utf-8 -*-
+"""Generator for tools/raw/25A-B.json -- linear algebra, semester A 2025, moed B (23.03.2025).
+Run: PYTHONUTF8=1 py -W error::SyntaxWarning tools/gen/gen_25A-B.py
+
+Source: 8pp, exam text and official typed solution interleaved in one PDF. Five questions of 25 points (best 4
+count), 17 items. Q4 (all four parts) has NO official solution: the PDF ends the solution after Q3 and Q5 and the
+Q4 page carries only the question. Q4 is therefore held with reason "no-key" (routed to the solver).
+
+Transcription notes
+- Parts are single letters in the raw schema. Printed numbering -> raw part: Q3: א, ב (one printed item with
+  sub-steps 1 and 2); Q5: 1.a->א, 1.b->ב, 1.c->ג, 2->ד.
+- Q1: the printed sub-parts carry no point values.
+- Q2: the official label of the a=0 step reads R2->R2+2R1; the computation that gives the printed zero rows is
+  R3->R3+2R1. Printed as R3 and flagged inside the solution.
+- Q5 "b": the official text says dim Im T != dim R^4; the codomain of T is R3[x] (dimension 4). Slip flagged in
+  the solution; the conclusion is unaffected.
+- Q5.1: the official text writes the representing matrix twice and with an inconsistent [T]_F^E / [T]_E^F label;
+  the matrix itself (rows = coefficients of 1, x, x^2, x^3) is what is used.
+
+Checks (sympy, tools/verify/25A-B/verify_25A-B.py): every official computation reproduces (k=-1, line and p0,
+rank by a, inverse and its six-factor product, eigenvalues, P and D with BP=PD, Ker/Im of T, k=10 m=16,
+change-of-basis matrix). No mismatch.
+"""
+import json, pathlib
+
+OUT = pathlib.Path(__file__).resolve().parents[1] / "raw" / "25A-B.json"
+
+
+def Q(num, part, kind, topic, question, solution, points=None, **kw):
+    q = {"num": num, "part": part, "kind": kind, "topic": topic, "question": question,
+         "solution": solution, "solutionSource": "official-pdf", "official": True, "confidence": "high"}
+    if points is not None:
+        q["points"] = points
+    q.update(kw)
+    return q
+
+
+def pm(*rows):
+    return r"\begin{pmatrix}" + r"\\".join(r if isinstance(r, str) else "&".join(str(c) for c in r) for r in rows) + r"\end{pmatrix}"
+
+
+def aug(rows, left=3):
+    n = len(rows[0])
+    spec = "c" * left + "|" + "c" * (n - left)
+    return r"\left(\begin{array}{" + spec + "}" + r"\\".join("&".join(str(c) for c in r) for r in rows) + r"\end{array}\right)"
+
+
+def arrow(op):
+    return r"\xrightarrow{" + op + "}"
+
+
+def col(*v):
+    return pm(*[[c] for c in v])
+
+
+# ------------------------------------------------------------------ contexts
+contexts = {
+    "c1": {"kind": "text", "title": "שאלה 1 - שני מישורים",
+           "text": "נתונים שני מישורים\n"
+                   r"$S_1:\ -k^2x-y+(k+1)z=2,\qquad S_2:\ x+ky+(2k-3)z=1,\qquad k\in\mathbb{R}$"},
+    "c2": {"kind": "text", "title": "שאלה 2 - מערכת הומוגנית עם פרמטר",
+           "text": "תהי המערכת הלינארית ההומוגנית הבאה:\n"
+                   r"$$\begin{cases} ax+ay-z=0\\ a^2x+ay+(a^2-a)z=0\\ ax+ay+(2a+1)z=0\end{cases}$$"},
+    "c4": {"kind": "text", "title": "שאלה 4 - תתי מרחבים של פולינומים",
+           "text": r"יהי $\mathbb{R}_3[x]$ מרחב של פולינומים ממשיים ממעלה שלוש לכל היותר. נגדיר שני תתי מרחבים של מרחב זה:" "\n"
+                   r"$W_1=\{p(x)\in\mathbb{R}_3[x]:\ p(0)=p'(0)=p''(0)\}$" "\n"
+                   r"$W_2=\{q(x)\in\mathbb{R}_3[x]:\ q'(0)=0\}$"},
+    "c5": {"kind": "text", "title": "שאלה 5.1 - העתקה ממטריצות לפולינומים",
+           "text": r"נתונה העתקה לינארית $T:M_{2\times2}(\mathbb{R})\to\mathbb{R}_3[x]$ המוגדרת על ידי:" "\n"
+                   r"$$T\left(" + pm("a&b", "c&d") + r"\right)=(a+b+c+d)+(a+b+2c+2d)x+(2a+2b+3c+3d)x^2+(3a+3b+5c+5d)x^3$$"},
+}
+
+questions = []
+
+# ------------------------------------------------------------------ Q1
+questions.append(Q(
+    1, "א", "computation", "lines_planes",
+    r"מצאו $k<0$ עבורו $S_1$ ו-$S_2$ מאונכים זה לזה.",
+    r"הוקטורים הנורמליים של $S_1$ ו-$S_2$ הם $\vec N_1=(-k^2,-1,k+1)$, $\vec N_2=(1,k,2k-3)$. התנאי לכך ש-$S_1$ ו-$S_2$ מאונכים זה לזה הוא $\vec N_1\cdot\vec N_2=0$. מכאן נקבל:" "\n"
+    r"$$\vec N_1\cdot\vec N_2=0\Rightarrow(-k^2,-1,k+1)\cdot(1,k,2k-3)=0$$" "\n"
+    r"$$\Rightarrow -k^2-k+(k+1)(2k-3)=0\Rightarrow k^2-2k-3=0\Rightarrow k_1=-1,\ k_2=3$$" "\n"
+    r"כיוון שנתון ש-$k<0$ נקבל $k=-1$.",
+    contextId="c1"))
+
+questions.append(Q(
+    1, "ב", "computation", "lines_planes",
+    r"עבור הערך של $k$ שמצאתם בסעיף (א), מצאו צורה פרמטרית של ישר החיתוך $\ell$ של $S_1$ ו-$S_2$. הראו שהנקודה $p_0(12,-14,5)$ נמצאת על $\ell$.",
+    r"נציב $k=-1$ במשוואות עבור $S_1$ ו-$S_2$ ונקבל" "\n"
+    r"$$S_1:\ -x-y=2,\qquad S_2:\ x-y-5z=1$$" "\n"
+    r"למציאת ישר החיתוך $\ell$ של $S_1$ ו-$S_2$ נפתור את מערכת המשוואות המתקבלת:" "\n"
+    "$$" + aug([["-1", "-1", "0", "2"], ["1", "-1", "-5", "1"]], 3) + arrow("R_2+R_1\\to R_2")
+    + aug([["-1", "-1", "0", "2"], ["0", "-2", "-5", "3"]], 3) + arrow("2R_1-R_2\\to R_1")
+    + aug([["-2", "0", "5", "1"], ["0", "-2", "-5", "3"]], 3) + "$$\n"
+    "$$" + arrow(r"-\frac12R_1\to R_1,\ -\frac12R_2\to R_2")
+    + aug([["1", "0", r"-\frac52", r"-\frac12"], ["0", "1", r"\frac52", r"-\frac32"]], 3) + "$$\n"
+    r"המשתנה החופשי כאן הוא $z$. נבצע פרמטריזציה $z=t$ ונקבל" "\n"
+    r"$$x=-\frac12+t\frac52,\qquad y=-\frac32-t\frac52,\qquad t\in\mathbb{R}$$" "\n"
+    r"$$\Rightarrow(x,y,z)=\left(-\frac12+t\frac52,\,-\frac32-t\frac52,\,t\right)=\left(-\frac12,-\frac32,0\right)+t\left(\frac52,-\frac52,1\right),\qquad t\in\mathbb{R}$$" "\n"
+    r"זוהי הצורה הפרמטרית של ישר החיתוך $\ell$. נבדוק האם הנקודה $p_0(12,-14,5)$ נמצאת על $\ell$:" "\n"
+    r"$$(12,-14,5)=\left(-\frac12,-\frac32,0\right)+t\left(\frac52,-\frac52,1\right)\Rightarrow\left(\frac{25}{2},-\frac{25}{2},5\right)=t\left(\frac52,-\frac52,1\right)\Rightarrow t=5$$" "\n"
+    r"כיוון שקיים פתרון עבור $t$ נסיק ש-$p_0\in\ell$.",
+    contextId="c1"))
+
+questions.append(Q(
+    1, "ג", "computation", "lines_planes",
+    r"עבור הערך של $k$ שמצאתם בסעיף (א), מצאו הצגה פרמטרית של המישור $S_3$ המאונך ל-$S_1$ ו-$S_2$ ועובר בנקודה $p_0(12,-14,5)$.",
+    r"כיוון שהמישור $S_3$ מאונך למישורים $S_1$ ו-$S_2$, הוקטורים הנורמליים $\vec N_1$ ו-$\vec N_2$ של $S_1$ ו-$S_2$ הם מקבילים ל-$S_3$. כיוון ש" "\n"
+    r"$$\vec N_1=(-1,-1,0),\qquad\vec N_2=(1,-1,-5)$$" "\n"
+    r"נסיק שההצגה הפרמטרית המבוקשת היא" "\n"
+    r"$$(x(s,t),y(s,t),z(s,t))=(12,-14,5)+s(-1,-1,0)+t(1,-1,-5)$$",
+    contextId="c1"))
+
+# ------------------------------------------------------------------ Q2
+questions.append(Q(
+    2, "א", "computation", "linear_systems",
+    "מצאו צורה מדורגת של מטריצה מורחבת.",
+    "$$" + pm("a&a&-1", "a^2&a&a^2-a", "a&a&2a+1") + arrow(r"\begin{bmatrix}R_2\to R_2-a\cdot R_1\\R_3\to R_3-R_1\end{bmatrix}")
+    + pm("a&a&-1", "0&a-a^2&a^2", "0&0&2a+2") + "$$\n"
+    "מתקיים:\n"
+    "$$" + pm("a&a&-1", "0&a-a^2&a^2", "0&0&2a+2")
+    + arrow(r"\begin{bmatrix}R_2\to R_2\cdot\frac{1}{a(1-a)};\ a\neq0,1\\R_3\to R_3\cdot\frac{1}{2(a+1)};\ a\neq-1\end{bmatrix}")
+    + pm("a&a&-1", r"0&1&\frac{a}{1-a}", "0&0&1") + "$$",
+    8, contextId="c2"))
+
+questions.append(Q(
+    2, "ב", "computation", "linear_systems",
+    r"עבור אילו ערכי $a$ יש למערכת פתרון טריוויאלי בלבד (כלומר רק וקטור ה-0)?",
+    r"עבור $a\neq0,1,-1$: $r(A)=3$ ולכן למערכת יש **פתרון יחיד** והוא הפתרון הטריוויאלי.",
+    5, contextId="c2"))
+
+questions.append(Q(
+    2, "ג", "computation", "linear_systems",
+    r"עבור אילו ערכי $a$ הפתרון הכללי של המערכת הינו ישר (איבר חופשי אחד)? מצאו את הפתרון הכללי.",
+    r"**עבור $a=-1$:** נציב $a=-1$ בשלב שלפני החלוקה ונקבל את המטריצה" "\n"
+    "$$" + pm("-1&-1&-1", "0&-2&1", "0&0&0") + "$$\n"
+    r"ולכן עבור $a=-1$ מתקיים $r(A)=2$ ולמערכת **יש אינסוף פתרונות עם מקדם חופשי אחד**. מהמשוואה השנייה נובע כי $z=2y$ ואם נציב קשר זה במשוואה הראשונה נקבל $x=-y-z=-y-2y=-3y$, $y$ משתנה חופשי. מרחב הפתרונות במקרה זה נתון, אם כן, ע״י:" "\n"
+    r"$$\left\{" + col("-3y", "y", "2y") + r"\ \Big|\ y\in\mathbb{R}\right\}$$" "\n"
+    r"**עבור $a=1$:** נציב $a=1$ בשלב שלפני החלוקה ונקבל את המטריצה" "\n"
+    "$$" + pm("1&1&-1", "0&0&1", "0&0&4") + arrow("R_3\\to R_3-4R_2") + pm("1&1&-1", "0&0&1", "0&0&0") + "$$\n"
+    r"ולכן עבור $a=1$ מתקיים $r(A)=2$ ולמערכת **יש אינסוף פתרונות עם מקדם חופשי אחד**. מהמשוואה השנייה נובע כי $z=0$ ואם נציב זאת במשוואה הראשונה נקבל $x+y+0=0\Rightarrow y=-x$, $x$ משתנה חופשי. מרחב הפתרונות במקרה זה נתון ע״י:" "\n"
+    r"$$\left\{" + col("t", "-t", "0") + r"\ \Big|\ t\in\mathbb{R}\right\}$$",
+    6, contextId="c2"))
+
+questions.append(Q(
+    2, "ד", "computation", "linear_systems",
+    r"עבור אילו ערכי $a$ הפתרון הכללי של המערכת הינו מישור (2 איברים חופשיים)? מצאו את הפתרון הכללי.",
+    r"**עבור $a=0$:** נציב $a=0$ בשלב שלפני החלוקה ונקבל את המטריצה" "\n"
+    "$$" + pm("0&0&-1", "0&0&0", "0&0&2") + arrow(r"R_3\to R_3+2R_1") + pm("0&0&-1", "0&0&0", "0&0&0") + "$$\n"
+    r"(בפתרון הרשמי כתוב על החץ $R_2\to R_2+2R_1$; הפעולה שמובילה לשורות האפס המודפסות היא $R_3\to R_3+2R_1$.)" "\n"
+    r"ולכן במקרה זה $r(A)=1$ ולמערכת **אינסוף פתרונות עם 2 מקדמים חופשיים**. מהמשוואה הראשונה נובע מיד כי $z=0$ ואילו $x,y$ משתנים חופשיים. מרחב הפתרונות במקרה זה נתון, אם כן, ע״י:" "\n"
+    r"$$\left\{" + col("x", "y", "0") + r"\ \Big|\ x,y\in\mathbb{R}\right\}$$",
+    6, contextId="c2"))
+
+# ------------------------------------------------------------------ Q3
+questions.append(Q(
+    3, "א", "computation", "rank_inverse",
+    r"נתונה המטריצה $A=" + pm("1&1&1", "2&3&2", "3&8&2") + r"$. מצאו את $A^{-1}$ וכתבו אותה כמכפלה של מטריצות אלמנטריות.",
+    r"תחילה נחשב את $A^{-1}$:" "\n"
+    "$$" + aug([["1", "1", "1", "1", "0", "0"], ["2", "3", "2", "0", "1", "0"], ["3", "8", "2", "0", "0", "1"]])
+    + arrow(r"\substack{R_2\to R_2-2R_1\\R_3\to R_3-3R_1}")
+    + aug([["1", "1", "1", "1", "0", "0"], ["0", "1", "0", "-2", "1", "0"], ["0", "5", "-1", "-3", "0", "1"]]) + "$$\n"
+    "$$" + arrow(r"\substack{R_1\to R_1-R_2\\R_3\to R_3-5R_2}")
+    + aug([["1", "0", "1", "3", "-1", "0"], ["0", "1", "0", "-2", "1", "0"], ["0", "0", "-1", "7", "-5", "1"]])
+    + arrow(r"R_3\to-R_3")
+    + aug([["1", "0", "1", "3", "-1", "0"], ["0", "1", "0", "-2", "1", "0"], ["0", "0", "1", "-7", "5", "-1"]]) + "$$\n"
+    "$$" + arrow(r"R_1\to R_1-R_3")
+    + aug([["1", "0", "0", "10", "-6", "1"], ["0", "1", "0", "-2", "1", "0"], ["0", "0", "1", "-7", "5", "-1"]]) + "$$\n"
+    "קיבלנו שהמטריצה ההפוכה היא:\n"
+    "$$A^{-1}=" + pm("10&-6&1", "-2&1&0", "-7&5&-1") + "$$\n"
+    "כעת נשתמש בדירוג הנ״ל ונכתוב את $A^{-1}$ כמכפלה של מטריצות אלמנטריות:\n"
+    "$$A^{-1}=" + pm("1&0&-1", "0&1&0", "0&0&1") + pm("1&0&0", "0&1&0", "0&0&-1") + pm("1&-1&0", "0&1&0", "0&0&1")
+    + pm("1&0&0", "0&1&0", "0&-5&1") + pm("1&0&0", "0&1&0", "-3&0&1") + pm("1&0&0", "-2&1&0", "0&0&1") + "$$",
+    10))
+
+questions.append(Q(
+    3, "ב", "computation", "eigen_diagonalization",
+    r"נתונה מטריצה $B=" + pm("1&1&1", "1&1&1", "1&1&1") + r"$. האם $B$ ניתנת לליכסון? במידה וכן, מצאו מטריצה הפיכה $P$ ומטריצה אלכסונית $D$ כך שמתקיים $BP=PD$ (יש לבדוק שהשוויון מתקיים).",
+    r"**1. נמצא את כל הערכים העצמיים והוקטורים העצמיים של $B$.**" "\n"
+    r"$$\det(B-\lambda I)=\begin{vmatrix}1-\lambda&1&1\\1&1-\lambda&1\\1&1&1-\lambda\end{vmatrix}=3\lambda^2-\lambda^3=\lambda^2(3-\lambda)$$" "\n"
+    r"ומכאן הערכים העצמיים של $B$ הם $\lambda_1=\lambda_2=0,\ \lambda_3=3$." "\n"
+    r"(*) עבור $\lambda_1=\lambda_2=0$ נקבל:" "\n"
+    "$$" + pm("1&1&1", "1&1&1", "1&1&1") + r"\to" + pm("1&1&1", "0&0&0", "0&0&0") + "$$\n"
+    r"נסמן $y=t,\ z=s$ ונקבל $x=-t-s$. אז הוקטורים העצמיים המתקבלים הם:" "\n"
+    "$$" + col("-t-s", "t", "s") + "=t" + col(-1, 1, 0) + "+s" + col(-1, 0, 1) + "$$\n"
+    r"(*) עבור $\lambda_3=3$ נקבל:" "\n"
+    "$$" + pm("-2&1&1", "1&-2&1", "1&1&-2") + r"\to\cdots\to" + pm("1&-2&1", "0&1&-1", "0&0&0") + "$$\n"
+    r"נסמן $z=t$ ונקבל $x=2y-z=t,\ y=z=t$. הוקטור העצמי המתקבל הוא:" "\n"
+    "$$" + col("t", "t", "t") + "=t" + col(1, 1, 1) + "$$\n"
+    r"**2. נמצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $BP=PD$:**" "\n"
+    r"$$P=" + pm("1&-1&-1", "1&1&0", "1&0&1") + r",\qquad D=" + pm("3&0&0", "0&0&0", "0&0&0") + "$$\n"
+    r"בדיקה ישירה מראה כי" "\n"
+    r"$$BP=PD=" + pm("3&0&0", "3&0&0", "3&0&0") + "$$",
+    15))
+
+# ------------------------------------------------------------------ Q4 (no official solution: held)
+for part, qtext, pts in [
+    ("א", r"מצאו בסיס ומימד של תתי המרחבים $W_1$ ו-$W_2$.", 6),
+    ("ב", r"חשבו את תת המרחב $W_1+W_2$, מצאו בסיס ומימד של תת מרחב זה.", 8),
+    ("ג", r"חשבו את תת המרחב $W_1\cap W_2$, מצאו בסיס ומימד של תת מרחב זה.", 8),
+    ("ד", r"האם הפולינום $Q(x)=x^3+2x^2+3$ שייך לתת מרחב $W_1+W_2$? נמקו את תשובתכם.", 3),
+]:
+    questions.append({"num": 4, "part": part, "kind": "computation", "topic": "vector_spaces", "points": pts,
+                      "question": qtext, "contextId": "c4", "hold": "no-key"})
+
+# ------------------------------------------------------------------ Q5
+questions.append(Q(
+    5, "א", "computation", "linear_maps",
+    r"מצאו את המימד ובסיס של $\mathrm{Im}\,T$, $\mathrm{Ker}\,T$.",
+    r"נסמן $E=\left(" + pm("1&0", "0&0") + "," + pm("0&1", "0&0") + "," + pm("0&0", "1&0") + "," + pm("0&0", "0&1") + r"\right)$ בסיס סטנדרטי של $M_{2\times2}(\mathbb{R})$ ו-$F=(1,x,x^2,x^3)$ בסיס סטנדרטי של $\mathbb{R}_3[x]$. המטריצה המייצגת הסטנדרטית היא" "\n"
+    "$$A=" + pm("1&1&1&1", "1&1&2&2", "2&2&3&3", "3&3&5&5") + "$$\n"
+    "$$" + aug([["1", "1", "1", "1", "0"], ["1", "1", "2", "2", "0"], ["2", "2", "3", "3", "0"], ["3", "3", "5", "5", "0"]], 4) + r"\to"
+    + aug([["1", "1", "1", "1", "0"], ["0", "0", "1", "1", "0"], ["0", "0", "1", "1", "0"], ["0", "0", "2", "2", "0"]], 4) + r"\to"
+    + aug([["1", "1", "1", "1", "0"], ["0", "0", "1", "1", "0"], ["0", "0", "0", "0", "0"], ["0", "0", "0", "0", "0"]], 4) + "$$\n"
+    r"עמודות מס׳ 1,3 של המטריצה המדורגת מובילות, אז $\mathrm{Im}\,T$ הוא $\mathrm{Col}A$ ובסיס של $\mathrm{Im}\,T$ הוא $\left(1+x+2x^2+3x^3,\ 1+2x+3x^2+5x^3\right)$, ואז $\dim\mathrm{Im}\,T=2$." "\n"
+    "$$" + aug([["1", "1", "0", "0", "0"], ["0", "0", "1", "1", "0"], ["0", "0", "0", "0", "0"], ["0", "0", "0", "0", "0"]], 4)
+    + r"\Rightarrow\begin{cases}x_1=-t\\x_2=t\\x_3=-s\\x_4=s\end{cases}\Rightarrow" + col("x_1", "x_2", "x_3", "x_4") + "=t" + col(-1, 1, 0, 0) + "+s" + col(0, 0, -1, 1) + "$$\n"
+    r"אז בסיס של $\mathrm{Nul}A$ הוא $\left(" + col(-1, 1, 0, 0) + "," + col(0, 0, -1, 1) + r"\right)$, ובסיס של $\mathrm{Ker}\,T$ הוא "
+    r"$\left(" + pm("-1&1", "0&0") + "," + pm("0&0", "-1&1") + r"\right)$ ו-$\dim\mathrm{Ker}\,T=2$.",
+    12, contextId="c5"))
+
+questions.append(Q(
+    5, "ב", "computation", "linear_maps",
+    r"האם $T$ חד חד ערכית? האם $T$ על? נמקו.",
+    r"$T$ לא חד חד ערכית כי $\dim\mathrm{Ker}\,T=2\neq0$, $T$ לא על כי $\dim\mathrm{Im}\,T=2\neq\dim\mathbb{R}_3[x]=4$." "\n"
+    r"(הערת תמלול: בפתרון הרשמי כתוב $\dim\mathbb{R}^4$ במקום $\dim\mathbb{R}_3[x]$ - אין זה משנה את המסקנה, כי $\dim\mathbb{R}_3[x]=4$.)",
+    3, contextId="c5"))
+
+questions.append(Q(
+    5, "ג", "computation", "linear_maps",
+    r"לאילו ערכים של פרמטרים $k,m$ מתקיים $4+6x+kx^2+mx^3\in\mathrm{Im}\,T$?",
+    r"הפולינום שייך ל-$\mathrm{Im}\,T$ אם ורק אם וקטור הקואורדינטות שלו $(4,6,k,m)$ הוא צירוף לינארי של בסיס ה-$\mathrm{Im}\,T$, כלומר המערכת עם העמודה האחרונה $(4,6,k,m)$ פתירה:" "\n"
+    "$$" + aug([["1", "1", "4"], ["1", "2", "6"], ["2", "3", "k"], ["3", "5", "m"]], 2) + r"\to"
+    + aug([["1", "1", "4"], ["0", "1", "2"], ["0", "1", "k-8"], ["0", "2", "m-12"]], 2) + r"\to"
+    + aug([["1", "1", "4"], ["0", "1", "2"], ["0", "0", "k-10"], ["0", "0", "m-16"]], 2) + "$$\n"
+    r"$$\begin{cases}k-10=0\\m-16=0\end{cases}\Rightarrow\begin{cases}k=10\\m=16\end{cases}$$",
+    5, contextId="c5"))
+
+questions.append(Q(
+    5, "ד", "computation", "vector_spaces",
+    r"נתונים בסיסים $B=(20+20x,\ 25+24x)$, $C=(1+3x,\ 3+10x)$ של מרחב פולינומים $\mathbb{R}_1[x]$. מצאו את מטריצת המעבר $[I]_C^B$ מבסיס $B$ לבסיס $C$. (שאלה 5 סעיף 2; אין קשר בין סעיף 1 לסעיף 2.)",
+    r"נסמן ב-$E=(1,x)$ בסיס סטנדרטי של $\mathbb{R}_1[x]$:" "\n"
+    r"$$[I]_E^B=" + pm("20&25", "20&24") + r",\qquad [I]_E^C=" + pm("1&3", "3&10") + "$$\n"
+    r"**שיטה 1:**" "\n"
+    r"$$[I]_C^B=[I]_C^E[I]_E^B=\left([I]_E^C\right)^{-1}[I]_E^B=" + pm("1&3", "3&10") + r"^{-1}" + pm("20&25", "20&24") + "="
+    + pm("10&-3", "-3&1") + pm("20&25", "20&24") + "=" + pm("140&178", "-40&-51") + "$$\n"
+    r"**שיטה 2:**" "\n"
+    "$$" + aug([["1", "3", "20", "25"], ["3", "10", "20", "24"]], 2) + r"\to" + aug([["1", "3", "20", "25"], ["0", "1", "-40", "-51"]], 2) + r"\to"
+    + aug([["1", "0", "140", "178"], ["0", "1", "-40", "-51"]], 2) + r"\to[I]_C^B=" + pm("140&178", "-40&-51") + "$$",
+    5))
+
+exam = {
+    "examCode": "25A-B",
+    "examLabel": "מבחן סוף סמסטר א׳ תשפ״ה, מועד ב׳ (23.03.2025)",
+    "year": 2025,
+    "examDate": "23.03.2025",
+    "sourceFile": "25A-B exam + official solution (single PDF)",
+    "solutionFile": "25A-B exam + official solution (single PDF)",
+    "contexts": contexts,
+    "questions": questions,
+}
+
+OUT.parent.mkdir(parents=True, exist_ok=True)
+OUT.write_text(json.dumps(exam, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+print(f"wrote {OUT.name}: {len(questions)} questions")
