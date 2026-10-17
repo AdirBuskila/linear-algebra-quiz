@@ -1,0 +1,241 @@
+{
+ "examCode": "21A-A",
+ "examLabel": "מבחן סוף סמסטר א׳ תשפ״א, מועד א׳ (24.01.2021)",
+ "year": 2021,
+ "examDate": "24.01.2021",
+ "sourceFile": "21A-A exam (PDF, 3pp, exam only)",
+ "solutionFile": "none",
+ "contexts": {
+  "c1": {
+   "kind": "text",
+   "title": "שאלה 1 - המטריצה A",
+   "text": "נתונה מטריצה $A$ ממשית מסדר $3\\times3$ המקיימת את המשוואות $AA^T+A^2=3I$ ו-$AA^T-A^2=0$."
+  },
+  "c2": {
+   "kind": "text",
+   "title": "שאלה 2 - מערכת עם פרמטר",
+   "text": "נתונה מערכת המשוואות הבאה, כאשר $a\\in\\mathbb{R}$ פרמטר ממשי כלשהו:\n$$\\begin{cases} x-y-az=a\\\\ ax+y-z=-a\\\\ x+ay+z=-1\\end{cases}$$"
+  },
+  "c3a": {
+   "kind": "text",
+   "title": "שאלה 3 - סעיף א",
+   "text": "תהי נתונה המטריצה $A=\\begin{pmatrix}2a&3&6\\\\4&a+1&4a-2\\\\1&5&2\\end{pmatrix}$ כאשר $a$ הוא פרמטר ממשי."
+  },
+  "c3b": {
+   "kind": "text",
+   "title": "שאלה 3 - סעיף ב",
+   "text": "תהי נתונה מטריצה $B=\\begin{pmatrix}6&0&2\\\\1&4&0\\\\0&0&3\\end{pmatrix}$."
+  },
+  "c4": {
+   "kind": "text",
+   "title": "שאלה 4 - תתי מרחבים של פולינומים",
+   "text": "יהי $\\mathbb{R}_2[x]=\\left\\{p(x)\\mid a_0+a_1x+a_2x^2,\\ a_0,a_1,a_2\\in\\mathbb{R}\\right\\}$ מרחב של פולינומים ממשיים ממעלה שתיים לכל היותר. נגדיר שני תתי מרחבים של מרחב זה:\n$$W=\\left\\{p(x)\\in\\mathbb{R}_2[x]:\\ p'(1)=0\\right\\}$$\nו-\n$$U=\\mathrm{Sp}\\left\\{1+x,\\ 2-x^2,\\ 2x+x^2\\right\\}$$\nכאשר $p'(x)=\\left(a_0+a_1x+a_2x^2\\right)'=a_1+2a_2x$."
+  },
+  "c5": {
+   "kind": "text",
+   "title": "שאלה 5 - ההעתקה T",
+   "text": "נסמן ב-$\\mathbb{M}_2(\\mathbb{R})$ קבוצת מטריצות ריבועיות $2\\times2$ ונגדיר את ההעתקה $T:\\mathbb{M}_2(\\mathbb{R})\\to\\mathbb{R}^3$ המוגדרת לפי\n$$T\\left(\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}\\right)=\\begin{pmatrix}a+b\\\\b+c\\\\b+d\\end{pmatrix}$$"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "part": "א",
+   "kind": "proof",
+   "topic": "matrix_proofs",
+   "points": 7,
+   "question": "הראו כי $A$ הפיכה ע״י מציאת ביטוי של המטריצה ההפוכה באמצעות $A$.",
+   "hold": "no-key",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "kind": "proof",
+   "topic": "matrix_proofs",
+   "points": 7,
+   "question": "הוכיחו כי $A^{-1}$ מטריצה סימטרית.",
+   "hold": "no-key",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "determinants",
+   "points": 7,
+   "question": "חשבו את הדטרמיננטה $|A|$.",
+   "hold": "no-key",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "determinants",
+   "points": 4,
+   "question": "חשבו את הדטרמיננטה $\\left|A^{-1}\\right|$.",
+   "hold": "no-key",
+   "contextId": "c1"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 9,
+   "question": "הביאו את המטריצה המורחבת של המערכת לצורת מדורגת קנונית.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 8,
+   "question": "מצאו עבור אילו ערכי $a$ יש למערכת אינסוף פתרונות, פתרון יחיד או שאין לה פתרון כלל.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 4,
+   "question": "עבור $a=-1$ פתרו את המערכת וכתבו את כל הפתרונות.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "complex_numbers",
+   "points": 4,
+   "question": "מצאו את כל הפתרונות המרוכבים של המשוואה $z^4+8z=0$.",
+   "hold": "no-key"
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 6,
+   "question": "עבור אילו ערכי $a$ המטריצה $A$ הפיכה?",
+   "hold": "no-key",
+   "contextId": "c3a"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 6,
+   "question": "מצאו את $A^{-1}$ עבור $a=2$.",
+   "hold": "no-key",
+   "contextId": "c3a"
+  },
+  {
+   "num": 3,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 8,
+   "question": "מצאו את כל הערכים העצמיים והווקטורים העצמיים של $B$.",
+   "hold": "no-key",
+   "contextId": "c3b"
+  },
+  {
+   "num": 3,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 5,
+   "question": "מצאו את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$.",
+   "hold": "no-key",
+   "contextId": "c3b"
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 6,
+   "question": "מצאו בסיס ומימד של תתי המרחבים $U$ ו-$W$.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 8,
+   "question": "חשבו תת מרחב $U+W$, מצאו בסיס ומימד של תת מרחב זה.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 8,
+   "question": "חשבו תת מרחב $U\\cap W$, מצאו בסיס ומימד של תת מרחב זה.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 3,
+   "question": "יהי $q(x)$ פולינום כלשהו השייך לתת מרחב $U\\cap W$. מצאו $q(2)+q(-2)$.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 5,
+   "part": "א",
+   "kind": "proof",
+   "topic": "linear_maps",
+   "points": 6,
+   "question": "הוכיחו כי $T$ היא העתקה לינארית.",
+   "hold": "no-key",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 9,
+   "question": "מצאו את הבסיסים והמימדים של $\\mathrm{Ker}(T)$ ו-$\\mathrm{Im}(T)$.",
+   "hold": "no-key",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 3,
+   "question": "האם $T$ חד-חד ערכית? האם היא על? נמקו את תשובתכם.",
+   "hold": "no-key",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 7,
+   "question": "מצאו את כל המטריצות ב-$\\mathbb{M}_2(\\mathbb{R})$ שתמונתם נותנת וקטור $\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}$. האם הן מהוות תת מרחב של $\\mathbb{M}_2(\\mathbb{R})$?",
+   "hold": "no-key",
+   "contextId": "c5"
+  }
+ ]
+}

@@ -13,6 +13,15 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Status: hold
 -->
 
+### FYI 22A-A / 21B-B / 21A-B / 21A-A - two sittings held whole (no key), five corrected final answers (no action needed)
+- 21A-A (all 20 items, p.1-2) and 21A-B (all 20 items, p.1-3): no answer source exists; every item held "no-key" for the solver. Questions fully transcribed.
+- 22A-A Q2 ב (p.3): the official says b!=6 gives no solution and b=6 gives infinitely many. Its own last matrix has the row (0 a^2-a a^2-a 0 | a), which is 0=1 at a=1, so a=1 has no solution for any b. Shipped corrected, labeled, official:false.
+- 22A-A Q2 ג (p.3) and Q2 ד (p.3-4): the official prints x=4-t2 / x=4-t; the first equation x+2w=4 gives x=4-2t. Shipped corrected, labeled, official:false.
+- 21B-B Q5 (p.7-9): the exam defines T(a b;c d)=(a+b,d+c) but the official solution works with (a+d,b+c) (kernel, T(E)'s and the matrix in d all belong to that map). All four parts re-solved for the printed map, labeled, official:false.
+- 21B-B Q3 א (p.4): the official writes det A=(k+1)(k-1)^3; the correct value is -(k+1)(k-1)^3 (same zero set). Corrected, no label.
+- 22A-A Q4 (p.7): the exam prints W_1 twice; the second is W_2. Written as W_2.
+- Status: noted
+
 ### FYI 25A-A - no holds, official slips flagged (no action needed)
 - Page: 25A-A p.10 (Q4 d, handwritten) and p.12 (Q5 b)
 - Q4 d: the official line reads Q(x)=1*x^2+2*x^2+0*x+1*1; the intended combination is 1*x^3+2*x^2+0*x+3*1. Corrected in a labeled transcription note inside the solution.

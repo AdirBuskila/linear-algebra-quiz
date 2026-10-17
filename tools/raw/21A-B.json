@@ -1,0 +1,246 @@
+{
+ "examCode": "21A-B",
+ "examLabel": "מבחן סוף סמסטר א׳ תשפ״א, מועד ב׳ (22.02.2021)",
+ "year": 2021,
+ "examDate": "22.02.2021",
+ "sourceFile": "21A-B exam (PDF, 4pp, exam only)",
+ "solutionFile": "none",
+ "contexts": {
+  "c1a": {
+   "kind": "text",
+   "title": "שאלה 1 - סעיפים א ו-ב",
+   "text": "נתונות שתי מטריצות ריבועיות $A,B$ מסדר $n$ אי זוגי המקיימות את המשוואה $AB=B$. בנוסף ידוע כי $A$ אנטי סימטרית."
+  },
+  "c1b": {
+   "kind": "text",
+   "title": "שאלה 1 - סעיפים ג ו-ד",
+   "text": "נתונה המטריצה $C=\\begin{pmatrix}1&0&0\\\\5&a&0\\\\2&a&1\\end{pmatrix}$."
+  },
+  "c2": {
+   "kind": "text",
+   "title": "שאלה 2 - מערכת עם שני פרמטרים",
+   "text": "נתונה מערכת המשוואות הבאה, כאשר $a,b\\in\\mathbb{R}$ פרמטרים ממשיים.\n$$\\begin{cases}2x-y+z=3\\\\ x-y+z=2\\\\ 3x-y-az=b\\end{cases}$$"
+  },
+  "c3a": {
+   "kind": "text",
+   "title": "שאלה 3 - סעיף א",
+   "text": "נתונה המטריצה $A=\\begin{pmatrix}1&2&1\\\\0&1&3\\\\3&8&8\\end{pmatrix}$."
+  },
+  "c3b": {
+   "kind": "text",
+   "title": "שאלה 3 - סעיף ב",
+   "text": "נתונה מטריצה $B=\\begin{pmatrix}5&0&1\\\\0&4&0\\\\1&0&5\\end{pmatrix}$."
+  },
+  "c4": {
+   "kind": "text",
+   "title": "שאלה 4 - תתי מרחבים של המרחב",
+   "text": "יהיו $V$ ו-$W$ שני תתי מרחבים של $\\mathbb{R}^3$ המוגדרים כדלקמן:\n$$V=\\mathrm{Sp}\\left\\{\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix},\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix},\\begin{pmatrix}1\\\\1\\\\2\\end{pmatrix},\\begin{pmatrix}1\\\\3\\\\4\\end{pmatrix}\\right\\}$$\n$$W=\\left\\{\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}\\ \\middle|\\ x-z=2y;\\ x,y,z\\in\\mathbb{R}\\right\\}$$"
+  },
+  "c5": {
+   "kind": "text",
+   "title": "שאלה 5 - ההעתקה T",
+   "text": "נסמן $\\mathbb{M}_2(\\mathbb{R})$ קבוצת מטריצות ריבועיות $2\\times2$ ו-$\\mathbb{R}_2[x]$ מרחב של פולינומים ממשיים ממעלה שתיים לכל היותר. תהי העתקה $T:\\mathbb{M}_2(\\mathbb{R})\\to\\mathbb{R}_2[x]$ מוגדרת לפי\n$$T\\left(\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}\\right)=(a+2b+8c+d)+(-3a+2b+5d)x+(a+b+5c)x^2$$"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "part": "א",
+   "kind": "proof",
+   "topic": "matrix_proofs",
+   "points": 7,
+   "question": "הראו כי $\\det A=0$.",
+   "hold": "no-key",
+   "contextId": "c1a"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "kind": "proof",
+   "topic": "matrix_proofs",
+   "points": 6,
+   "question": "האם $B$ הפיכה? נמקו!",
+   "hold": "no-key",
+   "contextId": "c1a"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 6,
+   "question": "מצאו בסיס ומימד של מרחב העמודות של $C$ כאשר היא איננה הפיכה.",
+   "hold": "no-key",
+   "contextId": "c1b"
+  },
+  {
+   "num": 1,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 6,
+   "question": "בנו בסיס של $\\mathbb{R}^3$ שמכיל בתוכו בסיס של מרחב העמודות של $C$ מסעיף א׳.",
+   "hold": "no-key",
+   "contextId": "c1b"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 7,
+   "question": "הביאו את מטריצת המקדמים המורחבת של המערכת לצורה מדורגת.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 4,
+   "question": "מצאו עבור אילו ערכי $a,b$ יש למערכת אינסוף פתרונות, פתרון יחיד או שאין לה פתרון כלל.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 4,
+   "question": "עבור $a=2$ ו-$b=1$ פתרו את המערכת וכתבו את כל הפתרונות.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "linear_systems",
+   "points": 4,
+   "question": "עבור $a=-1$ ו-$b=4$ פתרו את המערכת וכתבו את כל הפתרונות.",
+   "hold": "no-key",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "part": "ה",
+   "kind": "computation",
+   "topic": "complex_numbers",
+   "points": 6,
+   "question": "הראו שלמשוואה $4z=\\overline{z}^{\\,2}$ יש ארבעה פתרונות, כתבו את כולם.",
+   "hold": "no-key"
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "kind": "computation",
+   "topic": "rank_inverse",
+   "points": 8,
+   "question": "כתבו את $A^{-1}$ כמכפלה של מטריצות אלמנטריות.",
+   "hold": "no-key",
+   "contextId": "c3a"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 9,
+   "question": "מצאו את כל הערכים העצמיים והווקטורים העצמיים של $B$.",
+   "hold": "no-key",
+   "contextId": "c3b"
+  },
+  {
+   "num": 3,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "eigen_diagonalization",
+   "points": 8,
+   "question": "האם $B$ ניתנת ללכסון? אם כן, מצאו את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}BP$. אם לא, אז נמקו למה!",
+   "hold": "no-key",
+   "contextId": "c3b"
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 6,
+   "question": "מצאו בסיס ומימד של תתי המרחבים $V$ ו-$W$.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 8,
+   "question": "חשבו תת מרחב $V+W$, מצאו בסיס ומימד של תת מרחב זה.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 8,
+   "question": "חשבו תת מרחב $V\\cap W$, מצאו בסיס ומימד של תת מרחב זה.",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 4,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "vector_spaces",
+   "points": 3,
+   "question": "האם הווקטור $\\begin{pmatrix}1\\\\3\\\\2\\end{pmatrix}$ שייך לתת מרחב $V\\cap W$? האם הוא שייך לתת מרחב $V+W$?",
+   "hold": "no-key",
+   "contextId": "c4"
+  },
+  {
+   "num": 5,
+   "part": "א",
+   "kind": "proof",
+   "topic": "linear_maps",
+   "points": 7,
+   "question": "הוכיחו כי $T$ היא העתקה לינארית.",
+   "hold": "no-key",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 8,
+   "question": "מצאו את הבסיס והמימד של $\\mathrm{Ker}(T)$.",
+   "hold": "no-key",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 8,
+   "question": "מצאו את הבסיס והמימד של $\\mathrm{Im}(T)$.",
+   "hold": "no-key",
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "part": "ד",
+   "kind": "computation",
+   "topic": "linear_maps",
+   "points": 2,
+   "question": "האם $T$ היא העתקה הפיכה? נמקו!",
+   "hold": "no-key",
+   "contextId": "c5"
+  }
+ ]
+}
