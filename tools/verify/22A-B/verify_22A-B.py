@@ -59,4 +59,22 @@ chk("Q5a kernel (2,-1,1,0),(-2,-1,0,1)", T5 * M([2, -1, 1, 0]) == sp.zeros(3, 1)
 chk("Q5c k=4 only", [kk for kk in range(-20, 21) if M.hstack(T5[:, 0], T5[:, 1]).row_join(M([kk, 7, 10])).rank() == 2] == [4])
 Fm = M([[1, 1], [1, -1]]); Bm = M([[5, 2], [17, 7]])
 chk("Q5d [F]_B^B = [[178,73],[-434,-178]]", Bm.inv() * Fm * Bm == M([[178, 73], [-434, -178]]) and Bm.det() == 1)
+# ---- Q4 (no official solution; solved by the solver). R3[x], coords (a0,a1,a2,a3) ----
+x4 = sp.symbols("x4")
+def co4(p):
+    p = sp.Poly(sp.expand(p) + 0 * x4, x4)
+    return M([[p.coeff_monomial(x4**k) for k in range(4)]])
+a0, a1, a2, a3 = sp.symbols("a0 a1 a2 a3")
+pg = a0 + a1 * x4 + a2 * x4**2 + a3 * x4**3
+oddc = sp.Poly(sp.expand(pg.subs(x4, -x4) + pg), x4).coeffs()
+chk("Q4a U: p(-x)=-p(x) iff a0=a2=0", sp.solve(oddc, [a0, a1, a2, a3], dict=True) == [{a0: 0, a2: 0}])
+chk("Q4a U basis x, x^3 (dim 2)", all(sp.expand(p.subs(x4, -x4) + p) == 0 for p in (x4, x4**3)) and M.vstack(co4(x4), co4(x4**3)).rank() == 2)
+Wb4 = [1 + 0 * x4, x4**2 - 2 * x4, x4**3 - 3 * x4]
+chk("Q4b W basis 1, x^2-2x, x^3-3x satisfy p'(1)=0, dim 3", all(sp.diff(p, x4).subs(x4, 1) == 0 for p in Wb4) and M.vstack(*[co4(p) for p in Wb4]).rank() == 3
+    and M([[0, 1, 2, 3]]).rank() == 1)
+chk("Q4c U+W = R3[x]", M.vstack(co4(x4), co4(x4**3), *[co4(p) for p in Wb4]).rank() == 4)
+chk("Q4d U cap W = span(x^3-3x)", sp.solve(sp.diff(a1 * x4 + a3 * x4**3, x4).subs(x4, 1), a1) == [-3 * a3] and 2 + 3 - 4 == 1)
+q4 = -R(1, 2) * x4**3 + R(3, 2) * x4
+chk("Q4e q(1)=1, q'(1)=0, q'(sqrt2)=-3/2", q4.subs(x4, 1) == 1 and sp.diff(q4, x4).subs(x4, 1) == 0 and sp.simplify(sp.diff(q4, x4).subs(x4, sp.sqrt(2)) + R(3, 2)) == 0)
 print("ALL OK" if not bad else "MISMATCHES: " + ", ".join(bad))
+assert not bad, bad

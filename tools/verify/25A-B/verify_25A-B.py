@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """sympy checks of the official 25A-B answers. Run: PYTHONUTF8=1 py tools/verify/25A-B/verify_25A-B.py
-Prints OK/MISMATCH lines (ASCII only). Q4 has no official solution (held), so it is not checked here."""
+Prints OK/MISMATCH lines (ASCII only). Q4 has no official solution; the solver's answers are checked at the end."""
 import sympy as sp
 
 bad = []
@@ -139,5 +139,27 @@ chk("Q5d method 2 step R2-3R1", r1 == sp.Matrix([[1, 3, 20, 25], [0, 1, -40, -51
 r1[0, :] -= 3 * r1[1, :]
 chk("Q5d method 2 step R1-3R2", r1 == sp.Matrix([[1, 0, 140, 178], [0, 1, -40, -51]]))
 
+# ---- Q4 (no official solution; solved by the solver). coords (a,b,c,d) of ax^3+bx^2+cx+d ----
+_x = sp.symbols("x")
+def _co(p):
+    p = sp.Poly(p, _x)
+    return sp.Matrix([[p.coeff_monomial(_x**k) for k in (3, 2, 1, 0)]])
+def _inW1(p):
+    return sp.simplify(p.subs(_x, 0) - sp.diff(p, _x).subs(_x, 0)) == 0 and sp.simplify(sp.diff(p, _x).subs(_x, 0) - sp.diff(p, _x, 2).subs(_x, 0)) == 0
+def _inW2(p):
+    return sp.diff(p, _x).subs(_x, 0) == 0
+_aa, _bb, _cc, _dd = sp.symbols("aa bb cc dd")
+_gen = _aa * _x**3 + _bb * _x**2 + _cc * _x + _dd
+_cond1 = [_gen.subs(_x, 0) - sp.diff(_gen, _x).subs(_x, 0), sp.diff(_gen, _x).subs(_x, 0) - sp.diff(_gen, _x, 2).subs(_x, 0)]
+chk("Q4a W1 basis x^3, x^2+2x+2 in W1; dim W1 = 4-2 = 2", _inW1(_x**3) and _inW1(_x**2 + 2 * _x + 2) and sp.Matrix([[sp.diff(e, v) for v in (_aa, _bb, _cc, _dd)] for e in _cond1]).rank() == 2)
+chk("Q4a W2 basis x^3, x^2, 1; dim 3", all(_inW2(p) for p in (_x**3, _x**2, sp.Integer(1) + 0 * _x)))
+_S = sp.Matrix.vstack(_co(_x**3), _co(_x**2 + 2 * _x + 2), _co(_x**2), _co(1 + 0 * _x**3))
+chk("Q4b W1+W2 = R3[x] (rank 4)", _S.rank() == 4)
+chk("Q4c W1 cap W2 = span x^3: general W1 elt in W2 iff b=0", sp.solve(sp.diff(_aa * _x**3 + _bb * (_x**2 + 2 * _x + 2), _x).subs(_x, 0), _bb) == [0] and 2 + 3 - 4 == 1)
+_Q = _x**3 + 2 * _x**2 + 3
+chk("Q4d Q in W1+W2, coords (1,2,0,3), Q in W2 itself", _co(_Q) == sp.Matrix([[1, 2, 0, 3]]) and _inW2(_Q))
+chk("Q4b row ops", sp.Matrix([[0, 1, 2, 2]]) - sp.Matrix([[0, 1, 0, 0]]) - 2 * sp.Matrix([[0, 0, 0, 1]]) == sp.Matrix([[0, 0, 2, 0]]))
+
 print("")
 print("TOTAL MISMATCHES:", len(bad))
+assert not bad, bad

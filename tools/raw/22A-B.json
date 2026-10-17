@@ -173,8 +173,11 @@
    "topic": "vector_spaces",
    "points": 5,
    "question": "באמצעות הקריטריון לתת מרחב, הוכיחו כי $U$ הוא תת מרחב של $\\mathbb{R}_3[x]$, מצאו בסיס ומימד ל-$U$.",
-   "contextId": "c4",
-   "hold": "no-key"
+   "solution": "**קריטריון לתת מרחב:**\n1. פולינום האפס $0(x)$ מקיים $0(-x)=0=-0(x)$, ולכן $0\\in U$ (ובפרט $U\\neq\\emptyset$).\n2. סגירות לחיבור: אם $p,q\\in U$ אז $(p+q)(-x)=p(-x)+q(-x)=-p(x)-q(x)=-(p+q)(x)$, ולכן $p+q\\in U$.\n3. סגירות לכפל בסקלר: אם $p\\in U$ ו-$\\alpha\\in\\mathbb{R}$ אז $(\\alpha p)(-x)=\\alpha p(-x)=-\\alpha p(x)=-(\\alpha p)(x)$, ולכן $\\alpha p\\in U$.\nלכן $U$ תת מרחב של $\\mathbb{R}_3[x]$.\n**בסיס ומימד:** עבור $p(x)=a_0+a_1x+a_2x^2+a_3x^3$:\n$$p(-x)=a_0-a_1x+a_2x^2-a_3x^3,\\qquad -p(x)=-a_0-a_1x-a_2x^2-a_3x^3$$\nהשוואת מקדמים נותנת $a_0=-a_0$ ו-$a_2=-a_2$, כלומר $a_0=a_2=0$, ו-$a_1,a_3$ חופשיים. לכן $p(x)=a_1x+a_3x^3$:\n$$B_U=\\left\\{x,\\ x^3\\right\\},\\qquad \\dim U=2$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c4"
   },
   {
    "num": 4,
@@ -183,8 +186,11 @@
    "topic": "vector_spaces",
    "points": 5,
    "question": "באמצעות הקריטריון לתת מרחב, הוכיחו כי $W$ הוא תת מרחב של $\\mathbb{R}_3[x]$, מצאו בסיס ומימד ל-$W$.",
-   "contextId": "c4",
-   "hold": "no-key"
+   "solution": "**קריטריון לתת מרחב:**\n1. לפולינום האפס $0'(1)=0$, ולכן $0\\in W$.\n2. סגירות לחיבור: אם $p,q\\in W$ אז $(p+q)'(1)=p'(1)+q'(1)=0+0=0$, ולכן $p+q\\in W$.\n3. סגירות לכפל בסקלר: אם $p\\in W$ ו-$\\alpha\\in\\mathbb{R}$ אז $(\\alpha p)'(1)=\\alpha p'(1)=0$, ולכן $\\alpha p\\in W$.\nלכן $W$ תת מרחב של $\\mathbb{R}_3[x]$.\n**בסיס ומימד:** עבור $p(x)=a_0+a_1x+a_2x^2+a_3x^3$ מתקיים $p'(x)=a_1+2a_2x+3a_3x^2$, ולכן $p'(1)=a_1+2a_2+3a_3=0$, כלומר $a_1=-2a_2-3a_3$:\n$$p(x)=a_0+(-2a_2-3a_3)x+a_2x^2+a_3x^3=a_0\\cdot1+a_2\\left(x^2-2x\\right)+a_3\\left(x^3-3x\\right)$$\nשלושת הפולינומים $1,\\ x^2-2x,\\ x^3-3x$ בלתי תלויים (מעלותיהם $0,2,3$ שונות), ולכן\n$$B_W=\\left\\{1,\\ x^2-2x,\\ x^3-3x\\right\\},\\qquad \\dim W=3$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c4"
   },
   {
    "num": 4,
@@ -193,8 +199,11 @@
    "topic": "vector_spaces",
    "points": 5,
    "question": "חשבו תת מרחב $U+W$, מצאו בסיס ומימד של תת מרחב זה.",
-   "contextId": "c4",
-   "hold": "no-key"
+   "solution": "$U+W=\\mathrm{Sp}\\left(B_U\\cup B_W\\right)=\\mathrm{Sp}\\left\\{x,\\ x^3,\\ 1,\\ x^2-2x,\\ x^3-3x\\right\\}$.\nנדרג מטריצה ששורותיה הן הווקטורים הקואורדינטיים לפי $(a_0,a_1,a_2,a_3)$:\n$$\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&-2&1&0\\\\0&0&0&1\\\\0&-3&0&1\\end{pmatrix}\\xrightarrow{\\substack{R_3\\to R_3+2R_2\\R_5\\to R_5+3R_2-R_4}}\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\0&0&0&0\\end{pmatrix}$$\nהדרגה $4=\\dim\\mathbb{R}_3[x]$, ולכן $U+W=\\mathbb{R}_3[x]$:\n$$B_{U+W}=\\left\\{1,\\ x,\\ x^2,\\ x^3\\right\\},\\qquad \\dim(U+W)=4$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c4"
   },
   {
    "num": 4,
@@ -203,8 +212,11 @@
    "topic": "vector_spaces",
    "points": 5,
    "question": "חשבו תת מרחב $U\\cap W$, מצאו בסיס ומימד של תת מרחב זה.",
-   "contextId": "c4",
-   "hold": "no-key"
+   "solution": "פולינום ב-$U$ הוא $p(x)=\\alpha x+\\beta x^3$ (סעיף (א)). אז $p'(x)=\\alpha+3\\beta x^2$, והוא שייך ל-$W$ אם\n$$p'(1)=\\alpha+3\\beta=0\\ \\Rightarrow\\ \\alpha=-3\\beta$$\nולכן $p(x)=\\beta\\left(x^3-3x\\right)$, $\\beta\\in\\mathbb{R}$:\n$$B_{U\\cap W}=\\left\\{x^3-3x\\right\\},\\qquad \\dim(U\\cap W)=1$$\nבדיקה לפי משפט המימדים: $\\dim(U+W)=2+3-1=4$, בהתאם לסעיף (ג).",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c4"
   },
   {
    "num": 4,
@@ -213,8 +225,11 @@
    "topic": "vector_spaces",
    "points": 5,
    "question": "יהי $q(x)$ פולינום מתת מרחב $U\\cap W$ כך המקיים את התכונה $q(1)=1$. מצאו $q'(1)$ ו-$q'(\\sqrt2)$.",
-   "contextId": "c4",
-   "hold": "no-key"
+   "solution": "מסעיף (ד) $q(x)=\\beta\\left(x^3-3x\\right)$. התנאי $q(1)=1$ נותן $\\beta(1-3)=1$, כלומר $\\beta=-\\frac12$:\n$$q(x)=-\\frac12x^3+\\frac32x,\\qquad q'(x)=-\\frac32x^2+\\frac32$$\n$$q'(1)=-\\frac32+\\frac32=0,\\qquad q'\\left(\\sqrt2\\right)=-\\frac32\\cdot2+\\frac32=-\\frac32$$\n(התוצאה $q'(1)=0$ צפויה מראש, כי $q\\in W$.)",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "contextId": "c4"
   },
   {
    "num": 5,

@@ -7,7 +7,8 @@ Five questions of 25 points (best 4 count), 20 items: 15 transcribed with the of
 
 Transcription notes
 - Q4 (subspaces U, W of R_3[x], parts a-e): the solution file has NO solution for Q4 (the solutions jump from Q3 to Q5).
-  All five parts are held "no-key" for the solver. The exam prints "ממעלה שחוש", a typo of "ממעלה שלוש"; written as
+  All five parts were held "no-key" and are now solved by the solver
+  (solutionSource "solved", official false; checks appended to verify_22A-B.py). The exam prints "ממעלה שחוש", a typo of "ממעלה שלוש"; written as
   the latter.
 - Q2 labels: the exam prints the parts as א (10 pts), א (5), ב (5), ג (5): the two labels collide. The official solution
   labels them א, ב, ג, ד; those labels are used here (a: classification, b: a=2,b=1, c: a=5,b=7, d: the matrix).
@@ -196,16 +197,63 @@ questions.append(Q(
       r"והטענה כאן נכונה."),
     10))
 
-# ------------------------------------------------------------------ Q4 (no official solution: held)
-for part, qtext, pts in [
-    ("א", r"באמצעות הקריטריון לתת מרחב, הוכיחו כי $U$ הוא תת מרחב של $\mathbb{R}_3[x]$, מצאו בסיס ומימד ל-$U$.", 5),
-    ("ב", r"באמצעות הקריטריון לתת מרחב, הוכיחו כי $W$ הוא תת מרחב של $\mathbb{R}_3[x]$, מצאו בסיס ומימד ל-$W$.", 5),
-    ("ג", r"חשבו תת מרחב $U+W$, מצאו בסיס ומימד של תת מרחב זה.", 5),
-    ("ד", r"חשבו תת מרחב $U\cap W$, מצאו בסיס ומימד של תת מרחב זה.", 5),
-    ("ה", r"יהי $q(x)$ פולינום מתת מרחב $U\cap W$ כך המקיים את התכונה $q(1)=1$. מצאו $q'(1)$ ו-$q'(\sqrt2)$.", 5),
-]:
-    questions.append({"num": 4, "part": part, "kind": "computation", "topic": "vector_spaces", "points": pts,
-                      "question": qtext, "contextId": "c4", "hold": "no-key"})
+# ------------------------------------------------------------------ Q4 (no official solution: solved by the solver)
+def S(part, question, solution, points):
+    return Q(4, part, "computation", "vector_spaces", question, solution, points, contextId="c4",
+             solutionSource="solved", official=False)
+
+
+questions.append(S(
+    "א", r"באמצעות הקריטריון לתת מרחב, הוכיחו כי $U$ הוא תת מרחב של $\mathbb{R}_3[x]$, מצאו בסיס ומימד ל-$U$.",
+    J(r"**קריטריון לתת מרחב:**",
+      r"1. פולינום האפס $0(x)$ מקיים $0(-x)=0=-0(x)$, ולכן $0\in U$ (ובפרט $U\neq\emptyset$).",
+      r"2. סגירות לחיבור: אם $p,q\in U$ אז $(p+q)(-x)=p(-x)+q(-x)=-p(x)-q(x)=-(p+q)(x)$, ולכן $p+q\in U$.",
+      r"3. סגירות לכפל בסקלר: אם $p\in U$ ו-$\alpha\in\mathbb{R}$ אז $(\alpha p)(-x)=\alpha p(-x)=-\alpha p(x)=-(\alpha p)(x)$, ולכן $\alpha p\in U$.",
+      r"לכן $U$ תת מרחב של $\mathbb{R}_3[x]$.",
+      r"**בסיס ומימד:** עבור $p(x)=a_0+a_1x+a_2x^2+a_3x^3$:",
+      r"$$p(-x)=a_0-a_1x+a_2x^2-a_3x^3,\qquad -p(x)=-a_0-a_1x-a_2x^2-a_3x^3$$",
+      r"השוואת מקדמים נותנת $a_0=-a_0$ ו-$a_2=-a_2$, כלומר $a_0=a_2=0$, ו-$a_1,a_3$ חופשיים. לכן $p(x)=a_1x+a_3x^3$:",
+      r"$$B_U=\left\{x,\ x^3\right\},\qquad \dim U=2$$"),
+    5))
+
+questions.append(S(
+    "ב", r"באמצעות הקריטריון לתת מרחב, הוכיחו כי $W$ הוא תת מרחב של $\mathbb{R}_3[x]$, מצאו בסיס ומימד ל-$W$.",
+    J(r"**קריטריון לתת מרחב:**",
+      r"1. לפולינום האפס $0'(1)=0$, ולכן $0\in W$.",
+      r"2. סגירות לחיבור: אם $p,q\in W$ אז $(p+q)'(1)=p'(1)+q'(1)=0+0=0$, ולכן $p+q\in W$.",
+      r"3. סגירות לכפל בסקלר: אם $p\in W$ ו-$\alpha\in\mathbb{R}$ אז $(\alpha p)'(1)=\alpha p'(1)=0$, ולכן $\alpha p\in W$.",
+      r"לכן $W$ תת מרחב של $\mathbb{R}_3[x]$.",
+      r"**בסיס ומימד:** עבור $p(x)=a_0+a_1x+a_2x^2+a_3x^3$ מתקיים $p'(x)=a_1+2a_2x+3a_3x^2$, ולכן $p'(1)=a_1+2a_2+3a_3=0$, כלומר $a_1=-2a_2-3a_3$:",
+      r"$$p(x)=a_0+(-2a_2-3a_3)x+a_2x^2+a_3x^3=a_0\cdot1+a_2\left(x^2-2x\right)+a_3\left(x^3-3x\right)$$",
+      r"שלושת הפולינומים $1,\ x^2-2x,\ x^3-3x$ בלתי תלויים (מעלותיהם $0,2,3$ שונות), ולכן",
+      r"$$B_W=\left\{1,\ x^2-2x,\ x^3-3x\right\},\qquad \dim W=3$$"),
+    5))
+
+questions.append(S(
+    "ג", r"חשבו תת מרחב $U+W$, מצאו בסיס ומימד של תת מרחב זה.",
+    J(r"$U+W=\mathrm{Sp}\left(B_U\cup B_W\right)=\mathrm{Sp}\left\{x,\ x^3,\ 1,\ x^2-2x,\ x^3-3x\right\}$.",
+      r"נדרג מטריצה ששורותיה הן הווקטורים הקואורדינטיים לפי $(a_0,a_1,a_2,a_3)$:",
+      "$$" + pm("1&0&0&0", "0&1&0&0", "0&-2&1&0", "0&0&0&1", "0&-3&0&1") + arrow(r"\substack{R_3\to R_3+2R_2\R_5\to R_5+3R_2-R_4}") + pm("1&0&0&0", "0&1&0&0", "0&0&1&0", "0&0&0&1", "0&0&0&0") + "$$",
+      r"הדרגה $4=\dim\mathbb{R}_3[x]$, ולכן $U+W=\mathbb{R}_3[x]$:",
+      r"$$B_{U+W}=\left\{1,\ x,\ x^2,\ x^3\right\},\qquad \dim(U+W)=4$$"),
+    5))
+
+questions.append(S(
+    "ד", r"חשבו תת מרחב $U\cap W$, מצאו בסיס ומימד של תת מרחב זה.",
+    J(r"פולינום ב-$U$ הוא $p(x)=\alpha x+\beta x^3$ (סעיף (א)). אז $p'(x)=\alpha+3\beta x^2$, והוא שייך ל-$W$ אם",
+      r"$$p'(1)=\alpha+3\beta=0\ \Rightarrow\ \alpha=-3\beta$$",
+      r"ולכן $p(x)=\beta\left(x^3-3x\right)$, $\beta\in\mathbb{R}$:",
+      r"$$B_{U\cap W}=\left\{x^3-3x\right\},\qquad \dim(U\cap W)=1$$",
+      r"בדיקה לפי משפט המימדים: $\dim(U+W)=2+3-1=4$, בהתאם לסעיף (ג)."),
+    5))
+
+questions.append(S(
+    "ה", r"יהי $q(x)$ פולינום מתת מרחב $U\cap W$ כך המקיים את התכונה $q(1)=1$. מצאו $q'(1)$ ו-$q'(\sqrt2)$.",
+    J(r"מסעיף (ד) $q(x)=\beta\left(x^3-3x\right)$. התנאי $q(1)=1$ נותן $\beta(1-3)=1$, כלומר $\beta=-\frac12$:",
+      r"$$q(x)=-\frac12x^3+\frac32x,\qquad q'(x)=-\frac32x^2+\frac32$$",
+      r"$$q'(1)=-\frac32+\frac32=0,\qquad q'\left(\sqrt2\right)=-\frac32\cdot2+\frac32=-\frac32$$",
+      r"(התוצאה $q'(1)=0$ צפויה מראש, כי $q\in W$.)"),
+    5))
 
 # ------------------------------------------------------------------ Q5
 questions.append(Q(
