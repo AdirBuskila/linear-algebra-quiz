@@ -311,7 +311,7 @@ ENR[(1, "ד")] = dict(
               r"לקחת את שורש המודול מסדר 5 בלבד ולכתוב $\sqrt{34}^{1/5}$ כ-$\sqrt[5]{34}$."],
     steps=[
         num(r"מהו $|5+3i|^2$?", 34, "$25+9$."),
-        num(r"מהו מודול כל אחד מהשורשים בקירוב (טולרנס 0.001)?", 1.4233, r"$34^{1/10}$.", 0.001),
+        num(r"מהו מודול כל אחד מהשורשים בקירוב (טולרנס 0.001)?", 1.4228, r"$34^{1/10}$.", 0.001),
         num(r"מהי זווית השורש עבור $k=0$ במעלות (טולרנס 0.01)?", 6.19, r"$\arctan\frac35\approx30.96^\circ$ מחולק ב-$5$.", 0.01),
         num(r"מהו המרווח בין זוויות של שורשים סמוכים, במעלות?", 72, r"$\frac{360^\circ}{5}$."),
     ])
@@ -574,7 +574,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

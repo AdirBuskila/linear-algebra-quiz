@@ -72,7 +72,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשוות רק שני מקדמים של הנורמלים ולא את כולם, ולקבל $k$ שגוי.",
     "להשתמש בנוסחת המרחק לפני שהבאנו את שני המישורים לאותו נורמל $(1,-2,1)$."
@@ -100,7 +100,7 @@
      "explain": "$\\frac{|5-(-4)|}{\\sqrt6}=\\frac{3\\sqrt6}{2}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -128,7 +128,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בתנאי המקביליות (מכפלה וקטורית אפס) במקום במכפלה סקלרית אפס.",
     "טעות סימן: $(-2)\\cdot(-1)=+2$ ולא $-2$."
@@ -177,7 +177,7 @@
      "explain": "$2k+2=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -209,7 +209,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת כנורמל את $\\vec n_1+\\vec n_2$, שאינו מאונך לשני הנורמלים.",
     "לחשב את הדטרמיננטה הסמלית בלי לשים לב לסימן המינוס של המקדם של $\\hat\\jmath$."
@@ -262,7 +262,7 @@
      "explain": "מכפלה וקטורית, קיצור, הצבה בנקודה, ופישוט."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -297,7 +297,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לחלק גם את הזווית $\\theta$ ב-$5$ ולא רק את $2\\pi k$.",
     "לקחת את שורש המודול מסדר 5 בלבד ולכתוב $\\sqrt{34}^{1/5}$ כ-$\\sqrt[5]{34}$."
@@ -313,7 +313,7 @@
     {
      "type": "numeric",
      "prompt": "מהו מודול כל אחד מהשורשים בקירוב (טולרנס 0.001)?",
-     "answer": 1.4233,
+     "answer": 1.4228,
      "tol": 0.001,
      "explain": "$34^{1/10}$."
     },
@@ -332,7 +332,7 @@
      "explain": "$\\frac{360^\\circ}{5}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -368,7 +368,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לרשום כבסיס את עמודות הצורה המדורגת במקום את וקטורי הפתרון.",
     "טעות סימן ב-$x_2=-s+t$."
@@ -424,7 +424,7 @@
      "explain": "הוא שווה ל-$s(-1,-1,1,0)+t(-1,1,0,1)$ עם $s=t=1$. את השורה הראשונה $x_1+x_3+x_4$ הוא מאפס, ואילו האחרים נותנים $4$, $-2$ ו-$3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -456,7 +456,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את שורות $A$ המקורית: הן תלויות ($R_3=R_2-R_1$).",
     "להתבלבל עם עמודות: בבסיס מרחב העמודות לוקחים את עמודות $A$ המקורית, ולא בבסיס מרחב השורות."
@@ -505,7 +505,7 @@
      "explain": "פעולות שורה כן משנות את מרחב העמודות (למשל $(1,0,0)$ הוא עמודה של הצורה המדורגת אך אינו ב-$\\mathrm{Col}A$), שורות $A$ תלויות, ו-$R_3=R_2-R_1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -537,7 +537,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את עמודות הצורה המדורגת כבסיס; הן אינן שייכות ל-$\\mathrm{Col}A$ בהכרח.",
     "לקחת שלוש עמודות ולא לשים לב שהשלישית היא סכום שתי הראשונות."
@@ -586,7 +586,7 @@
      "explain": "$C_4=C_1-C_2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -618,7 +618,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור שורות במקום עמודות: ל-$A$ יש 3 שורות ו-4 עמודות.",
     "לחבר את מימד מרחב השורות במקום מרחב העמודות (במקרה זה שניהם 2)."
@@ -646,7 +646,7 @@
      "explain": "$2+2$, שווה למספר העמודות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -678,7 +678,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקבוע שהמטריצה הפיכה כאשר $a=0$ או $a=2$ (הפוך).",
     "טעות סימן בפיתוח: המקדם השני בפיתוח לפי שורה הוא שלילי."
@@ -727,7 +727,7 @@
      "explain": "$|A|=-2a(a-2)$ מתאפס בדיוק ב-$a=0,2$. ב-$a=2$ הדטרמיננטה $0$ ולכן $a\\neq0$ בלבד אינו מספיק, וב-$a=0$ גם $0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -759,7 +759,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לשחלף את מטריצת הקופקטורים.",
     "לשכוח את סימני השחמט $(-1)^{i+j}$ בקופקטורים."
@@ -794,7 +794,7 @@
      "explain": "$\\frac12\\cdot(-3)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -830,7 +830,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $\\lambda$ שמוצאים כשמחסרים שורות בדטרמיננטה.",
     "להציג רק וקטור עצמי אחד לכל ערך עצמי בלי לציין שכל כפולה שונה מאפס היא גם וקטור עצמי."
@@ -886,7 +886,7 @@
      "explain": "$A(-1,1,1)^T=(-1,1,1)$. עבור $(1,1,1)$ מקבלים $(1,3,3)$; $(0,1,1)$ הוא עצמי של $2$ ($A(0,1,1)^T=(0,2,2)$); $(-1,1,0)$ הוא עצמי של $0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -918,7 +918,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשים את הווקטורים העצמיים ב-$P$ בסדר שונה מסדר הערכים ב-$D$.",
     "לרשום שורות במקום עמודות ב-$P$."
@@ -967,7 +967,7 @@
      "explain": "היא צריכה להיות עצמית עבור $2$. $(-1,1,1)$ עצמי עבור $1$, $(-1,1,0)$ עבור $0$, ו-$(0,1,-1)$ אינו עצמי ($A(0,1,-1)^T=(2,0,0)$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1003,7 +1003,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את ארבעת הווקטורים הפורשים כבסיס של $W_1$; בתלת מימד לא ייתכנו ארבעה בלתי תלויים.",
     "לפשט את $x-y=z+y$ ל-$x=z$ ולשכוח להעביר את $y$."
@@ -1031,7 +1031,7 @@
      "explain": "שני משתנים חופשיים, $y$ ו-$z$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1059,7 +1059,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחבר את המימדים ולכתוב $\\dim(W_1+W_2)=3+2=5$ בלי לבדוק חיתוך.",
     "לחשוב ש-$W_1+W_2$ גדול יותר מ-$\\mathbb{R}^3$."
@@ -1108,7 +1108,7 @@
      "explain": "$3+2-3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1140,7 +1140,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב את החיתוך בעזרת מערכת משוואות מורכבת במקום להבחין ש-$W_1=\\mathbb{R}^3$.",
     "לכתוב $\\dim(W_1\\cap W_2)=0$."
@@ -1189,7 +1189,7 @@
      "explain": "צריך $x=2y+z$: עבור $(5,2,1)$, $2\\cdot2+1=5$. עבור $(1,2,3)$ מקבלים $7$, עבור $(2,0,1)$ מקבלים $1$ ועבור $(0,1,0)$ מקבלים $2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1225,7 +1225,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק שייכות ל-$W_1$ בלבד ולהסיק שהוא בחיתוך.",
     "טעות סימן ב-$z+y=-1+1$."
@@ -1269,7 +1269,7 @@
      "explain": "הוא שייך ל-$W_1=\\mathbb{R}^3$ אך זה אינו מספיק; צריך גם את תנאי $W_2$, והוא נכשל כי $2\\neq0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1301,7 +1301,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק את התנאים על דוגמה מספרית בלבד.",
     "לשכוח את אחד התנאים (חיבור או כפל בסקלר)."
@@ -1338,7 +1338,7 @@
      "explain": "$T(2,4,6)=(-2,4,12)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1374,7 +1374,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את שלושת העמודות של המטריצה כבסיס התמונה; העמודה השנייה היא מינוס הראשונה.",
     "לכתוב את הגרעין כ-$\\{(t,t,t)\\}$ במקום $\\{(t,t,0)\\}$."
@@ -1430,7 +1430,7 @@
      "explain": "בשתי הקבוצות הראשונות יש וקטורים תלויים (כפולה אחד של השני), ולכן הן אינן בסיס; $(1,1,0)$ הוא בסיס הגרעין ולא ב-$\\mathrm{Im}\\,T$ (הרכיב השני אינו $-2$ כפול הראשון)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1458,7 +1458,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק ש-$T$ על רק כי היא העתקה מ-$\\mathbb{R}^3$ ל-$\\mathbb{R}^3$.",
     "לא לתת דוגמה או נימוק: הגרעין הלא טריוויאלי הוא הנימוק לחד-חד-ערכיות."
@@ -1528,7 +1528,7 @@
      "explain": "שווה ל-$\\dim\\mathbb{R}^3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1560,7 +1560,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לרשום את התמונות כשורות ולא כעמודות.",
     "לפרק לפי הבסיס הסטנדרטי במקום לפי $B_2$."
@@ -1595,7 +1595,7 @@
      "explain": "$\\gamma=q-r=0-2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

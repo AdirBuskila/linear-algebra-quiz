@@ -64,7 +64,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לפרק $AA^T+A^2$ בצורה $A\\left(A^T+A^2\\right)$ ולשכוח שהגורם $A$ מוכפל ב-$A$ ולא ב-$A^2$.",
     "להניח ש-$A$ סימטרית כבר בסעיף זה ולכתוב $AA^T=A^2$ בלי הצדקה."
@@ -94,7 +94,7 @@
      "explain": "הוצאת $A$ מ-$A^2$ משאירה $A$, לא $A^2$: $A\\cdot A^2=A^3\\neq A^2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -126,7 +126,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$\\left(A^T\\right)^T=A$ ולהשאיר $A^T+A^T$.",
     "לחשב $\\left(A^{-1}\\right)^T=\\left(A^T\\right)^{-1}$ ולעצור שם בלי להשוות ל-$A^{-1}$."
@@ -156,7 +156,7 @@
      "explain": "$\\left(A^T\\right)^T=A$ ולא $A^T$; אחרת השורה הבאה אינה נובעת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -188,7 +188,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוציא שורש ולכתוב רק $|A|=+\\sqrt{\\frac{27}{8}}$, למרות ש-$A=-\\sqrt{\\frac32}I$ מקיימת את המשוואות.",
     "לכתוב $|2A^2|=2|A|^2$ במקום $2^3|A|^2$ (המטריצה מסדר $3\\times3$)."
@@ -244,7 +244,7 @@
      "explain": "גם $A=\\sqrt{\\frac32}I$ וגם $A=-\\sqrt{\\frac32}I$ מקיימות את שתי המשוואות, ודטרמיננטותיהן הן בסימנים הפוכים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -272,7 +272,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\left|A^{-1}\\right|=-|A|$ או $|A|$ במקום ההופכי.",
     "להשמיט את הסימן השלילי האפשרי."
@@ -321,7 +321,7 @@
      "explain": "$\\left|A^{-1}\\right|=\\frac1{|A|}$ ולכן הסימנים זהים; עבור $A=-\\sqrt{\\frac32}I$ שניהם שליליים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -357,7 +357,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$a+1$ בלי לטפל בנפרד במקרה $a=-1$.",
     "לחלק ב-$(a+1)(a-2)$ בלי לטפל במקרה $a=2$."
@@ -392,7 +392,7 @@
      "explain": "$\\frac1{a-2}=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -424,7 +424,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין המקרים: שורת סתירה ב-$a=2$ ולא ב-$a=-1$.",
     "לשכוח שב-$a=-1$ גם אגף ימין מתאפס ולכן אין סתירה."
@@ -473,7 +473,7 @@
      "explain": "ב-$a=-1$ דרגת המקדמים והמורחבת שוות 1 (פחות מ-3), וב-$a=2$ דרגת המקדמים 2 והמורחבת 3."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -505,7 +505,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את וקטור הכיוון של $s$ בצורה $(0,-1,1)$; הוא אינו פותר את $x-y+z=0$.",
     "לשכוח את הווקטור הפרטי $(-1,0,0)$ ולתאר את מרחב הפתרונות כתת מרחב."
@@ -554,7 +554,7 @@
      "explain": "הוא צריך לפתור את $x-y+z=0$: רק $(-1,0,1)$ עושה זאת; ב-$(0,-1,1)$ מקבלים $2$, ב-$(1,0,1)$ מקבלים $2$, וב-$(-1,0,-1)$ מקבלים $-2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -585,7 +585,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הפתרון $z=0$ ולהסתפק בשלושה שורשים.",
     "לחשב שורשי $z^3=8$ במקום $z^3=-8$ (זווית ההתחלה $\\frac\\pi3$ ולא $0$)."
@@ -613,7 +613,7 @@
      "explain": "$2\\sin\\frac\\pi3=\\sqrt3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -645,9 +645,9 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
-    "טעות סימן באחד הצמצומים בפיתוח לפי שורה, למשל $2a(2a+2-20a+10)$.",
+    "טעות סימן באחד הצמצומים בפיתוח לפי שורה, למשל $-3\u0004ot(8-4a-2)$ במקום $-3\u0004ot(8-4a+2)$.",
     "לקבוע שהמטריצה הפיכה בדיוק כאשר $|A|=0$ (הפוך)."
    ],
    "steps": [
@@ -673,7 +673,7 @@
      "explain": "$-\\frac76$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -719,7 +719,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהשורה השלישית של $\\lambda I-B$ נותנת את הגורם $(\\lambda-3)$ ולהתבלבל בפיתוח.",
     "לכתוב את הווקטור העצמי של $3$ בלי לבדוק $Bv=3v$."
@@ -775,7 +775,7 @@
      "explain": "$B(0,1,0)=(0,4,0)$. עבור $(0,0,1)$ מקבלים $(2,0,3)$, עבור $(1,0,0)$ מקבלים $(6,1,0)$, ועבור $(1,1,0)$ מקבלים $(6,5,0)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -803,7 +803,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לסדר את עמודות $P$ בסדר שונה מסדר הערכים העצמיים ב-$D$.",
     "לרשום את $P$ כמטריצת שורות במקום עמודות."
@@ -852,7 +852,7 @@
      "explain": "היא צריכה להיות וקטור עצמי של $4$. $(2,1,0)$ הוא של $6$, $\\left(-\\frac23,\\frac23,1\\right)$ של $3$, ו-$(0,0,1)$ אינו עצמי כלל."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -888,7 +888,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $p'(1)$ בלי להציב $x=1$ ולקבל $b+2cx=0$.",
     "לקחת את שלושת היוצרים של $U$ כבסיס למרות שהם תלויים."
@@ -923,7 +923,7 @@
      "explain": "שני פרמטרים חופשיים, $a$ ו-$c$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -955,7 +955,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את ארבעת הווקטורים כבסיס בלי לבדוק תלות.",
     "לחשוב ש-$U+W$ היא האיחוד $U\\cup W$."
@@ -1004,7 +1004,7 @@
      "explain": "$U\\neq W$ (למשל $1\\in W\\setminus U$), האיחוד אינו סגור לחיבור ($2+x$ אינו ב-$U$ ואינו ב-$W$), ו-$\\dim(U\\cap W)=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1036,7 +1036,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את שני הבסיסים כמערכת אחת בלי להעביר אגף, ולכן לקבל סימנים שגויים.",
     "לשכוח שבסיס החיתוך הוא הווקטור עצמו ולא הפרמטרים $\\alpha,\\beta$."
@@ -1092,7 +1092,7 @@
      "explain": "$1+x\\in U$ אך $b+2c=1\\neq0$ ולכן לא ב-$W$; $1\\in W$ אך לא ב-$U$; $x^2-2x\\in W$ אך אינו צירוף של $B_U$ (המקדם של $x$ היה צריך להיות $2$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1120,7 +1120,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח $c=1$ ולא לראות שהתוצאה אפס לכל $c$."
    ],
@@ -1147,7 +1147,7 @@
      "explain": "$28-28$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1179,7 +1179,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק את התנאים רק על דוגמה מספרית.",
     "לשכוח אחד משני התנאים (חיבור או כפל בסקלר)."
@@ -1216,7 +1216,7 @@
      "explain": "$T(2A)=2T(A)$ ו-$T(A)=(3,5,6)$, כלומר $2\\cdot5$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1252,7 +1252,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את ארבעת הווקטורים הפורשים כבסיס התמונה: $(1,1,1)=(1,0,0)+(0,1,0)+(0,0,1)$.",
     "לשכוח שהגרעין הוא מטריצות ולא וקטורים ב-$\\mathbb{R}^3$."
@@ -1308,7 +1308,7 @@
      "explain": "$a+b=1-1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1336,7 +1336,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון ש-$T$ אינה על כי $\\dim\\mathbb{M}_2(\\mathbb{R})=4>3$; העתקה ממרחב גדול יותר יכולה להיות על."
    ],
@@ -1398,7 +1398,7 @@
      "explain": "הגרעין הלא טריוויאלי מראה שאינה חד-חד; מימד התחום גדול מ-3 אינו מבטיח על (למשל ההעתקה האפס); לינאריות אינה מבטיחה על."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1434,7 +1434,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שהקבוצה תת מרחב כי היא כוללת פרמטר חופשי.",
     "לשכוח את הווקטור הפרטי $\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$ ולהחזיר את הגרעין."
@@ -1483,7 +1483,7 @@
      "explain": "הגרעין בלבד נותן $(0,0,0)$; הווקטור הפרטי $\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}$ נותן $(1,0,0)$; ו-$\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$ אינה בגרעין ולכן מתקבל $(1+2t,1+2t,1+2t)$ ולא תמיד $(1,1,1)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

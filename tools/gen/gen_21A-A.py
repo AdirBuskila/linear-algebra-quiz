@@ -458,7 +458,7 @@ ENR[(3, "א")] = dict(
                (r"חישוב הדטרמיננטה בפיתוח לפי שורה ראשונה: $-36a^2+30a+84$", 3),
                (r"השורשים $a=2$ ו-$a=-\frac76$", 1),
                (r"מסקנה: $A$ הפיכה עבור $a\neq2,-\frac76$", 1)),
-    pitfalls=[r"טעות סימן באחד הצמצומים בפיתוח לפי שורה, למשל $2a(2a+2-20a+10)$.",
+    pitfalls=[r"טעות סימן באחד הצמצומים בפיתוח לפי שורה, למשל $-3ot(8-4a-2)$ במקום $-3ot(8-4a+2)$.",
               r"לקבוע שהמטריצה הפיכה בדיוק כאשר $|A|=0$ (הפוך)."],
     steps=[
         num(r"מהי $|A|$ עבור $a=0$?", 84, "ממשוואת הדטרמיננטה $-36a^2+30a+84$."),
@@ -634,7 +634,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {
