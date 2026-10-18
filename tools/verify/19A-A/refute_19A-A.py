@@ -1,0 +1,47 @@
+from sympy import *
+a,s,t,k=symbols('a s t k')
+print("== Q1")
+# l1 (2,1,1)+s(2,-a,-5); l2 (1,2,2)+t(a,-2,-1)
+eqs=[2+2*s-1-a*t, 1-a*s-2+2*t, 1-5*s-2+t]
+print(solve(eqs[:1]+eqs[2:],[s,t]))
+sl=solve([eqs[0],eqs[2]],[s,t]);print(simplify(sl[s]),simplify(sl[t]))
+print(solve(simplify(eqs[1].subs(sl)),a))
+# a=2
+d1=Matrix([2,-2,-5]);d2=Matrix([2,-2,-1]);n=d1.cross(d2);print(n, n.dot(Matrix([2,1,1])))
+# a=0
+d1=Matrix([2,0,-5]);d2=Matrix([0,-2,-1]);n=d1.cross(d2);P=Matrix([1,2,2])-Matrix([2,1,1])
+print(n,P.dot(n),abs(P.dot(n))/n.norm(),simplify(abs(P.dot(n))/n.norm()))
+print("== Q2")
+M=Matrix([[1,-1,1,-2],[1,k,1,k+1],[k,k,1,2]])
+print(factor(M[:,:3].det()))
+for kv in [0,1,-1,2,I,-I]:
+    m=M.subs(k,kv);print(kv,m[:,:3].rank(),m.rank(),m.rref()[0].tolist())
+x=symbols('x1:4')
+print(solve(list(M.subs(k,1)[:,:3]*Matrix(x)-M.subs(k,1)[:,3]),x))
+print(solve(list(M.subs(k,I)[:,:3]*Matrix(x)-M.subs(k,I)[:,3]),x))
+print(simplify(M.rref()[0]))
+print("== Q3")
+B=Matrix([[0,1,7,8],[1,3,3,8],[-2,-5,1,-8]]);print(B.rref(),B.rank())
+print("== Q4")
+a,b,c,d=symbols('a b c d')
+Wv=Matrix([[1,0,0,1],[0,1,1,0],[0,0,0,0]])
+# W: b=c, d=a+b -> (a,b;b,a+b)
+w1=Matrix([[1,0],[0,1]]);w2=Matrix([[0,1],[1,1]])
+u=[Matrix([[1,0],[1,1]]),Matrix([[0,1],[-1,-2]]),Matrix([[0,0],[0,1]])]
+V=lambda m:list(m)
+Mu=Matrix([V(m) for m in u]).T;Mw=Matrix([V(w1),V(w2)]).T
+print("U dim",Mu.rank(),"W dim",Mw.rank(),"U+W dim",Mu.row_join(Mw).rank())
+print(Mu.row_join(Mw).columnspace())
+ns=Mu.row_join(-Mw).nullspace();print(ns)
+for v in ns: print((Mu*v[:3,:]).T)
+print("== Q5")
+A=Matrix([[1,2*a-1,2],[1,3,a],[1,3*a-1,5]]);print(factor(A.det()))
+print(A.subs(a,1).inv())
+print("det",3**5*(-5)**2*2*(-5)/(-5)*1)
+B2,C=symbols('B C')
+print("3^5 * B^2 * C * 1/C * B =",3**5*(-5)**3, )
+print("== Q6")
+a,b,c,d=symbols('a b c d')
+# T(1)=1-x^2, T(x)=x^2+x^3, T(x^2)=-2+2x^2, T(x^3)=1-x^2
+Tm=Matrix([[1,0,-2,1],[0,0,0,0],[-1,1,2,-1],[0,1,0,0]])
+print(Tm.nullspace(),Tm.rank(),Tm.columnspace())
