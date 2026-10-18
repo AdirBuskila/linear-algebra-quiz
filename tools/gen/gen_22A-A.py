@@ -558,7 +558,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q.get("part"))
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q.get("part"))
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

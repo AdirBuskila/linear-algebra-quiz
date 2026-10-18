@@ -199,6 +199,16 @@ for (num, part), qq in QS.items():
             continue
         ok = abs(sp.Float(EXP[key]) - st["answer"]) <= st.get("tol", 0) + 1e-12
         chk("Q%d%s step %d numeric answer %s == sympy %s (tol %s)" % (num, part, i, st["answer"], EXP[key], st.get("tol", 0)), ok)
+# --- fix pass: 2b contradictory row at a=-1; 4c intersection with alpha1=alpha2=t
+_a = sp.symbols("a")
+_A = M([[-1, 1, 1], [1, 1, 2], [1, -1, -1]]); _b = M([2, 5, 0])
+chk("Q2b a=-1 row3+row1 = (0 0 0 | 2)", list((_A.row_join(_b)[2, :] + _A.row_join(_b)[0, :])) == [0, 0, 0, 2])
+chk("Q2b a=-1 augmented rank 3 vs coef rank 2", _A.rank() == 2 and _A.row_join(_b).rank() == 3)
+_w1 = [M([-3, 2, 5, 0]), M([2, -3, 0, 5])]; _w2 = [M([1, 1, 0, 0]), M([1, 0, 1, 0]), M([-1, 0, 0, 1])]
+_al1, _al2, _be1, _be2, _be3 = sp.symbols("al1 al2 be1 be2 be3")
+_sol = sp.solve(list(_al1 * _w1[0] + _al2 * _w1[1] - _be1 * _w2[0] - _be2 * _w2[1] - _be3 * _w2[2]), [_al1, _be1, _be2, _be3], dict=True)[0]
+chk("Q4c alpha1 = alpha2 free alpha2", sp.simplify(_sol[_al1] - _al2) == 0)
+chk("Q4c intersection vector t(-1,-1,5,5)", list((_al2 * (_w1[0] + _w1[1]))) == [-_al2, -_al2, 5 * _al2, 5 * _al2])
 extra = set(EXP) - {(num, part, i) for (num, part), qq in QS.items() for i, st in enumerate(qq.get("steps", [])) if st["type"] == "numeric"}
 chk("no orphan expected values", not extra, str(sorted(extra)))
 # every choice step has exactly one correct id among its options; order lines unique-checked

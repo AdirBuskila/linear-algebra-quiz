@@ -63,7 +63,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$\\lambda\\neq0$ (כי $B$ הפיכה) לפני החלוקה ב-$\\lambda$.",
     "לכתוב $B^{-1}\\mathbf{x}=\\lambda\\mathbf{x}$, כלומר לשכוח שהערך העצמי של ההופכית הוא ההופכי $\\frac{1}{\\lambda}$."
@@ -121,7 +121,7 @@
      "explain": "עבור $B=2I$ ו-$\\lambda=2$ הערך העצמי של $B^{-1}=\\frac12 I$ הוא $\\frac12$, ואף אחד משלושת האחרים ($2,\\,-2,\\,4$) אינו נכון."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -149,7 +149,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכפול את אחד האגפים משמאל ואת האחר מימין, ובכך לשבור את השוויון (מטריצות אינן מתחלפות).",
     "לרשום $X=\\frac{A+B}{AB}$ כאילו היו מספרים."
@@ -202,7 +202,7 @@
      "explain": "$X=\\frac{6}{8}=\\frac{3}{4}=\\frac14+\\frac12=B^{-1}+A^{-1}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -234,7 +234,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לרשום $A^{-1}=A^2-5I$ בלי לחלק ב-4.",
     "להוציא את $A$ כגורם מהביטוי $A^3-5A-4I$ בלי להעביר קודם את $4I$ לאגף השני."
@@ -301,7 +301,7 @@
      "explain": "$\\frac{1-5}{4}=-1=A^{-1}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -333,7 +333,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבדוק ש-$\\mathbf{y}=P\\mathbf{x}$ שונה מאפס (וקטור עצמי חייב להיות שונה מאפס).",
     "להחליף את סדר הכפל ולרשום $PA=PB$ במקום $PA=BP$."
@@ -391,7 +391,7 @@
      "explain": "הערך העצמי $\\lambda$ יכול להיות 0 ו-$A$ יכולה להיות לא הפיכה (למשל $A=B=0$, $P=I$), ו-$P$ אינה חייבת להיות אורתוגונלית. מה שמבטיח $P\\mathbf{x}\\neq0$ הוא הפיכות $P$ יחד עם $\\mathbf{x}\\neq0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -400,7 +400,7 @@
    "topic": "linear_systems",
    "points": 7,
    "question": "עבור אילו ערכים של הפרמטר $a$ יש פתרון יחיד למערכת? כתבו את הפתרון כפונקציה של הפרמטר, $(x(a),y(a),z(a))$.",
-   "solution": "נדרג ונמצא:\n$$\\left(\\begin{array}{ccc|c}a&1&1&2\\\\1&1&2&5\\\\1&-1&a&a+1\\end{array}\\right)\\xrightarrow{\\substack{R_1+R_3\\to R_1\\\\R_2+R_3\\to R_3}}\\left(\\begin{array}{ccc|c}a+1&0&a+1&a+3\\\\1&1&2&5\\\\2&0&a+2&a+6\\end{array}\\right)\\xrightarrow{\\frac{1}{a+1}R_1\\to R_1\\ (a\\neq-1)}\\left(\\begin{array}{ccc|c}1&0&1&\\frac{a+3}{a+1}\\\\1&1&2&5\\\\2&0&a+2&a+6\\end{array}\\right)$$\n$$\\xrightarrow{2R_2-R_3\\to R_2}\\left(\\begin{array}{ccc|c}1&0&1&\\frac{a+3}{a+1}\\\\0&2&2-a&4-a\\\\2&0&a+2&a+6\\end{array}\\right)\\xrightarrow{R_3-2R_1\\to R_3}\\left(\\begin{array}{ccc|c}1&0&1&\\frac{a+3}{a+1}\\\\0&2&2-a&4-a\\\\0&0&a&\\frac{(a+6)(a+1)-2(a+3)}{a+1}\\end{array}\\right)\\xrightarrow{(a+1)R_3\\to R_3}\\left(\\begin{array}{ccc|c}1&0&1&\\frac{a+3}{a+1}\\\\0&2&2-a&4-a\\\\0&0&a(a+1)&a(a+5)\\end{array}\\right)$$\nבמהלך הדירוג מצאנו שלושה ערכים חשודים: $a=0,-1$. בשורה השלישית נציב $a=0$ ונקבל שורת אפסים, כלומר אינסוף פתרונות. עבור $a=-1$, נציב בשורה השלישית ונקבל סתירה.\nלסיכום, פתרון יחיד מתקבל עבור כל $a\\neq 0,-1$:\n$$x=-\\frac{2}{a+1},\\qquad y=\\frac{3(a-1)}{a+1},\\qquad z=\\frac{a+5}{a+1}$$",
+   "solution": "נדרג ונמצא:\n$$\\left(\\begin{array}{ccc|c}a&1&1&2\\\\1&1&2&5\\\\1&-1&a&a+1\\end{array}\\right)\\xrightarrow{\\substack{R_1+R_3\\to R_1\\\\R_2+R_3\\to R_3}}\\left(\\begin{array}{ccc|c}a+1&0&a+1&a+3\\\\1&1&2&5\\\\2&0&a+2&a+6\\end{array}\\right)\\xrightarrow{\\frac{1}{a+1}R_1\\to R_1\\ (a\\neq-1)}\\left(\\begin{array}{ccc|c}1&0&1&\\frac{a+3}{a+1}\\\\1&1&2&5\\\\2&0&a+2&a+6\\end{array}\\right)$$\n$$\\xrightarrow{2R_2-R_3\\to R_2}\\left(\\begin{array}{ccc|c}1&0&1&\\frac{a+3}{a+1}\\\\0&2&2-a&4-a\\\\2&0&a+2&a+6\\end{array}\\right)\\xrightarrow{R_3-2R_1\\to R_3}\\left(\\begin{array}{ccc|c}1&0&1&\\frac{a+3}{a+1}\\\\0&2&2-a&4-a\\\\0&0&a&\\frac{(a+6)(a+1)-2(a+3)}{a+1}\\end{array}\\right)\\xrightarrow{(a+1)R_3\\to R_3}\\left(\\begin{array}{ccc|c}1&0&1&\\frac{a+3}{a+1}\\\\0&2&2-a&4-a\\\\0&0&a(a+1)&a(a+5)\\end{array}\\right)$$\nבמהלך הדירוג מצאנו שני ערכים חשודים: $a=0,-1$. בשורה השלישית נציב $a=0$ ונקבל שורת אפסים, כלומר אינסוף פתרונות. עבור $a=-1$, נציב בשורה השלישית ונקבל סתירה.\nלסיכום, פתרון יחיד מתקבל עבור כל $a\\neq 0,-1$:\n$$x=-\\frac{2}{a+1},\\qquad y=\\frac{3(a-1)}{a+1},\\qquad z=\\frac{a+5}{a+1}$$",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -423,7 +423,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$a+1$ בלי לבדוק את המקרה $a=-1$.",
     "לשכוח לבדוק את המקרה $a=0$ שבו מתאפס $a(a+1)$."
@@ -472,7 +472,7 @@
      "explain": "$z=\\frac{a+5}{a+1}=\\frac{8}{4}=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -500,7 +500,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק שאין פתרון מכך שהדטרמיננטה מתאפסת, בלי לבדוק עקביות (ב-$a=0$ הדטרמיננטה מתאפסת ויש אינסוף פתרונות).",
     "לבלבל בין $a=0$ (אינסוף פתרונות) ל-$a=-1$ (אין פתרון)."
@@ -518,7 +518,7 @@
      "prompt": "מהי דרגת המטריצה המורחבת $[A|b]$ עבור $a=-1$?",
      "answer": 3,
      "tol": 0,
-     "explain": "מופיעה שורה $(0\\ 0\\ 0\\mid-4)$ ולכן הדרגה גדלה ל-3."
+     "explain": "מציבים $a=-1$ במערכת המקורית ומדרגים: מופיעה שורה סתירה $(0\\ 0\\ 0\\mid2)$ ולכן הדרגה גדלה ל-3."
     },
     {
      "type": "choice",
@@ -549,7 +549,7 @@
      "explain": "ב-$a=0$ יש משתנה חופשי והדטרמיננטה מתאפסת, ובכל זאת יש פתרונות. שורת אפסים מלאה לא יוצרת סתירה. רק שורה $(0\\ 0\\ 0\\mid c\\neq0)$ אומרת $0=c$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -577,7 +577,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב רק פתרון פרטי ולשכוח את וקטור הכיוון.",
     "טעות סימן בביטוי $x=3-z$, $y=2-z$."
@@ -626,7 +626,7 @@
      "explain": "וקטור כיוון צריך לקיים $Av=0$. $(3,2,0)$ הוא הפתרון הפרטי ולא כיוון, ואילו $(1,1,1)$ ו-$(1,-1,1)$ אינם מאפסים את המטריצה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -658,7 +658,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות ב-$(2+i)^2=3+4i$ (לשכוח ש-$i^2=-1$).",
     "לשכוח את שני סימני השורש ולהסתפק בשורש אחד."
@@ -686,7 +686,7 @@
      "explain": "$z_2=\\frac{-2+4i}{2}=-1+2i$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -718,7 +718,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבצע את פעולות השורה על $A$ בלבד ולא על $I$ במקביל.",
     "טעות חשבונית ב-$R_1-6R_2$ בעמודות של $I$."
@@ -746,7 +746,7 @@
      "explain": "$\\frac{10}{3}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -774,7 +774,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המכפלה בסדר הפוך, כלומר הפעולה הראשונה משמאל.",
     "למקם את המקדם בצד הלא נכון: הפעולה $R_3-5R_1$ מתאימה ל-$-5$ בשורה 3 עמודה 1."
@@ -830,7 +830,7 @@
      "explain": "המכפלה היא $A^{-1}$, ושורה 1 שלה היא $(-19,-6,4)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -865,7 +865,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בפיתוח הדטרמיננטה לפי השורה השלישית.",
     "לסדר את עמודות $P$ שלא בהתאמה לסדר האיברים ב-$D$."
@@ -942,7 +942,7 @@
      "explain": "$(PD)_{12}=P_{12}\\cdot4=2\\cdot4=8$, וזה שווה ל-$(BP)_{12}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -974,7 +974,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "חישוב נגזרת שגוי: $p'(1)=3a+2b+c$.",
     "לבלבל בין מספר המשוואות לבין המימד: למימד שווים $4$ פחות דרגת המערכת."
@@ -1030,7 +1030,7 @@
      "explain": "$b=\\frac25\\cdot5=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1062,7 +1062,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק $\\dim(W_1+W_2)=\\dim W_1+\\dim W_2=5$ בלי לבדוק תלות.",
     "לקחת את כל חמשת הווקטורים כבסיס."
@@ -1111,7 +1111,7 @@
      "explain": "$5-4=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1120,7 +1120,7 @@
    "topic": "vector_spaces",
    "points": 8,
    "question": "מצאו בסיס ומימד של $W_1\\cap W_2$.",
-   "solution": "ממשפט המימדים לתתי-מרחב נקבל ש\n$$\\dim(W_1\\cap W_2)=\\dim(W_1)+\\dim(W_2)-\\dim(W_1+W_2)=2+3-4=1$$\nכדי למצוא בסיס עבור $W_1\\cap W_2$ נפתור את המערכת ההומוגנית המוגדרת על ידי המטריצה שדירגנו. אם נסמן את המקדמים של וקטורי הבסיס של $W_1$ ב-$\\alpha_1,\\alpha_2,\\alpha_3$ ואת המקדמים של וקטורי הבסיס של $W_2$ ב-$\\beta_1,\\beta_2,\\beta_3$ אזי $\\beta_2$ הוא משתנה חופשי. נבצע פרמטריזציה $\\beta_2=t$ ונקבל $\\beta_1=\\beta_2=t$. מכאן נקבל,\n$$p(x)\\in W_1\\cap W_2\\ \\Leftrightarrow\\ \\begin{pmatrix}a\\\\b\\\\c\\\\d\\end{pmatrix}=t\\begin{pmatrix}-3\\\\2\\\\5\\\\0\\end{pmatrix}+t\\begin{pmatrix}2\\\\-3\\\\0\\\\5\\end{pmatrix}=t\\begin{pmatrix}-1\\\\-1\\\\5\\\\5\\end{pmatrix}$$\nולכן $B_{W_1\\cap W_2}=\\{(-x^3-x^2+5x+5)\\}$ הוא בסיס של $W_1\\cap W_2$.",
+   "solution": "ממשפט המימדים לתתי-מרחב נקבל ש\n$$\\dim(W_1\\cap W_2)=\\dim(W_1)+\\dim(W_2)-\\dim(W_1+W_2)=2+3-4=1$$\nכדי למצוא בסיס עבור $W_1\\cap W_2$ נפתור את המערכת ההומוגנית המוגדרת על ידי המטריצה שדירגנו. אם נסמן את המקדמים של וקטורי הבסיס של $W_1$ ב-$\\alpha_1,\\alpha_2$ ואת המקדמים של וקטורי הבסיס של $W_2$ ב-$\\beta_1,\\beta_2,\\beta_3$ אזי $\\alpha_2$ הוא משתנה חופשי. נבצע פרמטריזציה $\\alpha_2=t$ ונקבל $\\alpha_1=\\alpha_2=t$. מכאן נקבל,\n$$p(x)\\in W_1\\cap W_2\\ \\Leftrightarrow\\ \\begin{pmatrix}a\\\\b\\\\c\\\\d\\end{pmatrix}=t\\begin{pmatrix}-3\\\\2\\\\5\\\\0\\end{pmatrix}+t\\begin{pmatrix}2\\\\-3\\\\0\\\\5\\end{pmatrix}=t\\begin{pmatrix}-1\\\\-1\\\\5\\\\5\\end{pmatrix}$$\nולכן $B_{W_1\\cap W_2}=\\{(-x^3-x^2+5x+5)\\}$ הוא בסיס של $W_1\\cap W_2$.",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -1135,7 +1135,7 @@
      "points": 2
     },
     {
-     "text": "פתרון עם משתנה חופשי יחיד $\\beta_2=t$",
+     "text": "פתרון עם משתנה חופשי יחיד $\\alpha_2=t$ (מקדמי $W_1$), ומכאן $\\alpha_1=\\alpha_2=t$",
      "points": 2
     },
     {
@@ -1143,7 +1143,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לרשום $\\dim(W_1\\cap W_2)=\\dim W_1+\\dim W_2+\\dim(W_1+W_2)$ (טעות סימן).",
     "לחשב רק את המימד ולשכוח למצוא וקטור בסיס."
@@ -1192,7 +1192,7 @@
      "explain": "האיבר הקבוע הוא $5$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1220,7 +1220,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק אחד מהתנאים של $W_1$ או של $W_2$ ולא את שניהם.",
     "לטעות בסימן הסקלר: $-2$ ולא $2$."
@@ -1262,7 +1262,7 @@
      "explain": "חיתוך של תתי-מרחבים הוא תת-מרחב, ולכן סגור לכפל בכל סקלר ממשי, גם שלילי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1298,7 +1298,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את עמודות הציר של הצורה המדורגת כבסיס של התמונה, במקום עמודות $A$ המקוריות.",
     "לשכוח להחזיר את וקטור הגרעין $(-10,-1,1)$ לפולינום."
@@ -1354,7 +1354,7 @@
      "explain": "$x_1=-10x_3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1382,7 +1382,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין חח״ע (קשור לגרעין) ובין על (קשור לתמונה)."
    ],
@@ -1423,7 +1423,7 @@
      "explain": "המימד של התמונה הוא דרגת המטריצה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1451,7 +1451,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות סימן: $m=-10k$ ולא $10k$."
    ],
@@ -1471,7 +1471,7 @@
      "explain": "$m=-10\\cdot(-2023)=20230$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1499,7 +1499,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק את שתי השורות הראשונות ולשכוח את השורה הרביעית."
    ],
@@ -1547,7 +1547,7 @@
      "explain": "הווקטור אינו שווה לעמודה של $A$ ועדיין שייך לתמונה (צירוף ליניארי); דרגה גדולה יותר פירושה סתירה; ו-$A_{12}$ אינה ריבועית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1578,7 +1578,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפוך את כיוון המעבר ולחשב $[I]_B^C$ במקום $[I]_C^B$.",
     "להכפיל בסדר הפוך: $[I]_E^B\\left([I]_E^C\\right)^{-1}$."
@@ -1634,7 +1634,7 @@
      "explain": "$4\\cdot1+(-1)\\cdot11=-7$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

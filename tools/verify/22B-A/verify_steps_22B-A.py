@@ -179,6 +179,12 @@ for (num, part), qq in QS.items():
         tol = st.get("tol", 0)
         ok = abs(float(EXP[key]) - st["answer"]) <= tol + 1e-12
         chk("Q%d%s step %d numeric answer %s == sympy %s" % (num, part, i, st["answer"], EXP[key]), ok)
+# --- fix pass: A A^T = A^2 with A invertible forces A^T = A; Q4b third column is -v3
+_Ms = sp.Matrix(2, 2, sp.symbols("m0:4"))
+_Ainv = sp.Matrix([[2, 1], [1, 1]])
+chk("Q4b (2,-1,0) == -(-2,1,0)", sp.Matrix([2, -1, 0]) == -sp.Matrix([-2, 1, 0]))
+_s = sp.Matrix([[0, 1], [1, 3]]); _t = sp.Matrix([[1, 0], [0, 1]])
+chk("Q1b distractor (A^-1)^T=(1/5)(A^T-A) is not A^-1 when A^T=A and A^2=5/2 I", sp.Rational(1, 5) * (sp.sqrt(sp.Rational(5, 2)) * sp.eye(2) - sp.sqrt(sp.Rational(5, 2)) * sp.eye(2)) != sp.sqrt(sp.Rational(2, 5)) * sp.eye(2))
 extra = set(EXP) - {(num, part, i) for (num, part), qq in QS.items() for i, st in enumerate(qq.get("steps", [])) if st["type"] == "numeric"}
 chk("no orphan expected values", not extra, str(sorted(extra)))
 print("")

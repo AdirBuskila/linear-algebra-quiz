@@ -66,7 +66,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$\\det D$ בלי להזכיר ש-$D$ הפיכה ולכן $\\det D\\neq0$.",
     "לכתוב $\\det\\left(C^{-1}\\right)=-\\det C$ במקום $\\frac1{\\det C}$.",
@@ -134,7 +134,7 @@
      "explain": "מהשורה השלישית מעבירים אגפים: $(\\det D)^2\\left(\\det D-(\\det C)^2\\right)=0$. עם פלוס היה מתקבל $\\det D<0$, בסתירה למסקנה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -169,7 +169,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לצמצם את $A-I$ משני האגפים בלי להסתמך על ההפיכות שלה.",
     "לשכוח את האיבר $-2A$ בפתיחת הסוגריים."
@@ -234,7 +234,7 @@
      "explain": "$A-2A+I=-A+I=-(A-I)$, לא $A-I$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -265,7 +265,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לנסות להוכיח את הטענה: כלל אין צורך כשיש דוגמה נגדית.",
     "לבחור זוג שבו אחת המטריצות אינה אנטי סימטרית."
@@ -321,7 +321,7 @@
      "explain": "$\\det(CD)=\\det C\\det D=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -353,7 +353,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות חישוב באגף הימני: $3a+b-8$ ולא $3a+b-4$.",
     "לשכוח שהמקדם $a^2+a-2$ פחות $a^2-a$ הוא $2a-2$."
@@ -388,7 +388,7 @@
      "explain": "$b-6=4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -420,7 +420,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שגם $a=1$ נותן סתירה (בפתרון הרשמי הושמט).",
     "להניח שעבור $b=6$ תמיד יש פתרון."
@@ -469,7 +469,7 @@
      "explain": "שורות 2 ו-4 מתאפסות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -501,7 +501,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $x=4-w$ במקום $x=4-2w$ (המשוואה הראשונה היא $x+2w=4$).",
     "לשכוח ש-$y$ משתנה חופשי כי העמודה שלו ללא איבר מוביל."
@@ -529,7 +529,7 @@
      "explain": "$4-2=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -561,7 +561,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $x=4-w$ במקום $x=4-2w$.",
     "לחשב $y$ מהשורה השנייה בלי לחלק ב-$a^2-a=2$."
@@ -589,7 +589,7 @@
      "explain": "$4-3=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -620,7 +620,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שהסכום מתאפס רק כי \"השורשים מפוזרים סימטרית\" בלי הוכחה.",
     "לשכוח לציין ש-$z_1\\neq1$."
@@ -685,7 +685,7 @@
      "explain": "$z_1z_2=z_{1+2}=z_3=z_0$, ולא $z_2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -721,7 +721,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבצע את פעולות השורה גם על חצי ה-$I$.",
     "טעות סימן באיבר $-\\frac13$."
@@ -756,7 +756,7 @@
      "explain": "מהמטריצה הסופית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -784,7 +784,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המטריצות בסדר $E_1E_2E_3E_4$.",
     "לכתוב $3$ במקום $\\frac13$ במטריצה של הכפל בסקלר."
@@ -833,7 +833,7 @@
      "explain": "המכפלה היא $A^{-1}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -869,7 +869,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לסדר את העמודות של $P$ בסדר שאינו תואם את אלכסון $D$.",
     "טעות בדירוג של $B+2I$ ולקבל וקטור עצמי שגוי."
@@ -925,7 +925,7 @@
      "explain": "$B(5,-15,1)^T=-2(5,-15,1)^T$, ולכן האיבר הראשון הוא $-10$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -957,7 +957,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שניצבות למישור נותנת את המשוואה $\\vec r\\cdot\\vec a=0$.",
     "לטעות במקדם של $y$ בביטוי של $z$."
@@ -1013,7 +1013,7 @@
      "explain": "$z=2x+y=4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1045,7 +1045,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחבר את המימדים $2+2=4$ בלי להחסיר את החיתוך.",
     "לטעות בחישוב: מימד תת מרחב של $\\mathbb{R}^3$ אינו יכול להיות $4$."
@@ -1073,7 +1073,7 @@
      "explain": "$W_1+W_2=\\mathbb{R}^3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1109,7 +1109,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את סימן המינוס בשני בסיסים (שתי הצורות שוות).",
     "לבחור משתנה חופשי שגוי."
@@ -1158,7 +1158,7 @@
      "explain": "$2+1-3=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1186,7 +1186,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק שייכות ל-$W_1$ או רק ל-$W_2$.",
     "לחשב סקלר שגוי, למשל $3$."
@@ -1235,7 +1235,7 @@
      "explain": "$2+4-6=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1271,7 +1271,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את העמודות המדורגות כבסיס של התמונה.",
     "לשכוח להמיר את וקטור הגרעין חזרה למטריצה $2\\times2$."
@@ -1327,7 +1327,7 @@
      "explain": "מהפתרון $x_3=-t$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1355,7 +1355,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שההעתקה חד חד ערכית כי היא על.",
     "לבלבל בין מימד המרחב המקור (4) למימד מרחב היעד (3)."
@@ -1404,7 +1404,7 @@
      "explain": "$3-3=0$, ולכן $T$ על."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1432,7 +1432,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות סימן: $2=-t$ ולכן $t=-2$.",
     "לשכוח שהרכיב הראשון של וקטור הגרעין הוא $0$ ולכן $k=0$."
@@ -1460,7 +1460,7 @@
      "explain": "$4-3=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1491,7 +1491,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להכפיל בסדר הפוך.",
     "לשכוח להפוך את מטריצת המעבר."
@@ -1526,7 +1526,7 @@
      "explain": "$7\\cdot(-3)+5\\cdot2=-11$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }
