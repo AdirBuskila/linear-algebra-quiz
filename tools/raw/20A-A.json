@@ -49,7 +49,58 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "הנורמלים $\\vec n_1=(1,-2,1)$ ו-$\\vec n_2=(k,-1,k)$",
+     "points": 1
+    },
+    {
+     "text": "מקבילות: $\\vec n_2=\\mu\\vec n_1$ נותן $\\mu=\\frac12$ ו-$k=\\frac12$",
+     "points": 2
+    },
+    {
+     "text": "כפל $\\pi_2$ ב-$2$ נותן $x-2y+z-4=0$ (מישור שונה מ-$\\pi_1$)",
+     "points": 1
+    },
+    {
+     "text": "נוסחת המרחק בין מישורים מקבילים",
+     "points": 1
+    },
+    {
+     "text": "$d=\\frac{9}{\\sqrt6}=\\frac{3\\sqrt6}{2}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשוות רק שני מקדמים של הנורמלים ולא את כולם, ולקבל $k$ שגוי.",
+    "להשתמש בנוסחת המרחק לפני שהבאנו את שני המישורים לאותו נורמל $(1,-2,1)$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $k$ שעבורו המישורים מקבילים?",
+     "answer": 0.5,
+     "tol": 0.0001,
+     "explain": "מהרכיב האמצעי $-1=-2\\mu$ נקבל $\\mu=\\frac12$, ו-$k=\\mu$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי כפל $\\pi_2$ ב-$2$ מתקבלת המשוואה $x-2y+z+c=0$. מהו $c$?",
+     "answer": -4,
+     "tol": 0,
+     "explain": "$2\\cdot(-2)=-4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המרחק בין המישורים בקירוב (טולרנס 0.001)?",
+     "answer": 3.6742,
+     "tol": 0.001,
+     "explain": "$\\frac{|5-(-4)|}{\\sqrt6}=\\frac{3\\sqrt6}{2}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -62,7 +113,71 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "מישורים מאונכים אם ורק אם הנורמלים מאונכים",
+     "points": 2
+    },
+    {
+     "text": "$\\vec n_1\\cdot\\vec n_2=k+2+k=2k+2$",
+     "points": 2
+    },
+    {
+     "text": "$2k+2=0$ ולכן $k=-1$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בתנאי המקביליות (מכפלה וקטורית אפס) במקום במכפלה סקלרית אפס.",
+    "טעות סימן: $(-2)\\cdot(-1)=+2$ ולא $-2$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו תנאי האנכות של שני מישורים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\vec n_1\\cdot\\vec n_2=0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\vec n_1\\times\\vec n_2=\\vec 0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\vec n_1=\\vec n_2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\vec n_1\\cdot\\vec n_2=1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "מישורים מאונכים כאשר הנורמלים מאונכים. התנאי $\\vec n_1\\times\\vec n_2=\\vec0$ הוא תנאי המקביליות, ובשני האחרים הנורמלים אינם מאונכים בהכרח."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\vec n_1\\cdot\\vec n_2$ עבור $k=0$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$0+2+0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $k$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$2k+2=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -75,7 +190,79 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "הנורמלים עבור $k=2$: $\\vec n_1=(1,-2,1)$, $\\vec n_2=(2,-1,2)$",
+     "points": 1
+    },
+    {
+     "text": "הנורמל המבוקש הוא מכפלה וקטורית: $\\vec N=\\vec n_1\\times\\vec n_2$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $\\vec n_1\\times\\vec n_2=(-3,0,3)$ ובחירת $\\vec N=(1,0,-1)$",
+     "points": 2
+    },
+    {
+     "text": "משוואת המישור דרך $(1,1,1)$: $x-z=0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת כנורמל את $\\vec n_1+\\vec n_2$, שאינו מאונך לשני הנורמלים.",
+    "לחשב את הדטרמיננטה הסמלית בלי לשים לב לסימן המינוס של המקדם של $\\hat\\jmath$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו הנורמל של מישור המאונך לשני המישורים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\vec n_1+\\vec n_2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\vec n_1\\times\\vec n_2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\vec n_1-\\vec n_2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\vec n_2$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הנורמל צריך להיות מאונך גם ל-$\\vec n_1$ וגם ל-$\\vec n_2$. עבור $k=2$: $(\\vec n_1+\\vec n_2)\\cdot\\vec n_1=12$, $(\\vec n_1-\\vec n_2)\\cdot\\vec n_2=-3$ ו-$\\vec n_2\\cdot\\vec n_1=6$, כולם שונים מאפס."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב הראשון של $\\vec n_1\\times\\vec n_2$?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "$(-2)(2)-(1)(-1)=-4+1$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הפתרון.",
+     "lines": [
+      "$\\vec N=\\vec n_1\\times\\vec n_2=(-3,0,3)$",
+      "נבחר $\\vec N=(1,0,-1)$",
+      "$1\\cdot(x-1)+0\\cdot(y-1)-1\\cdot(z-1)=0$",
+      "$x-z=0$"
+     ],
+     "explain": "מכפלה וקטורית, קיצור, הצבה בנקודה, ופישוט."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -87,7 +274,65 @@
    "solution": "נכתוב את $5+3i$ בהצגה קוטבית: $r=|5+3i|=\\sqrt{25+9}=\\sqrt{34}$, והזווית ברביע הראשון היא $\\theta=\\arctan\\frac35$ (בערך $30.96^\\circ$). כלומר $5+3i=\\sqrt{34}\\,\\mathrm{cis}\\left(\\arctan\\frac35\\right)$.\nלפי נוסחת השורשים:\n$$z_k=\\sqrt[5]{\\sqrt{34}}\\,\\mathrm{cis}\\left(\\frac{\\arctan\\frac35+2\\pi k}{5}\\right)=\\sqrt[10]{34}\\,\\mathrm{cis}\\left(\\frac{\\arctan\\frac35+2\\pi k}{5}\\right),\\quad k=0,1,2,3,4$$\nבערך: $\\sqrt[10]{34}\\approx1.423$, והזוויות הן בערך $6.19^\\circ,\\ 78.19^\\circ,\\ 150.19^\\circ,\\ 222.19^\\circ,\\ 294.19^\\circ$ (הפרש של $72^\\circ$ בין שורשים סמוכים).",
    "solutionSource": "solved",
    "official": false,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "המודול: $|5+3i|=\\sqrt{34}$",
+     "points": 1
+    },
+    {
+     "text": "הארגומנט: $\\theta=\\arctan\\frac35$",
+     "points": 1
+    },
+    {
+     "text": "נוסחת השורשים $z_k=\\sqrt[5]{r}\\,\\mathrm{cis}\\left(\\frac{\\theta+2\\pi k}{5}\\right)$",
+     "points": 2
+    },
+    {
+     "text": "מודול השורשים $\\sqrt[10]{34}$",
+     "points": 1
+    },
+    {
+     "text": "חמישה שורשים, $k=0,\\dots,4$, במרווחי $72^\\circ$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לחלק גם את הזווית $\\theta$ ב-$5$ ולא רק את $2\\pi k$.",
+    "לקחת את שורש המודול מסדר 5 בלבד ולכתוב $\\sqrt{34}^{1/5}$ כ-$\\sqrt[5]{34}$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $|5+3i|^2$?",
+     "answer": 34,
+     "tol": 0,
+     "explain": "$25+9$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו מודול כל אחד מהשורשים בקירוב (טולרנס 0.001)?",
+     "answer": 1.4233,
+     "tol": 0.001,
+     "explain": "$34^{1/10}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי זווית השורש עבור $k=0$ במעלות (טולרנס 0.01)?",
+     "answer": 6.19,
+     "tol": 0.01,
+     "explain": "$\\arctan\\frac35\\approx30.96^\\circ$ מחולק ב-$5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המרווח בין זוויות של שורשים סמוכים, במעלות?",
+     "answer": 72,
+     "tol": 0,
+     "explain": "$\\frac{360^\\circ}{5}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -100,7 +345,86 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "דירוג $R_2\\to R_2-R_1$ ואז $R_3\\to R_3-R_2$",
+     "points": 2
+    },
+    {
+     "text": "הצורה המדורגת עם שורת אפסים: $x_3,x_4$ חופשיים",
+     "points": 1
+    },
+    {
+     "text": "$x_1=-s-t,\\ x_2=-s+t$",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\{(-1,-1,1,0),(-1,1,0,1)\\}$",
+     "points": 1
+    },
+    {
+     "text": "$\\dim\\mathrm{Nul}A=2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לרשום כבסיס את עמודות הצורה המדורגת במקום את וקטורי הפתרון.",
+    "טעות סימן ב-$x_2=-s+t$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת $A$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שתי שורות שאינן אפס בצורה המדורגת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $s=1,\\ t=2$, מהו $x_1$?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "$x_1=-s-t$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Nul}A$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$4-2$ משתנים חופשיים."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור שייך ל-$\\mathrm{Nul}A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(2,0,1,1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(-2,0,1,-1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(-2,0,1,1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(1,1,1,1)$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הוא שווה ל-$s(-1,-1,1,0)+t(-1,1,0,1)$ עם $s=t=1$. את השורה הראשונה $x_1+x_3+x_4$ הוא מאפס, ואילו האחרים נותנים $4$, $-2$ ו-$3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -113,7 +437,75 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "פעולות שורה אינן משנות את מרחב השורות",
+     "points": 2
+    },
+    {
+     "text": "השורות שאינן אפס בצורה המדורגת בת״ל",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\{(1,0,1,1),(0,1,1,-1)\\}$",
+     "points": 2
+    },
+    {
+     "text": "$\\dim\\mathrm{Row}A=2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את שורות $A$ המקורית: הן תלויות ($R_3=R_2-R_1$).",
+    "להתבלבל עם עמודות: בבסיס מרחב העמודות לוקחים את עמודות $A$ המקורית, ולא בבסיס מרחב השורות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Row}A$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מספר השורות שאינן אפס בצורה המדורגת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "$R_3=\\alpha R_1+\\beta R_2$ בשורות $A$. מהו $\\alpha$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$(0,1,1,-1)=-(1,0,1,1)+(1,1,2,0)$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע השורות שאינן אפס בצורה המדורגת הן בסיס למרחב השורות של $A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "פעולות שורה אינן משנות את מרחב העמודות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כל שורות $A$ המקורית בלתי תלויות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שורה 3 של $A$ שווה ל-$R_1+R_2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "פעולות שורה אינן משנות את מרחב השורות, והשורות האלה בלתי תלויות"
+      }
+     ],
+     "correctId": "d",
+     "explain": "פעולות שורה כן משנות את מרחב העמודות (למשל $(1,0,0)$ הוא עמודה של הצורה המדורגת אך אינו ב-$\\mathrm{Col}A$), שורות $A$ תלויות, ו-$R_3=R_2-R_1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -126,7 +518,75 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "העמודות המובילות בצורה המדורגת: 1 ו-2",
+     "points": 2
+    },
+    {
+     "text": "הבסיס מורכב מעמודות $A$ **המקורית**",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\{(1,1,0),(0,1,1)\\}$",
+     "points": 2
+    },
+    {
+     "text": "$\\dim\\mathrm{Col}A=2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את עמודות הצורה המדורגת כבסיס; הן אינן שייכות ל-$\\mathrm{Col}A$ בהכרח.",
+    "לקחת שלוש עמודות ולא לשים לב שהשלישית היא סכום שתי הראשונות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Col}A$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מספר העמודות המובילות."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו עמודות מהוות בסיס ל-$\\mathrm{Col}A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "עמודות 1 ו-2 של $A$ המקורית"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "עמודות 1 ו-2 של הצורה המדורגת"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "עמודה 1 של $A$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "עמודות 1, 2, 3 של $A$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "עמודות הצורה המדורגת אינן ב-$\\mathrm{Col}A$ (אין שם $(1,0,0)$); עמודה אחת אינה פורשת; ושלוש עמודות תלויות כי עמודה 3 היא סכום 1 ו-2."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עמודה 4 של $A$ היא $\\gamma_1C_1+\\gamma_2C_2$. מהו $\\gamma_2$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$C_4=C_1-C_2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -139,7 +599,54 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "$\\dim\\mathrm{Nul}A=2$",
+     "points": 1
+    },
+    {
+     "text": "$\\dim\\mathrm{Col}A=2$",
+     "points": 1
+    },
+    {
+     "text": "הסכום $2+2=4$",
+     "points": 1
+    },
+    {
+     "text": "שווה למספר העמודות של $A$ (משפט הדרגה)",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לספור שורות במקום עמודות: ל-$A$ יש 3 שורות ו-4 עמודות.",
+    "לחבר את מימד מרחב השורות במקום מרחב העמודות (במקרה זה שניהם 2)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה עמודות מובילות יש בצורה המדורגת?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "העמודות 1 ו-2."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה משתנים חופשיים יש?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "העמודות 3 ו-4."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Nul}A+\\dim\\mathrm{Col}A$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$2+2$, שווה למספר העמודות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -152,7 +659,75 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c3a"
+   "contextId": "c3a",
+   "rubric": [
+    {
+     "text": "$A$ הפיכה אם ורק אם $|A|\\neq0$",
+     "points": 1
+    },
+    {
+     "text": "פיתוח הדטרמיננטה לפי שורה ראשונה",
+     "points": 2
+    },
+    {
+     "text": "$|A|=-2a(a-2)$",
+     "points": 1
+    },
+    {
+     "text": "הפיכה עבור $a\\neq0,2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקבוע שהמטריצה הפיכה כאשר $a=0$ או $a=2$ (הפוך).",
+    "טעות סימן בפיתוח: המקדם השני בפיתוח לפי שורה הוא שלילי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי $|A|$ עבור $a=1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$-2\\cdot1\\cdot(1-2)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי $|A|$ עבור $a=3$?",
+     "answer": -6,
+     "tol": 0,
+     "explain": "$-2\\cdot3\\cdot1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "עבור אילו ערכי $a$ המטריצה $A$ הפיכה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=0$ או $a=2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a\\neq0$ וגם $a\\neq2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a\\neq0$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a\\neq2$ בלבד"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$|A|=-2a(a-2)$ מתאפס בדיוק ב-$a=0,2$. ב-$a=2$ הדטרמיננטה $0$ ולכן $a\\neq0$ בלבד אינו מספיק, וב-$a=0$ גם $0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -165,7 +740,61 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c3a"
+   "contextId": "c3a",
+   "rubric": [
+    {
+     "text": "$|A|=2$ עבור $a=1$",
+     "points": 1
+    },
+    {
+     "text": "חישוב מטריצת הקופקטורים",
+     "points": 2
+    },
+    {
+     "text": "שחלוף: המטריצה המצורפת $\\mathrm{adj}(A)$",
+     "points": 1
+    },
+    {
+     "text": "$A^{-1}=\\frac12\\mathrm{adj}(A)$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לשחלף את מטריצת הקופקטורים.",
+    "לשכוח את סימני השחמט $(-1)^{i+j}$ בקופקטורים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי $|A|$ עבור $a=1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$-2\\cdot1\\cdot(1-2)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 1 של $A^{-1}$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$\\frac12\\cdot(-2)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 2 עמודה 2 של $A^{-1}$?",
+     "answer": 0.5,
+     "tol": 0.0001,
+     "explain": "$\\frac12\\cdot1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 2 עמודה 3 של $A^{-1}$?",
+     "answer": -1.5,
+     "tol": 0.0001,
+     "explain": "$\\frac12\\cdot(-3)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -178,7 +807,86 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c3b"
+   "contextId": "c3b",
+   "rubric": [
+    {
+     "text": "פולינום אופייני $\\lambda(\\lambda-1)(\\lambda-2)$",
+     "points": 3
+    },
+    {
+     "text": "ערכים עצמיים $0,1,2$",
+     "points": 1
+    },
+    {
+     "text": "וקטור עצמי עבור $0$: $(-1,1,0)$",
+     "points": 2
+    },
+    {
+     "text": "וקטור עצמי עבור $1$: $(-1,1,1)$",
+     "points": 1
+    },
+    {
+     "text": "וקטור עצמי עבור $2$: $(0,1,1)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $\\lambda$ שמוצאים כשמחסרים שורות בדטרמיננטה.",
+    "להציג רק וקטור עצמי אחד לכל ערך עצמי בלי לציין שכל כפולה שונה מאפס היא גם וקטור עצמי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי עקבת $A$ (סכום האלכסון)?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$1+1+1=0+1+2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det A$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "אחד הערכים העצמיים הוא $0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב השני של $A\\cdot(0,1,1)^T$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "השורה השנייה היא $(1,1,1)$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור הוא וקטור עצמי של $A$ עבור $\\lambda=1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(1,1,1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(0,1,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(-1,1,1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(-1,1,0)$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$A(-1,1,1)^T=(-1,1,1)$. עבור $(1,1,1)$ מקבלים $(1,3,3)$; $(0,1,1)$ הוא עצמי של $2$ ($A(0,1,1)^T=(0,2,2)$); $(-1,1,0)$ הוא עצמי של $0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -191,7 +899,75 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c3b"
+   "contextId": "c3b",
+   "rubric": [
+    {
+     "text": "שלושה ערכים עצמיים שונים ולכן $A$ לכסינה",
+     "points": 1
+    },
+    {
+     "text": "$D=\\mathrm{diag}(0,1,2)$",
+     "points": 2
+    },
+    {
+     "text": "עמודות $P$ הן הווקטורים העצמיים באותו סדר",
+     "points": 2
+    },
+    {
+     "text": "בדיקה: $|P|\\neq0$ ו-$AP=PD$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשים את הווקטורים העצמיים ב-$P$ בסדר שונה מסדר הערכים ב-$D$.",
+    "לרשום שורות במקום עמודות ב-$P$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $d_{33}$ כאשר $D=\\mathrm{diag}(0,1,2)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "הערך העצמי השלישי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det P$ עבור $P=\\begin{pmatrix}-1&-1&0\\\\1&1&1\\\\0&1&1\\end{pmatrix}$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "פיתוח לפי העמודה הראשונה."
+    },
+    {
+     "type": "choice",
+     "prompt": "אם $D=\\mathrm{diag}(0,1,2)$, מהי העמודה השלישית של $P$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(-1,1,1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(-1,1,0)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(0,1,-1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(0,1,1)$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "היא צריכה להיות עצמית עבור $2$. $(-1,1,1)$ עצמי עבור $1$, $(-1,1,0)$ עבור $0$, ו-$(0,1,-1)$ אינו עצמי ($A(0,1,-1)^T=(2,0,0)$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -204,7 +980,58 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "דירוג ארבעת הווקטורים הפורשים: דרגה $3$",
+     "points": 2
+    },
+    {
+     "text": "$W_1=\\mathbb{R}^3$, בסיס סטנדרטי, $\\dim W_1=3$",
+     "points": 1
+    },
+    {
+     "text": "התנאי $x-y=z+y$ שקול ל-$x=2y+z$",
+     "points": 1
+    },
+    {
+     "text": "בסיס $W_2$: $\\{(2,1,0),(1,0,1)\\}$",
+     "points": 1
+    },
+    {
+     "text": "$\\dim W_2=2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את ארבעת הווקטורים הפורשים כבסיס של $W_1$; בתלת מימד לא ייתכנו ארבעה בלתי תלויים.",
+    "לפשט את $x-y=z+y$ ל-$x=z$ ולשכוח להעביר את $y$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה שעמודותיה ארבעת הווקטורים הפורשים של $W_1$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "הדירוג נותן שלוש שורות שאינן אפס."
+    },
+    {
+     "type": "numeric",
+     "prompt": "ב-$W_2$ עבור $y=1,\\ z=3$, מהו $x$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$x=2y+z$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W_2$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שני משתנים חופשיים, $y$ ו-$z$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -217,7 +1044,71 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "$W_1=\\mathbb{R}^3$",
+     "points": 2
+    },
+    {
+     "text": "$W_1+W_2\\supseteq W_1=\\mathbb{R}^3$ ו-$W_1+W_2\\subseteq\\mathbb{R}^3$",
+     "points": 3
+    },
+    {
+     "text": "בסיס סטנדרטי ו-$\\dim(W_1+W_2)=3$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחבר את המימדים ולכתוב $\\dim(W_1+W_2)=3+2=5$ בלי לבדוק חיתוך.",
+    "לחשוב ש-$W_1+W_2$ גדול יותר מ-$\\mathbb{R}^3$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim(W_1+W_2)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "הסכום מכיל את $\\mathbb{R}^3$ והוא ב-$\\mathbb{R}^3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $W_1+W_2=\\mathbb{R}^3$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי $W_1=\\mathbb{R}^3$ והסכום מכיל את $W_1$ ומוכל ב-$\\mathbb{R}^3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי $W_2=\\mathbb{R}^3$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $W_1\\cap W_2=\\{0\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $\\dim W_1+\\dim W_2=5$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\dim W_2=2<3$, החיתוך הוא $W_2$ ולא $\\{0\\}$, והסכום $5$ חורג מ-$3$ ולכן אינו מימד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "לפי משפט המימדים, מהו $\\dim(W_1\\cap W_2)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$3+2-3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -230,7 +1121,75 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "$W_2\\subseteq\\mathbb{R}^3=W_1$",
+     "points": 3
+    },
+    {
+     "text": "לכן $W_1\\cap W_2=W_2$",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\{(2,1,0),(1,0,1)\\}$",
+     "points": 1
+    },
+    {
+     "text": "$\\dim(W_1\\cap W_2)=2$ ובדיקה: $3+2-2=3$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את החיתוך בעזרת מערכת משוואות מורכבת במקום להבחין ש-$W_1=\\mathbb{R}^3$.",
+    "לכתוב $\\dim(W_1\\cap W_2)=0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim(W_1\\cap W_2)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "החיתוך שווה ל-$W_2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "לפי משפט המימדים, מהו $\\dim(W_1+W_2)$ כאשר $\\dim W_1=3$, $\\dim W_2=2$, $\\dim(W_1\\cap W_2)=2$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$3+2-2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור שייך ל-$W_1\\cap W_2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(1,2,3)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(5,2,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(2,0,1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(0,1,0)$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "צריך $x=2y+z$: עבור $(5,2,1)$, $2\\cdot2+1=5$. עבור $(1,2,3)$ מקבלים $7$, עבור $(2,0,1)$ מקבלים $1$ ועבור $(0,1,0)$ מקבלים $2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -243,7 +1202,74 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "$W_1\\cap W_2=W_2$ ולכן בודקים את התנאי $x-y=z+y$",
+     "points": 1
+    },
+    {
+     "text": "$x-y=3-1=2$",
+     "points": 1
+    },
+    {
+     "text": "$z+y=-1+1=0$",
+     "points": 1
+    },
+    {
+     "text": "$2\\neq0$ ולכן התנאי נכשל",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: הווקטור אינו שייך ל-$W_1\\cap W_2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק שייכות ל-$W_1$ בלבד ולהסיק שהוא בחיתוך.",
+    "טעות סימן ב-$z+y=-1+1$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $x-y$ עבור $(3,1,-1)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$3-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $z+y$ עבור $(3,1,-1)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$-1+1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $(3,1,-1)$ שייך ל-$W_1\\cap W_2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כן, כי הוא שייך ל-$W_1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא, כי $2\\neq0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כן, כי $2=0$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הוא שייך ל-$W_1=\\mathbb{R}^3$ אך זה אינו מספיק; צריך גם את תנאי $W_2$, והוא נכשל כי $2\\neq0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -256,7 +1282,63 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "חיבור: הצבת $\\mathbf u+\\mathbf v$ בהגדרת $T$",
+     "points": 2
+    },
+    {
+     "text": "פירוק לסכום $T(\\mathbf u)+T(\\mathbf v)$",
+     "points": 1
+    },
+    {
+     "text": "כפל בסקלר: הצבת $\\alpha\\mathbf u$ והוצאת $\\alpha$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: שני התנאים מתקיימים, $T$ לינארית",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק את התנאים על דוגמה מספרית בלבד.",
+    "לשכוח את אחד התנאים (חיבור או כפל בסקלר)."
+   ],
+   "steps": [
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הוכחת החיבור.",
+     "lines": [
+      "$T(\\mathbf u+\\mathbf v)=T\\begin{pmatrix}x_1+x_2\\\\y_1+y_2\\\\z_1+z_2\\end{pmatrix}$",
+      "$=\\begin{pmatrix}(x_1+x_2)-(y_1+y_2)\\\\-2(x_1+x_2)+2(y_1+y_2)\\\\2(z_1+z_2)\\end{pmatrix}$",
+      "$=\\begin{pmatrix}x_1-y_1\\\\-2x_1+2y_1\\\\2z_1\\end{pmatrix}+\\begin{pmatrix}x_2-y_2\\\\-2x_2+2y_2\\\\2z_2\\end{pmatrix}$",
+      "$=T(\\mathbf u)+T(\\mathbf v)$"
+     ],
+     "explain": "הצבה, הגדרת $T$, פירוק לסכום, וזיהוי."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בחישוב הבא שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$T(\\mathbf u+\\mathbf v)=T\\begin{pmatrix}x_1+x_2\\\\y_1+y_2\\\\z_1+z_2\\end{pmatrix}$",
+      "$=\\begin{pmatrix}(x_1+x_2)-(y_1+y_2)\\\\-2(x_1+x_2)+2(y_1+y_2)\\\\2(z_1+z_2)+1\\end{pmatrix}$",
+      "$=\\begin{pmatrix}x_1-y_1\\\\-2x_1+2y_1\\\\2z_1\\end{pmatrix}+\\begin{pmatrix}x_2-y_2\\\\-2x_2+2y_2\\\\2z_2\\end{pmatrix}$",
+      "$=T(\\mathbf u)+T(\\mathbf v)$"
+     ],
+     "bugIndex": 1,
+     "explain": "הרכיב השלישי של $T$ הוא $2z$, בלי הוספת $+1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב השני של $T(2\\mathbf u)$ עבור $\\mathbf u=(1,2,3)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$T(2,4,6)=(-2,4,12)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -269,7 +1351,86 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "הגרעין: המערכת $x-y=0,\\ -2x+2y=0,\\ 2z=0$",
+     "points": 1
+    },
+    {
+     "text": "$x=y,\\ z=0$, בסיס $\\{(1,1,0)\\}$ ו-$\\dim\\ker T=1$",
+     "points": 2
+    },
+    {
+     "text": "התמונה: $T(x,y,z)=x(1,-2,0)+y(-1,2,0)+z(0,0,2)$",
+     "points": 2
+    },
+    {
+     "text": "הווקטור השני הוא מינוס הראשון, ולכן בסיס $\\{(1,-2,0),(0,0,1)\\}$",
+     "points": 2
+    },
+    {
+     "text": "$\\dim\\mathrm{Im}\\,T=2$ ובדיקה: $1+2=3$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את שלושת העמודות של המטריצה כבסיס התמונה; העמודה השנייה היא מינוס הראשונה.",
+    "לכתוב את הגרעין כ-$\\{(t,t,t)\\}$ במקום $\\{(t,t,0)\\}$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב הראשון של $T(1,1,0)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$1-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\ker T$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "משתנה חופשי אחד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Im}\\,T$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "לפי משפט המימדים: $3-1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה היא בסיס של $\\mathrm{Im}\\,T$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{(1,-2,0),(-1,2,0)\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{(1,-2,0),(0,0,1),(0,0,2)\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{(1,1,0)\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{(1,-2,0),(0,0,1)\\}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "בשתי הקבוצות הראשונות יש וקטורים תלויים (כפולה אחד של השני), ולכן הן אינן בסיס; $(1,1,0)$ הוא בסיס הגרעין ולא ב-$\\mathrm{Im}\\,T$ (הרכיב השני אינו $-2$ כפול הראשון)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -282,7 +1443,92 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "$\\dim\\ker T=1$, כלומר $\\ker T\\neq\\{0\\}$",
+     "points": 1
+    },
+    {
+     "text": "לכן $T$ אינה חד-חד-ערכית",
+     "points": 1
+    },
+    {
+     "text": "$\\dim\\mathrm{Im}\\,T=2<3$ ולכן $T$ אינה על",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק ש-$T$ על רק כי היא העתקה מ-$\\mathbb{R}^3$ ל-$\\mathbb{R}^3$.",
+    "לא לתת דוגמה או נימוק: הגרעין הלא טריוויאלי הוא הנימוק לחד-חד-ערכיות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי המסקנה הנכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא חד-חד-ערכית ולא על"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "חד-חד-ערכית ועל"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "חד-חד-ערכית אך לא על"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא חד-חד-ערכית אך על"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\dim\\ker T=1>0$ (לא חד-חד) ו-$\\dim\\mathrm{Im}\\,T=2<3$ (לא על)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור אינו שייך ל-$\\mathrm{Im}\\,T$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(1,-2,0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(1,0,0)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(0,0,5)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(2,-4,3)$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "בתמונה הרכיב השני הוא תמיד $-2$ כפול הראשון: ב-$(1,0,0)$ זה נכשל, ושלושת האחרים מקיימים זאת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\ker T+\\dim\\mathrm{Im}\\,T$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "שווה ל-$\\dim\\mathbb{R}^3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -295,7 +1541,61 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "עמודה $i$ של המטריצה המייצגת היא קואורדינטות $T(b_i)$ לפי $B_2$",
+     "points": 1
+    },
+    {
+     "text": "חישוב התמונות $(0,0,2),(-1,2,2),(0,0,2)$",
+     "points": 2
+    },
+    {
+     "text": "נוסחת הקואורדינטות לפי $B_2$: $\\beta=r,\\ \\gamma=q-r,\\ \\alpha=p-q+r$",
+     "points": 2
+    },
+    {
+     "text": "המטריצה $\\begin{pmatrix}2&-1&2\\\\2&2&2\\\\-2&0&-2\\end{pmatrix}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לרשום את התמונות כשורות ולא כעמודות.",
+    "לפרק לפי הבסיס הסטנדרטי במקום לפי $B_2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב הראשון של $T(0,1,1)$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$x-y=0-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 2 של המטריצה המייצגת (הקואורדינטה $\\alpha$ של $(-1,2,2)$)?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$\\alpha=p-q+r=-1-2+2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 2 עמודה 1 (הקואורדינטה $\\beta$ של $(0,0,2)$)?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$\\beta=r$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 3 עמודה 3 (הקואורדינטה $\\gamma$ של $(0,0,2)$)?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$\\gamma=q-r=0-2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

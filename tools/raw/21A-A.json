@@ -49,7 +49,52 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "פירוק $AA^T+A^2=A\\left(A^T+A\\right)$ מוציא את $A$ כגורם משמאל",
+     "points": 3
+    },
+    {
+     "text": "חלוקה ב-$3$: $A\\cdot\\frac13\\left(A+A^T\\right)=I$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: מטריצה ריבועית $X$ עם $AX=I$ היא ההפוכה, ולכן $A^{-1}=\\frac13\\left(A+A^T\\right)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לפרק $AA^T+A^2$ בצורה $A\\left(A^T+A^2\\right)$ ולשכוח שהגורם $A$ מוכפל ב-$A$ ולא ב-$A^2$.",
+    "להניח ש-$A$ סימטרית כבר בסעיף זה ולכתוב $AA^T=A^2$ בלי הצדקה."
+   ],
+   "steps": [
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הפתרון.",
+     "lines": [
+      "$AA^T+A^2=3I$",
+      "$A\\left(A^T+A\\right)=3I$",
+      "$A\\cdot\\frac13\\left(A+A^T\\right)=I$",
+      "$A^{-1}=\\frac13\\left(A+A^T\\right)$"
+     ],
+     "explain": "פירוק לגורמים, חלוקה ב-3, ומסקנה מהגדרת ההפוכה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בחישוב הבא שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$AA^T+A^2=3I$",
+      "$A\\left(A^T+A^2\\right)=3I$",
+      "$A\\cdot\\frac13\\left(A+A^T\\right)=I$",
+      "$A^{-1}=\\frac13\\left(A+A^T\\right)$"
+     ],
+     "bugIndex": 1,
+     "explain": "הוצאת $A$ מ-$A^2$ משאירה $A$, לא $A^2$: $A\\cdot A^2=A^3\\neq A^2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -62,7 +107,56 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "שחלוף שני האגפים של $A^{-1}=\\frac13\\left(A+A^T\\right)$",
+     "points": 2
+    },
+    {
+     "text": "שחלוף סכום וכפל בסקלר: $\\left(\\frac13(A+A^T)\\right)^T=\\frac13A^T+\\frac13\\left(A^T\\right)^T$",
+     "points": 2
+    },
+    {
+     "text": "$\\left(A^T\\right)^T=A$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $\\left(A^{-1}\\right)^T=A^{-1}$, כלומר $A^{-1}$ סימטרית",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ש-$\\left(A^T\\right)^T=A$ ולהשאיר $A^T+A^T$.",
+    "לחשב $\\left(A^{-1}\\right)^T=\\left(A^T\\right)^{-1}$ ולעצור שם בלי להשוות ל-$A^{-1}$."
+   ],
+   "steps": [
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי החישוב.",
+     "lines": [
+      "$\\left(A^{-1}\\right)^T=\\left(\\frac13\\left(A+A^T\\right)\\right)^T$",
+      "$=\\frac13A^T+\\frac13\\left(A^T\\right)^T$",
+      "$=\\frac13\\left(A^T+A\\right)$",
+      "$=A^{-1}$"
+     ],
+     "explain": "שחלוף של הביטוי מסעיף א, שחלוף איבר איבר, ואז זיהוי $A^{-1}$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בחישוב הבא שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$\\left(A^{-1}\\right)^T=\\left(\\frac13\\left(A+A^T\\right)\\right)^T$",
+      "$=\\frac13A^T+\\frac13A^T$",
+      "$=\\frac13\\left(A^T+A\\right)$",
+      "$=A^{-1}$"
+     ],
+     "bugIndex": 1,
+     "explain": "$\\left(A^T\\right)^T=A$ ולא $A^T$; אחרת השורה הבאה אינה נובעת."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -75,7 +169,82 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "חיסור המשוואות נותן $2A^2=3I$",
+     "points": 2
+    },
+    {
+     "text": "דטרמיננטה של שני האגפים: $2^3|A|^2=3^3$",
+     "points": 2
+    },
+    {
+     "text": "$|A|^2=\\frac{27}{8}$",
+     "points": 1
+    },
+    {
+     "text": "$|A|=\\pm\\frac{3\\sqrt6}{4}$ ושני הסימנים אפשריים",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להוציא שורש ולכתוב רק $|A|=+\\sqrt{\\frac{27}{8}}$, למרות ש-$A=-\\sqrt{\\frac32}I$ מקיימת את המשוואות.",
+    "לכתוב $|2A^2|=2|A|^2$ במקום $2^3|A|^2$ (המטריצה מסדר $3\\times3$)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det(3I)$ עבור $I$ מסדר $3\\times3$?",
+     "answer": 27,
+     "tol": 0,
+     "explain": "$3^3=27$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A|^2$?",
+     "answer": 3.375,
+     "tol": 0.0001,
+     "explain": "$2^3|A|^2=27$, כלומר $|A|^2=\\frac{27}{8}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך החיובי של $|A|$ בקירוב (טולרנס 0.001)?",
+     "answer": 1.8371,
+     "tol": 0.001,
+     "explain": "$\\sqrt{\\frac{27}{8}}=\\frac{3\\sqrt6}{4}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו ערכים אפשריים ל-$|A|$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שני הערכים $\\pm\\frac{3\\sqrt6}{4}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "רק הערך החיובי $\\frac{3\\sqrt6}{4}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "רק הערך השלילי $-\\frac{3\\sqrt6}{4}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הערך $0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "גם $A=\\sqrt{\\frac32}I$ וגם $A=-\\sqrt{\\frac32}I$ מקיימות את שתי המשוואות, ודטרמיננטותיהן הן בסימנים הפוכים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -88,7 +257,71 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "$\\left|A^{-1}\\right|=|A|^{-1}$ כי $A$ הפיכה",
+     "points": 2
+    },
+    {
+     "text": "הצבת $|A|=\\pm\\frac{3\\sqrt6}{4}$",
+     "points": 1
+    },
+    {
+     "text": "התוצאה $\\pm\\frac{2\\sqrt6}{9}$ באותו סימן כמו $|A|$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $\\left|A^{-1}\\right|=-|A|$ או $|A|$ במקום ההופכי.",
+    "להשמיט את הסימן השלילי האפשרי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\left|A^{-1}\\right|^2$ בקירוב (טולרנס 0.001)?",
+     "answer": 0.2963,
+     "tol": 0.001,
+     "explain": "$\\frac{8}{27}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך החיובי של $\\left|A^{-1}\\right|$ בקירוב (טולרנס 0.001)?",
+     "answer": 0.5443,
+     "tol": 0.001,
+     "explain": "$\\sqrt{\\frac{8}{27}}=\\frac{2\\sqrt6}{9}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה הקשר בין הסימן של $\\left|A^{-1}\\right|$ לסימן של $|A|$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "סימן הפוך"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אותו סימן"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "תמיד חיובי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "תמיד שלילי"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\left|A^{-1}\\right|=\\frac1{|A|}$ ולכן הסימנים זהים; עבור $A=-\\sqrt{\\frac32}I$ שניהם שליליים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -101,7 +334,65 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "$R_2\\to R_2-aR_1$ ו-$R_3\\to R_3-R_1$",
+     "points": 2
+    },
+    {
+     "text": "$R_3\\to R_3-R_2$ נותן שורה $\\left(0,0,-(a+1)(a-2)\\mid(a+1)(a-1)\\right)$",
+     "points": 2
+    },
+    {
+     "text": "המקרה $a=-1$: שתי שורות אפסים",
+     "points": 1
+    },
+    {
+     "text": "המקרה $a=2$: שורה $(0,0,0\\mid3)$",
+     "points": 1
+    },
+    {
+     "text": "עבור $a\\neq-1,2$: הצורה הקנונית עם עמודה אחרונה $\\frac{1-a}{a-2},\\ \\frac1{a-2},\\ \\frac{1-a}{a-2}$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחלק ב-$a+1$ בלי לטפל בנפרד במקרה $a=-1$.",
+    "לחלק ב-$(a+1)(a-2)$ בלי לטפל במקרה $a=2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=3$, מהי הכניסה בעמודה 2 של שורה 2 אחרי $R_2\\to R_2-aR_1$ (הביטוי $1+a$)?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$1+3=4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=3$, מהו המקדם $-(a+1)(a-2)$ של $z$ בשורה 3?",
+     "answer": -4,
+     "tol": 0,
+     "explain": "$-(4)(1)=-4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=3$, מהו $x$ בפתרון היחיד?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$\\frac{1-a}{a-2}=\\frac{-2}{1}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=3$, מהו $y$ בפתרון היחיד?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$\\frac1{a-2}=1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -114,7 +405,75 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "$a=-1$: שורות אפסים ולכן אינסוף פתרונות",
+     "points": 2
+    },
+    {
+     "text": "$a=2$: שורת סתירה $(0,0,0\\mid3)$ ולכן אין פתרון",
+     "points": 2
+    },
+    {
+     "text": "שאר הערכים: פתרון יחיד",
+     "points": 2
+    },
+    {
+     "text": "הפתרון היחיד $\\left(\\frac{1-a}{a-2},\\frac1{a-2},\\frac{1-a}{a-2}\\right)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבלבל בין המקרים: שורת סתירה ב-$a=2$ ולא ב-$a=-1$.",
+    "לשכוח שב-$a=-1$ גם אגף ימין מתאפס ולכן אין סתירה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $a=-1$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "נשארת שורה אחת שאינה אפס."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה המורחבת עבור $a=2$? (דרגת מטריצת המקדמים היא 2)",
+     "answer": 3,
+     "tol": 0,
+     "explain": "השורה $(0,0,0\\mid3)$ מוסיפה דרגה."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה מיפוי נכון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אינסוף פתרונות: $a=2$; אין פתרון: $a=-1$; פתרון יחיד: כל שאר הערכים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אין פתרון: $a=-1$ וגם $a=2$; פתרון יחיד: כל שאר הערכים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינסוף פתרונות: $a=-1$; אין פתרון: $a=2$; פתרון יחיד: כל שאר הערכים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אינסוף פתרונות: $a=-1$ וגם $a=2$; פתרון יחיד: כל שאר הערכים"
+      }
+     ],
+     "correctId": "c",
+     "explain": "ב-$a=-1$ דרגת המקדמים והמורחבת שוות 1 (פחות מ-3), וב-$a=2$ דרגת המקדמים 2 והמורחבת 3."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -127,7 +486,75 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "הצבת $a=-1$ ומשוואה יחידה $x-y+z=-1$",
+     "points": 1
+    },
+    {
+     "text": "המשתנים החופשיים $y=t,\\ z=s$",
+     "points": 1
+    },
+    {
+     "text": "$x=t-s-1$",
+     "points": 1
+    },
+    {
+     "text": "כתיבה וקטורית עם וקטורי כיוון $(1,1,0)$ ו-$(-1,0,1)$ ווקטור מקום $(-1,0,0)$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב את וקטור הכיוון של $s$ בצורה $(0,-1,1)$; הוא אינו פותר את $x-y+z=0$.",
+    "לשכוח את הווקטור הפרטי $(-1,0,0)$ ולתאר את מרחב הפתרונות כתת מרחב."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה משתנים חופשיים יש כאשר $a=-1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "משוואה אחת בשלושה נעלמים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $t=2,\\ s=1$, מהו $x$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$x=t-s-1=2-1-1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו וקטור הכיוון של $s$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(0,-1,1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(1,0,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(-1,0,-1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(-1,0,1)$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הוא צריך לפתור את $x-y+z=0$: רק $(-1,0,1)$ עושה זאת; ב-$(0,-1,1)$ מקבלים $2$, ב-$(1,0,1)$ מקבלים $2$, וב-$(-1,0,-1)$ מקבלים $-2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -139,7 +566,54 @@
    "solution": "נשים לב כי מתקיים\n$$F(z)=z^4+8z=z\\left(z^3+8\\right)$$\nנסתכל על האפסים של המשוואה $z^3+8=0$, כלומר $z^3=-8$. הפתרונות של משוואה זו הינם\n$$z_k=2\\left(\\cos\\left(\\frac{2\\pi k}{3}+\\frac{\\pi}{3}\\right)+i\\sin\\left(\\frac{2\\pi k}{3}+\\frac{\\pi}{3}\\right)\\right)$$\nעבור $k=0,1,2$. ולכן הפתרונות של המשוואה המקורית $z^4+8z=0$ הינם $z_0,z_1,z_2$ יחד עם $z=0$.\n(במפורש: $z_0=1+\\sqrt3\\,i$, $z_1=-2$, $z_2=1-\\sqrt3\\,i$.)",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "פירוק $z^4+8z=z\\left(z^3+8\\right)$",
+     "points": 1
+    },
+    {
+     "text": "הפתרון $z=0$",
+     "points": 1
+    },
+    {
+     "text": "שורשי $z^3=-8$ לפי נוסחת השורשים בהצגה קוטבית",
+     "points": 1
+    },
+    {
+     "text": "שלושת השורשים $1+\\sqrt3\\,i,\\ -2,\\ 1-\\sqrt3\\,i$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הפתרון $z=0$ ולהסתפק בשלושה שורשים.",
+    "לחשב שורשי $z^3=8$ במקום $z^3=-8$ (זווית ההתחלה $\\frac\\pi3$ ולא $0$)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו המודול של כל פתרון שונה מאפס?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$|z|^3=8$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פתרונות מרוכבים שונים יש למשוואה?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$0$ ועוד שלושת שורשי $z^3=-8$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו החלק המדומה של $z_0=1+\\sqrt3\\,i$ בקירוב (טולרנס 0.001)?",
+     "answer": 1.732,
+     "tol": 0.001,
+     "explain": "$2\\sin\\frac\\pi3=\\sqrt3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -152,7 +626,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3a"
+   "contextId": "c3a",
+   "rubric": [
+    {
+     "text": "$A$ הפיכה אם ורק אם $|A|\\neq0$",
+     "points": 1
+    },
+    {
+     "text": "חישוב הדטרמיננטה בפיתוח לפי שורה ראשונה: $-36a^2+30a+84$",
+     "points": 3
+    },
+    {
+     "text": "השורשים $a=2$ ו-$a=-\\frac76$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: $A$ הפיכה עבור $a\\neq2,-\\frac76$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "טעות סימן באחד הצמצומים בפיתוח לפי שורה, למשל $2a(2a+2-20a+10)$.",
+    "לקבוע שהמטריצה הפיכה בדיוק כאשר $|A|=0$ (הפוך)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי $|A|$ עבור $a=0$?",
+     "answer": 84,
+     "tol": 0,
+     "explain": "ממשוואת הדטרמיננטה $-36a^2+30a+84$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי $|A|$ עבור $a=1$?",
+     "answer": 78,
+     "tol": 0,
+     "explain": "$-36+30+84$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $a$ השני (השלילי) שבו $|A|=0$ בקירוב (טולרנס 0.001)?",
+     "answer": -1.1667,
+     "tol": 0.001,
+     "explain": "$-\\frac76$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -175,7 +696,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3b"
+   "contextId": "c3b",
+   "rubric": [
+    {
+     "text": "פולינום אופייני $(\\lambda-3)(\\lambda-6)(\\lambda-4)$ והערכים העצמיים $3,4,6$",
+     "points": 3
+    },
+    {
+     "text": "ערכים עצמיים שונים ולכן $B$ לכסינה",
+     "points": 1
+    },
+    {
+     "text": "וקטור עצמי עבור $3$: $\\left(-\\frac23,\\frac23,1\\right)$",
+     "points": 2
+    },
+    {
+     "text": "וקטור עצמי עבור $4$: $(0,1,0)$",
+     "points": 1
+    },
+    {
+     "text": "וקטור עצמי עבור $6$: $(2,1,0)$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שהשורה השלישית של $\\lambda I-B$ נותנת את הגורם $(\\lambda-3)$ ולהתבלבל בפיתוח.",
+    "לכתוב את הווקטור העצמי של $3$ בלי לבדוק $Bv=3v$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו עקבת $B$ (סכום האלכסון)?",
+     "answer": 13,
+     "tol": 0,
+     "explain": "$6+4+3$, שווה לסכום הערכים העצמיים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det B$?",
+     "answer": 72,
+     "tol": 0,
+     "explain": "$3\\cdot4\\cdot6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בווקטור העצמי של $3$ עם $z=3$, מהו $x$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$x=-\\frac23z$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור הוא וקטור עצמי של $B$ עבור הערך העצמי $4$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(0,1,0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(0,0,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(1,0,0)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(1,1,0)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$B(0,1,0)=(0,4,0)$. עבור $(0,0,1)$ מקבלים $(2,0,3)$, עבור $(1,0,0)$ מקבלים $(6,1,0)$, ועבור $(1,1,0)$ מקבלים $(6,5,0)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -188,7 +788,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3b"
+   "contextId": "c3b",
+   "rubric": [
+    {
+     "text": "$D$ אלכסונית עם הערכים העצמיים $3,4,6$ על האלכסון",
+     "points": 2
+    },
+    {
+     "text": "עמודות $P$ הן הווקטורים העצמיים באותו סדר כמו ב-$D$",
+     "points": 2
+    },
+    {
+     "text": "$P$ הפיכה כי הווקטורים בלתי תלויים (ערכים עצמיים שונים)",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לסדר את עמודות $P$ בסדר שונה מסדר הערכים העצמיים ב-$D$.",
+    "לרשום את $P$ כמטריצת שורות במקום עמודות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $d_{33}$ ב-$D$ (הסדר הוא $3,4,6$)?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "הערך העצמי השלישי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det P$ עבור $P=\\begin{pmatrix}-\\frac23&0&2\\\\\\frac23&1&1\\\\1&0&0\\end{pmatrix}$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "פיתוח לפי העמודה השנייה: $1\\cdot\\left(0-2\\right)$."
+    },
+    {
+     "type": "choice",
+     "prompt": "אם $D=\\mathrm{diag}(3,4,6)$, מהי העמודה השנייה של $P$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(2,1,0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(0,1,0)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(-\\frac23,\\frac23,1\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(0,0,1)$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "היא צריכה להיות וקטור עצמי של $4$. $(2,1,0)$ הוא של $6$, $\\left(-\\frac23,\\frac23,1\\right)$ של $3$, ו-$(0,0,1)$ אינו עצמי כלל."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -201,7 +865,65 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "הצגה וקטורית של היוצרים של $U$ ודירוג: דרגה 2",
+     "points": 2
+    },
+    {
+     "text": "בסיס $U$: $\\{1+x,\\ 2x+x^2\\}$ ו-$\\dim U=2$",
+     "points": 1
+    },
+    {
+     "text": "תנאי $W$: $p'(1)=b+2c=0$",
+     "points": 1
+    },
+    {
+     "text": "בסיס $W$: $\\{1,\\ x^2-2x\\}$",
+     "points": 1
+    },
+    {
+     "text": "$\\dim W=2$ כי שני הווקטורים אינם פרופורציוניים",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $p'(1)$ בלי להציב $x=1$ ולקבל $b+2cx=0$.",
+    "לקחת את שלושת היוצרים של $U$ כבסיס למרות שהם תלויים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה שעמודותיה (או שורותיה) הן $(1,1,0),(2,0,-1),(0,2,1)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "הצורה המדורגת כוללת שורת אפסים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "$2-x^2=\\alpha(1+x)+\\beta(2x+x^2)$. מהו $\\alpha$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מהמקדם החופשי $\\alpha=2$, ואז $\\beta=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $p=a+bx+cx^2\\in W$ עם $c=3$, מהו $b$?",
+     "answer": -6,
+     "tol": 0,
+     "explain": "$b=-2c$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שני פרמטרים חופשיים, $a$ ו-$c$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -214,7 +936,75 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "$U+W=\\mathrm{Sp}\\{B_U,B_W\\}$",
+     "points": 2
+    },
+    {
+     "text": "דירוג ארבעת הווקטורים",
+     "points": 3
+    },
+    {
+     "text": "קבלת שלוש שורות בת״ל ושורת אפסים",
+     "points": 1
+    },
+    {
+     "text": "בסיס $\\{1,x,x^2\\}$ ו-$\\dim(U+W)=3$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את ארבעת הווקטורים כבסיס בלי לבדוק תלות.",
+    "לחשוב ש-$U+W$ היא האיחוד $U\\cup W$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדרגה של המטריצה שעמודותיה $(1,1,0),(0,2,1),(1,0,0),(0,-2,1)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "הצורה המדורגת מכילה שלוש שורות שאינן אפס."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim(U+W)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "הדרגה."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $U+W=\\mathbb{R}_2[x]$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי $U=W$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי $U+W=U\\cup W$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $\\dim(U+W)=3$ והוא תת מרחב של מרחב ממימד $3$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $U\\cap W=\\{0\\}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$U\\neq W$ (למשל $1\\in W\\setminus U$), האיחוד אינו סגור לחיבור ($2+x$ אינו ב-$U$ ואינו ב-$W$), ו-$\\dim(U\\cap W)=1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -227,7 +1017,82 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "השוואת צירוף של $B_U$ לצירוף של $B_W$",
+     "points": 2
+    },
+    {
+     "text": "מערכת הומוגנית מסדר $3\\times4$ ודירוגה",
+     "points": 2
+    },
+    {
+     "text": "$\\beta_1=-4\\beta_2$ ומשתנה חופשי $\\beta_2=t$",
+     "points": 2
+    },
+    {
+     "text": "$U\\cap W=\\mathrm{Sp}\\{4+2x-x^2\\}$, מימד $1$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את שני הבסיסים כמערכת אחת בלי להעביר אגף, ולכן לקבל סימנים שגויים.",
+    "לשכוח שבסיס החיתוך הוא הווקטור עצמו ולא הפרמטרים $\\alpha,\\beta$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המערכת ההומוגנית $3\\times4$ בנעלמים $\\alpha_1,\\alpha_2,\\beta_1,\\beta_2$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "ארבעה נעלמים ופתרון עם פרמטר אחד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $\\beta_2=1$, מהו $\\beta_1$?",
+     "answer": -4,
+     "tol": 0,
+     "explain": "$\\beta_1=-4\\beta_2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו מקדם $x^2$ בווקטור הבסיס של $U\\cap W$ (עבור $t=1$)?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$4+2x-x^2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה פולינום שייך ל-$U\\cap W$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$1+x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x^2-2x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$4+2x-x^2$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$1+x\\in U$ אך $b+2c=1\\neq0$ ולכן לא ב-$W$; $1\\in W$ אך לא ב-$U$; $x^2-2x\\in W$ אך אינו צירוף של $B_U$ (המקדם של $x$ היה צריך להיות $2$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -240,7 +1105,49 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "כל $q\\in U\\cap W$ הוא $q(x)=c\\left(4+2x-x^2\\right)$",
+     "points": 1
+    },
+    {
+     "text": "$q(2)=4c$ ו-$q(-2)=-4c$",
+     "points": 1
+    },
+    {
+     "text": "הסכום $q(2)+q(-2)=0$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להניח $c=1$ ולא לראות שהתוצאה אפס לכל $c$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $c=1$, מהו $q(2)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$4+4-4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $c=1$, מהו $q(-2)$?",
+     "answer": -4,
+     "tol": 0,
+     "explain": "$4-4-4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $q(2)+q(-2)$ עבור $c=7$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$28-28$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -253,7 +1160,63 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "חיבור: הצבת $A+B$ בהגדרת $T$",
+     "points": 2
+    },
+    {
+     "text": "פירוק לסכום $T(A)+T(B)$",
+     "points": 1
+    },
+    {
+     "text": "כפל בסקלר: הצבת $\\alpha A$",
+     "points": 2
+    },
+    {
+     "text": "הוצאת $\\alpha$ ומסקנה: $T$ לינארית",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק את התנאים רק על דוגמה מספרית.",
+    "לשכוח אחד משני התנאים (חיבור או כפל בסקלר)."
+   ],
+   "steps": [
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הוכחת החיבור.",
+     "lines": [
+      "$T(A+B)=T\\begin{pmatrix}a_1+a_2&b_1+b_2\\\\c_1+c_2&d_1+d_2\\end{pmatrix}$",
+      "$=\\begin{pmatrix}(a_1+a_2)+(b_1+b_2)\\\\(b_1+b_2)+(c_1+c_2)\\\\(b_1+b_2)+(d_1+d_2)\\end{pmatrix}$",
+      "$=\\begin{pmatrix}a_1+b_1\\\\b_1+c_1\\\\b_1+d_1\\end{pmatrix}+\\begin{pmatrix}a_2+b_2\\\\b_2+c_2\\\\b_2+d_2\\end{pmatrix}$",
+      "$=T(A)+T(B)$"
+     ],
+     "explain": "הצבה, הגדרת $T$, פירוק לסכום, וזיהוי."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בחישוב הבא שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$T(A+B)=T\\begin{pmatrix}a_1+a_2&b_1+b_2\\\\c_1+c_2&d_1+d_2\\end{pmatrix}$",
+      "$=\\begin{pmatrix}(a_1+a_2)+(b_1+b_2)\\\\(b_1+b_2)+(c_1+c_2)\\\\(b_1+b_2)(d_1+d_2)\\end{pmatrix}$",
+      "$=\\begin{pmatrix}a_1+b_1\\\\b_1+c_1\\\\b_1+d_1\\end{pmatrix}+\\begin{pmatrix}a_2+b_2\\\\b_2+c_2\\\\b_2+d_2\\end{pmatrix}$",
+      "$=T(A)+T(B)$"
+     ],
+     "bugIndex": 1,
+     "explain": "הרכיב השלישי של $T$ הוא $b+d$ (סכום) ולא מכפלה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$, מהו הרכיב השני של $T(2A)$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$T(2A)=2T(A)$ ו-$T(A)=(3,5,6)$, כלומר $2\\cdot5$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -266,7 +1229,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "הגרעין: מערכת $a+b=0,\\ b+c=0,\\ b+d=0$",
+     "points": 1
+    },
+    {
+     "text": "דירוג, משתנה חופשי $d=t$ והפתרון $t\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}$",
+     "points": 2
+    },
+    {
+     "text": "בסיס הגרעין ו-$\\dim\\ker T=1$",
+     "points": 2
+    },
+    {
+     "text": "התמונה נפרשת על ידי $(1,0,0),(1,1,1),(0,1,0),(0,0,1)$",
+     "points": 2
+    },
+    {
+     "text": "בסיס התמונה $\\{(1,0,0),(1,1,1),(0,1,0)\\}$ ו-$\\dim\\mathrm{Im}\\,T=3$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את ארבעת הווקטורים הפורשים כבסיס התמונה: $(1,1,1)=(1,0,0)+(0,1,0)+(0,0,1)$.",
+    "לשכוח שהגרעין הוא מטריצות ולא וקטורים ב-$\\mathbb{R}^3$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו מטריצה שייכת ל-$\\ker T$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\begin{pmatrix}-1&1\\\\1&1\\end{pmatrix}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&-1\\\\-1&1\\end{pmatrix}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הנכונה נותנת $(0,0,0)$. האחרות נותנות $(2,2,2)$, $(0,2,2)$ ו-$(0,-2,0)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\ker T$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "משתנה חופשי יחיד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Im}\\,T$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "ארבעה וקטורים פורשים, אחד מיותר."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב הראשון של $T\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$a+b=1-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -279,7 +1321,84 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "$\\ker T\\neq\\{0\\}$ ולכן $T$ אינה חד-חד-ערכית",
+     "points": 1
+    },
+    {
+     "text": "$\\dim\\mathrm{Im}\\,T=3=\\dim\\mathbb{R}^3$ ולכן $T$ על",
+     "points": 1
+    },
+    {
+     "text": "עקביות עם משפט המימדים: $1+3=4=\\dim\\mathbb{M}_2(\\mathbb{R})$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון ש-$T$ אינה על כי $\\dim\\mathbb{M}_2(\\mathbb{R})=4>3$; העתקה ממרחב גדול יותר יכולה להיות על."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי המסקנה הנכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "חד-חד-ערכית ועל"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינה חד-חד-ערכית, אך על"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "חד-חד-ערכית אך לא על"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא חד-חד-ערכית ולא על"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\dim\\ker T=1>0$ (לא חד-חד), ו-$\\dim\\mathrm{Im}\\,T=3=\\dim\\mathbb{R}^3$ (על)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה מוכיח ש-$T$ על?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\dim\\ker T=1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\dim\\mathbb{M}_2(\\mathbb{R})=4>3$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\dim\\mathrm{Im}\\,T=3=\\dim\\mathbb{R}^3$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T$ לינארית"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הגרעין הלא טריוויאלי מראה שאינה חד-חד; מימד התחום גדול מ-3 אינו מבטיח על (למשל ההעתקה האפס); לינאריות אינה מבטיחה על."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -292,7 +1411,79 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "המערכת $a+b=1,\\ b+c=1,\\ b+d=1$",
+     "points": 1
+    },
+    {
+     "text": "דירוג המטריצה המורחבת",
+     "points": 2
+    },
+    {
+     "text": "הפתרון הכללי $a=t,\\ b=1-t,\\ c=t,\\ d=t$",
+     "points": 2
+    },
+    {
+     "text": "צורה וקטורית: $t\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}+\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$",
+     "points": 1
+    },
+    {
+     "text": "מטריצת האפס אינה בקבוצה ולכן אינה תת מרחב",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהקבוצה תת מרחב כי היא כוללת פרמטר חופשי.",
+    "לשכוח את הווקטור הפרטי $\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$ ולהחזיר את הגרעין."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $t=2$, מהו $b$ במטריצה בקבוצה?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$b=1-t$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב הראשון של $T$ של מטריצת האפס?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "אבל הרכיב הראשון הנדרש הוא $1$, ולכן $0$ אינה בקבוצה."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה היא קבוצת כל המטריצות שתמונתן $(1,1,1)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left\\{t\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}\\right\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left\\{t\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}+\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}\\right\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left\\{t\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}+\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}\\right\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left\\{t\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}+\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}\\right\\}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הגרעין בלבד נותן $(0,0,0)$; הווקטור הפרטי $\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}$ נותן $(1,0,0)$; ו-$\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$ אינה בגרעין ולכן מתקבל $(1+2t,1+2t,1+2t)$ ולא תמיד $(1,1,1)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
