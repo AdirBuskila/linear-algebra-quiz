@@ -43,7 +43,98 @@
    "solution": "מטריצות $C,D$ הפיכות, פירושו של דבר $\\det C\\neq0$, $\\det D\\neq0$. נשתמש בעובדה זו ובתכונות של פעולת הדטרמיננטה על כפל מטריצות:\n$$\\det\\left(CD^2\\right)=\\det\\left(D^3C^{-1}\\right)\\Rightarrow\\det(C)\\det\\left(D^2\\right)=\\det\\left(D^3\\right)\\det\\left(C^{-1}\\right)$$\n$$\\det\\left(D^2\\right)=\\det(DD)=\\det(D)\\det(D)=(\\det(D))^2,\\qquad\\det\\left(D^3\\right)=\\det(DDD)=(\\det(D))^3,\\qquad\\det\\left(C^{-1}\\right)=1/\\det(C)$$\nלכן נקבל\n$$\\det(C)(\\det(D))^2=(\\det(D))^3\\frac{1}{\\det(C)}\\Rightarrow(\\det(C))^2(\\det(D))^2=(\\det(D))^3$$\n$$\\Rightarrow0=(\\det(D))^2\\left(\\det(D)-(\\det(C))^2\\right)\\Rightarrow\\det(D)=(\\det(C))^2>0$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הפעלת דטרמיננטה על שני אגפי השוויון $CD^2=D^3C^{-1}$",
+     "points": 2
+    },
+    {
+     "text": "שימוש בכפליות ובהופכי: $\\det(C)(\\det D)^2=(\\det D)^3\\cdot\\frac1{\\det C}$",
+     "points": 2
+    },
+    {
+     "text": "קבלת $(\\det C)^2(\\det D)^2=(\\det D)^3$",
+     "points": 3
+    },
+    {
+     "text": "חילוק ב-$(\\det D)^2\\neq0$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $\\det D=(\\det C)^2>0$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחלק ב-$\\det D$ בלי להזכיר ש-$D$ הפיכה ולכן $\\det D\\neq0$.",
+    "לכתוב $\\det\\left(C^{-1}\\right)=-\\det C$ במקום $\\frac1{\\det C}$.",
+    "להסיק $\\det D>0$ מהשוויון בלי לציין ש-$\\det C\\neq0$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מפעילים דטרמיננטה על שני אגפי השוויון ומשתמשים בכפליות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מכפילים את השוויון ב-$D^{-1}$ ובודקים את הסימן של כל איבר"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מראים ש-$D$ דומה למטריצה אלכסונית עם איברים חיוביים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "משתמשים באינדוקציה על חזקות של $D$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון הרשמי מחשב $\\det\\left(CD^2\\right)=\\det\\left(D^3C^{-1}\\right)$ ומפשט."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אם $\\det C=-3$, מהו $\\det D$?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$\\det D=(\\det C)^2=9$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$\\det\\left(CD^2\\right)=\\det\\left(D^3C^{-1}\\right)$",
+      "$\\det(C)(\\det D)^2=(\\det D)^3\\cdot\\frac1{\\det C}$",
+      "$(\\det C)^2(\\det D)^2=(\\det D)^3$",
+      "$(\\det D)^2\\left(\\det D-(\\det C)^2\\right)=0$",
+      "$\\det D=(\\det C)^2>0$"
+     ],
+     "explain": "כל שורה נובעת מהקודמת."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$\\det\\left(CD^2\\right)=\\det\\left(D^3C^{-1}\\right)$",
+      "$\\det(C)(\\det D)^2=(\\det D)^3\\cdot\\frac1{\\det C}$",
+      "$(\\det C)^2(\\det D)^2=(\\det D)^3$",
+      "$(\\det D)^2\\left(\\det D+(\\det C)^2\\right)=0$",
+      "$\\det D=(\\det C)^2>0$"
+     ],
+     "bugIndex": 3,
+     "explain": "מהשורה השלישית מעבירים אגפים: $(\\det D)^2\\left(\\det D-(\\det C)^2\\right)=0$. עם פלוס היה מתקבל $\\det D<0$, בסתירה למסקנה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -55,7 +146,95 @@
    "solution": "מצד אחד\n$$(A-I_n)(A-I_n)=AA-AI_n-I_nA+I_nI_n=A-A-A+I_n=-(A-I_n)$$\nמאידך, $A-I_n$ הפיכה, ולכן אפשר להכפיל את שני האגפים ב-$(A-I_n)^{-1}$:\n$$(A-I_n)\\underbrace{(A-I_n)(A-I_n)^{-1}}_{I_n}=-\\underbrace{(A-I_n)(A-I_n)^{-1}}_{I_n}$$\n$$(A-I_n)I_n=-I_n\\Rightarrow A-I_n=-I_n\\Rightarrow A=-I_n+I_n=0$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "פתיחת $(A-I)(A-I)=A^2-2A+I$",
+     "points": 3
+    },
+    {
+     "text": "שימוש ב-$A^2=A$ וקבלת $-(A-I)$",
+     "points": 2
+    },
+    {
+     "text": "כפל ב-$(A-I)^{-1}$",
+     "points": 3
+    },
+    {
+     "text": "קבלת $A-I=-I$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה $A=0$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לצמצם את $A-I$ משני האגפים בלי להסתמך על ההפיכות שלה.",
+    "לשכוח את האיבר $-2A$ בפתיחת הסוגריים."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מראים ש-$A$ חייבת להיות הפיכה ולכן שווה ל-$I$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מחשבים את $(A-I)^2$ בשתי דרכים ומצמצמים בעזרת ההפיכות של $A-I$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "משתמשים בדטרמיננטה של $A$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "בונים דוגמה נגדית"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הפתרון הרשמי מראה ש-$(A-I)(A-I)=-(A-I)$ ואז מכפיל ב-$(A-I)^{-1}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\mathrm{diag}(1,0)$ (מקיימת $A^2=A$ אך $A\\neq0$), מהו $\\det(A-I)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$A-I=\\mathrm{diag}(0,-1)$ אינה הפיכה, ולכן הנתון על ההפיכות הכרחי."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$(A-I)(A-I)=A^2-2A+I$",
+      "$=A-2A+I=-(A-I)$",
+      "$(A-I)(A-I)(A-I)^{-1}=-(A-I)(A-I)^{-1}$, כלומר $A-I=-I$",
+      "$A=0$"
+     ],
+     "explain": "כל שורה נובעת מהקודמת."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$(A-I)(A-I)=A^2-2A+I$",
+      "$=A-2A+I=A-I$",
+      "$(A-I)(A-I)(A-I)^{-1}=(A-I)(A-I)^{-1}$, כלומר $A-I=I$",
+      "$A=2I$"
+     ],
+     "bugIndex": 1,
+     "explain": "$A-2A+I=-A+I=-(A-I)$, לא $A-I$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -67,7 +246,82 @@
    "solution": "הטענה אינה נכונה. למשל, אם\n$$C=\\begin{pmatrix}0&1&2\\\\-1&0&3\\\\-2&-3&0\\end{pmatrix},\\qquad D=\\begin{pmatrix}0&1&1\\\\-1&0&1\\\\-1&-1&0\\end{pmatrix}$$\nוחישוב $CD=\\begin{pmatrix}-3&-2&1\\\\-3&-4&-1\\\\3&-2&-5\\end{pmatrix}$ קל מראה ש-$\\det(CD)=0$. כלומר, מטריצה $CD$ אינה הפיכה.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "קביעה שהטענה שגויה",
+     "points": 1
+    },
+    {
+     "text": "בחירת $C,D$ אנטי סימטריות",
+     "points": 1
+    },
+    {
+     "text": "חישוב $CD$",
+     "points": 1
+    },
+    {
+     "text": "חישוב $\\det(CD)=0$ ומסקנה שהמכפלה אינה הפיכה",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לנסות להוכיח את הטענה: כלל אין צורך כשיש דוגמה נגדית.",
+    "לבחור זוג שבו אחת המטריצות אינה אנטי סימטרית."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו הפסק הנכון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הטענה נכונה לכל $n$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הטענה נכונה לכל $n$ זוגי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הטענה שגויה: קיימות $C,D$ אנטי סימטריות ש-$CD$ אינה הפיכה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הטענה נכונה לכל $n$ אי זוגי"
+      }
+     ],
+     "correctId": "c",
+     "explain": "מטריצה אנטי סימטרית מסדר אי זוגי אינה הפיכה, ולכן גם המכפלה; ובסדר זוגי אפשר לבחור $C=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של $C=\\begin{pmatrix}0&1&2\\\\-1&0&3\\\\-2&-3&0\\end{pmatrix}$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "מטריצה אנטי סימטרית מסדר אי זוגי אינה הפיכה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 1 של $CD$?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "$0\\cdot0+1\\cdot(-1)+2\\cdot(-1)=-3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det(CD)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$\\det(CD)=\\det C\\det D=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -80,7 +334,61 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המורחבת של המערכת",
+     "points": 1
+    },
+    {
+     "text": "$R_3\\to R_3-R_1$ ו-$R_4\\to R_4-2R_1$",
+     "points": 2
+    },
+    {
+     "text": "$R_4\\to R_4-R_2$",
+     "points": 2
+    },
+    {
+     "text": "$R_4\\to R_4-2R_3$ וקבלת השורה $(0\\ 0\\ 0\\ 0\\mid b-6)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "טעות חישוב באגף הימני: $3a+b-8$ ולא $3a+b-4$.",
+    "לשכוח שהמקדם $a^2+a-2$ פחות $a^2-a$ הוא $2a-2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_3\\to R_3-R_1$, מהו המקדם של $z$ בשורה 3 עבור $a=3$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$a-1=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_4\\to R_4-2R_1$, מהו האגף הימני בשורה 4 עבור $a=2,\\ b=5$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$3a+b-8=6+5-8=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_4\\to R_4-R_2$, מהו המקדם של $z$ בשורה 4 עבור $a=2$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$(a^2+a-2)-(a^2-a)=2a-2=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האגף הימני בשורה 4 הסופית עבור $b=10$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$b-6=4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -93,7 +401,75 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "קריאת שורה 4: סתירה כאשר $b\\neq6$",
+     "points": 1
+    },
+    {
+     "text": "קריאת שורה 2: עבור $a=1$ מתקבלת $0=1$",
+     "points": 1
+    },
+    {
+     "text": "עבור $b=6$ ו-$a\\neq1$ אינסוף פתרונות",
+     "points": 1
+    },
+    {
+     "text": "אין פתרון יחיד כי הדרגה קטנה מ-$4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שגם $a=1$ נותן סתירה (בפתרון הרשמי הושמט).",
+    "להניח שעבור $b=6$ תמיד יש פתרון."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה מצב המערכת עבור $a=1,\\ b=6$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אינסוף פתרונות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "פתרון יחיד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "בדיוק שני פתרונות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין פתרון"
+      }
+     ],
+     "correctId": "d",
+     "explain": "ב-$a=1$ השורה השנייה היא $(0\\ 0\\ 0\\ 0\\mid1)$, כלומר $0=1$, לכל $b$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $a=2$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "יש שלוש שורות לא אפסיות בצורה המדורגת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $a=0$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שורות 2 ו-4 מתאפסות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -106,7 +482,54 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "הצבת $a=0,\\ b=6$ בצורה המדורגת",
+     "points": 1
+    },
+    {
+     "text": "זיהוי המשתנים החופשיים $y,w$",
+     "points": 1
+    },
+    {
+     "text": "הצבה לאחור: $z=1-w,\\ x=4-2w$",
+     "points": 1
+    },
+    {
+     "text": "כתיבת אוסף הפתרונות",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $x=4-w$ במקום $x=4-2w$ (המשוואה הראשונה היא $x+2w=4$).",
+    "לשכוח ש-$y$ משתנה חופשי כי העמודה שלו ללא איבר מוביל."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בפתרון עבור $a=0,\\ b=6$ עם $w=1$, מהו $x$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$x=4-2w=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפתרון עבור $a=0,\\ b=6$ עם $w=1$, מהו $z$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$z=1-w=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו מימד מרחב הפתרונות של המערכת ההומוגנית עבור $a=0$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$4-2=2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -119,7 +542,54 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "הצבת $a=2,\\ b=6$ בצורה המדורגת",
+     "points": 1
+    },
+    {
+     "text": "זיהוי המשתנה החופשי $w$",
+     "points": 1
+    },
+    {
+     "text": "הצבה לאחור: $z=1-w,\\ y=1-z=w,\\ x=4-2w$",
+     "points": 1
+    },
+    {
+     "text": "כתיבת אוסף הפתרונות",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $x=4-w$ במקום $x=4-2w$.",
+    "לחשב $y$ מהשורה השנייה בלי לחלק ב-$a^2-a=2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בפתרון עבור $a=2,\\ b=6$ עם $w=1$, מהו $x$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$x=4-2w=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפתרון עבור $a=2,\\ b=6$ עם $w=3$, מהו $z$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$z=1-w=-2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו מימד מרחב הפתרונות של המערכת ההומוגנית עבור $a=2$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$4-3=1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -131,7 +601,91 @@
    "solution": "לפי נוסחת השורשים מתקיים\n$$z_k=\\cos\\left(\\frac{2\\pi k}{3}\\right)+i\\sin\\left(\\frac{2\\pi k}{3}\\right)$$\nולכן מתקיים\n$$z_0z_0=z_0\\quad z_0z_1=z_1\\quad z_0z_2=z_2$$\n$$z_1z_0=z_1\\quad z_1z_1=z_2\\quad z_1z_2=z_0$$\n$$z_2z_0=z_2\\quad z_2z_1=z_0\\quad z_2z_2=z_1$$\nבפרט\n$$z_0(z_0+z_1+z_2)=z_0+z_1+z_2$$\n$$z_1(z_0+z_1+z_2)=z_1+z_2+z_0$$\n$$z_2(z_0+z_1+z_2)=z_2+z_0+z_1$$\nכלומר, מכפלה במספר המרוכב $z_k$ משנה את סדר המחוברים ב-$z_0+z_1+z_2$. נשים לב שמאחר ו-$z_1,z_2\\neq1$ המספר היחיד שמקיים את המשוואה $z_1w=w$ (או $z_2w=w$) הוא המספר $w=0$. נסמן $w=z_0+z_1+z_2$. אז $z_1w=w$ ולכן $w=0$.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "כתיבת שלושת השורשים $z_k=\\mathrm{cis}\\frac{2\\pi k}{3}$",
+     "points": 1
+    },
+    {
+     "text": "טבלת הכפל של $z_k\\cdot z_j$",
+     "points": 2
+    },
+    {
+     "text": "$z_1w=w$ עבור $w=z_0+z_1+z_2$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $w=0$ כי $z_1\\neq1$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהסכום מתאפס רק כי \"השורשים מפוזרים סימטרית\" בלי הוכחה.",
+    "לשכוח לציין ש-$z_1\\neq1$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו החלק הממשי של $z_1$? (עגלו לשלוש ספרות אחרי הנקודה)",
+     "answer": -0.5,
+     "tol": 0.001,
+     "explain": "$\\cos\\frac{2\\pi}3=-\\frac12$."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מכפילים את הסכום ב-$z_1$ ורואים שהוא נשאר ללא שינוי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מחשבים ישירות את החלק הממשי ואת החלק המדומה של כל אחד מהשורשים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "משתמשים בנוסחאות וייטה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מראים שהשורשים שווים"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון הרשמי מראה ש-$z_1(z_0+z_1+z_2)=z_0+z_1+z_2$ ולכן הסכום הוא אפס."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$z_k=\\cos\\frac{2\\pi k}{3}+i\\sin\\frac{2\\pi k}{3}$",
+      "$z_1z_0=z_1,\\ z_1z_1=z_2,\\ z_1z_2=z_0$",
+      "$z_1\\left(z_0+z_1+z_2\\right)=z_0+z_1+z_2$, כלומר $z_1w=w$",
+      "מכיוון ש-$z_1\\neq1$ נקבל $w=0$"
+     ],
+     "explain": "כל שורה נובעת מהקודמת."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$z_k=\\cos\\frac{2\\pi k}{3}+i\\sin\\frac{2\\pi k}{3}$",
+      "$z_1z_0=z_1,\\ z_1z_1=z_2,\\ z_1z_2=z_2$",
+      "$z_1\\left(z_0+z_1+z_2\\right)=z_0+z_1+z_2$, כלומר $z_1w=w$",
+      "מכיוון ש-$z_1\\neq1$ נקבל $w=0$"
+     ],
+     "bugIndex": 1,
+     "explain": "$z_1z_2=z_{1+2}=z_3=z_0$, ולא $z_2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -144,7 +698,65 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3a"
+   "contextId": "c3a",
+   "rubric": [
+    {
+     "text": "כתיבת $\\left(A\\mid I\\right)$",
+     "points": 1
+    },
+    {
+     "text": "$R_3\\to R_3-R_1$",
+     "points": 1
+    },
+    {
+     "text": "$R_2\\to R_2-R_3$ ו-$R_1\\to R_1-R_2$",
+     "points": 2
+    },
+    {
+     "text": "$R_2\\to\\frac13R_2$",
+     "points": 1
+    },
+    {
+     "text": "קבלת $A^{-1}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לבצע את פעולות השורה גם על חצי ה-$I$.",
+    "טעות סימן באיבר $-\\frac13$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של $A$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "הדטרמיננטה שונה מאפס, ולכן $A$ הפיכה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_3\\to R_3-R_1$, מהו האיבר בשורה 3 עמודה 3 של חצי $A$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$1-0=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 2 עמודה 1 של $A^{-1}$? (עגלו לשלוש ספרות אחרי הנקודה)",
+     "answer": 0.333,
+     "tol": 0.001,
+     "explain": "$\\frac13$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 3 עמודה 1 של $A^{-1}$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "מהמטריצה הסופית."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -157,7 +769,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3a"
+   "contextId": "c3a",
+   "rubric": [
+    {
+     "text": "כל פעולת שורה מתאימה למטריצה אלמנטרית $E_1,\\dots,E_4$",
+     "points": 3
+    },
+    {
+     "text": "$E_4E_3E_2E_1A=I$ ולכן $A^{-1}=E_4E_3E_2E_1$",
+     "points": 2
+    },
+    {
+     "text": "הפעולה הראשונה נמצאת הכי מימין",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב את המטריצות בסדר $E_1E_2E_3E_4$.",
+    "לכתוב $3$ במקום $\\frac13$ במטריצה של הכפל בסקלר."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "היכן במכפלה נמצאת המטריצה האלמנטרית של הפעולה הראשונה ($R_3-R_1$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הכי משמאל"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הכי מימין"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "באמצע, אחרי הפעולה השנייה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "המקום אינו משנה"
+      }
+     ],
+     "correctId": "b",
+     "explain": "כל פעולה מתבצעת על התוצאה הקודמת, כלומר כפל משמאל. הפעולה הראשונה נמצאת צמודה ל-$A$ מימין. החלפת הסדר נותנת מכפלה אחרת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של $E_4E_3E_2E_1$ (השווה ל-$A^{-1}$)? (עגלו לשלוש ספרות אחרי הנקודה)",
+     "answer": 0.333,
+     "tol": 0.001,
+     "explain": "$\\det A^{-1}=\\frac1{\\det A}=\\frac13$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 2 של המכפלה?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "המכפלה היא $A^{-1}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -170,7 +846,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3b"
+   "contextId": "c3b",
+   "rubric": [
+    {
+     "text": "חישוב הפולינום האופייני והערכים העצמיים $1,-2,3$ ומסקנה שניתנת לליכסון",
+     "points": 3
+    },
+    {
+     "text": "וקטור עצמי $\\varphi_1=(2,0,1)^T$ עבור $1$",
+     "points": 2
+    },
+    {
+     "text": "וקטור עצמי $\\varphi_2=(5,-15,1)^T$ עבור $-2$",
+     "points": 2
+    },
+    {
+     "text": "וקטור עצמי $\\varphi_3=(0,0,1)^T$ עבור $3$",
+     "points": 2
+    },
+    {
+     "text": "כתיבת $P$ ו-$D$ המקיימות $D=P^{-1}BP$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לסדר את העמודות של $P$ בסדר שאינו תואם את אלכסון $D$.",
+    "טעות בדירוג של $B+2I$ ולקבל וקטור עצמי שגוי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערכו של $\\det(B-\\lambda I)$ ב-$\\lambda=0$?",
+     "answer": -6,
+     "tol": 0,
+     "explain": "$1\\cdot(-2)\\cdot3=-6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה ערכים עצמיים שונים יש ל-$B$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$1,\\ -2,\\ 3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $B$ ניתנת לליכסון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי היא סימטרית"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי היא אלכסונית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "יש לה שלושה ערכים עצמיים שונים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי הדטרמיננטה שלה שונה מאפס"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$B$ אינה סימטרית ואינה אלכסונית, ודטרמיננטה שונה מאפס אינה מבטיחה ליכסון. שלושה ערכים עצמיים שונים במטריצה $3\\times3$ מבטיחים שלושה וקטורים עצמיים בלתי תלויים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 2 של $BP$?",
+     "answer": -10,
+     "tol": 0,
+     "explain": "$B(5,-15,1)^T=-2(5,-15,1)^T$, ולכן האיבר הראשון הוא $-10$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -183,7 +938,82 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "תרגום $\\vec r\\perp\\vec a$ למשוואה $x+2y-z=0$ ופרמטריזציה",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\{(1,0,1),(0,1,2)\\}$ ו-$\\dim W_1=2$",
+     "points": 2
+    },
+    {
+     "text": "תרגום $\\vec r'\\perp\\vec b$ למשוואה $2x+y-z=0$ ופרמטריזציה",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\{(1,0,2),(0,1,1)\\}$ ו-$\\dim W_2=2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שניצבות למישור נותנת את המשוואה $\\vec r\\cdot\\vec a=0$.",
+    "לטעות במקדם של $y$ בביטוי של $z$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור שייך ל-$W_1$ (המישור $x+2y-z=0$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(1,1,0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(0,1,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(1,2,1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(1,0,1)$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "מציבים במשוואה: $(1,1,0)$ נותן $3$, $(0,1,1)$ נותן $1$, $(1,2,1)$ נותן $4$; רק $(1,0,1)$ נותן $0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W_1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מישור ב-$\\mathbb{R}^3$: $3-1=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W_2$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מישור ב-$\\mathbb{R}^3$: $3-1=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפתרון המשוואה $2x+y-z=0$ עם $x=1,\\ y=2$, מהו $z$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$z=2x+y=4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -196,7 +1026,54 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "כתיבת $W_1+W_2$ כפרישה של איחוד הבסיסים",
+     "points": 2
+    },
+    {
+     "text": "דירוג המטריצה שורותיה הם ארבעת הוקטורים",
+     "points": 2
+    },
+    {
+     "text": "קבלת שלוש שורות לא אפסיות",
+     "points": 2
+    },
+    {
+     "text": "בסיס סטנדרטי של $\\mathbb{R}^3$ ו-$\\dim=3$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחבר את המימדים $2+2=4$ בלי להחסיר את החיתוך.",
+    "לטעות בחישוב: מימד תת מרחב של $\\mathbb{R}^3$ אינו יכול להיות $4$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדרגה של ארבעת הוקטורים $(1,0,1),(0,1,2),(1,0,2),(0,1,1)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "אחרי הדירוג יש שלוש שורות לא אפסיות."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W_1+\\dim W_2$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$2+2$, לפני החסרת החיתוך."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim(W_1+W_2)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$W_1+W_2=\\mathbb{R}^3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -209,7 +1086,79 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "כתיבת $\\vec w$ בשתי צורות",
+     "points": 2
+    },
+    {
+     "text": "מערכת הומוגנית בנעלמים $\\alpha_1,\\alpha_2,\\beta_1,\\beta_2$ ודירוגה",
+     "points": 2
+    },
+    {
+     "text": "פרמטריזציה $\\beta_2=t,\\ \\beta_1=t$",
+     "points": 1
+    },
+    {
+     "text": "הצבה: $\\vec w=-t(1,1,3)$",
+     "points": 1
+    },
+    {
+     "text": "בסיס $\\{(1,1,3)\\}$ ו-$\\dim=1$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את סימן המינוס בשני בסיסים (שתי הצורות שוות).",
+    "לבחור משתנה חופשי שגוי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim(W_1\\cap W_2)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$\\dim W_1+\\dim W_2-\\dim(W_1+W_2)=2+2-3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור הוא בסיס של $W_1\\cap W_2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(1,1,3)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(1,0,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(1,0,2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(1,1,1)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(1,0,1)$ ב-$W_1$ אך לא ב-$W_2$ ($2-1\\neq0$); $(1,0,2)$ ב-$W_2$ אך לא ב-$W_1$ ($1-2\\neq0$); $(1,1,1)$ אינו ב-$W_1$ ($1+2-1\\neq0$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $2x+y-z$ עבור $(1,1,3)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$2+1-3=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -222,7 +1171,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "הצגת הוקטור כמכפלה בסקלר של וקטור הבסיס של החיתוך",
+     "points": 2
+    },
+    {
+     "text": "מציאת הסקלר $2$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: כן",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק שייכות ל-$W_1$ או רק ל-$W_2$.",
+    "לחשב סקלר שגוי, למשל $3$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "האם הוקטור $(2,2,6)$ שייך ל-$W_1\\cap W_2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי הוא אינו ב-$W_1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא, כי הוא אינו ב-$W_2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא, כי הוא אינו כפולה של וקטור הבסיס"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הוא שווה ל-$2(1,1,3)$. גם $2+4-6=0$ וגם $4+2-6=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בהצגה $(2,2,6)=c\\,(1,1,3)$, מהו $c$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$2=c\\cdot1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $x+2y-z$ עבור $(2,2,6)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$2+4-6=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -235,7 +1248,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c51"
+   "contextId": "c51",
+   "rubric": [
+    {
+     "text": "חישוב $T(E_1),\\dots,T(E_4)$ וכתיבת המטריצה המייצגת $A$",
+     "points": 2
+    },
+    {
+     "text": "דירוג וזיהוי עמודות מובילות 1,2,3",
+     "points": 2
+    },
+    {
+     "text": "בסיס ל-$\\mathrm{Im}\\,T$ ומימד $3$",
+     "points": 3
+    },
+    {
+     "text": "פתרון $A\\vec x=0$ וקבלת $t(0,0,-1,1)$",
+     "points": 3
+    },
+    {
+     "text": "בסיס ל-$\\mathrm{Ker}\\,T$ כמטריצה ומימד $1$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את העמודות המדורגות כבסיס של התמונה.",
+    "לשכוח להמיר את וקטור הגרעין חזרה למטריצה $2\\times2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדרגה של $[T]_E^B$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$\\dim\\mathrm{Im}\\,T=3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו עמודות מובילות בצורה המדורגת?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "עמודות 1, 2, 4"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "עמודות 1, 3, 4"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "עמודות 1, 2, 3"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "עמודות 2, 3, 4"
+      }
+     ],
+     "correctId": "c",
+     "explain": "עמודה 4 שווה לעמודה 3, ולכן אינה עמודה מובילה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Ker}\\,T$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$4-3=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בוקטור הגרעין $t(0,0,-1,1)$ עם $t=1$, מהו הרכיב השלישי?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "מהפתרון $x_3=-t$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -248,7 +1340,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c51"
+   "contextId": "c51",
+   "rubric": [
+    {
+     "text": "$\\dim\\mathrm{Ker}\\,T=1\\neq0$ ולכן לא חד חד ערכית",
+     "points": 1
+    },
+    {
+     "text": "$\\dim\\mathrm{Im}\\,T=3=\\dim\\mathbb{R}^3$ ולכן על",
+     "points": 1
+    },
+    {
+     "text": "נימוק ומסקנה",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שההעתקה חד חד ערכית כי היא על.",
+    "לבלבל בין מימד המרחב המקור (4) למימד מרחב היעד (3)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי המסקנה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T$ חד חד ערכית ועל"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T$ חד חד ערכית אך לא על"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T$ לא חד חד ערכית ולא על"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T$ לא חד חד ערכית אך על"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הגרעין שאינו טריוויאלי שולל חד חד ערכיות; מימד התמונה $3$ שווה למימד $\\mathbb{R}^3$, ולכן $T$ על."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Im}\\,T$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "דרגת המטריצה המייצגת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathbb{R}^3-\\dim\\mathrm{Im}\\,T$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$3-3=0$, ולכן $T$ על."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -261,7 +1417,50 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c51"
+   "contextId": "c51",
+   "rubric": [
+    {
+     "text": "העברה לקואורדינטות: $(k,0,2,-2)^T\\in\\mathrm{Nul}\\,A$",
+     "points": 1
+    },
+    {
+     "text": "השוואה ל-$t(0,0,-1,1)$",
+     "points": 1
+    },
+    {
+     "text": "$t=-2$ ולכן $k=0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "טעות סימן: $2=-t$ ולכן $t=-2$.",
+    "לשכוח שהרכיב הראשון של וקטור הגרעין הוא $0$ ולכן $k=0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $t$ במשוואה $(k,0,2,-2)=t(0,0,-1,1)$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$2=-t$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $k$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "הרכיב הראשון של $(0,0,-1,1)$ הוא $0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Ker}\\,T$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$4-3=1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -273,7 +1472,61 @@
    "solution": "נסמן $B=\\left\\{\\begin{pmatrix}2\\\\3\\end{pmatrix},\\begin{pmatrix}3\\\\5\\end{pmatrix}\\right\\}$ בסיס של $\\mathbb{R}^2$ (כי $\\begin{vmatrix}2&3\\\\3&5\\end{vmatrix}=1\\neq0$). לכן $[I]_E^B=\\begin{pmatrix}2&3\\\\3&5\\end{pmatrix}$.\n$$F\\left(\\begin{pmatrix}2\\\\3\\end{pmatrix}\\right)=\\begin{pmatrix}7\\\\3\\end{pmatrix},\\ F\\left(\\begin{pmatrix}3\\\\5\\end{pmatrix}\\right)=\\begin{pmatrix}5\\\\2\\end{pmatrix}\\Rightarrow[F]_E^B=\\begin{pmatrix}7&5\\\\3&2\\end{pmatrix}$$\n$$[F]_E^E=[I]_E^E[F]_E^B[I]_B^E=\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}\\begin{pmatrix}7&5\\\\3&2\\end{pmatrix}\\left(\\begin{pmatrix}2&3\\\\3&5\\end{pmatrix}\\right)^{-1}=\\begin{pmatrix}7&5\\\\3&2\\end{pmatrix}\\begin{pmatrix}5&-3\\\\-3&2\\end{pmatrix}=\\begin{pmatrix}20&-11\\\\9&-5\\end{pmatrix}$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "בדיקה ש-$B$ בסיס: הדטרמיננטה שונה מאפס",
+     "points": 1
+    },
+    {
+     "text": "כתיבת $[I]_E^B$ ו-$[F]_E^B$",
+     "points": 2
+    },
+    {
+     "text": "הכפלה במטריצת המעבר ההפוכה",
+     "points": 1
+    },
+    {
+     "text": "התוצאה $\\begin{pmatrix}20&-11\\\\9&-5\\end{pmatrix}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להכפיל בסדר הפוך.",
+    "לשכוח להפוך את מטריצת המעבר."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של $\\begin{pmatrix}2&3\\\\3&5\\end{pmatrix}$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$10-9=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 1 של $\\begin{pmatrix}2&3\\\\3&5\\end{pmatrix}^{-1}$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "ההופכית היא $\\begin{pmatrix}5&-3\\\\-3&2\\end{pmatrix}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 1 של $[F]_E^E$?",
+     "answer": 20,
+     "tol": 0,
+     "explain": "$7\\cdot5+5\\cdot(-3)=20$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 2 של $[F]_E^E$?",
+     "answer": -11,
+     "tol": 0,
+     "explain": "$7\\cdot(-3)+5\\cdot2=-11$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
