@@ -58,6 +58,25 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - 20B-A Q2 א (p.3) labels a step R3+kR1 (it is R3-kR1); Q2 ב writes "או" for "וגם"; Q6 ב writes T:V->V for T:V->R^3. All corrected silently.
 - Status: noted
 
+### 21A-A Q3 ב - inverse asked at a value where A is singular
+- Path: C:\Users\Adir\Desktop\Coding\Dev\linear-algebra-quiz\tools\raw\21A-A-SRC\page-02.png
+- Page: 2
+- Question: Q3 א.2 asks for A^-1 at a=2, but det A = -6(a-2)(6a+7), so A is singular exactly at a=2 (rows 1 and 2 both become (4,3,6)). The print matches the transcription. The official solution file belongs to an exam version without this part (its Q3 A is one 8-pt item).
+- Needed: the intended value of a (or confirm the expected answer is "A^-1 does not exist").
+- Status: hold
+
+### FYI solver - 21A-A official key found, 20A-A / 21A-B / 25A-B Q4 / 25B-A Q6 / 22A-B Q4 solved (resolved by solver, pending refuter)
+- 21A-A: the solution file triage paired with 20A-A ("סמ׳ א מועד א פתרון.pdf", 2020 folder, pages in tools/raw/20A-A-SOL) is the 21A-A solution. Transcribed as official for 19 of 20 items (Q3 ב held, above).
+- 21A-A Q1 ג/ד (p.1 of the solution): official |A|=sqrt(27/8), |A^-1|=sqrt(8/27); the data fix only |A|^2=27/8 and A=+-sqrt(3/2) I both satisfy them. Shipped as +-, labeled "הפתרון הרשמי עם תיקון", official:false.
+- 21A-A Q2 ג (p.4): the official s-direction (0,-1,1) is not in the plane x-y+z=0; its own line x=t-s-1 gives (-1,0,1). Shipped corrected, labeled, official:false.
+- 21A-A Q4 ב (p.12, handwritten): step label R4->R4+2R2 gives (0,2,3), not the printed (0,0,2); the operation is R4->R4+R2. Corrected, no label.
+- 20A-A: no key exists; all 20 items solved.
+- 21A-B: no key exists; all 20 items solved. Q3 א uses the same matrix as 25A-A Q3 א and agrees with that official key.
+- 25A-B Q4 (a-d): solved; identical to 25A-A Q4 and agrees with that official key.
+- 25B-A Q6 (a-c) and 22A-B Q4 (a-e): solved.
+- Solver items are solutionSource "solved", official false; sympy checks in tools/verify/20A-A, 21A-A, 21A-B and appended to verify_22A-B.py, verify_25A-B.py, verify_25B-A.py.
+- Status: resolved by solver, pending refuter
+
 ## Resolved
 
 ### FYI 24A-A / 25A-B / 25B-A - holds and official slips (no action needed)

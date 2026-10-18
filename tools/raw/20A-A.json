@@ -45,7 +45,10 @@
    "topic": "lines_planes",
    "points": 6,
    "question": "חשב את ערכו של $k$ כך שהמישורים יהיו מקבילים וחשב את המרחק ביניהם.",
-   "hold": "no-key",
+   "solution": "הווקטורים הנורמליים הם $\\vec n_1=(1,-2,1)$ ו-$\\vec n_2=(k,-1,k)$. המישורים מקבילים כאשר הנורמלים פרופורציוניים, $\\vec n_2=\\mu\\vec n_1$:\n$$k=\\mu,\\qquad -1=-2\\mu,\\qquad k=\\mu\\ \\Rightarrow\\ \\mu=\\frac12,\\quad k=\\frac12$$\nעבור $k=\\frac12$: $\\pi_2:\\ \\frac12x-y+\\frac12z-2=0$, ואחרי כפל ב-$2$: $\\pi_2:\\ x-2y+z-4=0$. האיברים החופשיים ($5$ ו-$-4$) שונים, ולכן המישורים מקבילים ושונים.\nהמרחק בין המישורים המקבילים $x-2y+z+5=0$ ו-$x-2y+z-4=0$:\n$$d=\\frac{|5-(-4)|}{\\sqrt{1^2+(-2)^2+1^2}}=\\frac{9}{\\sqrt6}=\\frac{3\\sqrt6}{2}$$\n(בדיקה: הנקודה $(-5,0,0)\\in\\pi_1$, ומרחקה מ-$\\pi_2$ הוא $\\frac{|-5-0+0-4|}{\\sqrt6}=\\frac{9}{\\sqrt6}$.)",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c1"
   },
   {
@@ -55,7 +58,10 @@
    "topic": "lines_planes",
    "points": 6,
    "question": "חשב את ערכו של $k$ כך שהמישורים יהיו מאונכים.",
-   "hold": "no-key",
+   "solution": "המישורים מאונכים כאשר הנורמלים מאונכים:\n$$\\vec n_1\\cdot\\vec n_2=(1,-2,1)\\cdot(k,-1,k)=k+2+k=2k+2=0\\ \\Rightarrow\\ k=-1$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c1"
   },
   {
@@ -65,7 +71,10 @@
    "topic": "lines_planes",
    "points": 7,
    "question": "עבור $k=2$ מצא מישור שמאונך ל-$\\pi_1$ ו-$\\pi_2$ ועובר דרך הנק׳ $(1,1,1)$.",
-   "hold": "no-key",
+   "solution": "עבור $k=2$: $\\vec n_1=(1,-2,1)$, $\\vec n_2=(2,-1,2)$. מישור המאונך לשני המישורים הוא מישור שהנורמל שלו $\\vec N$ מאונך ל-$\\vec n_1$ ול-$\\vec n_2$, ולכן\n$$\\vec N=\\vec n_1\\times\\vec n_2=\\begin{vmatrix}\\hat\\imath&\\hat\\jmath&\\hat k\\\\1&-2&1\\\\2&-1&2\\end{vmatrix}=(-4+1)\\hat\\imath-(2-2)\\hat\\jmath+(-1+4)\\hat k=(-3,0,3)=-3(1,0,-1)$$\nנבחר $\\vec N=(1,0,-1)$. המישור דרך $(1,1,1)$:\n$$1\\cdot(x-1)+0\\cdot(y-1)-1\\cdot(z-1)=0\\ \\Rightarrow\\ x-z=0$$\nבדיקה: $(1,0,-1)\\cdot(1,-2,1)=0$, $(1,0,-1)\\cdot(2,-1,2)=0$, והנקודה $(1,1,1)$ מקיימת $1-1=0$.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c1"
   },
   {
@@ -75,7 +84,10 @@
    "topic": "complex_numbers",
    "points": 6,
    "question": "פתור את המשוואה $z^5=3i+5$.",
-   "hold": "no-key"
+   "solution": "נכתוב את $5+3i$ בהצגה קוטבית: $r=|5+3i|=\\sqrt{25+9}=\\sqrt{34}$, והזווית ברביע הראשון היא $\\theta=\\arctan\\frac35$ (בערך $30.96^\\circ$). כלומר $5+3i=\\sqrt{34}\\,\\mathrm{cis}\\left(\\arctan\\frac35\\right)$.\nלפי נוסחת השורשים:\n$$z_k=\\sqrt[5]{\\sqrt{34}}\\,\\mathrm{cis}\\left(\\frac{\\arctan\\frac35+2\\pi k}{5}\\right)=\\sqrt[10]{34}\\,\\mathrm{cis}\\left(\\frac{\\arctan\\frac35+2\\pi k}{5}\\right),\\quad k=0,1,2,3,4$$\nבערך: $\\sqrt[10]{34}\\approx1.423$, והזוויות הן בערך $6.19^\\circ,\\ 78.19^\\circ,\\ 150.19^\\circ,\\ 222.19^\\circ,\\ 294.19^\\circ$ (הפרש של $72^\\circ$ בין שורשים סמוכים).",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high"
   },
   {
    "num": 2,
@@ -84,7 +96,10 @@
    "topic": "vector_spaces",
    "points": 7,
    "question": "נגדיר את **מרחב האפס** של מטריצה $A$ כאוסף הפתרונות $\\mathbf{x}$ של מערכת משוואות הומוגנית $A\\mathbf{x}=\\mathbf{0}$. מצא בסיס של מרחב האפס וגם את מימדו.",
-   "hold": "no-key",
+   "solution": "נדרג את $A$:\n$$\\begin{pmatrix}1&0&1&1\\\\1&1&2&0\\\\0&1&1&-1\\end{pmatrix}\\xrightarrow{R_2\\to R_2-R_1}\\begin{pmatrix}1&0&1&1\\\\0&1&1&-1\\\\0&1&1&-1\\end{pmatrix}\\xrightarrow{R_3\\to R_3-R_2}\\begin{pmatrix}1&0&1&1\\\\0&1&1&-1\\\\0&0&0&0\\end{pmatrix}$$\nהמשתנים $x_3=s$, $x_4=t$ חופשיים, ו-$x_1=-s-t$, $x_2=-s+t$:\n$$\\mathbf{x}=\\begin{pmatrix}-s-t\\\\-s+t\\\\s\\\\t\\end{pmatrix}=s\\begin{pmatrix}-1\\\\-1\\\\1\\\\0\\end{pmatrix}+t\\begin{pmatrix}-1\\\\1\\\\0\\\\1\\end{pmatrix}$$\n$$B_{\\mathrm{Nul}A}=\\left\\{\\begin{pmatrix}-1\\\\-1\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}-1\\\\1\\\\0\\\\1\\end{pmatrix}\\right\\},\\qquad \\dim\\mathrm{Nul}A=2$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c2"
   },
   {
@@ -94,7 +109,10 @@
    "topic": "vector_spaces",
    "points": 7,
    "question": "מצא בסיס של מרחב השורות של מטריצה $A$ ואת מימדו.",
-   "hold": "no-key",
+   "solution": "פעולות שורה אינן משנות את מרחב השורות, ולכן השורות השונות מאפס בצורה המדורגת מסעיף (א) הן בסיס:\n$$B_{\\mathrm{Row}A}=\\left\\{(1,0,1,1),\\ (0,1,1,-1)\\right\\},\\qquad \\dim\\mathrm{Row}A=2$$\n(ואכן השורה השלישית של $A$ היא $R_2-R_1$.)",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c2"
   },
   {
@@ -104,7 +122,10 @@
    "topic": "vector_spaces",
    "points": 7,
    "question": "מצא בסיס של מרחב העמודות של מטריצה $A$ ואת מימדו.",
-   "hold": "no-key",
+   "solution": "בצורה המדורגת העמודות המובילות הן הראשונה והשנייה, ולכן העמודות המתאימות **של $A$ המקורית** הן בסיס למרחב העמודות:\n$$B_{\\mathrm{Col}A}=\\left\\{\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}\\right\\},\\qquad \\dim\\mathrm{Col}A=2$$\n(העמודה השלישית היא סכום שתי הראשונות, והרביעית היא הראשונה פחות השנייה.)",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c2"
   },
   {
@@ -114,7 +135,10 @@
    "topic": "vector_spaces",
    "points": 4,
    "question": "בדוק שהסכום של מימד מרחב האפס ומימד של מרחב העמודות שווה למספר העמודות של $A$.",
-   "hold": "no-key",
+   "solution": "$$\\dim\\mathrm{Nul}A+\\dim\\mathrm{Col}A=2+2=4$$\nול-$A$ יש $4$ עמודות, כנדרש (משפט הדרגה: מספר המשתנים החופשיים ועוד מספר העמודות המובילות שווה למספר העמודות).",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c2"
   },
   {
@@ -124,7 +148,10 @@
    "topic": "rank_inverse",
    "points": 5,
    "question": "עבור אילו ערכי $a$ המטריצה $A$ הפיכה?",
-   "hold": "no-key",
+   "solution": "$A$ הפיכה אם ורק אם $|A|\\neq0$. נפתח לפי השורה הראשונה:\n$$|A|=2\\begin{vmatrix}a&1\\\\1&-a\\end{vmatrix}-1\\begin{vmatrix}1&1\\\\3&-a\\end{vmatrix}+(-1)\\begin{vmatrix}1&a\\\\3&1\\end{vmatrix}=2\\left(-a^2-1\\right)-(-a-3)-(1-3a)$$\n$$=-2a^2+4a=-2a(a-2)$$\nלכן $A$ הפיכה עבור $a\\neq0$ ו-$a\\neq2$.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c3a"
   },
   {
@@ -134,7 +161,10 @@
    "topic": "rank_inverse",
    "points": 5,
    "question": "חשב את $A^{-1}$ עבור $a=1$.",
-   "hold": "no-key",
+   "solution": "עבור $a=1$: $A=\\begin{pmatrix}2&1&-1\\\\1&1&1\\\\3&1&-1\\end{pmatrix}$ ו-$|A|=-2\\cdot1\\cdot(1-2)=2$. נחשב את המטריצה המצורפת (מטריצת הקופקטורים המשוחלפת):\n$$C_{11}=-2,\\ C_{12}=4,\\ C_{13}=-2,\\quad C_{21}=0,\\ C_{22}=1,\\ C_{23}=1,\\quad C_{31}=2,\\ C_{32}=-3,\\ C_{33}=1$$\n$$A^{-1}=\\frac{1}{|A|}\\mathrm{adj}(A)=\\frac12\\begin{pmatrix}-2&0&2\\\\4&1&-3\\\\-2&1&1\\end{pmatrix}=\\begin{pmatrix}-1&0&1\\\\2&\\frac12&-\\frac32\\\\-1&\\frac12&\\frac12\\end{pmatrix}$$\nבדיקה: $AA^{-1}=I$ (למשל השורה הראשונה: $2\\cdot(-1)+1\\cdot2-1\\cdot(-1)=1$, $0+\\frac12-\\frac12=0$, $2-\\frac32-\\frac12=0$).",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c3a"
   },
   {
@@ -144,7 +174,10 @@
    "topic": "eigen_diagonalization",
    "points": 9,
    "question": "מצא את כל הערכים העצמיים והווקטורים העצמיים של $A$.",
-   "hold": "no-key",
+   "solution": "$$|\\lambda I-A|=\\begin{vmatrix}\\lambda-1&-1&1\\\\-1&\\lambda-1&-1\\\\-1&-1&\\lambda-1\\end{vmatrix}$$\nנחסר את השורה השלישית מהשנייה (הדטרמיננטה לא משתנה) ונקבל בשורה השנייה $(0,\\ \\lambda,\\ -\\lambda)=\\lambda(0,1,-1)$:\n$$|\\lambda I-A|=\\lambda\\begin{vmatrix}\\lambda-1&-1&1\\\\0&1&-1\\\\-1&-1&\\lambda-1\\end{vmatrix}=\\lambda\\left[(\\lambda-1)\\begin{vmatrix}1&-1\\\\-1&\\lambda-1\\end{vmatrix}+(-1)\\begin{vmatrix}-1&1\\\\1&-1\\end{vmatrix}\\right]=\\lambda\\left[(\\lambda-1)(\\lambda-2)+0\\right]=\\lambda(\\lambda-1)(\\lambda-2)$$\nהערכים העצמיים: $0,1,2$.\n**עבור $\\lambda=0$:** $A\\to\\begin{pmatrix}1&1&-1\\\\0&0&2\\\\0&0&0\\end{pmatrix}$, כלומר $z=0$, $x=-y$: הווקטור העצמי $\\begin{pmatrix}-1\\\\1\\\\0\\end{pmatrix}$.\n**עבור $\\lambda=1$:** $A-I=\\begin{pmatrix}0&1&-1\\\\1&0&1\\\\1&1&0\\end{pmatrix}$, כלומר $y=z$, $x=-z$: הווקטור העצמי $\\begin{pmatrix}-1\\\\1\\\\1\\end{pmatrix}$.\n**עבור $\\lambda=2$:** $A-2I=\\begin{pmatrix}-1&1&-1\\\\1&-1&1\\\\1&1&-1\\end{pmatrix}$. מהשורות השנייה והשלישית: $x-y+z=0$ ו-$x+y-z=0$, ולכן $x=0$, $y=z$: הווקטור העצמי $\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}$.\n(הווקטורים העצמיים הם כל הכפולות השונות מאפס של הווקטורים האלה.)",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c3b"
   },
   {
@@ -154,7 +187,10 @@
    "topic": "eigen_diagonalization",
    "points": 6,
    "question": "מצא את המטריצה האלכסונית $D$ והמטריצה ההפיכה $P$ כך שמתקיים $D=P^{-1}AP$.",
-   "hold": "no-key",
+   "solution": "ל-$A$ שלושה ערכים עצמיים שונים, ולכן היא לכסינה. נשים את הווקטורים העצמיים כעמודות של $P$, באותו סדר כמו הערכים העצמיים ב-$D$:\n$$D=\\begin{pmatrix}0&0&0\\\\0&1&0\\\\0&0&2\\end{pmatrix},\\qquad P=\\begin{pmatrix}-1&-1&0\\\\1&1&1\\\\0&1&1\\end{pmatrix}$$\nבדיקה: $|P|=1\\neq0$, ו-$AP=PD=\\begin{pmatrix}0&-1&0\\\\0&1&2\\\\0&1&2\\end{pmatrix}$.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c3b"
   },
   {
@@ -164,7 +200,10 @@
    "topic": "vector_spaces",
    "points": 6,
    "question": "מצא בסיס ומימד של תתי מרחבים $W_1$ ו-$W_2$.",
-   "hold": "no-key",
+   "solution": "**$W_1$:** נדרג מטריצה ששורותיה הן הווקטורים הפורשים (בסדר $(1,1,1),(1,2,3),(2,3,1),(3,1,2)$):\n$$\\begin{pmatrix}1&1&1\\\\1&2&3\\\\2&3&1\\\\3&1&2\\end{pmatrix}\\xrightarrow{\\substack{R_2\\to R_2-R_1\\\\R_3\\to R_3-2R_1\\\\R_4\\to R_4-3R_1}}\\begin{pmatrix}1&1&1\\\\0&1&2\\\\0&1&-1\\\\0&-2&-1\\end{pmatrix}\\xrightarrow{\\substack{R_3\\to R_3-R_2\\\\R_4\\to R_4+2R_2}}\\begin{pmatrix}1&1&1\\\\0&1&2\\\\0&0&-3\\\\0&0&3\\end{pmatrix}\\xrightarrow{R_4\\to R_4+R_3}\\begin{pmatrix}1&1&1\\\\0&1&2\\\\0&0&-3\\\\0&0&0\\end{pmatrix}$$\nהדרגה $3$, ולכן $W_1=\\mathbb{R}^3$:\n$$B_{W_1}=\\left\\{\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\right\\},\\qquad \\dim W_1=3$$\n**$W_2$:** $x-y=z+y$ שקול ל-$x=2y+z$, ו-$y,z$ חופשיים:\n$$\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}=\\begin{pmatrix}2y+z\\\\y\\\\z\\end{pmatrix}=y\\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix}+z\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}$$\n$$B_{W_2}=\\left\\{\\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}\\right\\},\\qquad \\dim W_2=2$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c4"
   },
   {
@@ -174,7 +213,10 @@
    "topic": "vector_spaces",
    "points": 7,
    "question": "חשב תת מרחב $W_1+W_2$, מצא בסיס ומימד של תת מרחב זה.",
-   "hold": "no-key",
+   "solution": "$W_1=\\mathbb{R}^3$, ולכן $W_1+W_2=\\mathbb{R}^3$ (תת מרחב של $\\mathbb{R}^3$ המכיל את $W_1$):\n$$B_{W_1+W_2}=\\left\\{\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\right\\},\\qquad \\dim(W_1+W_2)=3$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c4"
   },
   {
@@ -184,7 +226,10 @@
    "topic": "vector_spaces",
    "points": 7,
    "question": "חשב תת מרחב $W_1\\cap W_2$, מצא בסיס ומימד של תת מרחב זה.",
-   "hold": "no-key",
+   "solution": "$W_2\\subseteq\\mathbb{R}^3=W_1$, ולכן $W_1\\cap W_2=W_2$:\n$$B_{W_1\\cap W_2}=\\left\\{\\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix},\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}\\right\\},\\qquad \\dim(W_1\\cap W_2)=2$$\nבדיקה לפי משפט המימדים: $\\dim(W_1+W_2)=3+2-2=3$.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c4"
   },
   {
@@ -194,7 +239,10 @@
    "topic": "vector_spaces",
    "points": 5,
    "question": "האם הווקטור $\\begin{pmatrix}3\\\\1\\\\-1\\end{pmatrix}$ שייך לתת מרחב $W_1\\cap W_2$?",
-   "hold": "no-key",
+   "solution": "$W_1\\cap W_2=W_2$, ולכן צריך לבדוק את התנאי $x-y=z+y$:\n$$x-y=3-1=2,\\qquad z+y=-1+1=0,\\qquad 2\\neq0$$\nלכן הווקטור **אינו** שייך ל-$W_1\\cap W_2$ (הוא שייך ל-$W_1=\\mathbb{R}^3$ אך לא ל-$W_2$).",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c4"
   },
   {
@@ -204,7 +252,10 @@
    "topic": "linear_maps",
    "points": 6,
    "question": "הראה כי $T$ היא העתקה לינארית.",
-   "hold": "no-key",
+   "solution": "יהיו $\\mathbf{u}=(x_1,y_1,z_1)$, $\\mathbf{v}=(x_2,y_2,z_2)$ ו-$\\alpha\\in\\mathbb{R}$. **חיבור:**\n$$T(\\mathbf{u}+\\mathbf{v})=\\begin{pmatrix}(x_1+x_2)-(y_1+y_2)\\\\-2(x_1+x_2)+2(y_1+y_2)\\\\2(z_1+z_2)\\end{pmatrix}=\\begin{pmatrix}x_1-y_1\\\\-2x_1+2y_1\\\\2z_1\\end{pmatrix}+\\begin{pmatrix}x_2-y_2\\\\-2x_2+2y_2\\\\2z_2\\end{pmatrix}=T(\\mathbf{u})+T(\\mathbf{v})$$\n**כפל בסקלר:**\n$$T(\\alpha\\mathbf{u})=\\begin{pmatrix}\\alpha x_1-\\alpha y_1\\\\-2\\alpha x_1+2\\alpha y_1\\\\2\\alpha z_1\\end{pmatrix}=\\alpha\\begin{pmatrix}x_1-y_1\\\\-2x_1+2y_1\\\\2z_1\\end{pmatrix}=\\alpha T(\\mathbf{u})$$\nשני התנאים מתקיימים, ולכן $T$ העתקה לינארית.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c5"
   },
   {
@@ -214,7 +265,10 @@
    "topic": "linear_maps",
    "points": 8,
    "question": "מצא הבסיסים והמימדים של $\\mathrm{Ker}(T)$ ו-$\\mathrm{Im}(T)$.",
-   "hold": "no-key",
+   "solution": "**הגרעין:** $T(x,y,z)=\\mathbf{0}$ אם ורק אם\n$$\\begin{cases}x-y=0\\\\-2x+2y=0\\\\2z=0\\end{cases}\\ \\Rightarrow\\ x=y,\\ z=0$$\n$$\\mathrm{Ker}(T)=\\left\\{t\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}:\\ t\\in\\mathbb{R}\\right\\},\\qquad B_{\\mathrm{Ker}(T)}=\\left\\{\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\right\\},\\qquad \\dim\\mathrm{Ker}(T)=1$$\n**התמונה:**\n$$T\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}=x\\begin{pmatrix}1\\\\-2\\\\0\\end{pmatrix}+y\\begin{pmatrix}-1\\\\2\\\\0\\end{pmatrix}+z\\begin{pmatrix}0\\\\0\\\\2\\end{pmatrix}$$\nהווקטור השני הוא מינוס הראשון, ולכן $\\mathrm{Im}(T)=\\mathrm{Sp}\\left\\{\\begin{pmatrix}1\\\\-2\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\right\\}$, ושני הווקטורים בלתי תלויים:\n$$B_{\\mathrm{Im}(T)}=\\left\\{\\begin{pmatrix}1\\\\-2\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\right\\},\\qquad \\dim\\mathrm{Im}(T)=2$$\nבהתאם למשפט המימדים: $1+2=3=\\dim\\mathbb{R}^3$.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c5"
   },
   {
@@ -224,7 +278,10 @@
    "topic": "linear_maps",
    "points": 4,
    "question": "האם $T$ חד-חד ערכית? האם היא על? נמקו את תשובתכם.",
-   "hold": "no-key",
+   "solution": "$T$ **אינה** חד-חד ערכית, כי $\\mathrm{Ker}(T)\\neq\\{\\mathbf{0}\\}$: למשל $T(1,1,0)=\\mathbf{0}=T(\\mathbf{0})$.\n$T$ **אינה** על, כי $\\dim\\mathrm{Im}(T)=2<3=\\dim\\mathbb{R}^3$ (למשל $(1,0,0)\\notin\\mathrm{Im}(T)$, כי בתמונה הרכיב השני הוא תמיד $-2$ כפול הראשון).",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c5"
   },
   {
@@ -234,7 +291,10 @@
    "topic": "linear_maps",
    "points": 7,
    "question": "מצא את המטריצה המייצגת $T_{B_2}^{B_1}$ של ההעתקה ביחס לבסיסים $B_1=\\left\\{\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix},\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\right\\}$ ו-$B_2=\\left\\{\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix},\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix},\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\right\\}$.",
-   "hold": "no-key",
+   "solution": "העמודה ה-$i$ של $T_{B_2}^{B_1}$ היא וקטור הקואורדינטות לפי $B_2$ של התמונה של הווקטור ה-$i$ ב-$B_1$. התמונות:\n$$T\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}=\\begin{pmatrix}0\\\\0\\\\2\\end{pmatrix},\\qquad T\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}=\\begin{pmatrix}-1\\\\2\\\\2\\end{pmatrix},\\qquad T\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}=\\begin{pmatrix}0\\\\0\\\\2\\end{pmatrix}$$\nקואורדינטות לפי $B_2$ של וקטור כללי $(p,q,r)$: מ-$\\alpha\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}+\\beta\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}+\\gamma\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}=\\begin{pmatrix}p\\\\q\\\\r\\end{pmatrix}$ נקבל $\\alpha+\\gamma=p$, $\\beta+\\gamma=q$, $\\beta=r$, כלומר\n$$\\beta=r,\\qquad \\gamma=q-r,\\qquad \\alpha=p-q+r$$\nלכן $[(0,0,2)]_{B_2}=(2,2,-2)$ ו-$[(-1,2,2)]_{B_2}=(-1,2,0)$, ו-\n$$T_{B_2}^{B_1}=\\begin{pmatrix}2&-1&2\\\\2&2&2\\\\-2&0&-2\\end{pmatrix}$$\nבדיקה לעמודה השנייה: $-1\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}+2\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}+0\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}=\\begin{pmatrix}-1\\\\2\\\\2\\end{pmatrix}$.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "contextId": "c5"
   }
  ]
