@@ -30,7 +30,7 @@ COURSE_LEVEL("diagonalization", {
         { id: "d", value: String.raw`$(1,1)^T$` },
       ],
       correctId: "a",
-      explanation: String.raw`$I-A=\begin{pmatrix}-2&-1\\-2&-1\end{pmatrix}$ נותן $2x_1+x_2=0$, ולכן $(1,-2)^T$. בדיקה: $A(1,-2)^T=(1,-2)^T$. אפשרות ב' הופכת בין הרכיבים ונותנת $A(2,-1)^T=(5,2)^T$. אפשרות ג' נותנת $(5,6)^T$. אפשרות ד' היא הוקטור העצמי של $\lambda=4$, לא של $\lambda=1$.`,
+      explanation: String.raw`$I-A=\begin{pmatrix}-2&-1\\-2&-1\end{pmatrix}$ נותן $2x_1+x_2=0$, ולכן $(1,-2)^T$. בדיקה: $A(1,-2)^T=(1,-2)^T$. אפשרות $(2,-1)^T$ הופכת בין הרכיבים ונותנת $A(2,-1)^T=(5,2)^T$. אפשרות $(1,2)^T$ נותנת $(5,6)^T$. אפשרות $(1,1)^T$ היא הוקטור העצמי של $\lambda=4$, לא של $\lambda=1$.`,
       recap: "בודקים בהצבה: Av = λv." },
     { id: "C03-Q3",
       question: String.raw`$A=\begin{pmatrix}3&0\\1&2\end{pmatrix}$ וערך עצמי $\lambda=3$. איזה מהבאים הוא וקטור עצמי של $A$ עבור $\lambda=3$ ?`,

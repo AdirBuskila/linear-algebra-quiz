@@ -35,7 +35,7 @@ $$[T]_C^B=[I]_C^E\,[T]_E^E\,[I]_E^B,\qquad [I]_C^E=\big([I]_E^C\big)^{-1}$$
         { id: "d", value: String.raw`$\begin{pmatrix}3&2\\1&-1\end{pmatrix}$` },
       ],
       correctId: "a",
-      explanation: String.raw`העמודות הן $(2,-1)$ ו-$(3,1)$. אפשרות ב' היא המשוחלפת (שורות במקום עמודות). אפשרות ג' היא $T(1,0)$ ו-$T(1,1)$ בקואורדינטות סטנדרטיות, בלי פירוק לפי $C$. אפשרות ד' מחליפה את סדר שתי העמודות.`,
+      explanation: String.raw`העמודות הן $(2,-1)$ ו-$(3,1)$. אפשרות $\begin{pmatrix}2&-1\\3&1\end{pmatrix}$ היא המשוחלפת (שורות במקום עמודות). אפשרות $\begin{pmatrix}2&3\\1&4\end{pmatrix}$ היא $T(1,0)$ ו-$T(1,1)$ בקואורדינטות סטנדרטיות, בלי פירוק לפי $C$. אפשרות $\begin{pmatrix}3&2\\1&-1\end{pmatrix}$ מחליפה את סדר שתי העמודות.`,
       recap: "העמודה ה-$j$ היא $[T(b_j)]_C$." },
     { id: "C07-Q4",
       step: { type: "numeric",

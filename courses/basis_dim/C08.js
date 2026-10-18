@@ -33,7 +33,7 @@ COURSE_LEVEL("basis_dim", {
         { id: "d", value: String.raw`$\big([I]_E^B\big)^{-1}[I]_E^C$` },
       ],
       correctId: "a",
-      explanation: String.raw`עוברים מ-$B$ אל הסטנדרטי ($[I]_E^B$) ומשם אל $C$ ($([I]_E^C)^{-1}$), והכפל כתוב מימין לשמאל. הבדיקה בדוגמה של הלימוד נותנת $\begin{pmatrix}-1&-1\\2&1\end{pmatrix}$ לנוסחה א', ואילו ב' נותנת $\begin{pmatrix}1&-1\\2&-1\end{pmatrix}$, ג' נותנת $\begin{pmatrix}3&1\\2&1\end{pmatrix}$, ו-ד' נותנת $\begin{pmatrix}1&1\\-2&-1\end{pmatrix}$. שלוש האחרונות שונות מהנכונה.`,
+      explanation: String.raw`עוברים מ-$B$ אל הסטנדרטי ($[I]_E^B$) ומשם אל $C$ ($([I]_E^C)^{-1}$), והכפל כתוב מימין לשמאל. הבדיקה בדוגמה של הלימוד נותנת $\begin{pmatrix}-1&-1\\2&1\end{pmatrix}$ לנוסחה $\big([I]_E^C\big)^{-1}[I]_E^B$, ואילו $[I]_E^B\big([I]_E^C\big)^{-1}$ נותנת $\begin{pmatrix}1&-1\\2&-1\end{pmatrix}$, $[I]_E^C[I]_E^B$ נותנת $\begin{pmatrix}3&1\\2&1\end{pmatrix}$, ו-$\big([I]_E^B\big)^{-1}[I]_E^C$ נותנת $\begin{pmatrix}1&1\\-2&-1\end{pmatrix}$. שלוש הנוסחאות האחרות שונות מהנכונה.`,
       recap: "$[I]_C^B = ([I]_E^C)^{-1}[I]_E^B$." },
     { id: "C08-Q4",
       step: { type: "numeric",
@@ -56,7 +56,7 @@ COURSE_LEVEL("basis_dim", {
         { id: "d", value: String.raw`$\begin{pmatrix}1&0\\-1&1\end{pmatrix}$` },
       ],
       correctId: "a",
-      explanation: String.raw`$[I]_B^C$ ממירה בכיוון ההפוך, ולכן היא ההופכית של $[I]_C^B$. ההופכית של $\begin{pmatrix}1&0\\-1&1\end{pmatrix}$ היא $\begin{pmatrix}1&0\\1&1\end{pmatrix}$ (המכפלה היא $I$). אפשרות ב' היא ההעברה של המטריצה, ג' היא המטריצה כפול $-1$, ו-ד' היא המטריצה עצמה.`,
+      explanation: String.raw`$[I]_B^C$ ממירה בכיוון ההפוך, ולכן היא ההופכית של $[I]_C^B$. ההופכית של $\begin{pmatrix}1&0\\-1&1\end{pmatrix}$ היא $\begin{pmatrix}1&0\\1&1\end{pmatrix}$ (המכפלה היא $I$). אפשרות $\begin{pmatrix}1&-1\\0&1\end{pmatrix}$ היא ההעברה של המטריצה, $\begin{pmatrix}-1&0\\1&-1\end{pmatrix}$ היא המטריצה כפול $-1$, ו-$\begin{pmatrix}1&0\\-1&1\end{pmatrix}$ היא המטריצה עצמה.`,
       recap: "$[I]_B^C = ([I]_C^B)^{-1}$." },
   ],
 });

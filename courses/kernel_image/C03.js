@@ -48,7 +48,7 @@ $$\vec x=s\begin{pmatrix}1\\-1\\1\\0\end{pmatrix}+t\begin{pmatrix}2\\-1\\0\\1\en
         { id: "d", value: String.raw`$\left((1,-1,1,0),\ (2,-1,0,1)\right)$` },
       ],
       correctId: "a",
-      explanation: String.raw`הקואורדינטות $(1,-1,1,0)$ ו-$(2,-1,0,1)$ מתורגמות ל-$1-x+x^2$ ו-$2-x+x^3$. באפשרות ב' שני הווקטורים הוחלפו בקואורדינטות האחרונות ($A(1,-1,0,1)^T=(-1,0,-1)\neq\vec 0$). באפשרות ג' הסימנים של $x$ ו-$x^2$ הפוכים ($A(1,1,-1,0)^T\neq\vec 0$). אפשרות ד' מכילה את הווקטורים הנכונים אבל בלי תרגום לפולינומים, והגרעין הוא תת-מרחב של $\mathbb{R}_3[x]$.`,
+      explanation: String.raw`הקואורדינטות $(1,-1,1,0)$ ו-$(2,-1,0,1)$ מתורגמות ל-$1-x+x^2$ ו-$2-x+x^3$. באפשרות $\left(1-x+x^3,\ \ 2-x+x^2\right)$ שני הווקטורים הוחלפו בקואורדינטות האחרונות ($A(1,-1,0,1)^T=(-1,0,-1)\neq\vec 0$). באפשרות $\left(1+x-x^2,\ \ 2+x-x^3\right)$ הסימנים של $x$ ו-$x^2$ הפוכים ($A(1,1,-1,0)^T\neq\vec 0$). אפשרות $\left((1,-1,1,0),\ (2,-1,0,1)\right)$ מכילה את הווקטורים הנכונים אבל בלי תרגום לפולינומים, והגרעין הוא תת-מרחב של $\mathbb{R}_3[x]$.`,
       recap: "בסיס הגרעין נכתב באיברי התחום." },
     { id: "C03-Q5",
       question: String.raw`$T:M_{2\times2}(\mathbb{R})\to\mathbb{R}^3$, $T\begin{pmatrix}a&b\\c&d\end{pmatrix}=(a+b,\ c+d,\ a+b-c-d)$. מהו בסיס של $\mathrm{Ker}\,T$ ?`,
@@ -59,7 +59,7 @@ $$\vec x=s\begin{pmatrix}1\\-1\\1\\0\end{pmatrix}+t\begin{pmatrix}2\\-1\\0\\1\en
         { id: "d", value: String.raw`$\left(\begin{pmatrix}1&-1\\1&-1\end{pmatrix}\right)$` },
       ],
       correctId: "a",
-      explanation: String.raw`הרכיב השלישי הוא הפרש של שני הראשונים, ולכן מספיק $a+b=0$ ו-$c+d=0$. שני משתנים חופשיים ($b$ ו-$d$) נותנים את הבסיס $\begin{pmatrix}-1&1\\0&0\end{pmatrix},\begin{pmatrix}0&0\\-1&1\end{pmatrix}$, שפורש אותו מרחב כמו האפשרות הראשונה. באפשרות ב' $T$ נותנת $(1,\,-1,\,2)$ על המטריצה הראשונה. באפשרות ג' $T$ נותנת $(2,0,2)$. באפשרות ד' איבר אחד בלבד ו-$\dim\mathrm{Ker}\,T=2$.`,
+      explanation: String.raw`הרכיב השלישי הוא הפרש של שני הראשונים, ולכן מספיק $a+b=0$ ו-$c+d=0$. שני משתנים חופשיים ($b$ ו-$d$) נותנים את הבסיס $\begin{pmatrix}-1&1\\0&0\end{pmatrix},\begin{pmatrix}0&0\\-1&1\end{pmatrix}$, שפורש אותו מרחב כמו האפשרות $\left(\begin{pmatrix}1&-1\\0&0\end{pmatrix},\ \begin{pmatrix}0&0\\1&-1\end{pmatrix}\right)$. באפשרות $\left(\begin{pmatrix}1&0\\-1&0\end{pmatrix},\ \begin{pmatrix}0&1\\0&-1\end{pmatrix}\right)$ $T$ נותנת $(1,\,-1,\,2)$ על המטריצה הראשונה. באפשרות $\left(\begin{pmatrix}1&1\\0&0\end{pmatrix},\ \begin{pmatrix}0&0\\1&1\end{pmatrix}\right)$ $T$ נותנת $(2,0,2)$. באפשרות $\left(\begin{pmatrix}1&-1\\1&-1\end{pmatrix}\right)$ איבר אחד בלבד ו-$\dim\mathrm{Ker}\,T=2$.`,
       recap: "משתנים חופשיים נותנים את הבסיס; מתרגמים חזרה למטריצות." },
   ],
 });

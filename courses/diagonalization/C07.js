@@ -36,7 +36,7 @@ COURSE_LEVEL("diagonalization", {
         { id: "d", value: String.raw`וקטור עצמי של $A$ עם ערך עצמי $7$` },
       ],
       correctId: "a",
-      explanation: String.raw`$A(2\vec v+5\vec w)=2\cdot3\vec v+5\cdot3\vec w=3(2\vec v+5\vec w)$. הצירוף שונה מאפס כי $\vec v,\vec w$ בלתי תלויים, ולכן זה וקטור עצמי עם $\lambda=3$. הערך לא משתנה בצירוף: אפשרות ב' מכפילה את הערך במקדמים, ואפשרות ד' מחברת אותם.`,
+      explanation: String.raw`$A(2\vec v+5\vec w)=2\cdot3\vec v+5\cdot3\vec w=3(2\vec v+5\vec w)$. הצירוף שונה מאפס כי $\vec v,\vec w$ בלתי תלויים, ולכן זה וקטור עצמי עם $\lambda=3$. הערך לא משתנה בצירוף: אפשרות "וקטור עצמי של $A$ עם ערך עצמי $2\cdot3+5\cdot3=21$" מכפילה את הערך במקדמים, ואפשרות "וקטור עצמי של $A$ עם ערך עצמי $7$" מחברת אותם.`,
       recap: "צירוף לאותו λ נשאר וקטור עצמי עם אותו λ." },
     { id: "C07-Q3",
       question: String.raw`$A=\begin{pmatrix}1&0\\0&2\end{pmatrix}$, $\vec v=(1,0)^T$ ($\lambda=1$) ו-$\vec w=(0,1)^T$ ($\lambda=2$). האם $\vec v+\vec w$ וקטור עצמי של $A$ ?`,
