@@ -708,7 +708,73 @@
    "official": false,
    "confidence": "high",
    "points": 6,
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "תרגום התנאים לפי מקדמים: $d=c=2b$ ב-$W_1$ ו-$c=0$ ב-$W_2$ (כולל $p''(0)=2b$)",
+     "points": 2
+    },
+    {
+     "text": "בסיס ל-$W_1$: $\\{x^3,\\ x^2+2x+2\\}$ ו-$\\dim W_1=2$",
+     "points": 2
+    },
+    {
+     "text": "בסיס ל-$W_2$: $\\{x^3,\\ x^2,\\ 1\\}$ ו-$\\dim W_2=3$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $p''(0)=b$ במקום $p''(0)=2b$, ולקבל את התנאי השגוי $d=c=b$.",
+    "לשכוח שקבוע גם הוא איבר בבסיס של $W_2$ ולהסתפק ב-$\\{x^3,x^2\\}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו התנאי על מקדמי $p(x)=ax^3+bx^2+cx+d$ השקול ל-$p(0)=p'(0)=p''(0)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$d=c=b$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$d=c=-2b$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$d=c=2b$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$p(0)=d$, $p'(0)=c$, $p''(0)=2b$. הפולינום $x^2+2x+2\\in W_1$ מקיים $d=c=2b$ אבל לא את שני האחרים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "$p''(0)=m\\cdot b$ עבור $p(x)=ax^3+bx^2+cx+d$. מהו $m$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$p''(x)=6ax+2b$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W_1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שני פרמטרים חופשיים, $a$ ו-$b$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W_2$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "שלושה פרמטרים חופשיים, $a,b,d$ (התנאי היחיד הוא $c=0$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -721,7 +787,75 @@
    "official": false,
    "confidence": "high",
    "points": 8,
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "$W_1+W_2=\\mathrm{Sp}\\{x^3,\\ x^2+2x+2,\\ x^2,\\ 1\\}$ (איחוד הבסיסים)",
+     "points": 2
+    },
+    {
+     "text": "דירוג מטריצת הקואורדינטות של ארבעת הפולינומים",
+     "points": 3
+    },
+    {
+     "text": "הדרגה $4=\\dim\\mathbb{R}_3[x]$ ולכן $W_1+W_2=\\mathbb{R}_3[x]$",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\{1,x,x^2,x^3\\}$ ומימד $4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק שהמימד הוא $\\dim W_1+\\dim W_2=5$ בלי לבדוק תלות לינארית (הסכום אינו ישר).",
+    "לדרג בלי להחליף שורות ולטעות בפעולת השורות $R_3\\to R_3-R_2-2R_4$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "נדרג את המטריצה ששורותיה $(1,0,0,0),(0,1,2,2),(0,1,0,0),(0,0,0,1)$: אחרי $R_2\\leftrightarrow R_3$, $R_3\\to R_3-R_2$ ו-$R_3\\to R_3-2R_4$ מהי הכניסה בשורה 3 עמודה 3?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "השורה השלישית היא $(0,0,2,0)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "ארבע שורות בלתי תלויות."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה מסיקים מכך שהדרגה היא $4$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$W_1+W_2$ תת מרחב ממימד $3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$W_1+W_2=\\mathbb{R}_3[x]$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$W_1+W_2$ תת מרחב ממימד $5$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$W_1\\cap W_2=\\{0\\}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\dim\\mathbb{R}_3[x]=4$, ותת מרחב ממימד $4$ שלו הוא כולו. מימד $5$ בלתי אפשרי, ו-$x^3\\in W_1\\cap W_2$ מראה שהחיתוך אינו טריוויאלי."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -734,7 +868,54 @@
    "official": false,
    "confidence": "high",
    "points": 8,
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "פולינום כללי ב-$W_1$: $ax^3+bx^2+2bx+2b$",
+     "points": 2
+    },
+    {
+     "text": "התנאי $q'(0)=0$ נותן $2b=0$, כלומר $b=0$",
+     "points": 3
+    },
+    {
+     "text": "$W_1\\cap W_2=\\mathrm{Sp}\\{x^3\\}$",
+     "points": 1
+    },
+    {
+     "text": "בסיס $\\{x^3\\}$ ומימד $1$ (ובדיקה במשפט המימדים)",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לדרוש $b=0$ וגם $a=0$ ולקבל חיתוך טריוויאלי.",
+    "לשכוח שהנגזרת של $2bx$ היא $2b$ ולהסיק שהתנאי מתקיים מעצמו."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $p\\in W_1$ מתקיים $p'(0)=m\\cdot b$. מהו $m$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "המקדם של $x$ הוא $2b$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim(W_1\\cap W_2)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "הפולינומים $ax^3$ בלבד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "לפי משפט המימדים, $\\dim(W_1+W_2)=2+3-\\dim(W_1\\cap W_2)$. מהו הערך?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$2+3-1=4$, בהתאם לסעיף ב."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -747,7 +928,59 @@
    "official": false,
    "confidence": "high",
    "points": 3,
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "$W_1+W_2=\\mathbb{R}_3[x]$ לפי סעיף ב",
+     "points": 1
+    },
+    {
+     "text": "$Q$ פולינום ממעלה $3$ ולכן שייך",
+     "points": 1
+    },
+    {
+     "text": "הצגה מפורשת, למשל $Q\\in W_2$ כי $Q'(0)=0$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק שייכות ל-$W_1$ ולהסיק ש-$Q\\notin W_1+W_2$ (הסכום גדול מ-$W_1$).",
+    "לא להשתמש בסעיף ב ולהתחיל לפתור מערכת מחדש."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "האם $Q(x)=x^3+2x^2+3$ שייך ל-$W_1+W_2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא, כי $Q\\notin W_1$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$W_1+W_2=\\mathbb{R}_3[x]$ וכל פולינום ממעלה $\\le3$ שייך לו. ש-$Q\\notin W_1$ נכון ($p(0)=3\\ne p'(0)=0$) אך אינו מפריך."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $Q'(0)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$Q'(x)=3x^2+4x$, ולכן $Q\\in W_2$ עצמו."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,

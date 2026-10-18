@@ -137,6 +137,44 @@ chk("Q5d correct matrix", res == sp.Matrix([[140, 178], [-40, -51]]))
 for nm, mtx in (("EB*EC^-1", EB * EC.inv()), ("EC*EB", EC * EB), ("EB^-1*EC", EB.inv() * EC)):
     chk("Q5d distractor %s differs from the correct matrix" % nm, mtx != res)
 
+# ---- Q4 (solver-written, ai-draft): every number and distractor fact
+x = sp.symbols("x")
+aa, bb, cc, dd = sp.symbols("a b c d")
+pgen = aa * x**3 + bb * x**2 + cc * x + dd
+exp(4, A_, 1, sp.diff(pgen, x, 2).subs(x, 0).coeff(bb))                       # p''(0) = 2b
+cond1 = sp.Matrix([[0, 0, -1, 1], [0, -2, 1, 0]])                               # d-c=0 ; c-2b=0  (rows over a,b,c,d)
+cond1 = sp.Matrix([[0, 0, -1, 1], [0, -2, 1, 0]])
+chk("Q4a p(0)=d, p'(0)=c, p''(0)=2b", (pgen.subs(x, 0), sp.diff(pgen, x).subs(x, 0), sp.diff(pgen, x, 2).subs(x, 0)) == (dd, cc, 2 * bb))
+exp(4, A_, 2, len(cond1.nullspace()))                                            # dim W1
+exp(4, A_, 3, len(sp.Matrix([[0, 0, 1, 0]]).nullspace()))                        # dim W2: c=0
+pb = x**2 + 2 * x + 2
+cb = [sp.Poly(pb, x).coeff_monomial(x**k) for k in (3, 2, 1, 0)]   # [a,b,c,d] = [0,1,2,2]
+chk("Q4a x^2+2x+2 in W1 (d=c=2b) and fails d=c=b, d=c=-2b", pb.subs(x, 0) == sp.diff(pb, x).subs(x, 0) == sp.diff(pb, x, 2).subs(x, 0) and not (cb[3] == cb[2] == cb[1]) and not (cb[3] == cb[2] == -2 * cb[1]))
+chk("Q4a basis {x^3, x^2+2x+2} spans W1 (rank 2, both satisfy the conditions)", all(cond1 * sp.Matrix([sp.Poly(pp, x).coeff_monomial(x**k) for k in (3, 2, 1, 0)]) == sp.zeros(2, 1) for pp in (x**3, pb)) and sp.Matrix([[1, 0, 0, 0], [0, 1, 2, 2]]).rank() == 2)
+chk("Q4a basis {x^3,x^2,1} is in W2 (c=0) and independent", sp.Matrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1]]).rank() == 3)
+# Q4b
+M = sp.Matrix([[1, 0, 0, 0], [0, 1, 2, 2], [0, 1, 0, 0], [0, 0, 0, 1]])
+M[1, :], M[2, :] = M[2, :], M[1, :]
+M[2, :] = M[2, :] - M[1, :]
+M[2, :] = M[2, :] - 2 * M[3, :]
+exp(4, B_, 0, M[2, 2])
+chk("Q4b third row after the stated ops is (0,0,2,0)", M[2, :] == sp.Matrix([[0, 0, 2, 0]]))
+exp(4, B_, 1, sp.Matrix([[1, 0, 0, 0], [0, 1, 2, 2], [0, 1, 0, 0], [0, 0, 0, 1]]).rank())
+chk("Q4b cho: dim 4 = dim R3[x] (so equal to whole space); dim 5 impossible; x^3 in both W1 and W2 so intersection nontrivial",
+    sp.Matrix([[1, 0, 0, 0], [0, 1, 2, 2], [0, 1, 0, 0], [0, 0, 0, 1]]).rank() == 4 and 4 < 5 and cond1 * sp.Matrix([1, 0, 0, 0]) == sp.zeros(2, 1) and sp.Matrix([[0, 0, 1, 0]]) * sp.Matrix([1, 0, 0, 0]) == sp.zeros(1, 1))
+# Q4c
+pW1 = aa * x**3 + bb * x**2 + 2 * bb * x + 2 * bb
+exp(4, C_, 0, sp.diff(pW1, x).subs(x, 0).coeff(bb))
+inter = sp.Matrix([[0, 0, -1, 1], [0, -2, 1, 0], [0, 0, 1, 0]])   # W1 conditions + c=0
+dimI = len(inter.nullspace())
+exp(4, C_, 1, dimI)
+exp(4, C_, 2, 2 + 3 - dimI)
+chk("Q4c dim(W1+W2) from rank equals 4", sp.Matrix([[1, 0, 0, 0], [0, 1, 2, 2], [0, 1, 0, 0], [0, 0, 0, 1]]).rank() == 2 + 3 - dimI)
+# Q4d
+Qp = x**3 + 2 * x**2 + 3
+exp(4, D_, 1, sp.diff(Qp, x).subs(x, 0))
+chk("Q4d Q'(x)=3x^2+4x, Q in W2, Q not in W1 (p(0)=3 != p'(0)=0), Q in R3[x] = W1+W2", sp.diff(Qp, x) == 3 * x**2 + 4 * x and Qp.subs(x, 0) == 3 != sp.diff(Qp, x).subs(x, 0) and sp.degree(Qp, x) <= 3)
+
 # ---- coverage
 n = 0
 need = {(num, part, i) for (num, part), qq in QS.items() for i, st in enumerate(qq.get("steps", [])) if st["type"] == "numeric"}

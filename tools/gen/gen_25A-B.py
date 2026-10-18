@@ -510,6 +510,64 @@ ENR[(5, "ד")] = dict(
     ])
 
 
+# ---- solver-written items: ai-draft (derived from the stored "solved" solution) ----
+ENR[(4, "א")] = dict(src="ai-draft",
+    rubric=rub((r"תרגום התנאים לפי מקדמים: $d=c=2b$ ב-$W_1$ ו-$c=0$ ב-$W_2$ (כולל $p''(0)=2b$)", 2),
+               (r"בסיס ל-$W_1$: $\{x^3,\ x^2+2x+2\}$ ו-$\dim W_1=2$", 2),
+               (r"בסיס ל-$W_2$: $\{x^3,\ x^2,\ 1\}$ ו-$\dim W_2=3$", 2)),
+    pitfalls=[r"לכתוב $p''(0)=b$ במקום $p''(0)=2b$, ולקבל את התנאי השגוי $d=c=b$.",
+              r"לשכוח שקבוע גם הוא איבר בבסיס של $W_2$ ולהסתפק ב-$\{x^3,x^2\}$."],
+    steps=[
+        cho(r"מהו התנאי על מקדמי $p(x)=ax^3+bx^2+cx+d$ השקול ל-$p(0)=p'(0)=p''(0)$?", r"$d=c=2b$",
+            [r"$d=c=b$", r"$d=c=-2b$"],
+            r"$p(0)=d$, $p'(0)=c$, $p''(0)=2b$. הפולינום $x^2+2x+2\in W_1$ מקיים $d=c=2b$ אבל לא את שני האחרים."),
+        num(r"$p''(0)=m\cdot b$ עבור $p(x)=ax^3+bx^2+cx+d$. מהו $m$?", 2, r"$p''(x)=6ax+2b$."),
+        num(r"מהו $\dim W_1$?", 2, r"שני פרמטרים חופשיים, $a$ ו-$b$."),
+        num(r"מהו $\dim W_2$?", 3, r"שלושה פרמטרים חופשיים, $a,b,d$ (התנאי היחיד הוא $c=0$)."),
+    ])
+
+ENR[(4, "ב")] = dict(src="ai-draft",
+    rubric=rub((r"$W_1+W_2=\mathrm{Sp}\{x^3,\ x^2+2x+2,\ x^2,\ 1\}$ (איחוד הבסיסים)", 2),
+               (r"דירוג מטריצת הקואורדינטות של ארבעת הפולינומים", 3),
+               (r"הדרגה $4=\dim\mathbb{R}_3[x]$ ולכן $W_1+W_2=\mathbb{R}_3[x]$", 2),
+               (r"בסיס $\{1,x,x^2,x^3\}$ ומימד $4$", 1)),
+    pitfalls=[r"להסיק שהמימד הוא $\dim W_1+\dim W_2=5$ בלי לבדוק תלות לינארית (הסכום אינו ישר).",
+              r"לדרג בלי להחליף שורות ולטעות בפעולת השורות $R_3\to R_3-R_2-2R_4$."],
+    steps=[
+        num(r"נדרג את המטריצה ששורותיה $(1,0,0,0),(0,1,2,2),(0,1,0,0),(0,0,0,1)$: אחרי $R_2\leftrightarrow R_3$, $R_3\to R_3-R_2$ ו-$R_3\to R_3-2R_4$ מהי הכניסה בשורה 3 עמודה 3?", 2, r"השורה השלישית היא $(0,0,2,0)$."),
+        num(r"מהי דרגת המטריצה?", 4, r"ארבע שורות בלתי תלויות."),
+        cho(r"מה מסיקים מכך שהדרגה היא $4$?", r"$W_1+W_2=\mathbb{R}_3[x]$",
+            [r"$W_1+W_2$ תת מרחב ממימד $3$", r"$W_1+W_2$ תת מרחב ממימד $5$", r"$W_1\cap W_2=\{0\}$"],
+            r"$\dim\mathbb{R}_3[x]=4$, ותת מרחב ממימד $4$ שלו הוא כולו. מימד $5$ בלתי אפשרי, ו-$x^3\in W_1\cap W_2$ מראה שהחיתוך אינו טריוויאלי."),
+    ])
+
+ENR[(4, "ג")] = dict(src="ai-draft",
+    rubric=rub((r"פולינום כללי ב-$W_1$: $ax^3+bx^2+2bx+2b$", 2),
+               (r"התנאי $q'(0)=0$ נותן $2b=0$, כלומר $b=0$", 3),
+               (r"$W_1\cap W_2=\mathrm{Sp}\{x^3\}$", 1),
+               (r"בסיס $\{x^3\}$ ומימד $1$ (ובדיקה במשפט המימדים)", 2)),
+    pitfalls=[r"לדרוש $b=0$ וגם $a=0$ ולקבל חיתוך טריוויאלי.",
+              r"לשכוח שהנגזרת של $2bx$ היא $2b$ ולהסיק שהתנאי מתקיים מעצמו."],
+    steps=[
+        num(r"עבור $p\in W_1$ מתקיים $p'(0)=m\cdot b$. מהו $m$?", 2, r"המקדם של $x$ הוא $2b$."),
+        num(r"מהו $\dim(W_1\cap W_2)$?", 1, r"הפולינומים $ax^3$ בלבד."),
+        num(r"לפי משפט המימדים, $\dim(W_1+W_2)=2+3-\dim(W_1\cap W_2)$. מהו הערך?", 4, r"$2+3-1=4$, בהתאם לסעיף ב."),
+    ])
+
+ENR[(4, "ד")] = dict(src="ai-draft",
+    rubric=rub((r"$W_1+W_2=\mathbb{R}_3[x]$ לפי סעיף ב", 1),
+               (r"$Q$ פולינום ממעלה $3$ ולכן שייך", 1),
+               (r"הצגה מפורשת, למשל $Q\in W_2$ כי $Q'(0)=0$", 1)),
+    pitfalls=[r"לבדוק רק שייכות ל-$W_1$ ולהסיק ש-$Q\notin W_1+W_2$ (הסכום גדול מ-$W_1$).",
+              r"לא להשתמש בסעיף ב ולהתחיל לפתור מערכת מחדש."],
+    steps=[
+        cho(r"האם $Q(x)=x^3+2x^2+3$ שייך ל-$W_1+W_2$?", "כן",
+            ["לא", r"לא, כי $Q\notin W_1$"],
+            r"$W_1+W_2=\mathbb{R}_3[x]$ וכל פולינום ממעלה $\le3$ שייך לו. ש-$Q\notin W_1$ נכון ($p(0)=3\ne p'(0)=0$) אך אינו מפריך."),
+        num(r"מהו $Q'(0)$?", 0, r"$Q'(x)=3x^2+4x$, ולכן $Q\in W_2$ עצמו."),
+    ])
+
+
 for q in questions:
     if q.get("hold"):
         continue
@@ -519,7 +577,8 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
+    src = e.get("src", "ai-verified")  # the solver-written items (Q4 / Q6) are ai-draft until a refuter passes them
+    q.update(rubric=e["rubric"], rubricSource=src, pitfalls=e["pitfalls"], steps=e["steps"], stepsSource=src)
 
 
 exam = {

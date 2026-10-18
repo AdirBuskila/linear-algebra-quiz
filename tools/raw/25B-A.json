@@ -1409,7 +1409,92 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "points": 9
+   "points": 9,
+   "rubric": [
+    {
+     "text": "הפעלת $\\det$ על שני האגפים עם $\\det(XY)=\\det X\\det Y$ ו-$\\det H^{-1}=1/\\det H$",
+     "points": 3
+    },
+    {
+     "text": "כפל ב-$\\det H$ וקבלת $(\\det H)^2(\\det D)^2=(\\det D)^3$",
+     "points": 2
+    },
+    {
+     "text": "חילוק ב-$(\\det D)^2$ בהצדקה $\\det D\\neq0$ וקבלת $\\det D=(\\det H)^2$",
+     "points": 2
+    },
+    {
+     "text": "ריבוע של ממשי שונה מאפס חיובי ולכן $\\det D>0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחלק ב-$(\\det D)^2$ בלי לציין ש-$D$ הפיכה ולכן $\\det D\\neq0$.",
+    "להסיק $\\det D=\\det H$ (בלי ההעלאה בריבוע) ולכן לא לקבל סימן חיובי.",
+    "לשכוח ש-$\\det\\left(H^{-1}\\right)=\\frac{1}{\\det H}$ ולכתוב $\\det H$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו פעולה על שני האגפים מעבירה את המשוואה למספרים ממשיים ושומרת מכפלות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הדטרמיננטה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "העקבה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הדרגה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "החלפת שורות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רק $\\det(XY)=\\det X\\det Y$. בעקבה $\\mathrm{tr}(XY)\\ne\\mathrm{tr}X\\,\\mathrm{tr}Y$ בדרך כלל, בדרגה $\\mathrm{rk}(I_2I_2)=2\\ne2\\cdot2$, והחלפת שורות אינה מספר."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אם $\\det H=-3$, מהו $\\det D$ לפי $\\det D=(\\det H)^2$?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$(-3)^2=9>0$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה:",
+     "lines": [
+      "נפעיל $\\det$ על שני האגפים: $\\det H\\cdot(\\det D)^2=(\\det D)^3\\cdot\\frac{1}{\\det H}$",
+      "נכפיל ב-$\\det H\\neq0$: $(\\det H)^2(\\det D)^2=(\\det D)^3$",
+      "$\\det D\\neq0$ ולכן נחלק ב-$(\\det D)^2$: $\\det D=(\\det H)^2$",
+      "ריבוע של ממשי שונה מאפס חיובי, לכן $\\det D>0$"
+     ],
+     "explain": "כל שלב משתמש בתוצאת הקודם."
+    },
+    {
+     "type": "findbug",
+     "prompt": "באחת השורות בהוכחה יש שגיאה. מצאו אותה:",
+     "lines": [
+      "נפעיל $\\det$ על שני האגפים: $\\det H\\cdot(\\det D)^2=(\\det D)^3\\cdot\\frac{1}{\\det H}$",
+      "נכפיל ב-$\\det H\\neq0$: $(\\det H)^2(\\det D)^2=(\\det D)^3$",
+      "$\\det D\\neq0$ ולכן נחלק ב-$(\\det D)^2$: $\\det D=\\det H$",
+      "ריבוע של ממשי שונה מאפס חיובי, לכן $\\det D>0$"
+     ],
+     "bugIndex": 2,
+     "explain": "מהשורה השנייה מתקבל $\\det D=(\\det H)^2$ ולא $\\det H$. עם $\\det H=-3$ התוצאה השגויה נותנת $-3$ ולא $9$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -1421,7 +1506,77 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "points": 9
+   "points": 9,
+   "rubric": [
+    {
+     "text": "הצגת $A\\vec u=\\lambda\\vec u$ והוכחה ש-$\\lambda\\neq0$ (אחרת $A\\vec u=\\vec0$ בסתירה להפיכות)",
+     "points": 3
+    },
+    {
+     "text": "כפל משמאל ב-$A^{-1}$ וקבלת $\\vec u=\\lambda A^{-1}\\vec u$",
+     "points": 3
+    },
+    {
+     "text": "חילוק ב-$\\lambda$ והסקה ש-$\\vec u\\neq\\vec0$ הוא וקטור עצמי של $A^{-1}$ עם הערך $\\frac1\\lambda$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לא להוכיח ש-$\\lambda\\neq0$ ולכן $\\frac1\\lambda$ אינו מוגדר.",
+    "להסיק שהערך העצמי של $A^{-1}$ הוא $\\lambda$ ולא $\\frac1\\lambda$.",
+    "לשכוח לציין ש-$\\vec u\\neq\\vec0$, ולכן הוא באמת וקטור עצמי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מדוע $\\lambda\\neq0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי ערך עצמי הוא תמיד שונה מאפס"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אחרת $A\\vec u=\\vec0$ עם $\\vec u\\neq\\vec0$, בסתירה להפיכות $A$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $\\vec u\\neq\\vec0$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $A$ סימטרית"
+      }
+     ],
+     "correctId": "b",
+     "explain": "למטריצה לא הפיכה כמו $\\mathrm{diag}(0,1)$ יש ערך עצמי $0$ עם $\\vec u\\neq\\vec0$, ולכן שתי הטענות הראשונות שגויות. סימטריה אינה קשורה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\mathrm{diag}(2,4)$, $\\vec u=(0,1)^T$ ו-$\\lambda=4$ מתקיים $A^{-1}\\vec u=c\\,\\vec u$. מהו $c$?",
+     "answer": 0.25,
+     "tol": 0,
+     "explain": "$c=\\frac1\\lambda=\\frac14$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "באחת השורות בהוכחה יש שגיאה. מצאו אותה:",
+     "lines": [
+      "נתון $A\\vec u=\\lambda\\vec u$ עם $\\vec u\\neq\\vec0$",
+      "$\\lambda\\neq0$, כי אחרת $A\\vec u=\\vec0$ בסתירה להפיכות $A$",
+      "נכפיל משמאל ב-$A^{-1}$: $\\vec u=\\lambda A^{-1}\\vec u$",
+      "לכן $A^{-1}\\vec u=\\lambda\\vec u$"
+     ],
+     "bugIndex": 3,
+     "explain": "מהשורה הקודמת מחלקים ב-$\\lambda$ ומקבלים $A^{-1}\\vec u=\\frac1\\lambda\\vec u$. עבור $\\mathrm{diag}(2,4)$ מתקבל $\\frac14$ ולא $4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -1433,7 +1588,76 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "points": 7
+   "points": 7,
+   "rubric": [
+    {
+     "text": "$BC$ הפיכה: $\\det(BC)=\\det B\\det C\\neq0$",
+     "points": 2
+    },
+    {
+     "text": "$B+C$ לא תמיד: דוגמה נגדית $B=I$, $C=-I$",
+     "points": 2
+    },
+    {
+     "text": "$\\alpha C$ לא תמיד: $\\alpha=0$ נותן מטריצת אפס",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: רק $BC$ תמיד הפיכה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסתפק בדוגמה שבה $B+C$ הפיכה (למשל $B=C=I$): דוגמה אחת אינה מוכיחה טענה על כל זוג.",
+    "לשכוח את $\\alpha=0$ ולהסיק ש-$\\alpha C$ תמיד הפיכה.",
+    "לכתוב $(BC)^{-1}=B^{-1}C^{-1}$ בסדר הפוך."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אילו מהמטריצות $BC$, $B+C$, $\\alpha C$ ($\\alpha\\in\\mathbb{R}$) תמיד הפיכות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$BC$ ו-$\\alpha C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$BC$ ו-$B+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "רק $BC$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שלושתן"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$B=I$, $C=-I$ נותן $B+C=0$, ו-$\\alpha=0$ נותן $\\alpha C=0$, אך $BC$ הפיכה תמיד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אם $\\det B=2$ ו-$\\det C=-5$, מהו $\\det(BC)$?",
+     "answer": -10,
+     "tol": 0,
+     "explain": "$2\\cdot(-5)=-10\\neq0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור איזה $\\alpha$ המטריצה $\\alpha C$ אינה הפיכה (ל-$C$ הפיכה מסדר $2$)?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$\\det(\\alpha C)=\\alpha^2\\det C$ מתאפס רק כאשר $\\alpha=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

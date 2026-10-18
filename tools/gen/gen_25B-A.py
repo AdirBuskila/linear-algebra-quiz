@@ -656,6 +656,71 @@ ENR[(5, "ד")] = dict(
     ])
 
 
+# ---- solver-written items: ai-draft (derived from the stored "solved" solution) ----
+ENR[(6, "א")] = dict(src="ai-draft",
+    rubric=rub((r"הפעלת $\det$ על שני האגפים עם $\det(XY)=\det X\det Y$ ו-$\det H^{-1}=1/\det H$", 3),
+               (r"כפל ב-$\det H$ וקבלת $(\det H)^2(\det D)^2=(\det D)^3$", 2),
+               (r"חילוק ב-$(\det D)^2$ בהצדקה $\det D\neq0$ וקבלת $\det D=(\det H)^2$", 2),
+               (r"ריבוע של ממשי שונה מאפס חיובי ולכן $\det D>0$", 2)),
+    pitfalls=[r"לחלק ב-$(\det D)^2$ בלי לציין ש-$D$ הפיכה ולכן $\det D\neq0$.",
+              r"להסיק $\det D=\det H$ (בלי ההעלאה בריבוע) ולכן לא לקבל סימן חיובי.",
+              r"לשכוח ש-$\det\left(H^{-1}\right)=\frac{1}{\det H}$ ולכתוב $\det H$."],
+    steps=[
+        cho(r"איזו פעולה על שני האגפים מעבירה את המשוואה למספרים ממשיים ושומרת מכפלות?", r"הדטרמיננטה",
+            ["העקבה", "הדרגה", "החלפת שורות"],
+            r"רק $\det(XY)=\det X\det Y$. בעקבה $\mathrm{tr}(XY)\ne\mathrm{tr}X\,\mathrm{tr}Y$ בדרך כלל, בדרגה $\mathrm{rk}(I_2I_2)=2\ne2\cdot2$, והחלפת שורות אינה מספר."),
+        num(r"אם $\det H=-3$, מהו $\det D$ לפי $\det D=(\det H)^2$?", 9, r"$(-3)^2=9>0$."),
+        odr("סדרו את שלבי ההוכחה:",
+            [r"נפעיל $\det$ על שני האגפים: $\det H\cdot(\det D)^2=(\det D)^3\cdot\frac{1}{\det H}$",
+             r"נכפיל ב-$\det H\neq0$: $(\det H)^2(\det D)^2=(\det D)^3$",
+             r"$\det D\neq0$ ולכן נחלק ב-$(\det D)^2$: $\det D=(\det H)^2$",
+             r"ריבוע של ממשי שונה מאפס חיובי, לכן $\det D>0$"],
+            "כל שלב משתמש בתוצאת הקודם."),
+        fnd("באחת השורות בהוכחה יש שגיאה. מצאו אותה:",
+            [r"נפעיל $\det$ על שני האגפים: $\det H\cdot(\det D)^2=(\det D)^3\cdot\frac{1}{\det H}$",
+             r"נכפיל ב-$\det H\neq0$: $(\det H)^2(\det D)^2=(\det D)^3$",
+             r"$\det D\neq0$ ולכן נחלק ב-$(\det D)^2$: $\det D=\det H$",
+             r"ריבוע של ממשי שונה מאפס חיובי, לכן $\det D>0$"], 2,
+            r"מהשורה השנייה מתקבל $\det D=(\det H)^2$ ולא $\det H$. עם $\det H=-3$ התוצאה השגויה נותנת $-3$ ולא $9$."),
+    ])
+
+ENR[(6, "ב")] = dict(src="ai-draft",
+    rubric=rub((r"הצגת $A\vec u=\lambda\vec u$ והוכחה ש-$\lambda\neq0$ (אחרת $A\vec u=\vec0$ בסתירה להפיכות)", 3),
+               (r"כפל משמאל ב-$A^{-1}$ וקבלת $\vec u=\lambda A^{-1}\vec u$", 3),
+               (r"חילוק ב-$\lambda$ והסקה ש-$\vec u\neq\vec0$ הוא וקטור עצמי של $A^{-1}$ עם הערך $\frac1\lambda$", 3)),
+    pitfalls=[r"לא להוכיח ש-$\lambda\neq0$ ולכן $\frac1\lambda$ אינו מוגדר.",
+              r"להסיק שהערך העצמי של $A^{-1}$ הוא $\lambda$ ולא $\frac1\lambda$.",
+              r"לשכוח לציין ש-$\vec u\neq\vec0$, ולכן הוא באמת וקטור עצמי."],
+    steps=[
+        cho(r"מדוע $\lambda\neq0$?", r"אחרת $A\vec u=\vec0$ עם $\vec u\neq\vec0$, בסתירה להפיכות $A$",
+            [r"כי ערך עצמי הוא תמיד שונה מאפס", r"כי $\vec u\neq\vec0$ בלבד", r"כי $A$ סימטרית"],
+            r"למטריצה לא הפיכה כמו $\mathrm{diag}(0,1)$ יש ערך עצמי $0$ עם $\vec u\neq\vec0$, ולכן שתי הטענות הראשונות שגויות. סימטריה אינה קשורה."),
+        num(r"עבור $A=\mathrm{diag}(2,4)$, $\vec u=(0,1)^T$ ו-$\lambda=4$ מתקיים $A^{-1}\vec u=c\,\vec u$. מהו $c$?", 0.25, r"$c=\frac1\lambda=\frac14$."),
+        fnd("באחת השורות בהוכחה יש שגיאה. מצאו אותה:",
+            [r"נתון $A\vec u=\lambda\vec u$ עם $\vec u\neq\vec0$",
+             r"$\lambda\neq0$, כי אחרת $A\vec u=\vec0$ בסתירה להפיכות $A$",
+             r"נכפיל משמאל ב-$A^{-1}$: $\vec u=\lambda A^{-1}\vec u$",
+             r"לכן $A^{-1}\vec u=\lambda\vec u$"], 3,
+            r"מהשורה הקודמת מחלקים ב-$\lambda$ ומקבלים $A^{-1}\vec u=\frac1\lambda\vec u$. עבור $\mathrm{diag}(2,4)$ מתקבל $\frac14$ ולא $4$."),
+    ])
+
+ENR[(6, "ג")] = dict(src="ai-draft",
+    rubric=rub((r"$BC$ הפיכה: $\det(BC)=\det B\det C\neq0$", 2),
+               (r"$B+C$ לא תמיד: דוגמה נגדית $B=I$, $C=-I$", 2),
+               (r"$\alpha C$ לא תמיד: $\alpha=0$ נותן מטריצת אפס", 2),
+               (r"מסקנה: רק $BC$ תמיד הפיכה", 1)),
+    pitfalls=[r"להסתפק בדוגמה שבה $B+C$ הפיכה (למשל $B=C=I$): דוגמה אחת אינה מוכיחה טענה על כל זוג.",
+              r"לשכוח את $\alpha=0$ ולהסיק ש-$\alpha C$ תמיד הפיכה.",
+              r"לכתוב $(BC)^{-1}=B^{-1}C^{-1}$ בסדר הפוך."],
+    steps=[
+        cho(r"אילו מהמטריצות $BC$, $B+C$, $\alpha C$ ($\alpha\in\mathbb{R}$) תמיד הפיכות?", r"רק $BC$",
+            [r"$BC$ ו-$\alpha C$", r"$BC$ ו-$B+C$", r"שלושתן"],
+            r"$B=I$, $C=-I$ נותן $B+C=0$, ו-$\alpha=0$ נותן $\alpha C=0$, אך $BC$ הפיכה תמיד."),
+        num(r"אם $\det B=2$ ו-$\det C=-5$, מהו $\det(BC)$?", -10, r"$2\cdot(-5)=-10\neq0$."),
+        num(r"עבור איזה $\alpha$ המטריצה $\alpha C$ אינה הפיכה (ל-$C$ הפיכה מסדר $2$)?", 0, r"$\det(\alpha C)=\alpha^2\det C$ מתאפס רק כאשר $\alpha=0$."),
+    ])
+
+
 for q in questions:
     if q.get("hold"):
         continue
@@ -665,7 +730,8 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
+    src = e.get("src", "ai-verified")  # the solver-written items (Q4 / Q6) are ai-draft until a refuter passes them
+    q.update(rubric=e["rubric"], rubricSource=src, pitfalls=e["pitfalls"], steps=e["steps"], stepsSource=src)
 
 
 exam = {
