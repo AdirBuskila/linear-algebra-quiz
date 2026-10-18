@@ -28,7 +28,7 @@
   },
   "c5": {
    "kind": "text",
-   "title": "שאלה 5.א - העתקה ממטריצות ל-R^4",
+   "title": "שאלה 5.א - העתקה ממטריצות ל-ℝ⁴",
    "text": "נתונה העתקה לינארית $T:M_{2\\times2}(\\mathbb{R})\\to\\mathbb{R}^4$ המוגדרת על ידי:\n$$T\\left(\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}\\right)=\\begin{pmatrix}a+b+c+d\\\\2a+2c+5d\\\\3a+b+3c+6d\\\\6a+2b+6c+12d\\end{pmatrix}$$"
   }
  },

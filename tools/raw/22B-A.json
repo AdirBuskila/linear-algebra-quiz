@@ -23,7 +23,7 @@
   },
   "c4": {
    "kind": "text",
-   "title": "שאלה 4 - תתי מרחבים של R^3",
+   "title": "שאלה 4 - תתי מרחבים של ℝ³",
    "text": "נגדיר שני תתי מרחב $W_1$ ו-$W_2$ של $\\mathbb{R}^3$ ע״י\n$W_1=\\{A\\vec{x}:\\ \\vec{x}\\in\\mathbb{R}^3\\},\\qquad A=\\begin{pmatrix}1&2&-4\\\\-2&3&-13\\\\-1&-1&1\\end{pmatrix}$\n$W_2=\\left\\{\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}\\in\\mathbb{R}^3:\\ x+2y-3z=0\\right\\}$"
   },
   "c5": {

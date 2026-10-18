@@ -38,7 +38,7 @@ COURSE_LEVEL("basis_dim", {
       ],
       correctId: "c",
       explanation: String.raw`הסכום מכיל את $W_1$ (מימד $2$), ויש בו וקטור מחוץ ל-$W_1$ (כי $W_2\neq W_1$), ולכן המימד שלו לפחות $3$. מימד $3$ ב-$\mathbb{R}^3$ משמעותו כל המרחב. ישר, מישור או האפס קטנים מדי: הם לא מכילים את $W_1$ כולו ועוד וקטור.`,
-      recap: "שני מישורים שונים ב-R^3 מסכמים ל-R^3." },
+      recap: "שני מישורים שונים ב-$\\mathbb{R}^3$ מסכמים ל-$\\mathbb{R}^3$." },
     { id: "C06-Q4",
       step: { type: "numeric",
         prompt: String.raw`$W_1$ הוא מרחב המטריצות הסימטריות $2\times2$ (מימד $3$), ו-$W_2=\mathrm{Sp}\left\{\begin{pmatrix}0&1\\-1&0\end{pmatrix}\right\}$. מהו $\dim(W_1+W_2)$ ?`,

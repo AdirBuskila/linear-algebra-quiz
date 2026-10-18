@@ -47,7 +47,7 @@ $AP=\begin{pmatrix}2&5\\-4&5\end{pmatrix}$ וגם $PD=\begin{pmatrix}2&5\\-4&5\e
         prompt: String.raw`הערכים העצמיים של $A=\begin{pmatrix}3&1\\2&2\end{pmatrix}$ הם $1$ ו-$4$. מהו הערך העצמי הגדול של $A^5$ ?`,
         answer: 1024, tol: 0,
         explain: String.raw`הערכים העצמיים של $A^5$ הם $1^5=1$ ו-$4^5=1024$. הגדול הוא $1024$.` },
-      recap: "לערכים העצמיים של A^k: λ^k." },
+      recap: "לערכים העצמיים של $A^k$: $\\lambda^k$." },
     { id: "C06-Q5",
       step: { type: "order",
         prompt: String.raw`סדרו את שלבי הליכסון של מטריצה $B$ מסדר 3.`,

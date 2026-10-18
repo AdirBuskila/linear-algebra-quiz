@@ -34,7 +34,7 @@ COURSE_LEVEL("basis_dim", {
       ],
       correctId: "a",
       explanation: String.raw`עוברים מ-$B$ אל הסטנדרטי ($[I]_E^B$) ומשם אל $C$ ($([I]_E^C)^{-1}$), והכפל כתוב מימין לשמאל. הבדיקה בדוגמה של הלימוד נותנת $\begin{pmatrix}-1&-1\\2&1\end{pmatrix}$ לנוסחה א', ואילו ב' נותנת $\begin{pmatrix}1&-1\\2&-1\end{pmatrix}$, ג' נותנת $\begin{pmatrix}3&1\\2&1\end{pmatrix}$, ו-ד' נותנת $\begin{pmatrix}1&1\\-2&-1\end{pmatrix}$. שלוש האחרונות שונות מהנכונה.`,
-      recap: "[I]_C^B = ([I]_E^C)^(-1) [I]_E^B." },
+      recap: "$[I]_C^B = ([I]_E^C)^{-1}[I]_E^B$." },
     { id: "C08-Q4",
       step: { type: "numeric",
         prompt: String.raw`$B=\big((1,0),(1,1)\big)$ ו-$C=\big((2,1),(1,1)\big)$. מהי הכניסה בשורה $2$ ובעמודה $1$ של $[I]_C^B$ ?`,
@@ -46,7 +46,7 @@ COURSE_LEVEL("basis_dim", {
         prompt: String.raw`מטריצת המעבר היא $[I]_C^B=\begin{pmatrix}1&0\\-1&1\end{pmatrix}$ ו-$[v]_B=\begin{pmatrix}3\\2\end{pmatrix}$. מהו הרכיב השני של $[v]_C$ ?`,
         answer: -1, tol: 0,
         explain: String.raw`$[v]_C=[I]_C^B[v]_B=\begin{pmatrix}1&0\\-1&1\end{pmatrix}\begin{pmatrix}3\\2\end{pmatrix}=\begin{pmatrix}3\\-3+2\end{pmatrix}=\begin{pmatrix}3\\-1\end{pmatrix}$. הרכיב השני $-1$.` },
-      recap: "[v]_C = [I]_C^B [v]_B." },
+      recap: "$[v]_C = [I]_C^B[v]_B$." },
     { id: "C08-Q6",
       question: String.raw`אם $[I]_C^B=\begin{pmatrix}1&0\\-1&1\end{pmatrix}$, מהי המטריצה $[I]_B^C$ ?`,
       options: [
@@ -57,6 +57,6 @@ COURSE_LEVEL("basis_dim", {
       ],
       correctId: "a",
       explanation: String.raw`$[I]_B^C$ ממירה בכיוון ההפוך, ולכן היא ההופכית של $[I]_C^B$. ההופכית של $\begin{pmatrix}1&0\\-1&1\end{pmatrix}$ היא $\begin{pmatrix}1&0\\1&1\end{pmatrix}$ (המכפלה היא $I$). אפשרות ב' היא ההעברה של המטריצה, ג' היא המטריצה כפול $-1$, ו-ד' היא המטריצה עצמה.`,
-      recap: "[I]_B^C = ([I]_C^B)^(-1)." },
+      recap: "$[I]_B^C = ([I]_C^B)^{-1}$." },
   ],
 });

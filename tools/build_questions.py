@@ -279,9 +279,14 @@ def make_step(s, where, bank, math_errors):
     s["promptHtml"] = rt.rich_html(s["prompt"], bank, where + " prompt", math_errors)
     s["explainHtml"] = rt.rich_html(s.get("explain") or "", bank, where + " explain", math_errors)
     if "lines" in s:
+        shown = s["lines"]
+        if code:   # display only: drop the indentation all lines share (cut from deep inside a function, it pushed lines past a phone's width)
+            ind = [len(r) - len(r.lstrip(" \t")) for x in shown for r in str(x).split("\n") if r.strip()]
+            cut = min(ind) if ind else 0
+            shown = ["\n".join(r[cut:] if r.strip() else r.strip() for r in str(x).split("\n")) for x in shown]
         s["linesHtml"] = [rt.code_html(x) if code
                           else rt.rich_html(x, bank, f"{where} line {j}", math_errors)
-                          for j, x in enumerate(s["lines"])]
+                          for j, x in enumerate(shown)]
     if "options" in s:
         s["options"] = [make_option(o, f"{where} opt {o['id']}", bank, math_errors, code)
                         for o in s["options"]]

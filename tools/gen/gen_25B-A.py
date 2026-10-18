@@ -76,7 +76,7 @@ contexts = {
     "c4": {"kind": "text", "title": "שאלה 4 - מטריצות סימטריות",
            "text": r"יהי $V=M_{2\times2}(\mathbb{R})$ מרחב וקטורי של מטריצות ריבועיות מסדר $2\times2$. בו נתונות שתי קבוצות" "\n"
                    r"$$W=\{A\in V:\ A=A^T\},\qquad U=\mathrm{span}\left\{" + pm("1&2", "-1&3") + "," + pm("2&0", "-3&2") + r"\right\}$$"},
-    "c5": {"kind": "text", "title": "שאלה 5.א - העתקה ממטריצות ל-R^4",
+    "c5": {"kind": "text", "title": "שאלה 5.א - העתקה ממטריצות ל-ℝ⁴",
            "text": r"נתונה העתקה לינארית $T:M_{2\times2}(\mathbb{R})\to\mathbb{R}^4$ המוגדרת על ידי:" "\n"
                    r"$$T\left(" + pm("a&b", "c&d") + r"\right)=" + col("a+b+c+d", "2a+2c+5d", "3a+b+3c+6d", "6a+2b+6c+12d") + "$$"},
 }

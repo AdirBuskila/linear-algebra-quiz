@@ -64,7 +64,7 @@ contexts = {
                      r"$$\begin{cases} x+y+kz=2\\ 3x+4y+2z=k\\ 2x+3y-z=1\end{cases}$$")},
     "c3": {"kind": "text", "title": "שאלה 3 - סעיפים א ו-ב",
            "text": r"נתונה המטריצה $A=" + pm("1&2&0", "0&1&1", "2&4&2") + r"$."},
-    "c4": {"kind": "text", "title": "שאלה 4 - תתי מרחבים של R^3",
+    "c4": {"kind": "text", "title": "שאלה 4 - תתי מרחבים של ℝ³",
            "text": J(r"נגדיר שני תתי מרחב $W_1$ ו-$W_2$ של $\mathbb{R}^3$ ע״י",
                      r"$W_1=\{A\vec{x}:\ \vec{x}\in\mathbb{R}^3\},\qquad A=" + pm("1&2&-4", "-2&3&-13", "-1&-1&1") + r"$",
                      r"$W_2=\left\{" + pm("x", "y", "z") + r"\in\mathbb{R}^3:\ x+2y-3z=0\right\}$")},

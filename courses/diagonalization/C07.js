@@ -54,7 +54,7 @@ COURSE_LEVEL("diagonalization", {
         prompt: String.raw`$B=\begin{pmatrix}3&1\\2&2\end{pmatrix}$ הפיכה ו-$\vec x=(1,1)^T$ וקטור עצמי שלה עם $\lambda=4$. מהו הערך העצמי של $B^{-1}$ המתאים ל-$\vec x$ ?`,
         answer: 0.25, tol: 0,
         explain: String.raw`מ-$B\vec x=4\vec x$ מכפילים ב-$B^{-1}$ ומקבלים $\vec x=4B^{-1}\vec x$, כלומר $B^{-1}\vec x=\tfrac14\vec x$. הערך הוא $\tfrac14=0.25$.` },
-      recap: "ערך עצמי של B^{-1} הוא 1/λ." },
+      recap: "ערך עצמי של $B^{-1}$ הוא $1/\\lambda$." },
     { id: "C07-Q5",
       step: { type: "findbug",
         prompt: String.raw`בהוכחה ש-$\lambda$ ערך עצמי של $B$ כאשר $PA=BP$, $P$ הפיכה ו-$A\vec x=\lambda\vec x$ שורה אחת שגויה. סמנו אותה.`,
