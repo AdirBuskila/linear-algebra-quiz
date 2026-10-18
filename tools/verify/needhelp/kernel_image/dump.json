@@ -1,0 +1,697 @@
+{
+ "courseId": "kernel_image",
+ "levels": [
+  {
+   "id": "C01",
+   "order": 1,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C01-Q1",
+     "question": "איזו מהפונקציות הבאות היא העתקה לינארית $T:\\mathbb{R}^2\\to\\mathbb{R}^2$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T(x,y)=(x+y,\\ x-y)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T(x,y)=(x+1,\\ y)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T(x,y)=(xy,\\ y)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T(x,y)=(x^2,\\ y)$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q2",
+     "step": {
+      "type": "numeric",
+      "prompt": "ההעתקה $T(x,y,z)=(x+2y,\\ y-z,\\ 3x+z)$ לינארית. מהו הרכיב השני של $T(2,5,1)$ ?"
+     }
+    },
+    {
+     "id": "C01-Q3",
+     "step": {
+      "type": "numeric",
+      "prompt": "$T:\\mathbb{R}^2\\to\\mathbb{R}^2$ לינארית, $T(1,0)=(2,1)$ ו-$T(0,1)=(-1,3)$. מהו הרכיב הראשון של $T(3,2)$ ?"
+     }
+    },
+    {
+     "id": "C01-Q4",
+     "question": "איזו מהפונקציות הבאות היא העתקה לינארית $T:M_{2\\times2}(\\mathbb{R})\\to M_{2\\times2}(\\mathbb{R})$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T(A)=A+I$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T(A)=A^T$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T(A)=A^2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T(A)=(\\det A)\\cdot I$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q5",
+     "step": {
+      "type": "numeric",
+      "prompt": "עבור איזה ערך של $k$ ההעתקה $T(x,y)=(2x+k-3,\\ y)$ היא לינארית?"
+     }
+    },
+    {
+     "id": "C01-Q6",
+     "step": {
+      "type": "numeric",
+      "prompt": "$T:\\mathbb{R}^2\\to\\mathbb{R}^2$ לינארית, $T(1,1)=(3,0)$ ו-$T(1,-1)=(1,2)$. מהו הרכיב השני של $T(2,0)$ ?"
+     }
+    }
+   ]
+  },
+  {
+   "id": "C02",
+   "order": 2,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C02-Q1",
+     "step": {
+      "type": "numeric",
+      "prompt": "$T:\\mathbb{R}_3[x]\\to\\mathbb{R}^3$ מוגדרת על ידי $T(a+bx+cx^2+dx^3)=(a+2b,\\ 3c-d,\\ b+d)$. מהו האיבר בשורה $2$ ובעמודה $4$ של המטריצה הסטנדרטית?"
+     }
+    },
+    {
+     "id": "C02-Q2",
+     "question": "מהי המטריצה הסטנדרטית של $T:\\mathbb{R}_3[x]\\to\\mathbb{R}^3$, $T(a+bx+cx^2+dx^3)=(a+2b,\\ 3c-d,\\ b+d)$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&2&0&0\\\\0&0&3&-1\\\\0&1&0&1\\end{pmatrix}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&0&0\\\\2&0&1\\\\0&3&0\\\\0&-1&1\\end{pmatrix}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&2&0&0\\\\0&1&0&1\\\\0&0&3&-1\\end{pmatrix}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&2&0&0\\\\0&0&3&1\\\\0&1&0&1\\end{pmatrix}$"
+      }
+     ]
+    },
+    {
+     "id": "C02-Q3",
+     "step": {
+      "type": "numeric",
+      "prompt": "עבור ההעתקה $T(a+bx+cx^2+dx^3)=(a+2b,\\ 3c-d,\\ b+d)$, מהו הרכיב השלישי של $T(5-2x+x^2+4x^3)$ ?"
+     }
+    },
+    {
+     "id": "C02-Q4",
+     "question": "מהו וקטור הקואורדינטות של $\\begin{pmatrix}3&-1\\\\0&7\\end{pmatrix}$ בבסיס הסטנדרטי של $M_{2\\times2}(\\mathbb{R})$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(3,\\ -1,\\ 0,\\ 7)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(3,\\ 0,\\ -1,\\ 7)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(3,\\ 7,\\ -1,\\ 0)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(7,\\ 0,\\ -1,\\ 3)$"
+      }
+     ]
+    },
+    {
+     "id": "C02-Q5",
+     "step": {
+      "type": "numeric",
+      "prompt": "$S:M_{2\\times2}(\\mathbb{R})\\to\\mathbb{R}^4$ מוגדרת על ידי $S\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=(a+b,\\ b-c,\\ 2a+d,\\ c+3d)$. מהו הרכיב הרביעי של $S\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$ ?"
+     }
+    }
+   ]
+  },
+  {
+   "id": "C03",
+   "order": 3,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C03-Q1",
+     "step": {
+      "type": "numeric",
+      "prompt": "המטריצה הסטנדרטית של $T:\\mathbb{R}_3[x]\\to\\mathbb{R}^3$ היא $A=\\begin{pmatrix}1&2&1&0\\\\0&1&1&1\\\\1&3&2&1\\end{pmatrix}$. מהו $\\dim\\mathrm{Ker}\\,T$ ?"
+     }
+    },
+    {
+     "id": "C03-Q2",
+     "question": "אחד הווקטורים הבאים שייך לגרעין של ההעתקה שמטריצתה $A=\\begin{pmatrix}1&2&1&0\\\\0&1&1&1\\\\1&3&2&1\\end{pmatrix}$. איזה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(1,\\ -1,\\ 1,\\ 0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(1,\\ 1,\\ -1,\\ 0)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(-1,\\ 1,\\ 1,\\ 0)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(2,\\ 1,\\ 0,\\ -1)$"
+      }
+     ]
+    },
+    {
+     "id": "C03-Q3",
+     "step": {
+      "type": "numeric",
+      "prompt": "$T(x,y,z)=(x+2y+z,\\ 2x+y-z,\\ x-y-2z)$. הגרעין הוא קו ישר. לווקטור בגרעין שבו $z=3$ יש $y$ השווה ל:"
+     }
+    },
+    {
+     "id": "C03-Q4",
+     "question": "$T:\\mathbb{R}_3[x]\\to\\mathbb{R}^3$ עם מטריצה סטנדרטית $A=\\begin{pmatrix}1&2&1&0\\\\0&1&1&1\\\\1&3&2&1\\end{pmatrix}$. מהו בסיס של $\\mathrm{Ker}\\,T$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(1-x+x^2,\\ \\ 2-x+x^3\\right)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(1-x+x^3,\\ \\ 2-x+x^2\\right)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(1+x-x^2,\\ \\ 2+x-x^3\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left((1,-1,1,0),\\ (2,-1,0,1)\\right)$"
+      }
+     ]
+    },
+    {
+     "id": "C03-Q5",
+     "question": "$T:M_{2\\times2}(\\mathbb{R})\\to\\mathbb{R}^3$, $T\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=(a+b,\\ c+d,\\ a+b-c-d)$. מהו בסיס של $\\mathrm{Ker}\\,T$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(\\begin{pmatrix}1&-1\\\\0&0\\end{pmatrix},\\ \\begin{pmatrix}0&0\\\\1&-1\\end{pmatrix}\\right)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(\\begin{pmatrix}1&0\\\\-1&0\\end{pmatrix},\\ \\begin{pmatrix}0&1\\\\0&-1\\end{pmatrix}\\right)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(\\begin{pmatrix}1&1\\\\0&0\\end{pmatrix},\\ \\begin{pmatrix}0&0\\\\1&1\\end{pmatrix}\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(\\begin{pmatrix}1&-1\\\\1&-1\\end{pmatrix}\\right)$"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C04",
+   "order": 4,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C04-Q1",
+     "step": {
+      "type": "numeric",
+      "prompt": "המטריצה הסטנדרטית של $T$ היא $A=\\begin{pmatrix}1&2&0&3\\\\2&4&1&7\\\\3&6&1&10\\end{pmatrix}$. מהו $\\dim\\mathrm{Im}\\,T$ ?"
+     }
+    },
+    {
+     "id": "C04-Q2",
+     "question": "מהו בסיס של $\\mathrm{Im}\\,T$ עבור $A=\\begin{pmatrix}1&2&0&3\\\\2&4&1&7\\\\3&6&1&10\\end{pmatrix}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left((1,2,3),\\ (0,1,1)\\right)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left((1,0,0),\\ (0,1,0)\\right)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left((1,2,3),\\ (2,4,6)\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left((1,2,0,3),\\ (0,0,1,1)\\right)$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q3",
+     "question": "$T:\\mathbb{R}^3\\to M_{2\\times2}(\\mathbb{R})$, $T(x,y,z)=\\begin{pmatrix}x+y&y+z\\\\x-z&x+y\\end{pmatrix}$. מהו בסיס של $\\mathrm{Im}\\,T$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\\ \\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}\\right)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix},\\ \\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}\\right)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix}\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\\ \\begin{pmatrix}1&1\\\\0&1\\end{pmatrix},\\ \\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}\\right)$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q4",
+     "step": {
+      "type": "numeric",
+      "prompt": "$T(x,y,z)=(x+2y+z,\\ 2x+y-z,\\ x-y-2z)$. מהו $\\dim\\mathrm{Im}\\,T$ ?"
+     }
+    },
+    {
+     "id": "C04-Q5",
+     "question": "למה בסיס של $\\mathrm{Im}\\,T$ לוקחים מעמודות $A$ המקורית ולא מהמדורגת?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "פעולות שורה שומרות על התלות בין העמודות אבל משנות את העמודות עצמן, ולכן עמודות המדורגת לא בהכרח שייכות לתמונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "פעולות שורה משנות את התלות בין העמודות, ולכן מקומות הצירים משתנים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "עמודות המדורגת תמיד תלויות לינארית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין הבדל, אפשר לקחת כל אחת מהן"
+      }
+     ]
+    },
+    {
+     "id": "bank:22A-A-Q5a",
+     "bankId": "22A-A-Q5a"
+    }
+   ]
+  },
+  {
+   "id": "C05",
+   "order": 5,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C05-Q1",
+     "step": {
+      "type": "numeric",
+      "prompt": "$T:\\mathbb{R}^5\\to\\mathbb{R}^3$ לינארית ו-$\\dim\\mathrm{Im}\\,T=3$. מהו $\\dim\\mathrm{Ker}\\,T$ ?"
+     }
+    },
+    {
+     "id": "C05-Q2",
+     "question": "$T:\\mathbb{R}^4\\to\\mathbb{R}^3$ לינארית. איזו טענה נכונה בהכרח?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T$ לא חח״ע"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T$ לא על"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T$ חח״ע"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\mathrm{Ker}\\,T=\\{\\vec 0\\}$"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q3",
+     "question": "$T:\\mathbb{R}_1[x]\\to\\mathbb{R}^4$ לינארית. איזו טענה נכונה בהכרח?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T$ לא על"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T$ לא חח״ע"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T$ על"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\dim\\mathrm{Ker}\\,T=2$"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q4",
+     "question": "$T:\\mathbb{R}_3[x]\\to\\mathbb{R}^3$ עם $\\dim\\mathrm{Ker}\\,T=2$ ו-$\\dim\\mathrm{Im}\\,T=2$. מה נכון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T$ לא חח״ע ולא על"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T$ חח״ע ולא על"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T$ לא חח״ע אבל על"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T$ חח״ע ועל"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q5",
+     "question": "$\\dim\\mathrm{Im}\\,T=2$ ו-$\\dim W=3$. איזה נימוק מוכיח ש-$T$ לא על?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\dim\\mathrm{Im}\\,T=2<3=\\dim W$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\dim\\mathrm{Ker}\\,T\\neq0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\dim\\mathrm{Im}\\,T\\neq\\dim V$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T$ לא חח״ע"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q6",
+     "step": {
+      "type": "numeric",
+      "prompt": "$T:M_{2\\times2}(\\mathbb{R})\\to\\mathbb{R}_3[x]$ לינארית וחח״ע. מהו $\\dim\\mathrm{Im}\\,T$ ?"
+     }
+    },
+    {
+     "id": "bank:24A-A-Q5b",
+     "bankId": "24A-A-Q5b"
+    }
+   ]
+  },
+  {
+   "id": "C06",
+   "order": 6,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C06-Q1",
+     "step": {
+      "type": "numeric",
+      "prompt": "בסיס של $\\mathrm{Im}\\,T$ הוא $(1,0,1,2),\\ (0,1,1,1)$. לאיזה $k$ מתקיים $(2,3,k,m)\\in\\mathrm{Im}\\,T$ עבור $m$ מתאים?"
+     }
+    },
+    {
+     "id": "C06-Q2",
+     "step": {
+      "type": "numeric",
+      "prompt": "באותו בסיס של $\\mathrm{Im}\\,T$, $(1,0,1,2),\\ (0,1,1,1)$. לאיזה $m$ מתקיים $(2,3,k,m)\\in\\mathrm{Im}\\,T$ (עבור $k$ מתאים)?"
+     }
+    },
+    {
+     "id": "C06-Q3",
+     "step": {
+      "type": "numeric",
+      "prompt": "באותו בסיס, לאיזה $p$ מתקיים $(3,4,7,p)\\in\\mathrm{Im}\\,T$ ?"
+     }
+    },
+    {
+     "id": "C06-Q4",
+     "question": "באותו בסיס של $\\mathrm{Im}\\,T$, $(1,0,1,2),\\ (0,1,1,1)$. עבור אילו $m$ מתקיים $(1,2,5,m)\\in\\mathrm{Im}\\,T$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לאף $m$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$m=4$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$m=5$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לכל $m$"
+      }
+     ]
+    },
+    {
+     "id": "C06-Q5",
+     "step": {
+      "type": "numeric",
+      "prompt": "בסיס של $\\mathrm{Ker}\\,T\\subseteq\\mathbb{R}_3[x]$ הוא $\\left(1-x+x^2,\\ \\ 2-x+x^3\\right)$. הפולינום $4-3x+ax^2+bx^3$ שייך לגרעין. מהו $a$ ?"
+     }
+    },
+    {
+     "id": "C06-Q6",
+     "step": {
+      "type": "numeric",
+      "prompt": "באותו גרעין, הפולינום $4-3x+ax^2+bx^3$ שייך לגרעין. מהו $b$ ?"
+     }
+    },
+    {
+     "id": "bank:25A-A-Q5c",
+     "bankId": "25A-A-Q5c"
+    }
+   ]
+  },
+  {
+   "id": "C07",
+   "order": 7,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C07-Q1",
+     "step": {
+      "type": "numeric",
+      "prompt": "$T(x,y)=(2x+y,\\ x+3y)$, $B=\\big((1,0),(1,1)\\big)$, $C=\\big((1,1),(0,1)\\big)$. מהו האיבר בשורה $2$ ועמודה $1$ של $[T]_C^B$ ?"
+     }
+    },
+    {
+     "id": "C07-Q2",
+     "step": {
+      "type": "numeric",
+      "prompt": "באותה העתקה ובאותם בסיסים, מהו האיבר בשורה $2$ ועמודה $2$ של $[T]_C^B$ ?"
+     }
+    },
+    {
+     "id": "C07-Q3",
+     "question": "באותה העתקה ובאותם בסיסים, מהי $[T]_C^B$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\begin{pmatrix}2&3\\\\-1&1\\end{pmatrix}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\begin{pmatrix}2&-1\\\\3&1\\end{pmatrix}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\begin{pmatrix}2&3\\\\1&4\\end{pmatrix}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\begin{pmatrix}3&2\\\\1&-1\\end{pmatrix}$"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q4",
+     "step": {
+      "type": "numeric",
+      "prompt": "$B=\\big((1,0),(1,1)\\big)$, $C=\\big((1,1),(0,1)\\big)$. מהו האיבר בשורה $2$ ועמודה $1$ של מטריצת המעבר $[I]_C^B$ ?"
+     }
+    },
+    {
+     "id": "C07-Q5",
+     "question": "בהינתן הבסיסים $B$ ו-$C$ ב-$\\mathbb{R}^2$ והמטריצה הסטנדרטית $A=[T]_E^E$, מהי הנוסחה הנכונה ל-$[T]_C^B$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\big([I]_E^C\\big)^{-1}\\,A\\,[I]_E^B$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$[I]_E^C\\,A\\,\\big([I]_E^B\\big)^{-1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\big([I]_E^B\\big)^{-1}\\,A\\,[I]_E^C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$[I]_E^B\\,A\\,[I]_E^C$"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q6",
+     "step": {
+      "type": "numeric",
+      "prompt": "עם $[T]_C^B=\\begin{pmatrix}2&3\\\\-1&1\\end{pmatrix}$ ווקטור $v$ שקואורדינטותיו לפי $B$ הן $(2,1)$. מהו הרכיב הראשון של $[T(v)]_C$ ?"
+     }
+    },
+    {
+     "id": "bank:23B-B-Q5e",
+     "bankId": "23B-B-Q5e"
+    }
+   ]
+  },
+  {
+   "id": "C08",
+   "order": 8,
+   "boss": true,
+   "questions": [
+    {
+     "id": "bank:23A-A-Q5a",
+     "bankId": "23A-A-Q5a"
+    },
+    {
+     "id": "bank:23A-A-Q5b",
+     "bankId": "23A-A-Q5b"
+    },
+    {
+     "id": "bank:25A-A-Q5a",
+     "bankId": "25A-A-Q5a"
+    },
+    {
+     "id": "bank:24A-A-Q5c",
+     "bankId": "24A-A-Q5c"
+    },
+    {
+     "id": "bank:25B-A-Q5c",
+     "bankId": "25B-A-Q5c"
+    },
+    {
+     "id": "bank:23A-A-Q5d",
+     "bankId": "23A-A-Q5d"
+    }
+   ]
+  }
+ ]
+}
