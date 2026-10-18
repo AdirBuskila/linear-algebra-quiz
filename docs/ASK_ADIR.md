@@ -4,6 +4,12 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 
 ## Open
 
+Action needed (short list):
+1. 21A-A Q3 ב (p.2-3): held. The exam prints a=2 where A is singular, so A^-1 does not exist; the official file belongs to a version without this part. Needed: the intended a, or confirm it stays out.
+2. 21A-A and 21A-B were shipped from solver-written answers (no key exists); 20A-A has no key file (the 14pp file in its folder is 21A-A's key). Needed: only if Adir has a real key for any of these.
+3. 24A-B and 23B-A do not exist in the source folders (nothing to transcribe).
+4. QA found no other open items; the FYI entries below need no action.
+
 <!-- Entry format:
 ### <exam code> Q<number> - <short title>
 - Path: <absolute file path>

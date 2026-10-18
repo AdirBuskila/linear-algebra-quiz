@@ -261,7 +261,7 @@
     const hasReal = APP.topicCount(C.meta.topic) > 0;
     $("#crsSum").innerHTML =
       `<div class="q-head" style="justify-content:center"><span class="chip">${esc(levelName(L))}</span></div>` +
-      `<div class="big">${pct}%</div><div><b>${correct} / ${total}</b> תשובות נכונות</div>` +
+      `<div class="big">${pct}%</div><div><b><bdi dir="ltr">${correct} / ${total}</bdi></b> תשובות נכונות</div>` +
       `<p class="msg">${ok ? (L.boss ? `🏆 עברת את מבחן הגמר של ${esc(C.meta.titleHe)}` : "✓ עברת את השלב! אפשר להתקדם.") :
         `עוד לא ${PASS}%. כדאי לקרוא שוב את השיעור ולנסות שוב, זה בדיוק השלב שבו זה נבנה.`}</p>` +
       (wrong.length ? `<div class="crs-review"><div class="crs-review-t">כדאי לחזור על:</div>${

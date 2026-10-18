@@ -459,6 +459,31 @@ def check_question(code, q, ctxs, P, W, root):
         W(f"{qid}: confidence low")
 
 
+BIDI_FACT = re.compile(r"(?<![A-Za-z0-9_])(?:[0-9]+|[A-Za-z])!(?!=)")
+BIDI_CHAIN = re.compile(r"(?<![A-Za-z0-9_])[0-9A-Za-z()]+(?:\s*[·×]\s*[0-9A-Za-z()]+!?)+")
+
+
+def bidi_lint(data, code):
+    """Warnings (never problems) for digit+"!" (a factorial) or a product chain (a middle dot or x between digits)
+    written OUTSIDE $...$ in raw text. The open renderer (Bidi in normalize.js) isolates both correctly, but math mode
+    ($4!$ or a LaTeX cdot product) is the intended form and always renders right. Message prefix: "bidi:"."""
+    out = []
+    for path, text in _strings(data, ""):
+        if not isinstance(text, str) or not (re.search(r"[0-9A-Za-z]!", text) or re.search(r"[·×]", text)):
+            continue
+        for fk, fp in split_fences(text):
+            if fk != "text":
+                continue
+            for part in TOKEN.split(fp):
+                if part.startswith("$") or part.startswith("`"):
+                    continue
+                part = "\n".join(ln for ln in part.split("\n") if not IMG_LINE.match(ln))
+                hits = [m.group(0).strip() for m in BIDI_FACT.finditer(part)] + [m.group(0).strip() for m in BIDI_CHAIN.finditer(part)]
+                for h in hits[:3]:
+                    out.append(f"bidi: {code} {path}: '{h}' outside $...$ (wrap it in math mode)")
+    return out
+
+
 def check_file(fp):
     """Returns (problems, warnings, n_questions, by_topic Counter)."""
     problems, warns = [], []
@@ -499,6 +524,7 @@ def check_file(fp):
                 for x in rich_problems(c[k], f"{w} {k}"):
                     P(x)
     problems += redact_problems(data, code, lambda q: question_id(code, q), load_redact())
+    warns += bidi_lint(data, code)
     qs = data.get("questions")
     if not isinstance(qs, list) or not qs:
         P(f"{code}: no questions")
@@ -537,6 +563,7 @@ def main():
         print(f"{fp.stem}: {n} questions, {len(p)} problems")
     print(f"\nTOTAL: {total} questions across {len(files)} files")
     print("by topic:", dict(topics))
+    print("bidi lint hits (factorial / product chain outside $..$):", sum(1 for x in all_w if x.startswith("bidi:")))
     if all_w:
         print(f"\nWARNINGS ({len(all_w)}):")
         for x in all_w:

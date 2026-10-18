@@ -39,24 +39,40 @@
      labelLines: a line that starts with a Latin option label ("a." / "(b)" / "1)") gets the label, punctuation
                  included, in its own LTR isolate, so it sits at the start (right edge) with the period right after the letter.
      mathRuns:   inline formulas chained by punctuation become one LTR isolate; line-final punctuation stays with its formula.
-     isolate:    every other non-Hebrew run holding a digit or Latin letter becomes an LTR <bdi>.
+     isolate:    every other non-Hebrew run holding a digit or Latin letter becomes an LTR <bdi>: "4!" keeps its "!", a product/arithmetic
+                 chain (· × + − = /) is one run, a bracket whose partner is outside the run stays outside (so it mirrors as a pair in RTL),
+                 sentence-final . , ? : stay outside at the RTL end.
      <pre>, <code>, MathML, formulas and existing LTR isolates are never touched. Idempotent. */
   const B_INLINE = /^<\/?(b|strong|i|em|u|sub|sup|code)\b[^>]*>$/i;
   const B_SKIP = /^<(code|bdi|pre|math)\b|class="[^"]*\b(lesson-formula|qref|math-inline|math-block|math-run|opt-ltr)\b|\bdir="ltr"/i;
   const B_START = /[A-Za-z0-9$"(\[|\u221a\u2016\u03a3\u2211\u2212\u0177\u0233\u03b1-\u03c9\u0394\u03b8]/;
   const B_END = /[A-Za-z0-9)\]|\u00b2\u00b3\u2016%\u221e'"\u2080-\u2089\u1d62\u2c7c\u2099\u2096\u0177\u0233\u0304\u03b1-\u03c9]/;
-  const bIsTag = p => p[0] === "<", bChr = p => (bIsTag(p) || p[0] === "&" && p.length > 1) ? "" : p;
+  const B_OP = /^[·×+−=\/*…]$/;      // · × + − = / * …  (the ASCII hyphen is not one: "ו-y")
+  const bIsTag =p => p[0] === "<", bChr = p => (bIsTag(p) || p[0] === "&" && p.length > 1) ? "" : p;
   function isolate(html) {
     const toks = String(html).match(/<[^>]+>|[^<]+/g) || [];
     let out = "", run = [], skip = 0;
-    const flush = () => {
-      if (!run.length) return;
-      const s = run.join("");
-      const parts = s.match(/<[^>]+>|&[#\w]+;|[^<]/g);   // a tag or an entity (&gt;) is one unit
+    const emit = parts => {
+      if (!parts.length) return "";
+      const s = parts.join("");
+      { const st = [];                                                 // a bracket whose partner is outside this run stays outside, so it pairs with it in RTL
+        for (let i = 0; i < parts.length; i++) { const c = bChr(parts[i]);
+          if (c === "(" || c === "[") st.push([i, c]);
+          else if (c === ")" || c === "]") { const top = st[st.length - 1];
+            if (top && top[1] === (c === ")" ? "(" : "[")) st.pop(); else return emit(parts.slice(0, i)) + parts[i] + emit(parts.slice(i + 1)); } }
+        if (st.length) { const i = st[st.length - 1][0]; return emit(parts.slice(0, i)) + parts[i] + emit(parts.slice(i + 1)); } }
       let a = 0, b = parts.length - 1;
       while (a <= b && !B_START.test(bChr(parts[a]))) a++;
       while (b >= a && !B_END.test(bChr(parts[b]))) b--;
-      { const tail = parts.slice(b + 1).join(""); if (b >= a && /^[,;]?\s*(\.\.\.|\u2026)$/.test(tail)) b = parts.length - 1; }   // a trailing ellipsis stays with its list
+
+      if (a <= b) {
+        while (b + 1 < parts.length && bChr(parts[b + 1]) === "!" && /[A-Za-z0-9)\]]/.test(bChr(parts[b]))) b++;   // factorial: "4!" stays one run
+        for (let j = a; j > 0;) { let k = j - 1; while (k >= 0 && /^\s$/.test(parts[k])) k--;                       // arithmetic chain: leading operators join the run
+          if (k >= 0 && B_OP.test(bChr(parts[k]))) { a = k; j = k; } else break; }
+        for (let j = b; j < parts.length - 1;) { let k = j + 1; while (k < parts.length && /^\s$/.test(parts[k])) k++;  // ... and so do trailing ones
+          if (k < parts.length && B_OP.test(bChr(parts[k]))) { b = k; j = k; } else break; }
+      }
+      { const tail = parts.slice(b + 1).join(""); if (b >= a && /^[,;]?\s*(\.\.\.|…)$/.test(tail)) b = parts.length - 1; }   // a trailing ellipsis stays with its list
       while (a > 0 && bIsTag(parts[a - 1]) && !/^<\//.test(parts[a - 1])) a--;     // pull in tags hugging the core: <b>3</b>
       while (b < parts.length - 1 && /^<\//.test(parts[b + 1])) b++;
       const core = parts.slice(a, b + 1), st = [];
@@ -64,9 +80,9 @@
       for (const t of core) { if (!bIsTag(t) || !ok) continue;
         const m = t.match(/^<(\/?)(\w+)/); if (m[1]) { if (st.pop() !== m[2].toLowerCase()) ok = false; } else st.push(m[2].toLowerCase()); }
       if (ok && st.length) ok = false;
-      out += ok ? parts.slice(0, a).join("") + `<bdi class="ltr${core.join("").replace(/<[^>]+>/g, "").length <= 22 ? " nw" : ""}" dir="ltr">${core.join("")}</bdi>` + parts.slice(b + 1).join("") : s;
-      run = [];
+      return ok ? parts.slice(0, a).join("") + `<bdi class="ltr${core.join("").replace(/<[^>]+>/g, "").length <= 22 ? " nw" : ""}" dir="ltr">${core.join("")}</bdi>` + parts.slice(b + 1).join("") : s;
     };
+    const flush = () => { if (run.length) out += emit(run.join("").match(/<[^>]+>|&[#\w]+;|[^<]/g)); run = []; };
     for (const t of toks) {
       if (t[0] === "<") {
         if (skip) { out += t; if (/^<\//.test(t)) skip--; else if (!/\/>$|^<(br|img|hr|wbr)\b/i.test(t)) skip++; continue; }
@@ -75,8 +91,8 @@
         flush(); out += t; continue;
       }
       if (skip) { out += t; continue; }
-      for (const piece of t.match(/[\u0590-\u05FF]+|[^\u0590-\u05FF]+/g)) {          // Hebrew text ends a run
-        if (/[\u0590-\u05FF]/.test(piece)) { flush(); out += piece; } else run.push(piece);
+      for (const piece of t.match(/[֐-׿]+|[^֐-׿]+/g)) {          // Hebrew text ends a run
+        if (/[֐-׿]/.test(piece)) { flush(); out += piece; } else run.push(piece);
       }
     }
     flush();

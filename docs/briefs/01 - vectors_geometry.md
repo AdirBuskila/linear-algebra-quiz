@@ -8,7 +8,7 @@
 - **מכפלה סקלרית**: $\vec u\cdot\vec v=u_1v_1+u_2v_2+u_3v_3=\|\vec u\|\|\vec v\|\cos\theta$. התוצאה מספר.
 - $\vec u\perp\vec v$ אם ורק אם $\vec u\cdot\vec v=0$.
 - **מכפלה וקטורית** (רק ב-$\mathbb{R}^3$):
-$$\vec u\times\vec v=\begin{vmatrix}\hat\imath&\hat\jmath&\hat k \ u_1&u_2&u_3 \ v_1&v_2&v_3\end{vmatrix}=(u_2v_3-u_3v_2,\ u_3v_1-u_1v_3,\ u_1v_2-u_2v_1)$$
+$$\vec u\times\vec v=\begin{vmatrix}\hat\imath&\hat\jmath&\hat k \\ u_1&u_2&u_3 \\ v_1&v_2&v_3\end{vmatrix}=(u_2v_3-u_3v_2,\ u_3v_1-u_1v_3,\ u_1v_2-u_2v_1)$$
 התוצאה וקטור, ניצב גם ל-$\vec u$ וגם ל-$\vec v$.
 - $\vec u\times\vec v=-\vec v\times\vec u$, ו-$\vec u\times\vec v=\vec 0$ אם ורק אם הווקטורים מקבילים.
 - $\|\vec u\times\vec v\|=\|\vec u\|\|\vec v\|\sin\theta$ הוא שטח המקבילית שהם פורשים. שטח המשולש הוא חצי מזה.
