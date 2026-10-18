@@ -43,4 +43,32 @@ assert.strictEqual(B.render(math), math);
 assert.strictEqual(B.render("שלום עולם."), "שלום עולם.");
 assert.ok(!B.render("e.g. משהו").includes("opt-label"), "e.g. is not an option label");
 
+// plain-text factorial: the "!" stays inside the LTR isolate (it used to render "!4")
+assert.strictEqual(B.render("יש 4! אפשרויות"), `יש ${ltr("4!")} אפשרויות`);
+assert.strictEqual(B.render("לחשב 2·5! במקום 2·4!, כי"), `לחשב ${ltr("2·5!")} במקום ${ltr("2·4!")}, כי`);
+assert.strictEqual(B.render("יש n! אפשרויות"), `יש ${ltr("n!")} אפשרויות`);
+// product / arithmetic chains are one isolate, leading and trailing operators included; a sentence-final period stays outside
+assert.strictEqual(B.render("שווה …=120.·6·5·4 ועוד"), `שווה ${ltr("…=120.·6·5·4")} ועוד`);
+assert.strictEqual(B.render("סה\"כ x + y = z יוצא"), `סה"כ ${ltr("x + y = z")} יוצא`);
+assert.strictEqual(B.render("התוצאה היא 5."), `התוצאה היא ${ltr("5")}.`);
+assert.strictEqual(B.render("יש 6·5·4."), `יש ${ltr("6·5·4")}.`);
+// a ? or : after a digit stays outside, at the RTL end
+assert.strictEqual(B.render("מתחילות ב: 1 או ב: 2?"), `מתחילות ב: ${ltr("1")} או ב: ${ltr("2")}?`);
+assert.strictEqual(B.render("הערך 3:"), `הערך ${ltr("3")}:`);
+// brackets: an all-LTR pair travels with its content; a pair that spans Hebrew stays outside so it mirrors as a pair
+assert.strictEqual(B.render("הערך (n+1) הוא"), `הערך ${ltr("(n+1)")} הוא`);
+assert.strictEqual(B.render("מתקיים [1,2,3] כך"), `מתקיים ${ltr("[1,2,3]")} כך`);
+assert.strictEqual(B.render("כל תמורה: [אות ראשונה: 1 או 2] ואחריה"), `כל תמורה: [אות ראשונה: ${ltr("1")} או ${ltr("2")}] ואחריה`);
+assert.strictEqual(B.render("P(n,m) (0 אם m>n)"), `${ltr("P(n,m)")} (${ltr("0")} אם ${ltr("m>n")})`);
+// a Hebrew prefix letter before inline math stays outside the formula (RTL start)
+assert.strictEqual(B.render(`אז ${f} ו-${f} הם`), `אז ${f} ו-${f} הם`);
+assert.strictEqual(B.render("אז ו-x הם"), `אז ו-${ltr("x")} הם`);
+assert.strictEqual(B.render("אז ב-3 ול-n"), `אז ב-${ltr("3")} ול-${ltr("n")}`);
+// question-id chips (isolated LTR buttons) inside parentheses are left alone
+const chip = id => `<button type="button" class="qref" data-q="${id}">${id}</button>`;
+assert.strictEqual(B.render(`ראו (${chip("19A-A-Q1a")}), ועוד`), `ראו (${chip("19A-A-Q1a")}), ועוד`);
+assert.strictEqual(B.render(`דומה (${chip("22A-A-Q2c")}, ${chip("22A-B-Q1b")}).`), `דומה (${chip("22A-A-Q2c")}, ${chip("22A-B-Q1b")}).`);
+// idempotent on the new cases
+for (const s of ["יש 4! אפשרויות", "שווה …=120.·6·5·4 ועוד", "P(n,m) (0 אם m>n)", "[אות ראשונה: 1 או 2] ואחריה"]) assert.strictEqual(B.render(B.render(s)), B.render(s));
+
 console.log("test_bidi: ok");
