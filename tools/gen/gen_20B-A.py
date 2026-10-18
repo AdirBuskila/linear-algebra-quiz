@@ -384,7 +384,7 @@ ENR[(1, "א")] = dict(
                (r"$\overrightarrow{M_1M_2}=M_2-M_1=(-1,1,-2)$", 1),
                (r"הדטרמיננטה של $\overrightarrow{M_1M_2},\vec a_1,\vec a_2$ שווה $3k+3$", 2),
                (r"$k=-1$", 1)),
-    pitfalls=[r"לחשב $\overrightarrow{M_1M_2}$ בטעות (למשל $(-1,3,-2)$) ולקבל $k=-4$.",
+    pitfalls=[r"לחשב $\overrightarrow{M_1M_2}$ בטעות (למשל $(-1,3,-2)$): הדטרמיננטה היא אז $3k+9$ ומתקבל $k=-3$ במקום $k=-1$.",
               r"לשכוח לוודא שהכיוונים אינם מקבילים."],
     steps=[
         cho(r"מהו התנאי לכך ששני ישרים במרחב נחתכים?", r"הכיוונים אינם מקבילים והווקטורים $\vec a_1,\vec a_2,\overrightarrow{M_1M_2}$ באותו מישור (דטרמיננטה אפס)",
@@ -400,7 +400,7 @@ ENR[(1, "ב")] = dict(
                (r"המכפלה הווקטורית $\vec a_1\times\vec a_2=(0,3,-3)$", 2),
                (r"המכפלה המעורבת $\left(\vec a_1\times\vec a_2\right)\cdot\overrightarrow{M_1M_2}=9$", 1),
                (r"$d=\frac{9}{3\sqrt2}=\frac{3\sqrt2}{2}$", 2)),
-    pitfalls=[r"להשתמש בוקטור $\overrightarrow{M_1M_2}$ שגוי ולקבל $3\sqrt2$.",
+    pitfalls=[r"להשתמש בוקטור $\overrightarrow{M_1M_2}$ שגוי, למשל $(-1,3,-2)$: המכפלה המעורבת היא אז $15$ ומתקבל $\frac{5\sqrt2}{2}$ במקום $\frac{3\sqrt2}{2}$.",
               r"לשכוח את הערך המוחלט או לחלק באורך הווקטור $\overrightarrow{M_1M_2}$ במקום באורך המכפלה הווקטורית."],
     steps=[
         cho(r"איזו נוסחה נותנת את המרחק בין שני ישרים מצטלבים?", r"$\frac{\left|\left(\vec a_1\times\vec a_2\right)\cdot\overrightarrow{M_1M_2}\right|}{\left\|\vec a_1\times\vec a_2\right\|}$",
@@ -725,7 +725,8 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    src = "ai-draft" if (q["num"], q["part"]) == (1, "ד") else "ai-verified"  # Q1d: solver-written, not yet refuted
+    q.update(rubric=e["rubric"], rubricSource=src, pitfalls=e["pitfalls"], steps=e["steps"], stepsSource=src)
 
 
 exam = {

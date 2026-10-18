@@ -173,7 +173,8 @@ questions.append(Q(
     J(r"אם $\mathbf{v}$ ו-$\mathbf{w}$ הם וקטורים עצמיים המתאימים אל אותו ערך עצמי, אז",
       r"$$\begin{cases}A\mathbf{v}=\lambda\mathbf{v}\\A\mathbf{w}=\lambda\mathbf{w}\end{cases}$$",
       r"לכן נקבל שמתקיים",
-      r"$$A(c\mathbf{v}+d\mathbf{w})=c(A\mathbf{v})+d(A\mathbf{w})=c\lambda\mathbf{v}+d\lambda\mathbf{w}=\lambda(c\mathbf{v}+d\mathbf{w})$$"),
+      r"$$A(c\mathbf{v}+d\mathbf{w})=c(A\mathbf{v})+d(A\mathbf{w})=c\lambda\mathbf{v}+d\lambda\mathbf{w}=\lambda(c\mathbf{v}+d\mathbf{w})$$",
+      r"הערה: וקטור עצמי חייב להיות שונה מאפס, ולכן הטענה נכונה בתנאי ש-$c\mathbf{v}+d\mathbf{w}\neq\mathbf{0}$ (אם למשל $\mathbf{w}=-\mathbf{v}$ ו-$c=d$ הצירוף הוא $\mathbf{0}$). הפתרון הרשמי אינו מציין תנאי זה."),
     5))
 
 questions.append(Q(
@@ -182,7 +183,8 @@ questions.append(Q(
     J(r"אם $\mathbf{v}$ ו-$\mathbf{w}$ הם וקטורים עצמיים המתאימים לערכים העצמיים השונים, אז",
       r"$$\begin{cases}A\mathbf{v}=\lambda_1\mathbf{v}\\A\mathbf{w}=\lambda_2\mathbf{w}\end{cases}$$",
       r"ולכן",
-      r"$$A(c\mathbf{v}+d\mathbf{w})=c(A\mathbf{v})+d(A\mathbf{w})=c\lambda_1\mathbf{v}+d\lambda_2\mathbf{w}\neq\lambda(c\mathbf{v}+d\mathbf{w})$$"),
+      r"$$A(c\mathbf{v}+d\mathbf{w})=c(A\mathbf{v})+d(A\mathbf{w})=c\lambda_1\mathbf{v}+d\lambda_2\mathbf{w}\neq\lambda(c\mathbf{v}+d\mathbf{w})$$",
+      r"הערה: האי-שוויון נובע מאי-התלות. וקטורים עצמיים של ערכים עצמיים שונים בלתי תלויים, ולכן $c\mathbf{v}+d\mathbf{w}\neq\mathbf{0}$ (כי $c,d\neq0$). אילו היה $c\lambda_1\mathbf{v}+d\lambda_2\mathbf{w}=\lambda(c\mathbf{v}+d\mathbf{w})$ אז $c(\lambda_1-\lambda)\mathbf{v}+d(\lambda_2-\lambda)\mathbf{w}=\mathbf{0}$, ומאי-התלות $\lambda=\lambda_1$ וגם $\lambda=\lambda_2$, בסתירה ל-$\lambda_1\neq\lambda_2$."),
     5))
 
 # ------------------------------------------------------------------ Q4
@@ -364,7 +366,7 @@ ENR[(1, "ב")] = dict(
     steps=[
         cho(r"מהו וקטור נורמלי למישור המכיל את שני הישרים?", r"$\vec m_1\times\vec m_2$, כי הוא ניצב לשני וקטורי הכיוון",
             [r"$\vec m_1$", r"$\overrightarrow{P_1P_2}$", r"$\vec m_1+\vec m_2$"],
-            r"עבור $a=2$ הווקטורים $\vec m_1=(2,-2,-5)$, $\overrightarrow{P_1P_2}=(-1,1,1)$ ו-$\vec m_1+\vec m_2=(4,-4,-6)$ אינם ניצבים ל-$\vec m_1$ (המכפלות הסקלריות $18,\ -9,\ 42$)."),
+            r"עבור $a=2$ הווקטורים $\vec m_1=(2,-2,-5)$, $\overrightarrow{P_1P_2}=(-1,1,1)$ ו-$\vec m_1+\vec m_2=(4,-4,-6)$ אינם ניצבים ל-$\vec m_1$ (המכפלות הסקלריות $33,\ -9,\ 46$)."),
         num(r"מהו הרכיב הראשון של $\vec n=\vec m_1\times\vec m_2$ עבור $a=2$?", -8, r"$a-10=-8$."),
         num(r"המישור $-8x-8y+D=0$ עובר דרך $(2,1,1)$. מהו $D$?", 24, r"$-16-8+D=0$."),
     ])
@@ -431,7 +433,7 @@ ENR[(2, "ד")] = dict(
     rubric=rub((r"הצבת $k=i$ בצורה המדורגת", 1),
                (r"פתרון $z=1-i$ מהשורה השלישית", 2),
                (r"פתרון $y=2-i$ ו-$x=-1$ בהצבה לאחור", 2)),
-    pitfalls=[r"טעות באריתמטיקה מרוכבת: $(i-1)(1-i)=2i$.",
+    pitfalls=[r"טעות סימן בחישוב $(i-1)(1-i)=-(1-i)^2=2i$: קבלת $-2i$ מובילה ל-$y=2+i$ במקום $y=2-i$.",
               r"לשכוח ש-$i^2=-1$."],
     steps=[
         num(r"מהו החלק הממשי של $z=\frac{2-2i}{2}$?", 1, r"$z=1-i$."),
@@ -686,7 +688,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

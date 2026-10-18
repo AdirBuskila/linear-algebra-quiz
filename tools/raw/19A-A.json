@@ -68,7 +68,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבדוק שהכיוונים אינם מקבילים לפני שמסיקים חיתוך מ-$V=0$.",
     "טעות סימן ברכיב $j$ של המכפלה הווקטורית."
@@ -124,7 +124,7 @@
      "explain": "$a-10=-10$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -152,7 +152,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את אחד מוקטורי הכיוון בתור וקטור נורמלי.",
     "להציב נקודה שאינה על הישר ולקבל קבוע $D$ שגוי."
@@ -184,7 +184,7 @@
       }
      ],
      "correctId": "b",
-     "explain": "עבור $a=2$ הווקטורים $\\vec m_1=(2,-2,-5)$, $\\overrightarrow{P_1P_2}=(-1,1,1)$ ו-$\\vec m_1+\\vec m_2=(4,-4,-6)$ אינם ניצבים ל-$\\vec m_1$ (המכפלות הסקלריות $18,\\ -9,\\ 42$)."
+     "explain": "עבור $a=2$ הווקטורים $\\vec m_1=(2,-2,-5)$, $\\overrightarrow{P_1P_2}=(-1,1,1)$ ו-$\\vec m_1+\\vec m_2=(4,-4,-6)$ אינם ניצבים ל-$\\vec m_1$ (המכפלות הסקלריות $33,\\ -9,\\ 46$)."
     },
     {
      "type": "numeric",
@@ -201,7 +201,7 @@
      "explain": "$-16-8+D=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -233,7 +233,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק באורך $\\overrightarrow{P_1P_2}$ במקום באורך המכפלה הווקטורית.",
     "להסיק מ-$\\vec m_1\\cdot\\vec m_2\\neq0$ שהישרים מצטלבים."
@@ -289,7 +289,7 @@
      "explain": "$\\frac{8}{10.954}\\approx0.7303$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -321,7 +321,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$(k+1)$ בלי לבדוק את המקרה $k=-1$.",
     "טעות בעמודה האחרונה בפעולה $2R_2-R_3$."
@@ -349,7 +349,7 @@
      "explain": "האיבר הוא $(1-k)(1+k)=(-2)(4)=-8$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -377,7 +377,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין $k=1$ (אינסוף פתרונות) ל-$k=-1$ (אין פתרון).",
     "להסיק 'אין פתרון' רק מכך שמתאפס האיבר המוביל, בלי לבדוק את אגף ימין."
@@ -433,7 +433,7 @@
      "explain": "ב-$k=1$ יש אינסוף פתרונות (הדרגות שוות 2), ב-$k=0$ הדרגה 3 ולכן פתרון יחיד. רק ב-$k=-1$ הדרגות שונות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -461,7 +461,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהמשתנה החופשי הוא $z$ ולא $y$.",
     "טעות סימן ב-$x=-t$."
@@ -510,7 +510,7 @@
      "explain": "וקטור כיוון פותר את המערכת ההומוגנית: $y=0$ ו-$x+z=0$. $(0,2,0)$ ו-$(-1,2,1)$ מפרים $y=0$, ו-$(1,0,1)$ מפר $x+z=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -538,9 +538,9 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
-    "טעות באריתמטיקה מרוכבת: $(i-1)(1-i)=2i$.",
+    "טעות סימן בחישוב $(i-1)(1-i)=-(1-i)^2=2i$: קבלת $-2i$ מובילה ל-$y=2+i$ במקום $y=2-i$.",
     "לשכוח ש-$i^2=-1$."
    ],
    "steps": [
@@ -566,7 +566,7 @@
      "explain": "$(i-1)(1-i)=2i$, ולכן $y=2-i$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -594,7 +594,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $B=EFGR$ עם מטריצות פעולות השורה עצמן (מתקבל $EFGB=R$).",
     "להפוך פעולה בסימן שגוי."
@@ -650,7 +650,7 @@
      "explain": "ההופכית היא $R_3+R_2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -681,7 +681,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבדוק ש-$c\\mathbf{x}$ שונה מאפס.",
     "לכתוב $A(c\\mathbf{x})=(c+\\lambda)\\mathbf{x}$."
@@ -739,7 +739,7 @@
      "explain": "מציבים $A\\mathbf{x}=\\lambda\\mathbf{x}$ ומקבלים $c\\lambda\\mathbf{x}$, מכפלה ולא סכום."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -748,7 +748,7 @@
    "topic": "eigen_diagonalization",
    "points": 5,
    "question": "הוכח שאם $\\mathbf{v}$ ו-$\\mathbf{w}$ הם וקטורים עצמיים המתאימים אל אותו ערך עצמי, אז כל צירוף ליניארי $c\\mathbf{v}+d\\mathbf{w}$ ($c\\neq0,\\ d\\neq0$) גם מהווה וקטור עצמי של $A$.",
-   "solution": "אם $\\mathbf{v}$ ו-$\\mathbf{w}$ הם וקטורים עצמיים המתאימים אל אותו ערך עצמי, אז\n$$\\begin{cases}A\\mathbf{v}=\\lambda\\mathbf{v}\\\\A\\mathbf{w}=\\lambda\\mathbf{w}\\end{cases}$$\nלכן נקבל שמתקיים\n$$A(c\\mathbf{v}+d\\mathbf{w})=c(A\\mathbf{v})+d(A\\mathbf{w})=c\\lambda\\mathbf{v}+d\\lambda\\mathbf{w}=\\lambda(c\\mathbf{v}+d\\mathbf{w})$$",
+   "solution": "אם $\\mathbf{v}$ ו-$\\mathbf{w}$ הם וקטורים עצמיים המתאימים אל אותו ערך עצמי, אז\n$$\\begin{cases}A\\mathbf{v}=\\lambda\\mathbf{v}\\\\A\\mathbf{w}=\\lambda\\mathbf{w}\\end{cases}$$\nלכן נקבל שמתקיים\n$$A(c\\mathbf{v}+d\\mathbf{w})=c(A\\mathbf{v})+d(A\\mathbf{w})=c\\lambda\\mathbf{v}+d\\lambda\\mathbf{w}=\\lambda(c\\mathbf{v}+d\\mathbf{w})$$\nהערה: וקטור עצמי חייב להיות שונה מאפס, ולכן הטענה נכונה בתנאי ש-$c\\mathbf{v}+d\\mathbf{w}\\neq\\mathbf{0}$ (אם למשל $\\mathbf{w}=-\\mathbf{v}$ ו-$c=d$ הצירוף הוא $\\mathbf{0}$). הפתרון הרשמי אינו מציין תנאי זה.",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -770,7 +770,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בערכים עצמיים שונים ולכן לא להוציא גורם משותף.",
     "לכתוב $A(c\\mathbf{v}+d\\mathbf{w})=cA\\mathbf{v}+dA\\mathbf{w}$ ולשכוח את ההצבה."
@@ -816,7 +816,7 @@
      "explain": "ההוכחה אינה משתמשת בבלתי תלות (למשל $\\mathbf{w}=2\\mathbf{v}$ עובד), בהפיכות (למשל $A=0$) או בסימטריה; רק אותו $\\lambda$ מאפשר להוציא גורם משותף."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -825,7 +825,7 @@
    "topic": "eigen_diagonalization",
    "points": 5,
    "question": "הוכח שאם $\\mathbf{v}$ ו-$\\mathbf{w}$ הם וקטורים עצמיים המתאימים לערכים העצמיים השונים, אז כל צירוף ליניארי $c\\mathbf{v}+d\\mathbf{w}$ ($c\\neq0,\\ d\\neq0$) אינו וקטור עצמי של $A$.",
-   "solution": "אם $\\mathbf{v}$ ו-$\\mathbf{w}$ הם וקטורים עצמיים המתאימים לערכים העצמיים השונים, אז\n$$\\begin{cases}A\\mathbf{v}=\\lambda_1\\mathbf{v}\\\\A\\mathbf{w}=\\lambda_2\\mathbf{w}\\end{cases}$$\nולכן\n$$A(c\\mathbf{v}+d\\mathbf{w})=c(A\\mathbf{v})+d(A\\mathbf{w})=c\\lambda_1\\mathbf{v}+d\\lambda_2\\mathbf{w}\\neq\\lambda(c\\mathbf{v}+d\\mathbf{w})$$",
+   "solution": "אם $\\mathbf{v}$ ו-$\\mathbf{w}$ הם וקטורים עצמיים המתאימים לערכים העצמיים השונים, אז\n$$\\begin{cases}A\\mathbf{v}=\\lambda_1\\mathbf{v}\\\\A\\mathbf{w}=\\lambda_2\\mathbf{w}\\end{cases}$$\nולכן\n$$A(c\\mathbf{v}+d\\mathbf{w})=c(A\\mathbf{v})+d(A\\mathbf{w})=c\\lambda_1\\mathbf{v}+d\\lambda_2\\mathbf{w}\\neq\\lambda(c\\mathbf{v}+d\\mathbf{w})$$\nהערה: האי-שוויון נובע מאי-התלות. וקטורים עצמיים של ערכים עצמיים שונים בלתי תלויים, ולכן $c\\mathbf{v}+d\\mathbf{w}\\neq\\mathbf{0}$ (כי $c,d\\neq0$). אילו היה $c\\lambda_1\\mathbf{v}+d\\lambda_2\\mathbf{w}=\\lambda(c\\mathbf{v}+d\\mathbf{w})$ אז $c(\\lambda_1-\\lambda)\\mathbf{v}+d(\\lambda_2-\\lambda)\\mathbf{w}=\\mathbf{0}$, ומאי-התלות $\\lambda=\\lambda_1$ וגם $\\lambda=\\lambda_2$, בסתירה ל-$\\lambda_1\\neq\\lambda_2$.",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -843,7 +843,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל עם הסעיף הקודם ולהניח שהערכים העצמיים שווים.",
     "לא להבחין שלגורם $\\lambda_1,\\lambda_2$ אין גורם משותף."
@@ -885,7 +885,7 @@
      "explain": "$A(1,1)^T=(1,2)^T$, שאינו כפולה של $(1,1)^T$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -917,7 +917,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק סגירות על דוגמאות מספריות בלבד במקום על פרמטרים כלליים.",
     "לפשט את $d$ באופן שגוי (לא $d=a-b$)."
@@ -971,7 +971,7 @@
      "explain": "האיבר (2,2) של $kA_1$ הוא $k(a_1+b_1)=ka_1+kb_1$ ולא $ka_1+b_1$; בלי התיקון המטריצה אינה ב-$W$ עבור $k\\neq1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -999,7 +999,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור מטריצה שאינה מקיימת $a+b-d=0$ (למשל $\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$).",
     "לשכוח לבדוק בלתי תלות."
@@ -1048,7 +1048,7 @@
      "explain": "$\\beta$ הוא האיבר בשורה 1 עמודה 2."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1076,7 +1076,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכלול בבסיס גם את המטריצה התלויה.",
     "לחשב רק את ממד הסכום ולא למצוא בסיס."
@@ -1125,7 +1125,7 @@
      "explain": "$\\dim M_{2\\times2}=4$, ו-$U+W$ תת-מרחב שלו באותו ממד. $\\dim U=3$ ו-$\\dim W=2$ ולכן הסכום אינו שווה ל-$U$ או ל-$W$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1157,7 +1157,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את סימני המינוס כשמעבירים את צירוף $W$ לאגף השני.",
     "לקחת את ההצגה בבסיס $U$ במקום להחזיר למטריצה."
@@ -1185,7 +1185,7 @@
      "explain": "$c_1=2$, $c_2=1$, ובאיבר (2,2): $2-2+c_3=3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1213,7 +1213,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות סימן בפתרון המשוואה הריבועית $a^2+4a-12=0$.",
     "לרשום רק אחד משני האפסים."
@@ -1262,7 +1262,7 @@
      "explain": "$a^2+4a-12=(a+6)(a-2)$ מתאפס בדיוק ב-$a=-6$ וב-$a=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1294,7 +1294,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לשחלף את מטריצת המשלימים האלגבריים.",
     "טעות סימן במשלימים האלגבריים (תבנית השחמט)."
@@ -1350,7 +1350,7 @@
      "explain": "עבור $A$ זו $C\\neq C^{T}$, והמינורים ללא סימנים שונים מהמשלימים האלגבריים, ולכן שלוש האפשרויות האחרות נותנות מטריצות שאינן ההופכית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1378,7 +1378,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק $B=\\pm I$ מתוך $B^2=I$, כמו במספרים ממשיים.",
     "לבחור דוגמה בלי לחשב $B^2$ בפועל."
@@ -1420,7 +1420,7 @@
      "explain": "$\\det B=-1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1451,7 +1451,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לרשום $\\det(3B)=3\\det B$ במקום $3^5\\det B$.",
     "לשכוח ש-$\\det\\left(B^T\\right)=\\det B$."
@@ -1507,7 +1507,7 @@
      "explain": "$6075\\cdot1\\cdot(-5)=-30375$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1539,7 +1539,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק את התכונה של החיבור ולשכוח את הכפל בסקלר.",
     "לבדוק על פולינומים מסוימים בלבד."
@@ -1588,7 +1588,7 @@
      "explain": "$T(1)$ נותן $-1$ ו-$T(x^2)$ נותן $2$: סכום $1$, כמו בשורה הקודמת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1620,7 +1620,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את התנאי $b=0$.",
     "טעות בהעברת אגף בפתרון $a=2c-d$."
@@ -1669,7 +1669,7 @@
      "explain": "$2\\cdot3-1=5$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1701,7 +1701,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכלול גם את הווקטורים התלויים בבסיס.",
     "לשכוח שמשפט המימדים נותן בדיקה: $4-2=2$."
@@ -1750,7 +1750,7 @@
      "explain": "$T(x)=x^2+x^3$ (עבור $b=1$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1778,7 +1778,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק חח״ע מכך ש-$T$ לינארית."
    ],
@@ -1819,7 +1819,7 @@
      "explain": "מהסעיף הקודם."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }
