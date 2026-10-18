@@ -24,5 +24,139 @@
    "steps": "none in raw"
   }
  },
- "solvedScope": "solutionSource=solved or 'official-with-correction' items; independently recomputed with sympy (tools/verify/22A-B/refute_*.py); raw has no steps/rubric for these items"
+ "solvedScope": "solutionSource=solved or 'official-with-correction' items; independently recomputed with sympy (tools/verify/22A-B/refute_*.py); raw has no steps/rubric for these items",
+ "pass2": {
+  "verifier": "refuter pass 2",
+  "scope": "all non-held ai-draft steps/rubric/pitfalls + final answers",
+  "items": {
+   "1א": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "1ב": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree",
+    "note": "statement asks to show A invertible (given |A|=2, trivial); official solution proves B invertible; the solution adds a note covering A. Transcription matches page 1."
+   },
+   "1ג": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "1ד": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "2א": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "2ב": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "2ג": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "2ד": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "3א": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "3ב": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "3ג": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "4א": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "4ב": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "4ג": {
+    "solution": "agree",
+    "steps": "disagree: step 3 prompt 'how many of the five polynomials depend on the other four' answers 1, but literally 3 of them (x, x^3, x^3-3x) lie in the span of the other four; only 1 is redundant in a basis extraction (5-rank). Prompt wording, not key arithmetic.",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "4ד": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "4ה": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "5א": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "5ב": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "5ג": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "5ד": {
+    "solution": "agree",
+    "steps": "agree",
+    "rubric": "agree (sums to item points)",
+    "pitfalls": "agree"
+   },
+   "orderForcedness": "5 order steps exist in 22A-B (1א s1, 1ב s2, 3ג s1, 4א s1, 4ב s1), not 10. All 5 are linear derivation chains where each line uses the previous; every pairwise swap breaks the derivation. Forced."
+  },
+  "derived": "sympy: 1c 81/32, 1d 32/81; 2a det (a-5)(a+1), a=5 b=7 inf, a=-1 b=-5 inf, a=2 unique (-3,0,2 at b=1); 3a det 27-3a, inverse matches; 3b rank 2; 4: U{x,x^3}, W{1,x^2-2x,x^3-3x}, U+W=R3[x], U^W={x^3-3x}, q'(1)=0 q'(sqrt2)=-3/2; 5: Im{(1,1,1),(1,2,3)}, Ker{2-t+t^2,-2-t+t^3}, k=4, F_B^B=[[178,73],[-434,-178]]. All pitfall/explanation numbers recomputed, no arithmetic error found.",
+  "counts": {
+   "agree": 19,
+   "disagree": 1,
+   "note": "disagree = 4ג step 3 prompt wording"
+  }
+ }
 }

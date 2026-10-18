@@ -1,0 +1,35 @@
+{
+ "examCode": "20B-A",
+ "item": "1ד",
+ "verifier": "refuter",
+ "solution": "agree",
+ "rubric": "agree (2+2+1+1=6, matches question points)",
+ "pitfalls": "agree",
+ "steps": [
+  {
+   "step": 0,
+   "type": "choice",
+   "verdict": "agree"
+  },
+  {
+   "step": 1,
+   "type": "numeric",
+   "verdict": "agree",
+   "note": "|4-3i|=5"
+  },
+  {
+   "step": 2,
+   "type": "numeric",
+   "verdict": "agree",
+   "note": "a=3/sqrt2=2.1213, a^2=(5+4)/2"
+  },
+  {
+   "step": 3,
+   "type": "numeric",
+   "verdict": "agree",
+   "note": "b=-1/sqrt2=-0.7071"
+  }
+ ],
+ "derivation": "z(z^2+3i-4)=0 -> z=0 or z^2=4-3i; a^2-b^2=4, 2ab=-3, a^2+b^2=5 -> a^2=9/2, b^2=1/2, opposite signs -> z=+-(3-i)/sqrt2; sympy solve gives {0,+-sqrt2(3-i)/2} and each substitutes to 0. Transcription matches page 1 (6 pts).",
+ "script": "tools/verify/20B-A/refute_q1d.py"
+}
