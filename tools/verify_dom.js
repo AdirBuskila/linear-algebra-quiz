@@ -261,9 +261,13 @@ console.log("6. rubric self-score");
 /* 7. exam simulation shows a total */
 console.log("7. exam simulation");
 {
-  const code = BANK.meta.exams[0].examCode;
+  // a sitting whose questions are all on hold ships nothing: it must not be offered, and the sim runs on one that does
+  const shipped = BANK.meta.exams.map(e => e.examCode).filter(c => examQs(c).length > 0);
+  const code = shipped[0];
   const exam = examQs(code);
   const A = boot();
+  const offered = A.$$("#examPick option").map(o => o.value);
+  assert(offered.length === shipped.length && offered.every(c => shipped.includes(c)), "exam picker lists only sittings with shipped questions: " + offered.join(","));
   A.setMode("sim"); A.pickExam(code);
   assert(A.visible(A.$("#examOpts")), "sim options visible");
   A.click(A.$("#startBtn"));
