@@ -1,87 +1,478 @@
 {
  "examCode": "20A-A",
  "role": "refuter",
+ "derivation": "Independent sympy (tools/verify/20A-A/refute_blind.py): k=1/2,d=3sqrt6/2; perpendicular k=-1; k=2 plane x-z=0; z^5=5+3i roots 34^(1/10)cis((atan(3/5)+2pi k)/5); Nul basis (-1,-1,1,0),(-1,1,0,1), rank 2; Row (1,0,1,1),(0,1,1,-1); Col cols 1,2 of A; det A3=-2a(a-2); A^-1(a=1)=[[-1,0,1],[2,1/2,-3/2],[-1,1/2,1/2]]; eig 0,1,2 with (-1,1,0),(-1,1,1),(0,1,1), det P=1; W1=R^3,W2 dim 2 basis (2,1,0),(1,0,1), W1+W2=R^3, W1^W2=W2, (3,1,-1) not in it (x-2y-z=2); T ker (1,1,0), Im Sp{(1,-2,0),(0,0,1)}, neither 1-1 nor onto, matrix [[2,-1,2],[2,2,2],[-2,0,-2]]. Transcription checked against SRC pages 1-2: matches.",
  "items": {
   "1א": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 6 = question points)",
+   "pitfalls": "agree"
   },
   "1ב": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 6 = question points)",
+   "pitfalls": "agree"
   },
   "1ג": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "order",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 7 = question points)",
+   "pitfalls": "agree"
   },
   "1ד": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 6 = question points)",
+   "pitfalls": "agree",
+   "note": "step \"module of each root\" answer 1.4233 (true 34^(1/10)=1.42281); passes only via tol 0.001; solution text says ~1.423 (fine). Suggest 1.4228."
   },
   "2א": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 7 = question points)",
+   "pitfalls": "agree"
   },
   "2ב": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 7 = question points)",
+   "pitfalls": "agree"
   },
   "2ג": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 7 = question points)",
+   "pitfalls": "agree"
   },
   "2ד": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 4 = question points)",
+   "pitfalls": "agree"
   },
   "3א": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 5 = question points)",
+   "pitfalls": "agree"
   },
   "3ב": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 5 = question points)",
+   "pitfalls": "agree"
   },
   "3ג": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 9 = question points)",
+   "pitfalls": "agree"
   },
   "3ד": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 6 = question points)",
+   "pitfalls": "agree"
   },
   "4א": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 6 = question points)",
+   "pitfalls": "agree"
   },
   "4ב": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 7 = question points)",
+   "pitfalls": "agree"
   },
   "4ג": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 7 = question points)",
+   "pitfalls": "agree"
   },
   "4ד": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 5 = question points)",
+   "pitfalls": "agree"
   },
   "5א": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "findbug",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 6 = question points)",
+   "pitfalls": "agree"
   },
   "5ב": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 8 = question points)",
+   "pitfalls": "agree"
   },
   "5ג": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 4 = question points)",
+   "pitfalls": "agree"
   },
   "5ד": {
    "solution": "agree",
-   "steps": "none in raw"
+   "steps": [
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "rubric": "agree (sums to 7 = question points)",
+   "pitfalls": "agree"
   }
- },
- "solvedScope": "solutionSource=solved or 'official-with-correction' items; independently recomputed with sympy (tools/verify/20A-A/refute_*.py); raw has no steps/rubric for these items"
+ }
 }
