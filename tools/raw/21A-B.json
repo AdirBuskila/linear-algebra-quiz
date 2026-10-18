@@ -77,7 +77,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\det(-A)=-n\\det A$ או $-\\det A$ מבלי לנמק; הנוסחה הנכונה היא $\\det(cA)=c^n\\det A$.",
     "להשתמש בזוגיות של $n$ הפוך: עבור $n$ זוגי $(-1)^n=1$ ולא מתקבלת מסקנה."
@@ -123,7 +123,7 @@
      "explain": "בדיקה ישירה מתאימה לתוצאה: $\\det A=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -155,7 +155,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להכפיל ב-$B^{-1}$ משמאל (מקבלים $B^{-1}AB$ ולא $A$); בהכפלה מימין $ABB^{-1}=A$.",
     "לשכוח את הסתירה ל-$\\det A=0$ מסעיף א ולהסיק רק ש-$A=I$."
@@ -198,7 +198,7 @@
      "explain": "$0=\\det B$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -234,7 +234,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכלול את עמודת האפס בבסיס; וקטור האפס תמיד תלוי.",
     "לחשוב שהבסיס כולל את עמודות הצורה המדורגת במקום עמודות $C$ עצמה."
@@ -283,7 +283,7 @@
      "explain": "הקבוצה עם וקטור האפס תלויה; $\\{(1,5,2)\\}$ אינה פורשת את $(0,0,1)$; ו-$\\{(1,5,2),(2,10,4)\\}$ תלויה כי $(2,10,4)=2(1,5,2)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -315,7 +315,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוסיף וקטור שכבר נמצא בפרישה של $\\mathrm{Col}\\,C$ (למשל כפולה של אחד מהם), ולכן לא לקבל בסיס.",
     "לבדוק רק שהווקטור שונה מאפס ולא את אי התלות של שלושתם."
@@ -364,7 +364,7 @@
      "explain": "פיתוח לפי השורה הראשונה: $1\\cdot(0\\cdot0-1\\cdot1)=-1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -396,7 +396,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבצע את $R_3\\to R_3-3R_1$ לפני ההחלפה, ולהשתמש בשורה שגויה כשורת הציר.",
     "טעות סימן ברכיב $-a$: $-a-3$ ולא $a-3$."
@@ -431,7 +431,7 @@
      "explain": "$b-4=-4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -463,7 +463,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק שהמקרה $a=-1$ תמיד חסר פתרון בלי לבדוק את $b$.",
     "להסיק פתרון יחיד גם עבור $a=-1$ רק כי $b$ שונה מ-$4$."
@@ -507,7 +507,7 @@
      "explain": "השורה האחרונה היא $(0\\ 0\\ 0\\,|\\,-1)$, סתירה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -539,7 +539,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הסימן בהצבה לאחור: $x=2+y-z$ ולא $2-y-z$."
    ],
@@ -573,7 +573,7 @@
      "explain": "$3-0-2=1=b$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -605,7 +605,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשאיר את $x$ תלוי ב-$t$; ההצבה נותנת $x=2+(t-1)-t=1$."
    ],
@@ -632,7 +632,7 @@
      "explain": "$y=t-1=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -667,7 +667,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הפתרון $z=0$ ולקבל שלושה פתרונות בלבד.",
     "לכתוב $\\overline{z}^{\\,2}=16\\,\\mathrm{cis}(2\\theta)$ (שוכחים שהצמוד הופך את הארגומנט)."
@@ -723,7 +723,7 @@
      "explain": "$4\\sin\\frac{2\\pi}{3}=2\\sqrt3\\approx3.4641$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -759,7 +759,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המטריצות האלמנטריות בסדר הפעולות $E_1E_2\\cdots E_6$ במקום בסדר ההפוך.",
     "לדרג את $A$ בלבד ולשכוח לבצע את אותן פעולות על $I$."
@@ -810,7 +810,7 @@
      "explain": "מ-$E_6\\cdots E_1A=I$ מקבלים $A^{-1}=E_6\\cdots E_1$. הסדר ההפוך אינו נותן $A^{-1}$ (המכפלה אינה חילופית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -842,7 +842,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדווח על וקטור האפס כוקטור עצמי; יש לציין ״שונים מאפס״.",
     "לשכוח את הווקטור העצמי השני של $\\lambda=4$ (המרחב העצמי ממימד $2$)."
@@ -919,7 +919,7 @@
      "explain": "$B(1,0,1)=(6,0,6)$. אבל $B(1,0,-1)=(4,0,-4)$ ו-$B(0,1,0)=(0,4,0)$ שייכים ל-$\\lambda=4$; ו-$B(1,1,1)=(6,4,6)$ אינו כפולה של הווקטור."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -951,7 +951,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרוש ערכים עצמיים שונים זה מזה; זהו תנאי מספיק אך לא הכרחי (כאן $4$ כפול והמטריצה כן לכסינה).",
     "לסדר את עמודות $P$ בסדר שונה מסדר הערכים העצמיים על אלכסון $D$."
@@ -1028,7 +1028,7 @@
      "explain": "העמודה השלישית של $P$ היא וקטור עצמי של $6$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1064,7 +1064,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את ארבעת הווקטורים הפורשים של $V$ כבסיס; הם תלויים ($\\dim V=2$).",
     "לשכוח ש-$W$ הוא פתרונות משוואה אחת, ולכן מימדו $3-1=2$."
@@ -1113,7 +1113,7 @@
      "explain": "משוואה אחת בלתי תלויה ב-$\\mathbb{R}^3$: $3-1=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1145,7 +1145,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את ארבעת הווקטורים כבסיס; הם תלויים (דרגה $3$).",
     "לחשב את הסכום כאיחוד הקבוצות במקום הפרישה שלהן."
@@ -1194,7 +1194,7 @@
      "explain": "הסכום הוא כל $\\mathbb{R}^3$. שני הבסיסים של $V$ או $W$ לבדם פורשים מישור, וארבעת הווקטורים תלויים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1230,7 +1230,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב חיתוך כחיתוך הבסיסים (ריק) במקום לפתור את התנאי.",
     "טעות סימן בהצבה $x-z=\\alpha-(2\\alpha+\\beta)$."
@@ -1286,7 +1286,7 @@
      "explain": "בסיס יחיד."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1314,7 +1314,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק שהווקטור שייך ל-$V+W$ רק כי אינו שייך לחיתוך."
    ],
@@ -1373,7 +1373,7 @@
      "explain": "הסכום הוא כל המרחב."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1405,7 +1405,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק לינאריות רק על מטריצות מסוימות במקום על $M_1,M_2$ כלליות.",
     "לבדוק רק חיבור ולשכוח את כפל בסקלר (או להפך)."
@@ -1454,7 +1454,7 @@
      "explain": "$-3\\cdot2+5\\cdot2=4=2\\cdot2$, ובהתאם $T(\\alpha M)=\\alpha T(M)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1490,7 +1490,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין סדר העמודות $a,b,c,d$ ולהציב $b$ במקום $a$.",
     "לשכוח שהגרעין הוא תת מרחב של $\\mathbb{M}_2(\\mathbb{R})$ (מטריצות), ולכתוב אותו כווקטורים מ-$\\mathbb{R}^4$ בלבד."
@@ -1543,10 +1543,10 @@
       }
      ],
      "correctId": "a",
-     "explain": "הבסיס הנכון ממפה לאפס. החלפת $\\begin{pmatrix}-2&-3\\1&0\\end{pmatrix}$ ב-$\\begin{pmatrix}2&3\\1&0\\end{pmatrix}$ נותנת מטריצה שאינה בגרעין; $E_{11},E_{12}$ אינם בגרעין; ובסיס עם וקטור אחד בלבד חסר ($\\dim=2$)."
+     "explain": "הבסיס הנכון ממפה לאפס. החלפת $\\begin{pmatrix}-2&-3\\\\1&0\\end{pmatrix}$ ב-$\\begin{pmatrix}2&3\\\\1&0\\end{pmatrix}$ נותנת מטריצה שאינה בגרעין; $E_{11},E_{12}$ אינם בגרעין; ובסיס עם וקטור אחד בלבד חסר ($\\dim=2$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1582,7 +1582,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את עמודות הצורה המדורגת כבסיס של התמונה במקום עמודות המטריצה המקורית.",
     "לספור את כל ארבע התמונות כבסיס בלי להסיר תלות."
@@ -1631,7 +1631,7 @@
      "explain": "$8+0x+5x^2=2\\left(1-3x+x^2\\right)+3\\left(2+2x+x^2\\right)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1655,7 +1655,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסתפק בכך ש-$T$ לא על או לא חד חד ערכית בלי להסיק ש-$T$ אינה הפיכה."
    ],
@@ -1698,7 +1698,7 @@
      "explain": "העתקה הפיכה היא איזומורפיזם ולכן שומרת על המימד."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

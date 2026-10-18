@@ -328,7 +328,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק את המשוואה ב-$z$ ולאבד את הפתרון $z=0$.",
     "לשכוח את הסימן $\\pm$ של השורש הריבועי ולהסתפק בפתרון אחד של $z^2=4-3i$."
@@ -384,7 +384,7 @@
      "explain": "$b=\\frac{-3}{2a}=-\\frac{1}{\\sqrt2}\\approx-0.707$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,

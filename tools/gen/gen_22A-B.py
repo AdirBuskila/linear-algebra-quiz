@@ -585,7 +585,7 @@ ENR[(4, "ג")] = dict(
             [r"$B_U\cap B_W$, החיתוך של הבסיסים", r"$B_U$ בלבד", r"$B_W$ בלבד"],
             r"סכום תתי מרחבים נפרש על ידי איחוד הפורשים. החיתוך של הבסיסים ריק; $B_U$ לא כולל את $1$; $B_W$ לא כולל את $x$."),
         num(r"מהי דרגת המטריצה ששורותיה הווקטורים הקואורדינטיים של חמשת הפולינומים?", 4, r"הדרגה $4=\dim\mathbb{R}_3[x]$."),
-        num(r"כמה מחמשת הפולינומים תלויים בארבעת האחרים (חמש פחות הדרגה)?", 1, r"$5-4=1$ (למשל $x^3-3x$ הוא צירוף של $x$ ו-$x^3$, שכבר נמצאים בקבוצה)."),
+        num(r"כמה פולינומים מיותרים יש בקבוצה, כלומר כמה אפשר להשמיט בלי לשנות את הפרישה (חמש פחות הדרגה)?", 1, r"$5-4=1$ (למשל $x^3-3x$ הוא צירוף של $x$ ו-$x^3$, שכבר נמצאים בקבוצה)."),
     ])
 
 ENR[(4, "ד")] = dict(
@@ -687,7 +687,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

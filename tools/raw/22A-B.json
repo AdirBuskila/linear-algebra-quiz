@@ -61,7 +61,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לצמצם את המטריצות עצמן ולטעון ש-$(PQ)^{-1}CPQ=C$ (הכפל אינו חילופי); הצמצום חוקי רק על הדטרמיננטות, שהן מספרים.",
     "לרשום $\\det\\left(P^{-1}\\right)=\\det P$ במקום $\\frac{1}{\\det P}$."
@@ -126,7 +126,7 @@
      "explain": "$|C|=12-2=10$ ולכן $|D|=|C|=10$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -157,7 +157,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\det(2A)=2\\det A$ במקום $2^4\\det A$ (גורם הכפל מוכפל בכל אחת מארבע השורות).",
     "לחשב $\\det(-3I)=-3$ או $-81$ במקום $(-3)^4=81$."
@@ -217,7 +217,7 @@
      "explain": "$2^4\\cdot2=32$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -248,7 +248,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $\\det(2A)=2\\cdot2=4$ במקום $2^4\\cdot2=32$.",
     "לשכוח שהמשוואה היא $\\det(2AB)=\\det(-3I)$ ולא $\\det(AB)=\\det(-3I)$."
@@ -290,7 +290,7 @@
      "explain": "$\\det B=\\frac{81}{32}=2.53125$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -317,7 +317,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשאיר $\\det\\left(B^{-1}\\right)=\\det B$ (זה נכון רק כאשר $\\det B=\\pm1$)."
    ],
@@ -353,7 +353,7 @@
      "explain": "$\\frac{32}{81}\\approx0.3951$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -389,7 +389,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$a-2$ בלי לבדוק את המקרה $a=2$ בנפרד.",
     "להסיק שאין פתרון בכל מקרה ש-$a=5,-1$, בלי לבדוק את $b$ (שם יש אינסוף פתרונות עבור $b=7$ ו-$b=-5$ בהתאמה)."
@@ -461,7 +461,7 @@
      "explain": "$-3(b-1)-18=0\\Rightarrow b=-5$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -489,7 +489,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בצורה המדורגת של המקרה $a\\neq2$ (שבה מחלקים ב-$a-2$) במקום לטפל במקרה $a=2$ בנפרד."
    ],
@@ -516,7 +516,7 @@
      "explain": "$x=1-2y-2z=1-0-4=-3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -552,7 +552,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לכתוב את הפתרון הכללי (עם הפרמטר $t$) ולהסתפק בפתרון פרטי אחד.",
     "טעות סימן בהצבה לאחור $x=1-2y-2z$."
@@ -587,7 +587,7 @@
      "explain": "$y=\\frac23-\\frac13=\\frac13$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -619,7 +619,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לפתור את המשוואה $\\det A=0$ ולהסיק שאלה הערכים להפיכות (ההפך הוא הנכון).",
     "לעבוד בממשיים ולהסיק שהמטריצה הפיכה לכל $z\\in\\mathbb{R}$ בלי לבדוק את השורשים המרוכבים."
@@ -696,7 +696,7 @@
      "explain": "הפיכה בדיוק כאשר $\\det A\\neq0$. עבור $z=-1$ הדטרמיננטה היא $1\\neq0$ ולכן $A$ הפיכה גם שם."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -732,7 +732,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לשחלף את מטריצת המשלימים האלגבריים: $A^{-1}=\\frac{1}{\\det A}C^T$ ולא $\\frac{1}{\\det A}C$.",
     "טעות בסימני השחמט $(-1)^{i+j}$ בחישוב המשלימים."
@@ -788,7 +788,7 @@
      "explain": "היא $\\frac{C_{21}}{\\det A}=\\frac{24}{27}=\\frac89$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -824,7 +824,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור להשלמה וקטור שנמצא כבר בפרישה של השורות (למשל כפולה של שורה), ולכן לא לקבל בסיס.",
     "לספור את שורת האפס כשורה בלתי תלויה ולקבל דרגה $3$."
@@ -880,7 +880,7 @@
      "explain": "מטריצה משולשית עליונה: מכפלת האלכסון $1\\cdot1\\cdot1=1\\neq0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -915,7 +915,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $(CD)^T=C^TD^T$ ולשכוח שהשחלוף הופך את סדר המכפלה.",
     "להסיק $CD=DC$ מכך ש-$C,D$ סימטריות; הנתון הוא דווקא $CD=-DC$."
@@ -970,7 +970,7 @@
      "explain": "$CD=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}$, והיא אנטי סימטרית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1006,7 +1006,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק שפולינום מסוים שייך ל-$U$, במקום להוכיח סגירות לכל זוג פולינומים.",
     "לכלול ב-$U$ את הפולינומים הזוגיים ($1,x^2$), שמקיימים $p(-x)=p(x)$ ולא $p(-x)=-p(x)$."
@@ -1066,7 +1066,7 @@
      "explain": "הבסיס $\\{x,x^3\\}$ כולל שני איברים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1098,7 +1098,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהנגזרת מחושבת בנקודה $x=1$ ולרשום $a_1+a_2+a_3=0$.",
     "לא לבדוק שהווקטורים שנמצאו בלתי תלויים."
@@ -1158,7 +1158,7 @@
      "explain": "שלושה וקטורים בבסיס."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1190,7 +1190,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את כל חמשת הפולינומים כבסיס; הם תלויים (דרגה $4$ בלבד).",
     "לחבר את המימדים $2+3=5$ בלי להחסיר את $\\dim(U\\cap W)$."
@@ -1233,13 +1233,13 @@
     },
     {
      "type": "numeric",
-     "prompt": "כמה מחמשת הפולינומים תלויים בארבעת האחרים (חמש פחות הדרגה)?",
+     "prompt": "כמה פולינומים מיותרים יש בקבוצה, כלומר כמה אפשר להשמיט בלי לשנות את הפרישה (חמש פחות הדרגה)?",
      "answer": 1,
      "tol": 0,
      "explain": "$5-4=1$ (למשל $x^3-3x$ הוא צירוף של $x$ ו-$x^3$, שכבר נמצאים בקבוצה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1271,7 +1271,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב את החיתוך כאיחוד הבסיסים (או כחיתוך הבסיסים, שהוא ריק) במקום לפתור את התנאי.",
     "לשכוח שהנגזרת של $x^3$ היא $3x^2$ ולרשום $\\alpha+\\beta=0$."
@@ -1320,7 +1320,7 @@
      "explain": "$2+3-1=4$, בהתאם לסעיף הקודם."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1356,7 +1356,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$q\\in W$ ולכן $q'(1)=0$ בלי חישוב.",
     "לחשב $q'(\\sqrt2)$ בלי לגזור קודם, כלומר להציב $\\sqrt2$ ב-$q$."
@@ -1384,7 +1384,7 @@
      "explain": "$q'(x)=-\\frac32x^2+\\frac32$, ובהצבה $-3+\\frac32=-\\frac32$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1420,7 +1420,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את עמודות הצורה המדורגת כבסיס של $\\mathrm{Im}\\,T$; יש לקחת את העמודות המתאימות מהמטריצה המקורית.",
     "לשכוח לתרגם את וקטורי $\\mathrm{Nul}\\,A$ (קואורדינטות) בחזרה לפולינומים ב-$\\mathbb{R}_3[t]$."
@@ -1476,7 +1476,7 @@
      "explain": "$\\vec x=t(2,-1,1,0)+s(-2,-1,0,1)$, ולכן $x_2=-1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1508,7 +1508,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשוות את $\\dim\\mathrm{Im}\\,T$ למימד התחום ($4$) במקום למימד הטווח ($3$) כשבודקים ״על״."
    ],
@@ -1567,7 +1567,7 @@
      "explain": "על אם ורק אם הדרגה שווה למימד הטווח $3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1599,7 +1599,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרג רק את מטריצת המקדמים ולשכוח את עמודת אגף ימין עם $k$."
    ],
@@ -1626,7 +1626,7 @@
      "explain": "$x_1+x_2=4$, $x_1+2x_2=7$, ולכן $x_2=3$, $x_1=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1661,7 +1661,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את הנוסחה בסדר הפוך $P[F]_E^EP^{-1}$.",
     "טעות חשבונית בהכפלת מטריצות $2\\times2$ (מומלץ לבדוק ש-$\\mathrm{tr}[F]_B^B=\\mathrm{tr}[F]_E^E=0$)."
@@ -1717,7 +1717,7 @@
      "explain": "$7\\cdot9+(-2)(-5)=63+10=73$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

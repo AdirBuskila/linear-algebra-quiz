@@ -570,7 +570,7 @@ ENR[(5, "ב")] = dict(
             [r"$\left\{\begin{pmatrix}2&3\\1&0\end{pmatrix},\begin{pmatrix}1&-1\\0&1\end{pmatrix}\right\}$",
              r"$\left\{\begin{pmatrix}1&0\\0&0\end{pmatrix},\begin{pmatrix}0&1\\0&0\end{pmatrix}\right\}$",
              r"$\left\{\begin{pmatrix}-2&-3\\1&0\end{pmatrix}\right\}$"],
-            r"הבסיס הנכון ממפה לאפס. החלפת $\begin{pmatrix}-2&-3\1&0\end{pmatrix}$ ב-$\begin{pmatrix}2&3\1&0\end{pmatrix}$ נותנת מטריצה שאינה בגרעין; $E_{11},E_{12}$ אינם בגרעין; ובסיס עם וקטור אחד בלבד חסר ($\dim=2$)."),
+            r"הבסיס הנכון ממפה לאפס. החלפת $\begin{pmatrix}-2&-3\\1&0\end{pmatrix}$ ב-$\begin{pmatrix}2&3\\1&0\end{pmatrix}$ נותנת מטריצה שאינה בגרעין; $E_{11},E_{12}$ אינם בגרעין; ובסיס עם וקטור אחד בלבד חסר ($\dim=2$)."),
     ])
 
 ENR[(5, "ג")] = dict(
@@ -610,7 +610,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 2 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 

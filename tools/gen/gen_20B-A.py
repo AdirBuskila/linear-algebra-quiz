@@ -725,7 +725,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    src = "ai-draft" if (q["num"], q["part"]) == (1, "ד") else "ai-verified"  # Q1d: solver-written, not yet refuted
+    src = "ai-verified"  # Q1d refuted 2026-10-18 (_verify_20B-A_q1d.json)
     q.update(rubric=e["rubric"], rubricSource=src, pitfalls=e["pitfalls"], steps=e["steps"], stepsSource=src)
 
 
