@@ -46,7 +46,7 @@
   const B_INLINE = /^<\/?(b|strong|i|em|u|sub|sup|code)\b[^>]*>$/i;
   const B_SKIP = /^<(code|bdi|pre|math)\b|class="[^"]*\b(lesson-formula|qref|math-inline|math-block|math-run|opt-ltr)\b|\bdir="ltr"/i;
   const B_START = /[A-Za-z0-9$"(\[|\u221a\u2016\u03a3\u2211\u2212\u0177\u0233\u03b1-\u03c9\u0394\u03b8]/;
-  const B_END = /[A-Za-z0-9)\]|\u00b2\u00b3\u2016%\u221e'"\u2080-\u2089\u1d62\u2c7c\u2099\u2096\u0177\u0233\u0304\u03b1-\u03c9]/;
+  const B_END = /[A-Za-z0-9)\]|\u00b2\u00b3\u2016%\u221e'\u2032\u2033\u2019"\u2080-\u2089\u1d62\u2c7c\u2099\u2096\u0177\u0233\u0304\u03b1-\u03c9]/;
   const B_OP = /^[·×+−=\/*…]$/;      // · × + − = / * …  (the ASCII hyphen is not one: "ו-y")
   const bIsTag =p => p[0] === "<", bChr = p => (bIsTag(p) || p[0] === "&" && p.length > 1) ? "" : p;
   function isolate(html) {
@@ -67,6 +67,8 @@
 
       if (a <= b) {
         while (b + 1 < parts.length && bChr(parts[b + 1]) === "!" && /[A-Za-z0-9)\]]/.test(bChr(parts[b]))) b++;   // factorial: "4!" stays one run
+        while (b + 1 < parts.length && bChr(parts[b + 1]) === "*" && /[A-Za-z0-9)\]*]/.test(bChr(parts[b]))) b++;   // pointer stars: "Item**" keeps its stars
+        while (a > 0 && bChr(parts[a - 1]) === "*" && /[A-Za-z(]/.test(bChr(parts[a]))) a--;                          // ... and "*ptr" its star
         for (let j = a; j > 0;) { let k = j - 1; while (k >= 0 && /^\s$/.test(parts[k])) k--;                       // arithmetic chain: leading operators join the run
           if (k >= 0 && B_OP.test(bChr(parts[k]))) { a = k; j = k; } else break; }
         for (let j = b; j < parts.length - 1;) { let k = j + 1; while (k < parts.length && /^\s$/.test(parts[k])) k++;  // ... and so do trailing ones
@@ -119,9 +121,9 @@
   function mathRuns(html) {
     const h = String(html).replace(new RegExp(`${M_INL}(?:(?:[ ,;.:]|&nbsp;)+${M_INL})+`, "g"),
       m => `<span class="math-run" dir="ltr">${m}</span>`);
-    return h.replace(new RegExp(`(${M_RUN}|${M_INL})([.,;:]+)(?=<br>|</[a-z]+>|$)`, "g"), (m, unit, punct) =>
-      unit.startsWith('<span class="math-run"') ? unit.slice(0, -"</span>".length) + punct + "</span>"
-        : `<span class="math-run" dir="ltr">${unit}${punct}</span>`);
+    return h.replace(new RegExp(`(${M_RUN}|${M_INL})([.,;:?!]+)(?=<br>|</[a-z]+>|$)`, "g"), (m, unit, punct0) => { const punct = punct0.replace(/^[?!]/, "\u2060$&");   // a lone ? or ! is glued to the formula (word joiner): it must not wrap onto its own line
+      return       unit.startsWith('<span class="math-run"') ? unit.slice(0, -"</span>".length) + punct + "</span>"
+        : `<span class="math-run" dir="ltr">${unit}${punct}</span>`; });
   }
   const render = html => isolate(mathRuns(labelLines(html)));
   const bidi = { render, isolate, labelLines, mathRuns };

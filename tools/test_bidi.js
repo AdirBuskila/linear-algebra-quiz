@@ -71,4 +71,33 @@ assert.strictEqual(B.render(`דומה (${chip("22A-A-Q2c")}, ${chip("22A-B-Q1b")
 // idempotent on the new cases
 for (const s of ["יש 4! אפשרויות", "שווה …=120.·6·5·4 ועוד", "P(n,m) (0 אם m>n)", "[אות ראשונה: 1 או 2] ואחריה"]) assert.strictEqual(B.render(B.render(s)), B.render(s));
 
+// a lone ? or ! after a formula at a line end is glued to it (word joiner inside the run): it cannot wrap onto its own line
+assert.strictEqual(B.render(`האם ${f}?`), `האם <span class="math-run" dir="ltr">${f}\u2060?</span>`);
+assert.strictEqual(B.render(`מהו ${f}?<br>עוד`), `מהו <span class="math-run" dir="ltr">${f}\u2060?</span><br>עוד`);
+assert.strictEqual(B.render(`${f}? אחר`), `${f}? אחר`);
+// prefix letter + a plain-text formula: the prefix stays outside, at the RTL start
+assert.strictEqual(B.render("ב-x = 3 כי"), `ב-${ltr("x = 3")} כי`);
+assert.strictEqual(B.render("x = 3 ב-"), `${ltr("x = 3")} ב-`);
+// plain Unicode math inside Hebrew is one LTR run, primes included (ASCII ' and U+2032)
+assert.strictEqual(B.render("נגזרת 1/(ax+b) וגם"), `נגזרת ${ltr("1/(ax+b)")} וגם`);
+assert.strictEqual(B.render("אז f' = 0 ו-f\u2032 = 0 כאן"), `אז ${ltr("f' = 0")} ו-${ltr("f\u2032 = 0")} כאן`);
+assert.strictEqual(B.render("התוצאה: y = x² + 1"), `התוצאה: ${ltr("y = x² + 1")}`);
+// a Hebrew sentence ending in a plain formula: the formula is one run and the final punctuation stays at the RTL end
+assert.strictEqual(B.render("הנגזרת היא f'(x) = 2x."), `הנגזרת היא ${ltr("f'(x) = 2x")}.`);
+assert.strictEqual(B.render("מהי f'(x) = 2x?"), `מהי ${ltr("f'(x) = 2x")}?`);
+
+// Hebrew prefix + maqaf before a Latin word stays outside (RTL start); inline code keeps its trailing punctuation outside, at the RTL end
+assert.strictEqual(B.render("ש-typedef וגם ו-NULL"), `ש-${ltr("typedef")} וגם ו-${ltr("NULL")}`);
+const tok = '<code class="tok" dir="ltr">fileName</code>';
+assert.strictEqual(B.render(`שם הקובץ ${tok}.`), `שם הקובץ ${tok}.`);
+// pointer stars stay inside the run: "Item**." keeps both stars and the period stays outside
+assert.strictEqual(B.render("הטיפוס Item**."), `הטיפוס ${ltr("Item**")}.`);
+assert.strictEqual(B.render("ב-*ptr ו-**pp כאן"), `ב-${ltr("*ptr")} ו-${ltr("**pp")} כאן`);
+assert.strictEqual(B.render("הטיפוס int* ו-char** כאן"), `הטיפוס ${ltr("int*")} ו-${ltr("char**")} כאן`);
+// counters, times and percentages are LTR runs; comma lists of Latin words with a Hebrew conjunction
+assert.strictEqual(B.render("שאלה 1/8"), `שאלה ${ltr("1/8")}`);
+assert.strictEqual(B.render("⏱ 3:59:59"), `⏱ ${ltr("3:59:59")}`);
+assert.strictEqual(B.render("ציון 80%."), `ציון ${ltr("80%")}.`);
+assert.strictEqual(B.render("static, const ו-scope"), `${ltr("static, const")} ו-${ltr("scope")}`);
+
 console.log("test_bidi: ok");
