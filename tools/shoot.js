@@ -165,6 +165,9 @@ const THEMES = ["dark", "light"];
     // a steps view: step 1 right, step 2 wrong, the next one half done
     if (STEPS_Q) {
       await openQ(STEPS_Q);
+      // the guided-steps panel is a collapsed <details>: expand it so the answered steps are on screen (else this shot equals the solution shot)
+      await page.evaluate(() => { const d = document.querySelector(".steps-panel"); if (d) { d.open = true; d.scrollIntoView(); } });
+      if (!(await exists(".steps-panel[open] .step-mount"))) throw new Error("steps panel did not open for " + STEPS_Q.id);
       await stepAct(0, STEPS_Q.steps[0], true);
       if (STEPS_Q.steps[1]) await stepAct(1, STEPS_Q.steps[1], false);
       if (STEPS_Q.steps[2] && STEPS_Q.steps[2].type === "order") await page.evaluate(() => { const l = document.querySelector(".step-mount[data-i='2'] .s-pool .s-line"); if (l) l.click(); });

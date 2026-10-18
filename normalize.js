@@ -34,7 +34,85 @@
     return val(t);
   }
 
-  const api = { text, complexity, number };
+  /* ---------- Bidi (window.Bidi): render-time fixes for Latin inside Hebrew (RTL) HTML ----------
+     Ported from computer-systems-quiz 775f65b. render(html) = labelLines -> mathRuns -> isolate.
+     labelLines: a line that starts with a Latin option label ("a." / "(b)" / "1)") gets the label, punctuation
+                 included, in its own LTR isolate, so it sits at the start (right edge) with the period right after the letter.
+     mathRuns:   inline formulas chained by punctuation become one LTR isolate; line-final punctuation stays with its formula.
+     isolate:    every other non-Hebrew run holding a digit or Latin letter becomes an LTR <bdi>.
+     <pre>, <code>, MathML, formulas and existing LTR isolates are never touched. Idempotent. */
+  const B_INLINE = /^<\/?(b|strong|i|em|u|sub|sup|code)\b[^>]*>$/i;
+  const B_SKIP = /^<(code|bdi|pre|math)\b|class="[^"]*\b(lesson-formula|qref|math-inline|math-block|math-run|opt-ltr)\b|\bdir="ltr"/i;
+  const B_START = /[A-Za-z0-9$"(\[|\u221a\u2016\u03a3\u2211\u2212\u0177\u0233\u03b1-\u03c9\u0394\u03b8]/;
+  const B_END = /[A-Za-z0-9)\]|\u00b2\u00b3\u2016%\u221e'"\u2080-\u2089\u1d62\u2c7c\u2099\u2096\u0177\u0233\u0304\u03b1-\u03c9]/;
+  const bIsTag = p => p[0] === "<", bChr = p => (bIsTag(p) || p[0] === "&" && p.length > 1) ? "" : p;
+  function isolate(html) {
+    const toks = String(html).match(/<[^>]+>|[^<]+/g) || [];
+    let out = "", run = [], skip = 0;
+    const flush = () => {
+      if (!run.length) return;
+      const s = run.join("");
+      const parts = s.match(/<[^>]+>|&[#\w]+;|[^<]/g);   // a tag or an entity (&gt;) is one unit
+      let a = 0, b = parts.length - 1;
+      while (a <= b && !B_START.test(bChr(parts[a]))) a++;
+      while (b >= a && !B_END.test(bChr(parts[b]))) b--;
+      { const tail = parts.slice(b + 1).join(""); if (b >= a && /^[,;]?\s*(\.\.\.|\u2026)$/.test(tail)) b = parts.length - 1; }   // a trailing ellipsis stays with its list
+      while (a > 0 && bIsTag(parts[a - 1]) && !/^<\//.test(parts[a - 1])) a--;     // pull in tags hugging the core: <b>3</b>
+      while (b < parts.length - 1 && /^<\//.test(parts[b + 1])) b++;
+      const core = parts.slice(a, b + 1), st = [];
+      let ok = a <= b && /[A-Za-z0-9]/.test(core.join(""));
+      for (const t of core) { if (!bIsTag(t) || !ok) continue;
+        const m = t.match(/^<(\/?)(\w+)/); if (m[1]) { if (st.pop() !== m[2].toLowerCase()) ok = false; } else st.push(m[2].toLowerCase()); }
+      if (ok && st.length) ok = false;
+      out += ok ? parts.slice(0, a).join("") + `<bdi class="ltr${core.join("").replace(/<[^>]+>/g, "").length <= 22 ? " nw" : ""}" dir="ltr">${core.join("")}</bdi>` + parts.slice(b + 1).join("") : s;
+      run = [];
+    };
+    for (const t of toks) {
+      if (t[0] === "<") {
+        if (skip) { out += t; if (/^<\//.test(t)) skip--; else if (!/\/>$|^<(br|img|hr|wbr)\b/i.test(t)) skip++; continue; }
+        if (B_SKIP.test(t)) { flush(); out += t; if (!/^<(br|img)\b/i.test(t)) skip = 1; continue; }
+        if (B_INLINE.test(t)) { run.push(t); continue; }
+        flush(); out += t; continue;
+      }
+      if (skip) { out += t; continue; }
+      for (const piece of t.match(/[\u0590-\u05FF]+|[^\u0590-\u05FF]+/g)) {          // Hebrew text ends a run
+        if (/[\u0590-\u05FF]/.test(piece)) { flush(); out += piece; } else run.push(piece);
+      }
+    }
+    flush();
+    return out;
+  }
+
+  /* apply fn to the parts of html outside <pre>/<code>/<math>; first = true only for the very start of the string */
+  function outsideCode(html, fn) {
+    return String(html).split(/(<pre\b[\s\S]*?<\/pre>|<code\b[\s\S]*?<\/code>|<math\b[\s\S]*?<\/math>)/i)
+      .map((seg, i) => i % 2 ? seg : fn(seg, i === 0)).join("");
+  }
+  const LBL = String.raw`(\(?[A-Za-z]{1,2}\d?[.)]|\([A-Za-z0-9]{1,3}\)|\d{1,2}[.)])(?=\s|&nbsp;)`;
+  const lbl = label => `<bdi class="ltr nw opt-label" dir="ltr">${label}</bdi>`;
+  function labelLines(html) {
+    return outsideCode(html, (seg, first) => {
+      let out = seg.replace(new RegExp(String.raw`(<br\s*\/?>|<(?:li|p|div)\b[^>]*>)(\s*)` + LBL, "gi"), (m, lead, sp, label) => lead + sp + lbl(label));
+      if (first) out = out.replace(new RegExp("^(\\s*)" + LBL), (m, sp, label) => sp + lbl(label));
+      return out;
+    });
+  }
+
+  const M_INL = '<span class="math-inline">(?:(?!</span>)[\\s\\S])*</span>';
+  const M_RUN = '<span class="math-run" dir="ltr">(?:(?!</span></span>)[\\s\\S])*</span></span>';
+  function mathRuns(html) {
+    const h = String(html).replace(new RegExp(`${M_INL}(?:(?:[ ,;.:]|&nbsp;)+${M_INL})+`, "g"),
+      m => `<span class="math-run" dir="ltr">${m}</span>`);
+    return h.replace(new RegExp(`(${M_RUN}|${M_INL})([.,;:]+)(?=<br>|</[a-z]+>|$)`, "g"), (m, unit, punct) =>
+      unit.startsWith('<span class="math-run"') ? unit.slice(0, -"</span>".length) + punct + "</span>"
+        : `<span class="math-run" dir="ltr">${unit}${punct}</span>`);
+  }
+  const render = html => isolate(mathRuns(labelLines(html)));
+  const bidi = { render, isolate, labelLines, mathRuns };
+  root.Bidi = bidi;
+  root.crsIsolate = render;
+
+  const api = { text, complexity, number, Bidi: bidi };
   root.Normalize = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof window !== "undefined" ? window : globalThis);

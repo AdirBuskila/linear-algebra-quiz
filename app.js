@@ -110,7 +110,7 @@ function contextHtml(ctx){
   if(ctx.title) h += `<div class="ctx-title">${ctx.titleHtml || escapeHtml(ctx.title)}</div>`;
   if(ctx.image) h += `<figure class="ctx-fig"><img class="q-img ctx-img" src="${escapeHtml(ctx.image)}" alt="${escapeHtml(ctx.caption||ctx.title||"")}" loading="lazy">`+
                      (ctx.caption?`<figcaption>${ctx.captionHtml || escapeHtml(ctx.caption)}</figcaption>`:"")+`</figure>`;
-  if(ctx.text) h += `<div class="ctx-text">${ctx.textHtml || escapeHtml(ctx.text)}</div>`;
+  if(ctx.text) h += `<div class="ctx-text">${iso(ctx.textHtml || escapeHtml(ctx.text))}</div>`;
   if(ctx.code) h += `<pre class="code-ctx" dir="ltr"><code dir="ltr">${ctx.codeHtml || escapeHtml(ctx.code)}</code></pre>`;
   h += `</div>`;
   return h;
@@ -118,12 +118,14 @@ function contextHtml(ctx){
 function extrasHtml(q){
   return q.image ? `<figure class="q-fig"><img class="q-img" src="${escapeHtml(q.image)}" alt="" loading="lazy"></figure>` : "";
 }
-function questionHtml(q){ return q.questionHtml || escapeHtml(q.question||""); }
+/* bidi: Latin labels / formulas inside Hebrew are isolated at render time (Bidi lives in normalize.js, loaded first) */
+function iso(h){ return window.Bidi ? window.Bidi.render(h) : h; }
+function questionHtml(q){ return iso(q.questionHtml || escapeHtml(q.question||"")); }
 function optionHtml(o){
   if(!o) return "";
   const type = o.type || "text";
   if(type==="image") return `<img class="opt-img" src="${escapeHtml(o.value)}" alt="" loading="lazy">`;
-  const body = o.html || escapeHtml(o.value);
+  const body = type==="math" ? (o.html || escapeHtml(o.value)) : iso(o.html || escapeHtml(o.value));
   if(type==="math") return body;
   if(!hasHebrew(o.value)) return `<span class="opt-ltr" dir="ltr">${body}</span>`;
   return body;
@@ -250,7 +252,7 @@ function rubricHtml(q){
   return `<div class="rubric" data-qid="${escapeHtml(q.id)}"><h4 class="sec-h">מחוון — סמנו את מה שהשגתם</h4>`+
     q.rubric.map((r,i)=>
       `<label class="rub-item"><input type="checkbox" data-k="${i}"${t[i]?" checked":""}>`+
-      `<span class="rub-txt">${r.html || escapeHtml(r.text)}</span><span class="rub-pts">${+r.points||0} נק׳</span></label>`).join("")+
+      `<span class="rub-txt">${iso(r.html || escapeHtml(r.text))}</span><span class="rub-pts">${+r.points||0} נק׳</span></label>`).join("")+
     `<div class="rubric-total">ציון עצמי: <b><bdi dir="ltr">${got} / ${max}</bdi></b></div>`+
     (note?`<div class="ai-note">${note}</div>`:"")+`</div>`;
 }
@@ -292,7 +294,7 @@ function paintMcq(q){
   const ok = v.chosen!=null && isAccepted(q,v.chosen);
   const verdict = v.chosen==null ? "" : `<div class="verdict">${ok?"✓ נכון":"✗ לא נכון"}</div>`;
   fb.className = "feedback " + (v.chosen==null ? "neutral" : (ok?"good":"bad"));
-  fb.innerHTML = verdict + (q.explanationHtml ? `<div class="expl">${q.explanationHtml}</div>` : `<div class="expl expl-none">אין הסבר במקור.</div>`)+
+  fb.innerHTML = verdict + (q.explanationHtml ? `<div class="expl">${iso(q.explanationHtml)}</div>` : `<div class="expl expl-none">אין הסבר במקור.</div>`)+
     (acceptedIdsOf(q).length>1?`<span class="accept-note">בשאלה זו התקבלה יותר מתשובה אחת כנכונה.</span>`:"");
 }
 function mcqBlock(q){
@@ -348,11 +350,11 @@ function solutionPanel(q){
   const open = !!P.justShow;
   const src = SOL_SRC[q.solutionSource];
   return `<details class="panel sol-panel"${open?" open":""}><summary><span class="sum-t">פתרון מלא ומחוון</span></summary><div class="panel-body">`+
-    `<div class="solution-text">${q.solutionHtml || escapeHtml(q.solution||"")}</div>`+
+    `<div class="solution-text">${iso(q.solutionHtml || escapeHtml(q.solution||""))}</div>`+
     (src?`<div class="src-note">${src}</div>`:"")+
     (q.confidence==="low"?`<div class="src-note warn">⚠ רמת ביטחון נמוכה בפתרון — מומלץ לאמת.</div>`:"")+
     rubricHtml(q)+
-    ((q.pitfallsHtml||[]).length?`<h4 class="sec-h">טעויות נפוצות</h4><ul class="pitfalls">${q.pitfallsHtml.map(p=>`<li>${p}</li>`).join("")}</ul>`:"")+
+    ((q.pitfallsHtml||[]).length?`<h4 class="sec-h">טעויות נפוצות</h4><ul class="pitfalls">${q.pitfallsHtml.map(p=>`<li>${iso(p)}</li>`).join("")}</ul>`:"")+
     `<div class="ai-grade-slot" data-qid="${escapeHtml(q.id)}"></div>`+
     `</div></details>`;
 }
@@ -508,16 +510,16 @@ function renderResults(){
       const c=S.sim.mcq[q.id], ok=isAccepted(q,c);
       mine = `<div class="ra"><span class="${ok?"good":"miss"}">תשובתכם: ${c!=null?optionHtml(optById(q,c)):"— לא נענתה —"}</span>`+
         (ok?"":` · <span class="good">הנכונה: ${acceptedIdsOf(q).map(id=>optionHtml(optById(q,id))).join(`<span class="or">או</span>`)}</span>`)+
-        `</div>`+(q.explanationHtml?`<div class="expl">${q.explanationHtml}</div>`:"")+
+        `</div>`+(q.explanationHtml?`<div class="expl">${iso(q.explanationHtml)}</div>`:"")+
         `<div class="rubric-total">ציון: <b><bdi dir="ltr">${ok?maxOf(q):0} / ${maxOf(q)}</bdi></b></div>`;
     } else {
       const t=(S.sim.text[q.id]||"").trim(), tf=S.sim.tf[q.id];
       mine = `<h4 class="sec-h">התשובה שלכם</h4>`+
         (q.kind==="truefalse"&&tf!=null?`<div class="ra">בחרתם: ${tf?"נכונה":"לא נכונה"} (הנכון: ${q.verdict?"נכונה":"לא נכונה"})</div>`:"")+
         `<div class="my-attempt">${t?textToHtml(t):"<span class=\"muted\">— לא נכתבה תשובה (אפשר לבדוק את הפתרון שעל הדף) —</span>"}</div>`+
-        `<h4 class="sec-h">פתרון</h4><div class="solution-text">${q.solutionHtml||escapeHtml(q.solution||"")}</div>`+
+        `<h4 class="sec-h">פתרון</h4><div class="solution-text">${iso(q.solutionHtml||escapeHtml(q.solution||""))}</div>`+
         rubricHtml(q)+
-        ((q.pitfallsHtml||[]).length?`<h4 class="sec-h">טעויות נפוצות</h4><ul class="pitfalls">${q.pitfallsHtml.map(p=>`<li>${p}</li>`).join("")}</ul>`:"");
+        ((q.pitfallsHtml||[]).length?`<h4 class="sec-h">טעויות נפוצות</h4><ul class="pitfalls">${q.pitfallsHtml.map(p=>`<li>${iso(p)}</li>`).join("")}</ul>`:"");
     }
     return `<details class="rev" open data-qid="${escapeHtml(q.id)}"><summary><span class="rev-n">${Number.isInteger(q.num)?"שאלה "+q.num+(q.part?" "+q.part:""):q.id}</span> `+
       `<span class="chip soft">${labelHtml(topicLabelOf(q))}</span> <span class="chip">${maxOf(q)} נק׳</span></summary>`+

@@ -28,9 +28,10 @@
   function lineHtml(step, j) {
     const raw = step.lines[j];
     const body = (step.linesHtml && step.linesHtml[j] != null) ? step.linesHtml[j] : esc(raw);
-    return step.code ? `<code dir="ltr">${body}</code>` : body;
+    return step.code ? `<code dir="ltr">${body}</code>` : bidi(body);
   }
-  const promptHtml = step => step.promptHtml != null ? step.promptHtml : esc(step.prompt || "");
+  const bidi = h => (typeof window !== "undefined" && window.Bidi) ? window.Bidi.render(h) : h;   // normalize.js
+  const promptHtml = step => bidi(step.promptHtml != null ? step.promptHtml : esc(step.prompt || ""));
   /* canonical index: lines with identical text are interchangeable */
   const canonOf = lines => lines.map(l => lines.indexOf(l));
 
@@ -55,8 +56,8 @@
       mountEl.dataset.ok = ok ? "1" : "0";
       mountEl.classList.add("step-done");
       let h = `<div class="s-result ${ok ? "good" : "bad"}">${ok ? "✓ נכון" : "✗ לא נכון"}</div>`;
-      if (!ok && revealHtml) h += `<div class="s-reveal">${revealHtml}</div>`;
-      if (step.explainHtml || step.explain) h += `<div class="s-explain">${step.explainHtml != null ? step.explainHtml : esc(step.explain)}</div>`;
+      if (!ok && revealHtml) h += `<div class="s-reveal">${bidi(revealHtml)}</div>`;
+      if (step.explainHtml || step.explain) h += `<div class="s-explain">${bidi(step.explainHtml != null ? step.explainHtml : esc(step.explain))}</div>`;
       fb.innerHTML = h;
       fb.className = "s-feedback " + (ok ? "good" : "bad");
       if (typeof onResult === "function") onResult({ ok });
