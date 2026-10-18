@@ -199,7 +199,7 @@
    "topic": "vector_spaces",
    "points": 5,
    "question": "חשבו תת מרחב $U+W$, מצאו בסיס ומימד של תת מרחב זה.",
-   "solution": "$U+W=\\mathrm{Sp}\\left(B_U\\cup B_W\\right)=\\mathrm{Sp}\\left\\{x,\\ x^3,\\ 1,\\ x^2-2x,\\ x^3-3x\\right\\}$.\nנדרג מטריצה ששורותיה הן הווקטורים הקואורדינטיים לפי $(a_0,a_1,a_2,a_3)$:\n$$\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&-2&1&0\\\\0&0&0&1\\\\0&-3&0&1\\end{pmatrix}\\xrightarrow{\\substack{R_3\\to R_3+2R_2\\R_5\\to R_5+3R_2-R_4}}\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\0&0&0&0\\end{pmatrix}$$\nהדרגה $4=\\dim\\mathbb{R}_3[x]$, ולכן $U+W=\\mathbb{R}_3[x]$:\n$$B_{U+W}=\\left\\{1,\\ x,\\ x^2,\\ x^3\\right\\},\\qquad \\dim(U+W)=4$$",
+   "solution": "$U+W=\\mathrm{Sp}\\left(B_U\\cup B_W\\right)=\\mathrm{Sp}\\left\\{x,\\ x^3,\\ 1,\\ x^2-2x,\\ x^3-3x\\right\\}$.\nנדרג מטריצה ששורותיה הן הווקטורים הקואורדינטיים לפי $(a_0,a_1,a_2,a_3)$:\n$$\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&-2&1&0\\\\0&0&0&1\\\\0&-3&0&1\\end{pmatrix}\\xrightarrow{\\substack{R_3\\to R_3+2R_2\\\\R_5\\to R_5+3R_2-R_4}}\\begin{pmatrix}1&0&0&0\\\\0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\0&0&0&0\\end{pmatrix}$$\nהדרגה $4=\\dim\\mathbb{R}_3[x]$, ולכן $U+W=\\mathbb{R}_3[x]$:\n$$B_{U+W}=\\left\\{1,\\ x,\\ x^2,\\ x^3\\right\\},\\qquad \\dim(U+W)=4$$",
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
