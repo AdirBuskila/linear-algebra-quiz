@@ -72,7 +72,7 @@ questions.append(Q(
     r"הוכח שאם $\vec v$ ו-$\vec w$ הם וקטורים עצמיים **המתאימים לאותו ערך עצמי** $\lambda$ של מטריצה ריבועית $A$, אז כל צירוף ליניארי $c\vec v+d\vec w$ ($c\neq0,\ d\neq0$) גם מהווה וקטור עצמי של $A$.",
     J(r"נתון שמתקיים $\begin{cases}A\vec v=\lambda\vec v\\ A\vec w=\lambda\vec w\end{cases}$. מכאן",
       r"$$A(c\vec v+d\vec w)=c(A\vec v)+d(A\vec w)=c\lambda\vec v+d\lambda\vec w=\lambda(c\vec v+d\vec w)$$",
-      r"וזה מוכיח ש-$c\vec v+d\vec w$ הוא וקטור עצמי נוסף של מטריצה $A$."),
+      r"וזה מוכיח ש-$c\vec v+d\vec w$ הוא וקטור עצמי נוסף של מטריצה $A$, בתנאי שהוא שונה מוקטור האפס. הערה: ייתכן ש-$c\vec v+d\vec w=\vec 0$ (למשל $\vec w=-\vec v$, $c=d=1$), ואז הצירוף הוא וקטור האפס, שאינו וקטור עצמי; הטענה נכונה רק כאשר $c\vec v+d\vec w\neq\vec 0$."),
     5))
 
 questions.append(Q(
@@ -140,7 +140,7 @@ questions.append(Q(
       r"ומכאן ש-$r=5.72$ ו-$\theta_1=-38.83^\circ,\ \theta_2=141.17^\circ$. לכן:",
       r"$$w_1=5.72\,\mathrm{cis}(-38.83^\circ)=4.46-3.59i,\qquad w_2=5.72\,\mathrm{cis}(141.17^\circ)=-4.46+3.59i$$",
       r"כעת נציב זאת חזרה במשוואה הריבועית, לקבל את השורשים המבוקשים:",
-      r"$$z_1=\frac{(4-3i)+(4.46-3.59i)}{2}\approx4.23-3.295i,\qquad z_2=\frac{(4-3i)-(4.46-3.59i)}{2}\approx-0.23+0.295i$$",
+      r"$$z_1=\frac{(4-3i)+(4.46-3.59i)}{2}\approx4.23-3.294i,\qquad z_2=\frac{(4-3i)-(4.46-3.59i)}{2}\approx-0.23+0.294i$$",
       r"(הערכים בפתרון הרשמי מקורבים. הצורה המדויקת: $z_{1,2}=\frac{(4-3i)\pm\sqrt{7-32i}}{2}$.)"),
     6, contextId="c2"))
 
@@ -312,9 +312,10 @@ ENR = {}
 
 ENR[(1, "א")] = dict(
     rubric=rub(("הנחה: $A\\vec v=\\lambda\\vec v$ ו-$A\\vec w=\\lambda\\vec w$", 1),
-               ("לינאריות: $A(c\\vec v+d\\vec w)=c(A\\vec v)+d(A\\vec w)$", 2),
+               ("לינאריות: $A(c\\vec v+d\\vec w)=c(A\\vec v)+d(A\\vec w)$", 1),
                ("הצבת הנתון והוצאת $\\lambda$ כגורם משותף", 1),
-               ("מסקנה: $c\\vec v+d\\vec w$ וקטור עצמי של $A$ עם אותו $\\lambda$", 1)),
+               ("מסקנה: $c\\vec v+d\\vec w$ וקטור עצמי של $A$ עם אותו $\\lambda$", 1),
+               ("המקרה $c\\vec v+d\\vec w=\\vec 0$: וקטור האפס אינו וקטור עצמי, ולכן נדרש $c\\vec v+d\\vec w\\neq\\vec 0$", 1)),
     pitfalls=["להשתמש בשני ערכים עצמיים שונים במקום באותו $\\lambda$.",
               "לשכוח להוציא את $\\lambda$ כגורם משותף, ולכן לא לקבל את הצורה של $\\lambda$ כפול הווקטור."],
     steps=[
@@ -341,8 +342,8 @@ ENR[(1, "ב")] = dict(
               "לבלבל עם סעיף א: שם הערך העצמי משותף ולכן הצירוף כן עצמי."],
     steps=[
         cho("איזה שוויון מבטא (לפי ההגדרה) את הטענה ש-$c\\vec v+d\\vec w$ הוא וקטור עצמי של $B$?", "קיים סקלר $\\lambda$ כך ש-$B(c\\vec v+d\\vec w)=\\lambda(c\\vec v+d\\vec w)$",
-            ["$B(c\\vec v+d\\vec w)=c\\lambda_1\\vec v+d\\lambda_2\\vec w$", "$B(c\\vec v+d\\vec w)=c\\vec v+d\\vec w$", "$B(c\\vec v+d\\vec w)=\\vec 0$"],
-            "זו ההגדרה של וקטור עצמי. השוויון הראשון תמיד נכון (הוא החישוב עצמו, לא תנאי); השני דורש $\\lambda=1$ דווקא ($B=2I$ היא דוגמה שבה הצירוף עצמי ועדיין השוויון נכשל); השלישי דורש $\\lambda=0$."),
+            ["$B(c\\vec v+d\\vec w)=(\\lambda_1+\\lambda_2)(c\\vec v+d\\vec w)$", "$B(c\\vec v+d\\vec w)=c\\vec v+d\\vec w$", "$B(c\\vec v+d\\vec w)=\\vec 0$"],
+            "זו ההגדרה של וקטור עצמי. השוויון הראשון אינו נכון בדרך כלל (כבר עבור $B=\\mathrm{diag}(1,2)$, $\\vec v=(1,0)$, $\\vec w=(0,1)$, $c=d=1$ מתקבל $(1,2)\\neq3\\cdot(1,1)$); השני דורש $\\lambda=1$ דווקא ($B=2I$ היא דוגמה שבה הצירוף עצמי ועדיין השוויון נכשל); השלישי דורש $\\lambda=0$."),
         num("עבור $B=\\mathrm{diag}(1,2)$, $\\vec v=(1,0)$, $\\vec w=(0,1)$, מהי הכניסה השנייה של $B(\\vec v+\\vec w)$?", 2, "$B(\\vec v+\\vec w)=(1,2)$."),
         num("מהי הדטרמיננטה של המטריצה שעמודותיה $(1,1)$ ו-$(1,2)$ (הצירוף $\\vec v+\\vec w$ והתוצאה $B(\\vec v+\\vec w)$)?", 1,
             "הדטרמיננטה שונה מאפס, ולכן $(1,2)$ אינו כפולה של $(1,1)$: הצירוף אינו עצמי."),
@@ -353,7 +354,7 @@ ENR[(1, "ג")] = dict(
                ("$C^{-5}=\\left(C^5\\right)^{-1}=\\begin{pmatrix}89&55\\\\55&34\\end{pmatrix}$", 2),
                ("$C^{-2}=C^3\\cdot C^{-5}$", 1),
                ("המכפלה $\\begin{pmatrix}5&3\\\\3&2\\end{pmatrix}$", 2)),
-    pitfalls=["לחשב ישירות את $C$ במקום להשתמש בחזקות הנתונות.",
+    pitfalls=["להכפיל $C^3\\cdot C^5=C^8$ במקום $C^3\\cdot C^{-5}=C^{-2}$ (החזקות מתחברות: $3+(-5)=-2$).",
               "להפוך מטריצה $2\\times2$ בלי להחליף את האלכסון הראשי ובלי לשנות סימן לאלכסון המשני."],
     steps=[
         num("מהי $\\det(C^3)$?", 1, "$5\\cdot13-(-8)(-8)=65-64=1\\neq0$."),
@@ -428,7 +429,7 @@ ENR[(2, "ד")] = dict(
     rubric=rub(("נוסחת השורשים של המשוואה הריבועית", 1),
                ("חישוב הדיסקרימיננטה $(3i-4)^2-8i=7-32i$", 2),
                ("חישוב $\\sqrt{7-32i}\\approx\\pm(4.46-3.59i)$", 2),
-               ("הצבה בנוסחה וקבלת $z_1\\approx4.23-3.295i$ ו-$z_2\\approx-0.23+0.295i$", 1)),
+               ("הצבה בנוסחה וקבלת $z_1\\approx4.23-3.294i$ ו-$z_2\\approx-0.23+0.294i$", 1)),
     pitfalls=["לשכוח ששורש של מספר מרוכב נותן שני ערכים, $\\pm w$.",
               "טעות סימן בעת חישוב $(3i-4)^2$."],
     steps=[
@@ -601,7 +602,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

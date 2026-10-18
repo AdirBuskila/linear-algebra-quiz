@@ -50,14 +50,14 @@
     },
     {
      "text": "פתיחת הסוגריים וקבלת המשוואה $k^2-2k-3=0$",
-     "points": 3
+     "points": 2
     },
     {
      "text": "פתרון $k=-1$ או $k=3$ ובחירת $k=-1$ מהתנאי $k<0$",
-     "points": 2
+     "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרוש שהוקטורים הנורמליים יהיו מקבילים (תנאי למישורים מקבילים) במקום ניצבים.",
     "טעות סימן בפתיחת $(k+1)(2k-3)$.",
@@ -107,7 +107,7 @@
      "explain": "השורשים הם $-1$ ו-$3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -127,18 +127,18 @@
     },
     {
      "text": "דירוג המערכת ושימוש ב-$z$ כמשתנה חופשי",
-     "points": 3
+     "points": 4
     },
     {
      "text": "הצגה פרמטרית $\\left(-\\frac12,-\\frac32,0\\right)+t\\left(\\frac52,-\\frac52,1\\right)$",
-     "points": 2
+     "points": 3
     },
     {
      "text": "בדיקה ש-$p_0$ על $\\ell$: $t=5$",
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בסימן של $2k-3$ כשמציבים $k=-1$ (הערך הנכון הוא $-5$).",
     "לבדוק רק קואורדינטה אחת של $p_0$ ולא את שלושתן עם אותו $t$."
@@ -173,7 +173,7 @@
      "explain": "מהקואורדינטה השלישית $z=t=5$, ושתי האחרות מתאימות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -200,7 +200,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בכיוון ישר החיתוך $\\ell$ ככיוון של $S_3$ במקום בנורמלים (הוא נורמל של $S_3$).",
     "לשכוח שהצגה פרמטרית של מישור דורשת שני וקטורי כיוון בלתי תלויים."
@@ -244,7 +244,7 @@
      "explain": "$2k-3=-5$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -276,10 +276,10 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$a(1-a)$ או ב-$2(a+1)$ מבלי לציין שהם מתאפסים ב-$a=0,1,-1$.",
-    "טעות בחישוב $a^2-a\\cdot a$ ו-$a^2-a-(-a)\\cdot a$ בשורה 2."
+    "לטעות בסימן בחישוב הכניסה בשורה 2 עמודה 3: $(a^2-a)-a\\cdot(-1)=a^2$, ולא $a^2-2a$."
    ],
    "steps": [
     {
@@ -325,7 +325,7 @@
      "explain": "$a(1-a)=0$ עבור $a=0,1$ ו-$2(a+1)=0$ עבור $a=-1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -353,7 +353,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את $a=-1$, שבו שורה 3 מתאפסת אחרי הדירוג."
    ],
@@ -380,7 +380,7 @@
      "explain": "$a=0,1,-1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -412,7 +412,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להציב $a=1$ ולהניח $r(A)=3$ בלי להמשיך לדרג עד שורת האפס.",
     "טעות סימן ב-$x=-y-z$ כשמציבים $z=2y$."
@@ -447,7 +447,7 @@
      "explain": "$z=0$ ולכן $y=-x$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -479,7 +479,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$a$ כאשר $a=0$."
    ],
@@ -506,7 +506,7 @@
      "explain": "$-z=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -541,7 +541,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המטריצות האלמנטריות בסדר הפעולות ולא בסדר ההפוך.",
     "לשכוח שפעולה $R_3\\to-R_3$ גם היא מטריצה אלמנטרית (אלכסונית)."
@@ -597,7 +597,7 @@
      "explain": "אם $E_6\\cdots E_1A=I$ אז $A^{-1}=E_6\\cdots E_1$: הפעולה האחרונה משמאל. העברת כל אחד מהגורמים האחרים לצד שמאל משנה את המכפלה (בדיקה ישירה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -632,7 +632,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקבוע שהמטריצה אינה ניתנת לליכסון כי $0$ ערך עצמי כפול או כי $B$ אינה הפיכה.",
     "לשכוח שבעבור $\\lambda=0$ נדרשים שני וקטורים עצמיים בלתי תלויים."
@@ -695,7 +695,7 @@
      "explain": "$BP=PD=\\begin{pmatrix}3&0&0\\\\3&0&0\\\\3&0&0\\end{pmatrix}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -779,7 +779,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את עמודות המטריצה המדורגת בתור בסיס ל-$\\mathrm{Im}\\,T$.",
     "לבחור עמודות 1 ו-2 של $A$ שהן זהות ולכן תלויות."
@@ -835,7 +835,7 @@
      "explain": "$4-2=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -863,7 +863,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשוות ל-$\\dim\\mathbb{R}^3$ במקום ל-$\\dim\\mathbb{R}_3[x]=4$."
    ],
@@ -904,7 +904,7 @@
      "explain": "$\\dim\\mathrm{Ker}\\,T=2\\neq0$ ולכן לא חח״ע, ו-$\\dim\\mathrm{Im}\\,T=2<4=\\dim\\mathbb{R}_3[x]$ ולכן לא על."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -936,7 +936,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרג רק את מטריצת המקדמים ולשכוח את הפרמטרים $k,m$ בעמודת אגף ימין."
    ],
@@ -970,7 +970,7 @@
      "explain": "$m=3\\alpha+5\\beta=6+10$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1001,7 +1001,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המכפלה בסדר הפוך.",
     "לכתוב את הפולינומים כשורות במקום כעמודות."
@@ -1057,7 +1057,7 @@
      "explain": "$-3\\cdot25+1\\cdot24$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

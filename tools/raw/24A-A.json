@@ -59,7 +59,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "\"לחלק\" ב-$A$: במטריצות אין חילוק, צריך להציג מטריצה $B$ שמקיימת $AB=I$.",
     "טעות סימן: לכתוב $A(A+I)=I$ במקום $A(A+I)=-I$."
@@ -124,7 +124,7 @@
      "explain": "מ-$A^2+A=-I$ מתקבל $A(A+I)=-I$, לא $I$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -156,9 +156,9 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
-    "לפשט ל-$-2A-2I$ במקום $-2A$ (שכחת ה-$+I$ שמבטל את ה-$-I$).",
+    "לשכוח את ה-$+I$ ולקבל $-2A-I$ במקום $-2A$ (ה-$+I$ מבטל את ה-$-I$).",
     "לטעון ש-$A^2-A+I$ הפיכה בלי לציין שהיא שווה למכפלה של סקלר שונה מאפס ב-$A$."
    ],
    "steps": [
@@ -203,13 +203,12 @@
      "lines": [
       "$A^2-A+I=(-A-I)-A+I$ (הצבה לפי הנתון $A^2=-A-I$)",
       "$=-2A$",
-      "$A$ הפיכה לפי סעיף א, ולכן גם $-2A$ הפיכה",
-      "$\\left(A^2-A+I\\right)^{-1}=(-2A)^{-1}=-\\frac12A^{-1}$"
+      "$A$ הפיכה לפי סעיף א, ולכן $-2A$ הפיכה והופכית שלה היא $\\left(A^2-A+I\\right)^{-1}=(-2A)^{-1}=-\\frac12A^{-1}$"
      ],
-     "explain": "הצבה, פישוט, הפיכות, הופכית."
+     "explain": "הצבה, פישוט, ואז הפיכות והופכית יחד (הפיכות $-2A$ והנוסחה להופכית נובעות יחד מסעיף א)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -244,7 +243,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לנסות להוכיח את הטענה בהצבת מטריצות כלליות במקום לחפש דוגמה נגדית.",
     "לבחור דוגמה שבה במקרה מתקבל שוויון, כמו $A=B=I_1$."
@@ -293,7 +292,7 @@
      "explain": "$AB=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -329,7 +328,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$k$ בלי לציין ש-$k=0$ מצריך בדיקה נפרדת.",
     "לשכוח שגם $k=2$ ו-$k=-5$ מוציאים מהמקרה של פתרון יחיד."
@@ -357,7 +356,7 @@
      "explain": "$y=\\frac4{k+5}=\\frac23$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -385,7 +384,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שגם עבור $k=2$ אין פתרון: שם גם אגף ימין מתאפס ($4(k-2)=0$)."
    ],
@@ -412,7 +411,7 @@
      "explain": "שורת הסתירה $(0,0,0\\,|\\,-28)$ מוסיפה איבר מוביל."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -444,7 +443,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהפתרון הכללי הוא ישר: פתרון פרטי ועוד כפולה של וקטור הכיוון.",
     "לבלבל בין שתי הצורות $t(6,-5,2)$ ו-$t\\left(3,-\\frac52,1\\right)$: הן אותו ישר עם פרמטר מוכפל ב-2."
@@ -479,7 +478,7 @@
      "explain": "$y=\\frac{4-5z}2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -511,7 +510,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שגם $t\\vec d$ פותר את המערכת המקורית: הוא פותר רק את ההומוגנית."
    ],
@@ -559,7 +558,7 @@
      "explain": "$A\\vec p=\\vec b\\neq0$ ולכן $\\vec p$ אינו פתרון של ההומוגנית, ו-$A(t\\vec d)=0\\neq\\vec b$ ולכן $t\\vec d$ אינו פתרון של המקורית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -591,7 +590,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לדרג את החלק הימני $I$ יחד עם החלק השמאלי.",
     "טעות סימן ב-$R_2-R_3$ המובילה לכניסה $\\frac12$ במקום $-\\frac12$ בשורה 2."
@@ -626,7 +625,7 @@
      "explain": "הכניסה היא $\\frac12$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -658,7 +657,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $A^{-1}=E_1E_2E_3E_4E_5$ בסדר הפעולות."
    ],
@@ -706,7 +705,7 @@
      "explain": "הפעולה האחרונה פועלת אחרונה ולכן עומדת משמאל. הסדר ההפוך לא נותן את $A^{-1}$ (בדיקה ישירה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -737,7 +736,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לסדר את עמודות $P$ בסדר שונה מסדר הערכים העצמיים ב-$D$.",
     "לחשב את הגרעין של $B+\\lambda I$ במקום $B-\\lambda I$."
@@ -774,7 +773,7 @@
       {
        "id": "c",
        "type": "text",
-       "value": "היא הפיכה"
+       "value": "הדטרמיננטה שלה שווה ל-$0$"
       },
       {
        "id": "d",
@@ -783,7 +782,7 @@
       }
      ],
      "correctId": "b",
-     "explain": "$B$ אינה סימטרית ואינה אלכסונית, והפיכות אינה מבטיחה ליכסון (למשל $\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}$ הפיכה אך לא ניתנת לליכסון)."
+     "explain": "$B$ אינה סימטרית ואינה אלכסונית, ו-$\\det B=-6\\neq0$ (והפיכות בלאו הכי אינה מבטיחה ליכסון)."
     },
     {
      "type": "numeric",
@@ -793,7 +792,7 @@
      "explain": "$B\\vec x_1=\\vec x_1$, כלומר $(2,0,1)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -825,7 +824,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לכתוב את המשתנה החופשי $y$ כוקטור בסיס נפרד.",
     "להחליף בין תנאי שני התתי מרחבים ($z=x$ ו-$y'=x'$)."
@@ -874,7 +873,7 @@
      "explain": "הקבוצה היחידה שפורשת את $W_1$ ובלתי תלויה. $(0,1,0)\\in W_1$ אינו בפרישה של $(1,0,1)$; $(1,1,0)$ אינו ב-$W_1$ כי $z\\neq x$; והזוג האחרון תלוי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -902,7 +901,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את ארבעת הווקטורים כבסיס בלי לבדוק תלות.",
     "לשכוח שבמרחב $\\mathbb{R}^3$ אין יותר משלושה וקטורים בלתי תלויים."
@@ -930,7 +929,7 @@
      "explain": "שווה לדרגה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -962,7 +961,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את סימן המינוס בצירוף של $W_2$ כשמעבירים אגף.",
     "לחשב את החיתוך כאיחוד: תנאי אחד \"או\" תנאי שני."
@@ -1018,7 +1017,7 @@
      "explain": "$x=y=z=t$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1046,7 +1045,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק שייכות רק ל-$W_1$ או רק ל-$W_2$."
    ],
@@ -1087,7 +1086,7 @@
      "explain": "סכום הקואורדינטות הוא $3$; וקטור בודד אינו בסיס של $\\mathbb{R}^3$; והוא כן כפולה של בסיס החיתוך. הוא גם מקיים $z=x$ ו-$y=x$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1119,7 +1118,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את עמודות המטריצה המדורגת בתור בסיס ל-$\\mathrm{Im}\\,T$.",
     "לשכוח להחזיר את וקטורי הגרעין לפולינומים."
@@ -1175,7 +1174,7 @@
      "explain": "$4-2=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1203,9 +1202,9 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
-    "להשוות את $\\dim\\mathrm{Im}\\,T$ למימד התחום $\\dim\\mathbb{R}_3[x]$ ולא למימד הטווח."
+    "לבלבל בין התנאים: חד חד ערכית פירושה גרעין טריוויאלי ($\\dim\\mathrm{Ker}\\,T=0$), ו״על״ פירושה שמימד התמונה שווה למימד הטווח; כאן שניהם נכשלים."
    ],
    "steps": [
     {
@@ -1244,7 +1243,7 @@
      "explain": "$\\dim\\mathrm{Ker}\\,T=2\\neq0$ ולכן לא חח״ע, ו-$\\dim\\mathrm{Im}\\,T=2<4$ ולכן לא על."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1276,7 +1275,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק צירוף של בסיס התמונה במקום בסיס הגרעין."
    ],
@@ -1319,7 +1318,7 @@
      "explain": "$m=3-2k$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1350,7 +1349,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המכפלה בסדר הפוך.",
     "לכתוב את וקטורי הבסיס כשורות במקום כעמודות."
@@ -1406,7 +1405,7 @@
      "explain": "מהמטריצה $\\begin{pmatrix}0&-1\\\\1&4\\end{pmatrix}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

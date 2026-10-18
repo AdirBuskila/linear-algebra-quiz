@@ -10,7 +10,7 @@ checks appended to verify_25A-B.py). It is the same question as 25A-A Q4 and agr
 Transcription notes
 - Parts are single letters in the raw schema. Printed numbering -> raw part: Q3: א, ב (one printed item with
   sub-steps 1 and 2); Q5: 1.a->א, 1.b->ב, 1.c->ג, 2->ד.
-- Q1: the printed sub-parts carry no point values.
+- Q1: the printed sub-parts carry no point values (rubric split 7/10/8 for a/b/c is an assumption).
 - Q2: the official label of the a=0 step reads R2->R2+2R1; the computation that gives the printed zero rows is
   R3->R3+2R1. Printed as R3 and flagged inside the solution.
 - Q5 "b": the official text says dim Im T != dim R^4; the codomain of T is R3[x] (dimension 4). Slip flagged in
@@ -323,8 +323,8 @@ ENR = {}
 ENR[(1, "א")] = dict(
     rubric=rub(("זיהוי הוקטורים הנורמליים $\\vec N_1=(-k^2,-1,k+1)$ ו-$\\vec N_2=(1,k,2k-3)$", 2),
                ("תנאי ניצבות: $\\vec N_1\\cdot\\vec N_2=0$", 2),
-               ("פתיחת הסוגריים וקבלת המשוואה $k^2-2k-3=0$", 3),
-               ("פתרון $k=-1$ או $k=3$ ובחירת $k=-1$ מהתנאי $k<0$", 2)),
+               ("פתיחת הסוגריים וקבלת המשוואה $k^2-2k-3=0$", 2),
+               ("פתרון $k=-1$ או $k=3$ ובחירת $k=-1$ מהתנאי $k<0$", 1)),
     pitfalls=["לדרוש שהוקטורים הנורמליים יהיו מקבילים (תנאי למישורים מקבילים) במקום ניצבים.",
               "טעות סימן בפתיחת $(k+1)(2k-3)$.",
               "לשכוח את התנאי $k<0$ ולהשאיר גם את $k=3$."],
@@ -339,8 +339,8 @@ ENR[(1, "א")] = dict(
 
 ENR[(1, "ב")] = dict(
     rubric=rub(("הצבת $k=-1$ וקבלת $S_1:\\ -x-y=2$ ו-$S_2:\\ x-y-5z=1$", 1),
-               ("דירוג המערכת ושימוש ב-$z$ כמשתנה חופשי", 3),
-               ("הצגה פרמטרית $\\left(-\\frac12,-\\frac32,0\\right)+t\\left(\\frac52,-\\frac52,1\\right)$", 2),
+               ("דירוג המערכת ושימוש ב-$z$ כמשתנה חופשי", 4),
+               ("הצגה פרמטרית $\\left(-\\frac12,-\\frac32,0\\right)+t\\left(\\frac52,-\\frac52,1\\right)$", 3),
                ("בדיקה ש-$p_0$ על $\\ell$: $t=5$", 2)),
     pitfalls=["לטעות בסימן של $2k-3$ כשמציבים $k=-1$ (הערך הנכון הוא $-5$).",
               "לבדוק רק קואורדינטה אחת של $p_0$ ולא את שלושתן עם אותו $t$."],
@@ -371,7 +371,7 @@ ENR[(2, "א")] = dict(
                ("החלוקות $R_2\\cdot\\frac1{a(1-a)}$ ו-$R_3\\cdot\\frac1{2(a+1)}$", 3),
                ("ציון הערכים $a=0,1,-1$ שבהם אסור לחלק", 1)),
     pitfalls=["לחלק ב-$a(1-a)$ או ב-$2(a+1)$ מבלי לציין שהם מתאפסים ב-$a=0,1,-1$.",
-              "טעות בחישוב $a^2-a\\cdot a$ ו-$a^2-a-(-a)\\cdot a$ בשורה 2."],
+              "לטעות בסימן בחישוב הכניסה בשורה 2 עמודה 3: $(a^2-a)-a\\cdot(-1)=a^2$, ולא $a^2-2a$."],
     steps=[
         num("אחרי $R_2\\to R_2-aR_1$ ו-$R_3\\to R_3-R_1$ הכניסה בשורה 3 עמודה 3 היא $2a+2$. מה ערכה עבור $a=4$?", 10, "$2\\cdot4+2=10$."),
         num("באותה מטריצה, מה ערך הכניסה בשורה 2 עמודה 2 עבור $a=3$?", -6, "הכניסה היא $a-a^2=3-9=-6$."),
@@ -519,7 +519,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

@@ -35,7 +35,7 @@
    "topic": "eigen_diagonalization",
    "points": 5,
    "question": "הוכח שאם $\\vec v$ ו-$\\vec w$ הם וקטורים עצמיים **המתאימים לאותו ערך עצמי** $\\lambda$ של מטריצה ריבועית $A$, אז כל צירוף ליניארי $c\\vec v+d\\vec w$ ($c\\neq0,\\ d\\neq0$) גם מהווה וקטור עצמי של $A$.",
-   "solution": "נתון שמתקיים $\\begin{cases}A\\vec v=\\lambda\\vec v\\\\ A\\vec w=\\lambda\\vec w\\end{cases}$. מכאן\n$$A(c\\vec v+d\\vec w)=c(A\\vec v)+d(A\\vec w)=c\\lambda\\vec v+d\\lambda\\vec w=\\lambda(c\\vec v+d\\vec w)$$\nוזה מוכיח ש-$c\\vec v+d\\vec w$ הוא וקטור עצמי נוסף של מטריצה $A$.",
+   "solution": "נתון שמתקיים $\\begin{cases}A\\vec v=\\lambda\\vec v\\\\ A\\vec w=\\lambda\\vec w\\end{cases}$. מכאן\n$$A(c\\vec v+d\\vec w)=c(A\\vec v)+d(A\\vec w)=c\\lambda\\vec v+d\\lambda\\vec w=\\lambda(c\\vec v+d\\vec w)$$\nוזה מוכיח ש-$c\\vec v+d\\vec w$ הוא וקטור עצמי נוסף של מטריצה $A$, בתנאי שהוא שונה מוקטור האפס. הערה: ייתכן ש-$c\\vec v+d\\vec w=\\vec 0$ (למשל $\\vec w=-\\vec v$, $c=d=1$), ואז הצירוף הוא וקטור האפס, שאינו וקטור עצמי; הטענה נכונה רק כאשר $c\\vec v+d\\vec w\\neq\\vec 0$.",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -46,7 +46,7 @@
     },
     {
      "text": "לינאריות: $A(c\\vec v+d\\vec w)=c(A\\vec v)+d(A\\vec w)$",
-     "points": 2
+     "points": 1
     },
     {
      "text": "הצבת הנתון והוצאת $\\lambda$ כגורם משותף",
@@ -55,9 +55,13 @@
     {
      "text": "מסקנה: $c\\vec v+d\\vec w$ וקטור עצמי של $A$ עם אותו $\\lambda$",
      "points": 1
+    },
+    {
+     "text": "המקרה $c\\vec v+d\\vec w=\\vec 0$: וקטור האפס אינו וקטור עצמי, ולכן נדרש $c\\vec v+d\\vec w\\neq\\vec 0$",
+     "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בשני ערכים עצמיים שונים במקום באותו $\\lambda$.",
     "לשכוח להוציא את $\\lambda$ כגורם משותף, ולכן לא לקבל את הצורה של $\\lambda$ כפול הווקטור."
@@ -92,7 +96,7 @@
      "explain": "$A(2\\vec v+3\\vec w)=3(2\\vec v+3\\vec w)=(6,9,0)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -123,7 +127,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק שהצירוף אינו עצמי רק כי הערכים העצמיים שונים, בלי להשוות את שני האגפים.",
     "לבלבל עם סעיף א: שם הערך העצמי משותף ולכן הצירוף כן עצמי."
@@ -141,7 +145,7 @@
       {
        "id": "b",
        "type": "text",
-       "value": "$B(c\\vec v+d\\vec w)=c\\lambda_1\\vec v+d\\lambda_2\\vec w$"
+       "value": "$B(c\\vec v+d\\vec w)=(\\lambda_1+\\lambda_2)(c\\vec v+d\\vec w)$"
       },
       {
        "id": "c",
@@ -155,7 +159,7 @@
       }
      ],
      "correctId": "a",
-     "explain": "זו ההגדרה של וקטור עצמי. השוויון הראשון תמיד נכון (הוא החישוב עצמו, לא תנאי); השני דורש $\\lambda=1$ דווקא ($B=2I$ היא דוגמה שבה הצירוף עצמי ועדיין השוויון נכשל); השלישי דורש $\\lambda=0$."
+     "explain": "זו ההגדרה של וקטור עצמי. השוויון הראשון אינו נכון בדרך כלל (כבר עבור $B=\\mathrm{diag}(1,2)$, $\\vec v=(1,0)$, $\\vec w=(0,1)$, $c=d=1$ מתקבל $(1,2)\\neq3\\cdot(1,1)$); השני דורש $\\lambda=1$ דווקא ($B=2I$ היא דוגמה שבה הצירוף עצמי ועדיין השוויון נכשל); השלישי דורש $\\lambda=0$."
     },
     {
      "type": "numeric",
@@ -172,7 +176,7 @@
      "explain": "הדטרמיננטה שונה מאפס, ולכן $(1,2)$ אינו כפולה של $(1,1)$: הצירוף אינו עצמי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -203,9 +207,9 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
-    "לחשב ישירות את $C$ במקום להשתמש בחזקות הנתונות.",
+    "להכפיל $C^3\\cdot C^5=C^8$ במקום $C^3\\cdot C^{-5}=C^{-2}$ (החזקות מתחברות: $3+(-5)=-2$).",
     "להפוך מטריצה $2\\times2$ בלי להחליף את האלכסון הראשי ובלי לשנות סימן לאלכסון המשני."
    ],
    "steps": [
@@ -259,7 +263,7 @@
      "explain": "מאותה מטריצה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -286,7 +290,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוכיח רק כיוון אחד של ה\"אם ורק אם\".",
     "לשכוח ש-$\\det(P)$ ו-$\\det\\left(P^{-1}\\right)$ שונים מאפס כי $P$ הפיכה."
@@ -338,7 +342,7 @@
      "explain": "הנחה, כפליות הדטרמיננטה, מסקנה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -370,7 +374,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לכפול ב-$-1$ בעת סידור השורות ולקבל סימן הפוך בשורות 2 ו-3.",
     "לחלק ב-$4-k$ או ב-$2$ מבלי להשתמש בפעולה $2R_3-(4-k)R_2$ שנמנעת מחילוק."
@@ -398,7 +402,7 @@
      "explain": "$4-8=-4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -430,7 +434,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שגם ב-$k=2$ אין פתרון: אגף ימין $4(k-2)$ מתאפס גם הוא."
    ],
@@ -478,7 +482,7 @@
      "explain": "ב-$k=-5$ דרגת המקדמים 2 ודרגת המורחבת 3 (סתירה), וב-$k=2$ שתיהן 2 (אינסוף)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -514,7 +518,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בסימן ב-$y=\\frac{4-5z}{2}$."
    ],
@@ -541,7 +545,7 @@
      "explain": "$z$ בלבד."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -550,7 +554,7 @@
    "topic": "complex_numbers",
    "points": 6,
    "question": "מצא את כל הפתרונות המרוכבים של $z^2+(3i-4)z+2i=0$.",
-   "solution": "נפתור את המשוואה $z^2+(3i-4)z+2i=0$ באמצעות משוואה ריבועית:\n$$z_{1,2}=\\frac{-(3i-4)\\pm\\sqrt{(3i-4)^2-8i}}{2}=\\frac{(4-3i)\\pm\\sqrt{-9-24i+16-8i}}{2}=\\frac{(4-3i)\\pm\\sqrt{7-32i}}{2}$$\nכעת נחשב בנפרד את $\\sqrt{7-32i}$: אנו למעשה מחפשים $w$ המקיים $w^2=7-32i$. נרשום $w=r\\,\\mathrm{cis}(\\theta)$. על פי דמואבר $w^2=r^2\\mathrm{cis}(2\\theta)$. נרשום את $7-32i$ בצורה טריגונומטרית:\n$$7-32i=\\sqrt{7^2+32^2}\\,\\mathrm{cis}\\left(\\tan^{-1}\\left(-\\frac{32}{7}\\right)\\right)\\approx32.76\\,\\mathrm{cis}(-77.66^\\circ)$$\nולכן:\n$$r^2\\mathrm{cis}(2\\theta)=32.76\\,\\mathrm{cis}(-77.66^\\circ)\\ \\Rightarrow\\ \\begin{cases}r^2=32.76\\\\ \\theta=-\\frac{77.66}{2}+180k\\end{cases}$$\nומכאן ש-$r=5.72$ ו-$\\theta_1=-38.83^\\circ,\\ \\theta_2=141.17^\\circ$. לכן:\n$$w_1=5.72\\,\\mathrm{cis}(-38.83^\\circ)=4.46-3.59i,\\qquad w_2=5.72\\,\\mathrm{cis}(141.17^\\circ)=-4.46+3.59i$$\nכעת נציב זאת חזרה במשוואה הריבועית, לקבל את השורשים המבוקשים:\n$$z_1=\\frac{(4-3i)+(4.46-3.59i)}{2}\\approx4.23-3.295i,\\qquad z_2=\\frac{(4-3i)-(4.46-3.59i)}{2}\\approx-0.23+0.295i$$\n(הערכים בפתרון הרשמי מקורבים. הצורה המדויקת: $z_{1,2}=\\frac{(4-3i)\\pm\\sqrt{7-32i}}{2}$.)",
+   "solution": "נפתור את המשוואה $z^2+(3i-4)z+2i=0$ באמצעות משוואה ריבועית:\n$$z_{1,2}=\\frac{-(3i-4)\\pm\\sqrt{(3i-4)^2-8i}}{2}=\\frac{(4-3i)\\pm\\sqrt{-9-24i+16-8i}}{2}=\\frac{(4-3i)\\pm\\sqrt{7-32i}}{2}$$\nכעת נחשב בנפרד את $\\sqrt{7-32i}$: אנו למעשה מחפשים $w$ המקיים $w^2=7-32i$. נרשום $w=r\\,\\mathrm{cis}(\\theta)$. על פי דמואבר $w^2=r^2\\mathrm{cis}(2\\theta)$. נרשום את $7-32i$ בצורה טריגונומטרית:\n$$7-32i=\\sqrt{7^2+32^2}\\,\\mathrm{cis}\\left(\\tan^{-1}\\left(-\\frac{32}{7}\\right)\\right)\\approx32.76\\,\\mathrm{cis}(-77.66^\\circ)$$\nולכן:\n$$r^2\\mathrm{cis}(2\\theta)=32.76\\,\\mathrm{cis}(-77.66^\\circ)\\ \\Rightarrow\\ \\begin{cases}r^2=32.76\\\\ \\theta=-\\frac{77.66}{2}+180k\\end{cases}$$\nומכאן ש-$r=5.72$ ו-$\\theta_1=-38.83^\\circ,\\ \\theta_2=141.17^\\circ$. לכן:\n$$w_1=5.72\\,\\mathrm{cis}(-38.83^\\circ)=4.46-3.59i,\\qquad w_2=5.72\\,\\mathrm{cis}(141.17^\\circ)=-4.46+3.59i$$\nכעת נציב זאת חזרה במשוואה הריבועית, לקבל את השורשים המבוקשים:\n$$z_1=\\frac{(4-3i)+(4.46-3.59i)}{2}\\approx4.23-3.294i,\\qquad z_2=\\frac{(4-3i)-(4.46-3.59i)}{2}\\approx-0.23+0.294i$$\n(הערכים בפתרון הרשמי מקורבים. הצורה המדויקת: $z_{1,2}=\\frac{(4-3i)\\pm\\sqrt{7-32i}}{2}$.)",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -569,11 +573,11 @@
      "points": 2
     },
     {
-     "text": "הצבה בנוסחה וקבלת $z_1\\approx4.23-3.295i$ ו-$z_2\\approx-0.23+0.295i$",
+     "text": "הצבה בנוסחה וקבלת $z_1\\approx4.23-3.294i$ ו-$z_2\\approx-0.23+0.294i$",
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ששורש של מספר מרוכב נותן שני ערכים, $\\pm w$.",
     "טעות סימן בעת חישוב $(3i-4)^2$."
@@ -601,7 +605,7 @@
      "explain": "$\\sqrt{7-32i}\\approx4.46-3.59i$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -633,7 +637,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לדרג את החלק הימני $I$ יחד עם החלק השמאלי.",
     "לאפס את עמודה 2 בשורה 1 לפני שאיפסנו את הכניסה של $z$ בשורה 2."
@@ -668,7 +672,7 @@
      "explain": "מאותה מטריצה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -700,7 +704,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המטריצות בסדר הפעולות ולא בסדר ההפוך."
    ],
@@ -748,7 +752,7 @@
      "explain": "הפעולה האחרונה משמאל. שלוש האפשרויות האחרות אינן $A^{-1}$ (בדיקה ישירה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -783,7 +787,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקבוע שהמטריצה אינה ניתנת לליכסון רק כי $1$ הוא ערך עצמי כפול.",
     "לחשב $B+\\lambda I$ במקום $B-\\lambda I$ כשמחפשים את המרחב העצמי."
@@ -839,7 +843,7 @@
      "explain": "הערך $1$ כפול אך מרחבו העצמי ממימד 2, ויחד עם וקטור עצמי של $7$ מתקבלים שלושה בלתי תלויים. אין שלושה ערכים שונים, ואי-סימטריה אינה מונעת ליכסון."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -871,7 +875,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המטריצות כשורות/עמודות בסדר שונה ולקבל משוואות שגויות.",
     "להסיק $\\dim U=4$ כי $U\\subseteq M_{2\\times2}(\\mathbb{R})$."
@@ -899,7 +903,7 @@
      "explain": "שלוש מטריצות בלתי תלויות הפורשות את $U$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -931,7 +935,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את אחד משני האילוצים, ולקבל מימד 3 או 4."
    ],
@@ -979,7 +983,7 @@
      "explain": "במועמד הראשון המטריצה $I$ אינה בעלת עקבה אפס, בשני המטריצה השנייה אינה סימטרית, והשלישי פורש רק ישר ולכן אינו פורש את $W$ (המטריצה $\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\in W$ אינה כפולה שלו)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1011,7 +1015,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את חמש המטריצות כבסיס של $U+W$ בלי להסיר תלות.",
     "לטעון $U+W=V$ רק כי $3+2>4$, בלי לחשב את הדרגה."
@@ -1060,7 +1064,7 @@
      "explain": "הסכום $3+2>4$ אינו מספיק (אילו $W\\subseteq U$ היה $\\dim(U+W)=3$), והיות תתי מרחבים של $V$ או $\\dim U=3$ אינם מבטיחים שהסכום כל $V$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1092,7 +1096,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהחיתוך מוגדר על ידי שוויון בין צירוף של $U$ לצירוף של $W$, לא על ידי סכום.",
     "טעות סימן ב-$4a+b+3c=-e$ כשמעבירים אגף."
@@ -1120,7 +1124,7 @@
      "explain": "$2\\cdot4+3\\cdot1+(-4)\\cdot3=-1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1156,7 +1160,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את עמודות המטריצה המדורגת בתור בסיס ל-$\\mathrm{Im}\\,T$.",
     "לשכוח להחזיר את וקטורי הגרעין למטריצות $2\\times2$."
@@ -1212,7 +1216,7 @@
      "explain": "$4-2=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1240,7 +1244,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשוות ל-$\\dim M_{2\\times2}$ במקום למימד הטווח $\\mathbb{R}^4$ (במקרה זה שניהם 4, אבל הנימוק צריך להתבסס על הטווח)."
    ],
@@ -1281,7 +1285,7 @@
      "explain": "$\\dim\\mathrm{Ker}\\,T=2\\neq0$ ולכן לא חח״ע, ו-$\\dim\\mathrm{Im}\\,T=2<4$ ולכן לא על."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1313,7 +1317,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרג רק את מטריצת המקדמים ולשכוח את עמודת אגף ימין עם $q$."
    ],
@@ -1340,7 +1344,7 @@
      "explain": "$q=3\\alpha+5\\beta=30+5$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1372,7 +1376,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לפרק לפי הבסיס הסטנדרטי במקום לפי $C$.",
     "לשכוח שבסיס $C$ כולל סימני מינוס, ולכן הקואורדינטות הראשונות הן הנגדיות של הרכיבים."
@@ -1400,7 +1404,7 @@
      "explain": "$(T(b_4))_C=(-4,4,4,-4)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

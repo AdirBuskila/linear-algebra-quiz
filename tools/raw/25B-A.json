@@ -63,7 +63,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את הוקטור הנורמלי של אחד המישורים בתור וקטור הכיוון של הישר.",
     "לשכוח שבמערכת של שתי משוואות בשלושה נעלמים נשאר משתנה חופשי אחד, ולכן הפתרון הוא ישר ולא נקודה."
@@ -112,7 +112,7 @@
      "explain": "הפתרון הרשמי מקבל $\\ell_2=\\left(-\\frac12,\\frac12,0\\right)+\\frac12s(-3,1,2)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -144,7 +144,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את $\\vec N_1$ עצמו כנורמל של המישור המבוקש, כך שהמישור מקביל ל-$S_1$ ולא מאונך לו.",
     "להציב נקודה שאינה על הישר, ולקבל קבוע שגוי בצד ימין."
@@ -200,7 +200,7 @@
      "explain": "$-\\frac12-\\frac52+0=-3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -232,7 +232,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק משוואה אחת ולא את כל שלוש המשוואות: הישרים עלולים להצטלב ולא להיחתך.",
     "לבחור את $\\vec N_4$ או $\\vec N_5$ ככיוון של $\\ell_3$ במקום $\\vec N_1$."
@@ -288,7 +288,7 @@
      "explain": "$S_4$ ו-$S_5$ מאונכים ל-$S_1$, ולכן הכיוון הוא $\\vec N_1=(1,1,1)$. הוא ניצב גם ל-$\\vec N_4$ וגם ל-$\\vec N_5$; כל אחד משלושת האחרים אינו ניצב לפחות לאחד מהם."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -324,7 +324,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק בביטוי כמו $a-1$ מבלי לציין את הערכים שבהם הוא מתאפס.",
     "טעות סימן בשורה 2 אחרי $R_2+R_1$, שם $a-3+2=a-1$."
@@ -352,7 +352,7 @@
      "explain": "הכניסה היא $(2a+1)-a=a+1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -384,7 +384,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק מ-$a=-1$ שאין פתרון רק כי נוצרת שורת אפסים: שורת אפסים (גם באגף ימין) אינה שורת סתירה.",
     "לבלבל בין שני הערכים: $a=1$ נותן סתירה ו-$a=-1$ נותן אינסוף פתרונות."
@@ -440,7 +440,7 @@
      "explain": "ב-$a=1$ אין פתרון וב-$a=-1$ יש אינסוף פתרונות, ולכן שני הערכים נפסלים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -468,7 +468,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בסימן במעבר מ-$-2y-2z=-1$ ל-$y=\\frac12-z$."
    ],
@@ -495,7 +495,7 @@
      "explain": "$z$ בלבד."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -526,7 +526,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שמבחינים בין $z$ ל-$\\bar z$ ולהציב $z=w-2+i$ במקום $z=\\bar w-2-i$.",
     "למצוא רק שורש אחד של $w^3=8i$ ולשכוח את שני האחרים."
@@ -554,7 +554,7 @@
      "explain": "$z=2i-2-i=-2+i$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -586,7 +586,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לדרג גם את החלק הימני $I$ של המטריצה $(A\\,|\\,I)$.",
     "טעות חישוב בשברים אחרי החלוקה ב-9."
@@ -614,7 +614,7 @@
      "explain": "הכניסה היא $-\\frac59$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -642,7 +642,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המכפלה בסדר הפעולות ולא בסדר ההפוך."
    ],
@@ -690,7 +690,7 @@
      "explain": "אם $E_4E_3E_2E_1A=I$ אז $A^{-1}=E_4E_3E_2E_1$. הסדר ההפוך אינו נותן את $A^{-1}$ (בדיקה ישירה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -725,7 +725,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקבוע שהמטריצה אינה ניתנת לליכסון רק כי $6$ הוא ערך עצמי כפול.",
     "סדר העמודות של $P$ אינו תואם את סדר הערכים העצמיים ב-$D$."
@@ -781,7 +781,7 @@
      "explain": "$BP=PD=\\begin{pmatrix}-6&0&8\\\\0&6&0\\\\6&0&8\\end{pmatrix}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -809,7 +809,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק סגירות רק לחיבור ולשכוח סגירות לכפל בסקלר.",
     "לכתוב מטריצה כללית שאינה סימטרית (למשל $\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}$) בתוך $W$."
@@ -867,7 +867,7 @@
      "explain": "בשורה 2 המטריצה של $b$ צריכה להיות $\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$ (סימטרית), ולא $\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -899,7 +899,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון ש-$\\dim W=4$ כי $W\\subseteq M_{2\\times2}(\\mathbb{R})$ שמימדו 4."
    ],
@@ -947,7 +947,7 @@
      "explain": "שלוש מטריצות בלתי תלויות הפורשות את $W$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -983,7 +983,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את כל חמש המטריצות כבסיס של $U+W$ בלי להסיר תלות.",
     "טעות סימן ב-$d_1,d_2$ כשמעבירים אגף במשוואת החיתוך."
@@ -1018,7 +1018,7 @@
      "explain": "$2+3-4=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1046,7 +1046,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק שהמטריצה שייכת ל-$U$ או רק ל-$W$ ולא לחיתוך."
    ],
@@ -1094,7 +1094,7 @@
      "explain": "הדטרמיננטה שלה $1\\neq0$; כפולה במקדם אפס היא מטריצת האפס; והיא אינה סימטרית (הכניסות $0$ ו-$-1$ שונות)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1126,7 +1126,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את עמודות המטריצה המדורגת בתור בסיס ל-$\\mathrm{Im}\\,T$ במקום את העמודות המקוריות של $A$.",
     "לשכוח להחזיר את וקטורי הגרעין לשפת המטריצות $2\\times2$."
@@ -1182,7 +1182,7 @@
      "explain": "$4-2=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1210,9 +1210,9 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
-    "להשוות את $\\dim\\mathrm{Im}\\,T$ למימד התחום ($M_{2\\times2}$) במקום למימד הטווח."
+    "לבלבל בין התנאים: חד חד ערכית פירושה גרעין טריוויאלי ($\\dim\\mathrm{Ker}\\,T=0$), ו״על״ פירושה שמימד התמונה שווה למימד הטווח; כאן שניהם נכשלים."
    ],
    "steps": [
     {
@@ -1251,7 +1251,7 @@
      "explain": "$\\dim\\mathrm{Ker}\\,T=2\\neq0$ ולכן לא חח״ע, ו-$\\dim\\mathrm{Im}\\,T=2<4$ ולכן לא על."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1283,7 +1283,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרג רק את מטריצת המקדמים ולשכוח את עמודת אגף ימין עם $m$."
    ],
@@ -1310,7 +1310,7 @@
      "explain": "$m=6\\alpha+2\\beta=6+20$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1341,7 +1341,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המכפלה בסדר הפוך, $[I]_A^B\\left([I]_A^C\\right)^{-1}$.",
     "לכתוב את הפולינומים כשורות במקום כעמודות."
@@ -1397,7 +1397,7 @@
      "explain": "מהחישוב $-\\frac14(80,-120)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,

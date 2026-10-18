@@ -619,7 +619,7 @@ ENR[(5, "ב")] = dict(
     rubric=rub(("חישוב $\\dim\\mathrm{Ker}\\,T=2$ ו-$\\dim\\mathrm{Im}\\,T=2$", 1),
                ("$T$ אינה חח״ע כי $\\dim\\mathrm{Ker}\\,T\\neq0$", 1),
                ("$T$ אינה על כי $\\dim\\mathrm{Im}\\,T\\neq\\dim\\mathbb{R}^4=4$", 1)),
-    pitfalls=["להשוות את $\\dim\\mathrm{Im}\\,T$ למימד התחום ($M_{2\\times2}$) במקום למימד הטווח."],
+    pitfalls=["לבלבל בין התנאים: חד חד ערכית פירושה גרעין טריוויאלי ($\\dim\\mathrm{Ker}\\,T=0$), ו״על״ פירושה שמימד התמונה שווה למימד הטווח; כאן שניהם נכשלים."],
     steps=[
         num("מהו $\\dim\\mathrm{Im}\\,T$?", 2, "מסעיף א."),
         cho("איזו קביעה נכונה?", "$T$ אינה חד חד ערכית ואינה על",
@@ -665,7 +665,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

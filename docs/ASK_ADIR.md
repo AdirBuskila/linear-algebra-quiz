@@ -33,6 +33,7 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - 23A-A Q1 ג (p.2): the official writes det(C^5)=3206-3205; the product is 34*89-55*55=3026-3025. Conclusion (det=1) right; labeled note in the solution.
 - 23A-A Q4 ג (p.6): a middle matrix of the official reduction has a slipped fourth row; rank 4 is right. Labeled note in the solution.
 - 23A-A Q2 ד: the official roots are decimal approximations; exact form added in the solution.
+- 23A-A Q2 ד (refuter fix): the shipped intermediate decimals 3.295 / 0.295 were off in the 3rd place; corrected silently to 3.294 / 0.294 (exact 3.29432 / 0.29432). Final answer unchanged.
 - 23B-B Q1: the exam prints (7,5,6,7) points for א-ד, the solution file prints (7,6,7,5). The exam was followed.
 - Status: noted
 
