@@ -139,11 +139,11 @@
   }
 
   const M_INL = '<span class="math-inline">(?:(?!</span>)[\\s\\S])*</span>';
-  const M_RUN = '<span class="math-run" dir="ltr">(?:(?!</span></span>)[\\s\\S])*</span></span>';
+  const M_RUN = '<span class="math-run" dir="rtl">(?:(?!</span></span>)[\\s\\S])*</span></span>';
   /* Only a formula and the punctuation that ends its line are glued. Formulas separated by punctuation are NOT
      joined: "\u05e2\u05d1\u05d5\u05e8 $n=1$: $3=3\cdot1^2$" or "$a$, $b$" as one LTR run would put the second formula first for an
      RTL reader. Each .math-inline is already its own isolate, so the ": " / ", " between them stays in RTL flow. */
-  const RUN_OPEN = '<span class="math-run" dir="ltr">';
+  const RUN_OPEN = '<span class="math-run" dir="rtl">';
   function mathRuns(html) {
     return String(html).replace(new RegExp(`(${M_RUN}|${M_INL})([.,;:?!]+)(?=<br>|</[a-z]+>|$)`, "g"), (m, unit, punct0, at, all) => {
       if (all.slice(Math.max(0, at - RUN_OPEN.length), at) === RUN_OPEN) return m;   // already glued (idempotent)

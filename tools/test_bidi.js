@@ -23,8 +23,8 @@ assert.strictEqual(B.render(B.render("a. סכום x ו-y")), B.render("a. סכו
 
 // a sentence ending with a formula keeps its period inside the formula's LTR isolate
 const f = '<span class="math-inline"><math><mi>x</mi></math></span>';
-assert.strictEqual(B.render(`הערך הוא ${f}.`), `הערך הוא <span class="math-run" dir="ltr">${f}.</span>`);
-assert.strictEqual(B.render(`הערך הוא ${f}.<br>שורה`), `הערך הוא <span class="math-run" dir="ltr">${f}.</span><br>שורה`);
+assert.strictEqual(B.render(`הערך הוא ${f}.`), `הערך הוא <span class="math-run" dir="rtl">${f}.</span>`);
+assert.strictEqual(B.render(`הערך הוא ${f}.<br>שורה`), `הערך הוא <span class="math-run" dir="rtl">${f}.</span><br>שורה`);
 // formulas separated by punctuation stay SEPARATE isolates, the punctuation between them in RTL flow
 // (one LTR run read the second formula first)
 const fm = t => `<span class="math-inline"><math><mi>${t}</mi></math></span>`;
@@ -32,7 +32,7 @@ assert.strictEqual(B.render(`${f}, ${f} הם`), `${f}, ${f} הם`);
 assert.strictEqual(B.render(`עבור ${fm("n=1")}: ${fm("3=3·1²")} כלומר`), `עבור ${fm("n=1")}: ${fm("3=3·1²")} כלומר`);
 assert.strictEqual(B.render(`עבור ${fm("n=1")}: ${fm("3=3·1²")}`), `עבור ${fm("n=1")}: ${fm("3=3·1²")}`);
 assert.strictEqual(B.render(`האיברים ${fm("a")}, ${fm("b")}, ${fm("c")}.`),
-  `האיברים ${fm("a")}, ${fm("b")}, <span class="math-run" dir="ltr">${fm("c")}.</span>`);
+  `האיברים ${fm("a")}, ${fm("b")}, <span class="math-run" dir="rtl">${fm("c")}.</span>`);
 assert.strictEqual(B.render(`${fm("a")}; ${fm("b")}<br>שורה`), `${fm("a")}; ${fm("b")}<br>שורה`);
 assert.ok(!B.render(`${f}, ${f}`).includes("math-run"), "no math-run around a list");
 // a period mid-sentence is left alone
@@ -80,8 +80,8 @@ assert.strictEqual(B.render(`דומה (${chip("22A-A-Q2c")}, ${chip("22A-B-Q1b")
 for (const s of ["יש 4! אפשרויות", "שווה …=120.·6·5·4 ועוד", "P(n,m) (0 אם m>n)", "[אות ראשונה: 1 או 2] ואחריה"]) assert.strictEqual(B.render(B.render(s)), B.render(s));
 
 // a lone ? or ! after a formula at a line end is glued to it (word joiner inside the run): it cannot wrap onto its own line
-assert.strictEqual(B.render(`האם ${f}?`), `האם <span class="math-run" dir="ltr">${f}\u2060?</span>`);
-assert.strictEqual(B.render(`מהו ${f}?<br>עוד`), `מהו <span class="math-run" dir="ltr">${f}\u2060?</span><br>עוד`);
+assert.strictEqual(B.render(`האם ${f}?`), `האם <span class="math-run" dir="rtl">${f}\u2060?</span>`);
+assert.strictEqual(B.render(`מהו ${f}?<br>עוד`), `מהו <span class="math-run" dir="rtl">${f}\u2060?</span><br>עוד`);
 assert.strictEqual(B.render(`${f}? אחר`), `${f}? אחר`);
 // prefix letter + a plain-text formula: the prefix stays outside, at the RTL start
 assert.strictEqual(B.render("ב-x = 3 כי"), `ב-${ltr("x = 3")} כי`);
