@@ -54,7 +54,82 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "נקודות וקטורי כיוון של שני הישרים: $M_1(1,2,0)$, $\\vec a_1=(1,k,2)$, $M_2(0,3,-2)$, $\\vec a_2=(2,1,1)$",
+     "points": 2
+    },
+    {
+     "text": "$\\overrightarrow{M_1M_2}=M_2-M_1=(-1,1,-2)$",
+     "points": 1
+    },
+    {
+     "text": "הדטרמיננטה של $\\overrightarrow{M_1M_2},\\vec a_1,\\vec a_2$ שווה $3k+3$",
+     "points": 2
+    },
+    {
+     "text": "$k=-1$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $\\overrightarrow{M_1M_2}$ בטעות (למשל $(-1,3,-2)$) ולקבל $k=-4$.",
+    "לשכוח לוודא שהכיוונים אינם מקבילים."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו התנאי לכך ששני ישרים במרחב נחתכים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הכיוונים אינם מקבילים והווקטורים $\\vec a_1,\\vec a_2,\\overrightarrow{M_1M_2}$ באותו מישור (דטרמיננטה אפס)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "המכפלה הסקלרית $\\vec a_1\\cdot\\vec a_2$ שווה אפס"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "המכפלה הווקטורית $\\vec a_1\\times\\vec a_2$ שווה אפס"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הדטרמיננטה של $\\vec a_1,\\vec a_2,\\overrightarrow{M_1M_2}$ שונה מאפס"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ב-$k=-1$ הישרים נחתכים, ושם $\\vec a_1\\cdot\\vec a_2=3\\neq0$ ו-$\\vec a_1\\times\\vec a_2\\neq0$, והדטרמיננטה מתאפסת. דטרמיננטה שונה מאפס פירושה ישרים מצטלבים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב השני של $\\overrightarrow{M_1M_2}=M_2-M_1$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$3-2=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הדטרמיננטה $3k+3$ כאשר $k=0$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$\\begin{vmatrix}-1&1&-2\\\\1&0&2\\\\2&1&1\\end{vmatrix}=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור איזה $k$ הדטרמיננטה $3k+3$ מתאפסת?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$3k+3=0\\Rightarrow k=-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -67,7 +142,82 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "שימוש בנוסחת המרחק בין ישרים מצטלבים",
+     "points": 2
+    },
+    {
+     "text": "המכפלה הווקטורית $\\vec a_1\\times\\vec a_2=(0,3,-3)$",
+     "points": 2
+    },
+    {
+     "text": "המכפלה המעורבת $\\left(\\vec a_1\\times\\vec a_2\\right)\\cdot\\overrightarrow{M_1M_2}=9$",
+     "points": 1
+    },
+    {
+     "text": "$d=\\frac{9}{3\\sqrt2}=\\frac{3\\sqrt2}{2}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בוקטור $\\overrightarrow{M_1M_2}$ שגוי ולקבל $3\\sqrt2$.",
+    "לשכוח את הערך המוחלט או לחלק באורך הווקטור $\\overrightarrow{M_1M_2}$ במקום באורך המכפלה הווקטורית."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו נוסחה נותנת את המרחק בין שני ישרים מצטלבים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left\\|\\overrightarrow{M_1M_2}\\right\\|$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\left|\\left(\\vec a_1\\times\\vec a_2\\right)\\cdot\\overrightarrow{M_1M_2}\\right|}{\\left\\|\\vec a_1\\times\\vec a_2\\right\\|}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\left|\\vec a_1\\cdot\\vec a_2\\right|}{\\left\\|\\vec a_1\\times\\vec a_2\\right\\|}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\left\\|\\vec a_1\\times\\vec a_2\\right\\|}{\\left\\|\\overrightarrow{M_1M_2}\\right\\|}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "עבור $k=2$ הנוסחה הנכונה נותנת $\\approx2.12$, ואילו האחרות נותנות $\\sqrt6\\approx2.45$, $\\frac{6}{3\\sqrt2}\\approx1.41$ ו-$\\frac{3\\sqrt2}{\\sqrt6}\\approx1.73$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב השני של $\\vec a_1\\times\\vec a_2$ עבור $\\vec a_1=(1,2,2)$, $\\vec a_2=(2,1,1)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "התוצאה היא $(0,3,-3)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי המכפלה המעורבת $\\left(\\vec a_1\\times\\vec a_2\\right)\\cdot\\overrightarrow{M_1M_2}$ עבור $\\overrightarrow{M_1M_2}=(-1,1,-2)$?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$0\\cdot(-1)+3\\cdot1+(-3)(-2)=9$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המרחק $d$ (בקירוב לשלוש ספרות אחרי הנקודה)?",
+     "answer": 2.1213,
+     "tol": 0.001,
+     "explain": "$d=\\frac{9}{3\\sqrt2}=\\frac{3\\sqrt2}{2}\\approx2.1213$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -79,7 +229,75 @@
    "solution": "הטענה אינה נכונה. $\\vec a\\times\\left(\\vec b-\\vec c\\right)=\\vec 0$ אינו מחייב $\\vec b=\\vec c$.\nדוגמה נגדית:\n$$\\vec a=(1,0,0),\\ \\vec b=(1,1,0),\\ \\vec c=(0,1,0)$$\n$$\\vec a\\times\\vec b=(0,0,1)\\neq\\vec 0,\\qquad\\vec a\\times\\vec c=(0,0,1)\\neq\\vec 0,\\qquad\\vec b\\neq\\vec c$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "קביעה שהטענה שקרית",
+     "points": 1
+    },
+    {
+     "text": "העברת אגף: $\\vec a\\times(\\vec b-\\vec c)=\\vec 0$ ואינו מחייב $\\vec b=\\vec c$",
+     "points": 2
+    },
+    {
+     "text": "בחירת דוגמה נגדית $\\vec a=(1,0,0)$, $\\vec b=(1,1,0)$, $\\vec c=(0,1,0)$",
+     "points": 2
+    },
+    {
+     "text": "בדיקה: שתי המכפלות שוות $(0,0,1)\\neq\\vec 0$ ואילו $\\vec b\\neq\\vec c$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לצמצם $\\vec a$ משני האגפים כאילו מדובר בכפל מספרים.",
+    "לבחור דוגמה שבה $\\vec a\\times\\vec b=\\vec 0$ (ההנחה דורשת שהמכפלה שונה מאפס)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה מסיקים מ-$\\vec a\\times(\\vec b-\\vec c)=\\vec 0$ כש-$\\vec a\\neq\\vec 0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\vec b-\\vec c=\\vec 0$ בהכרח"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\vec b-\\vec c$ ניצב ל-$\\vec a$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\vec b-\\vec c$ מקביל ל-$\\vec a$, ולא בהכרח אפס"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\vec a=\\vec 0$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "בדוגמה $\\vec b-\\vec c=(1,0,0)=\\vec a$: אינו אפס, אינו ניצב ל-$\\vec a$ (המכפלה הסקלרית 1), ו-$\\vec a\\neq\\vec 0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב השלישי של $\\vec a\\times\\vec b$ עבור $\\vec a=(1,0,0)$, $\\vec b=(1,1,0)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$a_xb_y-a_yb_x=1\\cdot1-0=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב הראשון של $\\vec b-\\vec c$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$1-0=1$, כלומר $\\vec b\\neq\\vec c$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -101,7 +319,82 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המורחבת",
+     "points": 1
+    },
+    {
+     "text": "$R_2-(k-1)R_1$ ו-$R_3-kR_1$",
+     "points": 3
+    },
+    {
+     "text": "החלפת שורות ושינוי סימן כדי שהאיבר $2$ יופיע בשורה 2",
+     "points": 1
+    },
+    {
+     "text": "$R_3-kR_2$ והצורה המדורגת עם שורה אחרונה $\\left(0\\ 0\\ 2-2k^2\\mid2+k-k^2\\right)$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $R_3+kR_1$ במקום $R_3-kR_1$ (טעות סימן).",
+    "לחלק בביטוי עם פרמטר בלי לבדוק את הערכים שמאפסים אותו."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו פעולה מאפסת את האיבר בשורה 3 עמודה 2 במטריצה $\\left(\\begin{array}{ccc|c}1&-1&1&1\\\\0&2&2k&k-1\\\\0&2k&2&2\\end{array}\\right)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$R_3\\to R_3+kR_2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$R_3\\to R_3-R_2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$R_3\\to R_3-2kR_2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$R_3\\to R_3-kR_2$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "האיבר הוא $2k$ מול $2$ בשורה 2, ולכן צריך להחסיר $k$ פעמים שורה 2. שאר הפעולות מאפסות רק עבור ערכים בודדים של $k$ (או לא כלל)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי $R_2-(k-1)R_1$ ו-$R_3-kR_1$: מהו האיבר בשורה 2 עמודה 2 עבור $k=3$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "האיבר הוא $2k=6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באותה מטריצה: מהו האיבר בשורה 3 עמודה 4 עבור $k=3$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "האיבר הוא $1-k=-2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "במטריצה המדורגת הסופית: מהו האיבר בשורה 3 עמודה 3 עבור $k=2$?",
+     "answer": -6,
+     "tol": 0,
+     "explain": "האיבר הוא $2-2k^2=2-8=-6$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -114,7 +407,78 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "$k=1$: שורת סתירה $(0\\ 0\\ 0\\mid2)$ ולכן אין פתרון",
+     "points": 3
+    },
+    {
+     "text": "$k\\neq\\pm1$: שלושה איברים מובילים ולכן פתרון יחיד",
+     "points": 3
+    },
+    {
+     "text": "$k=-1$: שורת אפסים מלאה ולכן אינסוף פתרונות",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לרשום 'או' במקום 'וגם' בתנאי הפתרון היחיד: $k\\neq1$ וגם $k\\neq-1$.",
+    "לבלבל בין שורת אפסים מלאה (אינסוף פתרונות) לבין שורת סתירה (אין פתרון)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $k=1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שורה 3 היא $(0\\ 0\\ 0\\mid2)$, ולכן ב-$A$ שורה אפס."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה המורחבת עבור $k=1$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "השורה $(0\\ 0\\ 0\\mid2)$ מוסיפה איבר מוביל."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה המורחבת עבור $k=-1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "השורה השלישית מתאפסת לגמרי, ולכן הדרגה 2 (גם ל-$A$)."
+    },
+    {
+     "type": "choice",
+     "prompt": "עבור אילו ערכי $k$ יש פתרון יחיד?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$k\\neq1$ וגם $k\\neq-1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$k\\neq1$ או $k\\neq-1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$k\\neq1$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$k\\neq-1$ בלבד"
+      }
+     ],
+     "correctId": "a",
+     "explain": "התנאי 'או' מתקיים לכל $k$, כולל $k=1$ (אין פתרון) ו-$k=-1$ (אינסוף פתרונות). כל אחד מהתנאים הבודדים כולל את אחד הערכים הבעייתיים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -127,7 +491,71 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "הצבת $k=-1$ במטריצה המדורגת: שורה 2 היא $(0\\ 2\\ -2\\mid-2)$",
+     "points": 3
+    },
+    {
+     "text": "$x=0$, $y=z-1$ וזיהוי $z$ כחופשי",
+     "points": 3
+    },
+    {
+     "text": "הצגה פרמטרית $(0,-1,0)+z(0,1,1)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לרשום את השורה השנייה בטעות כ-$(0\\ 1\\ 1\\mid-1)$ ולקבל $x=-2z$.",
+    "לשכוח שהפתרון הוא ישר ולכתוב נקודה אחת."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $x$ בכל פתרון של המערכת עבור $k=-1$? (השורה השנייה המקורית היא $-2x=0$)",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$(k-1)x=-2x=0$ ולכן $x=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפתרון $y=z-1$: מהו $y$ כאשר $z=3$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$y=3-1=2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור הוא וקטור כיוון של קבוצת הפתרונות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(-2,-1,1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(0,1,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(1,1,1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(0,-1,0)$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "וקטור כיוון חייב לקיים את המערכת ההומוגנית: $x=0$ ו-$y=z$. $(0,-1,0)$ הוא הפתרון הפרטי, ושני האחרים אינם מקיימים $x=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -140,7 +568,75 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "דירוג $A$ לצורה $\\begin{pmatrix}1&0&1&1\\\\0&1&1&-1\\\\0&0&0&0\\end{pmatrix}$",
+     "points": 2
+    },
+    {
+     "text": "שני משתנים חופשיים $x_3=s$, $x_4=t$",
+     "points": 2
+    },
+    {
+     "text": "פתרון כללי $s(-1,-1,1,0)+t(-1,1,0,1)$",
+     "points": 2
+    },
+    {
+     "text": "בסיס של מרחב האפס ומימד 2",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור את העמודות המובילות כמשתנים חופשיים במקום את העמודות ללא איבר מוביל.",
+    "טעות סימן בהעברת $x_3,x_4$ לאגף ימין."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת $A$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שני איברים מובילים בצורה המדורגת."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור שייך למרחב האפס של $A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(1,-1,1,0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(1,1,1,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(-1,1,0,1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(0,0,1,1)$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$A(-1,1,0,1)^T=(0,0,0)^T$. עבור האחרים, השורה הראשונה $(1\\ 0\\ 1\\ 1)$ נותנת $2,\\ 3,\\ 2$ ולא 0."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפתרון $x_2=-s+t$: מהו $x_2$ כאשר $s=2$, $t=1$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$-2+1=-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -153,7 +649,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "שורות מדורגת לא אפסיות $[1\\ 0\\ 1\\ 1]$ ו-$[0\\ 1\\ 1\\ -1]$ הן בסיס",
+     "points": 3
+    },
+    {
+     "text": "השורה השלישית של $A$ תלויה בשתיים הראשונות",
+     "points": 2
+    },
+    {
+     "text": "מימד מרחב השורות הוא 2",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכלול גם את שורת האפסים או את כל שלוש שורות $A$ בבסיס.",
+    "לקחת את עמודות הציר כבסיס של מרחב השורות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו המימד של מרחב השורות של $A$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מספר השורות הלא אפסיות בצורה המדורגת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "השורה השלישית של $A$ היא $c\\cdot R_2+d\\cdot R_1$ (כש-$R_1=[1\\ 0\\ 1\\ 1]$, $R_2=[1\\ 1\\ 2\\ 0]$). מהו $d$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$R_3=R_2-R_1=[0\\ 1\\ 1\\ -1]$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה מהווה בסיס של מרחב השורות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "עמודות הציר של $A$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כל שלוש שורות $A$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שורת האפסים והשורה הראשונה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שתי השורות הלא אפסיות של הצורה המדורגת"
+      }
+     ],
+     "correctId": "d",
+     "explain": "עמודות הציר הן וקטורים ב-$\\mathbb{R}^3$ ולא שורות; שלוש שורות $A$ תלויות ($R_3=R_2-R_1$); שורת האפסים לעולם אינה בבסיס."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -166,7 +726,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "זיהוי עמודות הציר: העמודות 1 ו-2",
+     "points": 2
+    },
+    {
+     "text": "לקיחת העמודות המקוריות של $A$ כבסיס",
+     "points": 3
+    },
+    {
+     "text": "מימד מרחב העמודות הוא 2",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את העמודות של הצורה המדורגת במקום העמודות המקוריות של $A$.",
+    "להכליל את כל ארבע העמודות לבסיס."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה עמודות ציר יש ב-$A$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שני איברים מובילים."
+    },
+    {
+     "type": "choice",
+     "prompt": "מאיפה נלקחים וקטורי הבסיס של $\\mathrm{Col}(A)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מהעמודות המקוריות של $A$ שבמיקום עמודות הציר"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מעמודות הצורה המדורגת"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מכל ארבע עמודות $A$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "משורות $A$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "עמודות הצורה המדורגת אינן שייכות למרחב העמודות (למשל $(1,0,0)^T\\notin\\mathrm{Col}(A)$); ארבע העמודות תלויות; ושורות $A$ הן וקטורים ב-$\\mathbb{R}^4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "העמודה הרביעית של $A$ היא $\\mathrm{col}_1+c\\cdot\\mathrm{col}_2$. מהו $c$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$(1,1,0)^T-(0,1,1)^T=(1,0,-1)^T$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -179,7 +803,63 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "הצבת $\\dim(\\mathrm{null\\,sp}A)=2$ מהסעיף א",
+     "points": 1
+    },
+    {
+     "text": "הצבת $\\dim(\\mathrm{col\\,sp}A)=2$ מהסעיף ג",
+     "points": 1
+    },
+    {
+     "text": "סכום $4$ ושוויון למספר העמודות",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשוות את הסכום למספר השורות (3) במקום למספר העמודות (4)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה עמודות יש ל-$A$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$A$ היא מטריצה $3\\times4$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה משפט מתקיים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\dim\\mathrm{Null}(A)+\\mathrm{rank}(A)=$ מספר השורות של $A$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\dim\\mathrm{Null}(A)+\\mathrm{rank}(A)=$ מספר העמודות של $A$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\dim\\mathrm{Null}(A)=\\mathrm{rank}(A)$ תמיד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\dim\\mathrm{Null}(A)\\cdot\\mathrm{rank}(A)=$ מספר העמודות"
+      }
+     ],
+     "correctId": "b",
+     "explain": "כאן $2+2=4$ הוא מספר העמודות ולא מספר השורות (3); השוויון $\\dim\\mathrm{Null}=\\mathrm{rank}$ מקרי; והמכפלה $4$ כאן במקרה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -192,7 +872,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4a"
+   "contextId": "c4a",
+   "rubric": [
+    {
+     "text": "פיתוח הדטרמיננטה לפי שורה",
+     "points": 3
+    },
+    {
+     "text": "$\\det A=4(a-1)(a-2)$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: הפיכה אם ורק אם $a\\neq1,2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "טעות סימן בפיתוח הדטרמיננטה (סימני המשלימים האלגבריים).",
+    "לרשום רק אחד משני האפסים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det A$ עבור $a=4$?",
+     "answer": 24,
+     "tol": 0,
+     "explain": "$4(a-1)(a-2)=4\\cdot3\\cdot2=24$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det A$ עבור $a=0$?",
+     "answer": 8,
+     "tol": 0,
+     "explain": "$4\\cdot(-1)(-2)=8$."
+    },
+    {
+     "type": "choice",
+     "prompt": "עבור אילו ערכי $a$ המטריצה $A$ אינה הפיכה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=-1$ וגם $a=-2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a=1$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a=1$ וגם $a=2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a=2$ בלבד"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\det A=4(a-1)(a-2)$ מתאפס בדיוק ב-$a=1$ וב-$a=2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -205,7 +949,50 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4a"
+   "contextId": "c4a",
+   "rubric": [
+    {
+     "text": "הצבת $a=0$ וכתיבת $[A\\mid I]$",
+     "points": 1
+    },
+    {
+     "text": "דירוג מטה: $R_1\\leftrightarrow R_3$, חלוקה ב-3, $R_3-4R_2$, חלוקה ב-$-\\frac83$",
+     "points": 2
+    },
+    {
+     "text": "דירוג מעלה: $R_2-\\frac53R_3$, $R_1-R_2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את פעולת ההחלפה $R_1\\leftrightarrow R_3$ ולהתחיל מאיבר מוביל 0.",
+    "טעות בחישוב השברים בעמודות של $I$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det A$ עבור $a=0$ (כך שההופכית קיימת)?",
+     "answer": 8,
+     "tol": 0,
+     "explain": "$4(a-1)(a-2)=4\\cdot2=8$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 1 של $A^{-1}$?",
+     "answer": -0.625,
+     "tol": 0.001,
+     "explain": "$-\\frac58$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 3 עמודה 2 של $A^{-1}$?",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$\\frac12$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -218,7 +1005,79 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4b"
+   "contextId": "c4b",
+   "rubric": [
+    {
+     "text": "הפולינום האופייני והערכים העצמיים $2,3,4$",
+     "points": 3
+    },
+    {
+     "text": "הערכים העצמיים שונים ולכן $B$ ניתנת ללכסון",
+     "points": 1
+    },
+    {
+     "text": "וקטור עצמי $(-1,1,0)$ לערך $2$",
+     "points": 2
+    },
+    {
+     "text": "וקטור עצמי $(-1,0,1)$ לערך $3$",
+     "points": 2
+    },
+    {
+     "text": "וקטור עצמי $(0,0,1)$ לערך $4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לפתח את הדטרמיננטה לפי השורה השנייה (המכילה אפסים) ולטעות בסימן.",
+    "לרשום את הווקטור העצמי ללא לבדוק ש-$Bv=\\lambda v$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי עקבה של $B$ (סכום איברי האלכסון), השווה לסכום הערכים העצמיים?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$3+2+4=9=2+3+4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det B$, השווה למכפלת הערכים העצמיים?",
+     "answer": 24,
+     "tol": 0,
+     "explain": "$2\\cdot3\\cdot4=24$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור הוא וקטור עצמי של $B$ עבור הערך $2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(1,1,0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(-1,0,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(0,0,1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(-1,1,0)$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$B(-1,1,0)^T=(-2,2,0)^T=2(-1,1,0)^T$. לעומת זאת $B(1,1,0)^T=(4,2,2)^T$ אינו כפולה של הווקטור, ו-$(-1,0,1)$ ו-$(0,0,1)$ הם וקטורים עצמיים של $3$ ו-$4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -231,7 +1090,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c4b"
+   "contextId": "c4b",
+   "rubric": [
+    {
+     "text": "$D=\\mathrm{diag}(2,3,4)$",
+     "points": 2
+    },
+    {
+     "text": "$P$ עם העמודות $(-1,1,0),(-1,0,1),(0,0,1)$ לפי סדר הערכים ב-$D$",
+     "points": 2
+    },
+    {
+     "text": "$\\det P\\neq0$ ולכן $P$ הפיכה",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לסדר את עמודות $P$ שלא בהתאמה לסדר האיברים ב-$D$.",
+    "לקחת עמודות תלויות ולקבל $P$ לא הפיכה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det P$ (כך שהעמודות בלתי תלויות)?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "פיתוח לפי עמודה 3 נותן $1\\cdot(0+1)=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר בשורה 1 עמודה 2 של $PD$?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "$P_{12}\\cdot D_{22}=-1\\cdot3=-3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "עמודה 2 של $P$ היא וקטור עצמי של איזה ערך עצמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$4$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "עמודה 2 היא $(-1,0,1)^T$ ו-$B(-1,0,1)^T=(-3,0,3)^T=3(-1,0,1)^T$. לכן היא מתאימה ל-$3$ ולא ל-$2$, ל-$4$ או ל-$0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -244,7 +1167,84 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "פישוט $W$ ל-$\\left\\{\\begin{pmatrix}a&2a\\\\-a&c\\end{pmatrix}\\right\\}$",
+     "points": 1
+    },
+    {
+     "text": "$W$ אינה ריקה: מטריצת האפס ב-$W$",
+     "points": 1
+    },
+    {
+     "text": "סגירות לחיבור",
+     "points": 2
+    },
+    {
+     "text": "סגירות לכפל בסקלר",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $W$ תת-מרחב",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק סגירות רק עבור איברים מסוימים ולא עבור פרמטרים כלליים.",
+    "לשכוח לבדוק שמטריצת האפס שייכת ל-$W$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אילו תנאים מגדירים תת-מרחב?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מכילה קבוצה סופית הפורשת אותה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא ריקה, סגורה לחיבור וסגורה לכפל בסקלר"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "סגורה לכפל מטריצות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מכילה את כל וקטורי הבסיס הסטנדרטי"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הקבוצה $\\{e_1,e_2\\}$ מכילה בסיס אך אינה תת-מרחב; ו-$W$ תת-מרחב אך אינה סגורה לכפל מטריצות ($\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix}^2=\\begin{pmatrix}-1&2\\\\-1&-2\\end{pmatrix}\\notin W$)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. סמנו אותה.",
+     "lines": [
+      "$W=\\left\\{\\begin{pmatrix}a&2a\\\\-a&c\\end{pmatrix}\\ \\middle|\\ a,c\\in\\mathbb{R}\\right\\}$",
+      "$\\vec 0\\in W$ (עבור $a=c=0$), ולכן $W\\neq\\emptyset$",
+      "$A_1+A_2=\\begin{pmatrix}a_1+a_2&2(a_1+a_2)\\\\-(a_1+a_2)&c_1+c_2\\end{pmatrix}\\in W$",
+      "$\\alpha A=\\begin{pmatrix}\\alpha a_1&2a_1\\\\-\\alpha a_1&\\alpha c_1\\end{pmatrix}\\in W$"
+     ],
+     "bugIndex": 3,
+     "explain": "באיבר (1,2) צריך להיות $2(\\alpha a_1)$ ולא $2a_1$; כפי שכתוב כאן המטריצה אינה ב-$W$ עבור $\\alpha\\neq1$ (האיבר (1,2) חייב להיות כפול 2 מהאיבר (1,1))."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A_1$ עם $a_1=1$ ו-$A_2$ עם $a_2=2$, מהו האיבר בשורה 1 עמודה 2 של $A_1+A_2$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$2(a_1+a_2)=6$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -257,7 +1257,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "כתיבה כצירוף: $a\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix}+c\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}$",
+     "points": 3
+    },
+    {
+     "text": "בלתי תלות של שתי המטריצות",
+     "points": 2
+    },
+    {
+     "text": "בסיס $B_W$ ומימד 2",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לבדוק בלתי תלות.",
+    "לבחור מטריצה שאינה ב-$W$ כאיבר בסיס."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "שני פרמטרים חופשיים $a,c$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה היא בסיס של $W$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left\\{\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix},\\begin{pmatrix}2&4\\\\-2&0\\end{pmatrix}\\right\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left\\{\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix}\\right\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left\\{\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix},\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}\\right\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left\\{\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix},\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}\\right\\}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הקבוצה הראשונה תלויה (הכפלה פי 2), השנייה אינה פורשת את $W$, והשלישית כוללת מטריצה שאינה ב-$W$ (האיבר (1,2) אינו כפולה של האיבר (1,1))."
+    },
+    {
+     "type": "numeric",
+     "prompt": "המטריצה $\\begin{pmatrix}2&4\\\\-2&5\\end{pmatrix}\\in W$ היא $a\\begin{pmatrix}1&2\\\\-1&0\\end{pmatrix}+c\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}$. מהו $c$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$c$ הוא האיבר בשורה 2 עמודה 2."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -270,7 +1334,75 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "העברה לוקטורים ב-$\\mathbb{R}^4$ ובניית המטריצה מ-$\\vec w_1,\\vec w_2,\\vec u_1,\\vec u_2$",
+     "points": 2
+    },
+    {
+     "text": "דירוג המטריצה לדרגה 3",
+     "points": 2
+    },
+    {
+     "text": "פתרון עם $\\beta_2=t$ ו-$\\beta_1=0.5t$",
+     "points": 1
+    },
+    {
+     "text": "הבסיס $\\begin{pmatrix}1&2\\\\-1&1\\end{pmatrix}$ וממד 1",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק $\\dim(W\\cap U)=\\dim W+\\dim U=4$ בלי לבדוק תלות.",
+    "לבלבל בין מקדמי $U$ (ה-$\\beta$) לבין מקדמי $W$ (ה-$\\alpha$) בשחזור המטריצה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה $4\\times4$ שעמודותיה $\\vec w_1,\\vec w_2,\\vec u_1,\\vec u_2$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "הצורה המדורגת כוללת שורת אפסים."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו נוסחה נותנת את $\\dim(W\\cap U)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\dim W+\\dim U+\\dim(W+U)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\dim W\\cdot\\dim U$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\dim W+\\dim U$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\dim W+\\dim U-\\dim(W+U)$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הנוסחה הנכונה נותנת $2+2-3=1$; האחרות נותנות $7,\\,4,\\,4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בבסיס $\\begin{pmatrix}1&2\\\\-1&1\\end{pmatrix}$ של החיתוך: מהו האיבר בשורה 2 עמודה 1?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -283,7 +1415,63 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "הבנת התנאים של $W$: $b=-a$ והאיבר (1,2) שווה $2a$",
+     "points": 2
+    },
+    {
+     "text": "בחירת מטריצה שמפרה את התנאי, $\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$",
+     "points": 2
+    },
+    {
+     "text": "הצדקה: $2a=2\\neq1$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור מטריצה שמקיימת את התנאים כמו $\\begin{pmatrix}0&0\\\\0&0\\end{pmatrix}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו מטריצה אינה שייכת ל-$W$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&2\\\\-1&5\\end{pmatrix}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\begin{pmatrix}0&0\\\\0&3\\end{pmatrix}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\begin{pmatrix}2&4\\\\-2&0\\end{pmatrix}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$W$ מכילה מטריצות מהצורה $\\begin{pmatrix}a&2a\\\\-a&c\\end{pmatrix}$. שלוש האחרות מהצורה הזאת ($a=1,0,2$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$, מהו $a+b$ (ב-$W$ חייב להיות $a+b=0$)?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$1+1=2\\neq0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -296,7 +1484,82 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c6"
+   "contextId": "c6",
+   "rubric": [
+    {
+     "text": "המערכת $a+b=0$, $b+c=0$, $b+d=0$",
+     "points": 2
+    },
+    {
+     "text": "דירוג וקבלת דרגה 3",
+     "points": 2
+    },
+    {
+     "text": "פתרון עם המשתנה החופשי $d=t$: $(t,-t,t,t)$",
+     "points": 2
+    },
+    {
+     "text": "בסיס $\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}$ וממד 1",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "טעות סימן בפתרון: $b=-d$.",
+    "לשכוח שהגרעין כולל את כל הכפולות של מטריצת הבסיס."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים של המערכת?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "שלוש משוואות בלתי תלויות."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המימד של $\\mathrm{Ker}\\,T$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$4-3=1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו מטריצה שייכת ל-$\\mathrm{Ker}\\,T$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\begin{pmatrix}1&-1\\\\1&-1\\end{pmatrix}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$T\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=(a+b,\\,b+c,\\,b+d)$. למטריצה הנכונה $(0,0,0)$; לאחרות $(2,2,2)$, $(1,0,1)$, $(0,0,-2)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפתרון $(a,b,c,d)=(t,-t,t,t)$: מהו $b$ כאשר $t=2$?",
+     "answer": -2,
+     "tol": 0,
+     "explain": "$b=-t=-2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -309,7 +1572,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c6"
+   "contextId": "c6",
+   "rubric": [
+    {
+     "text": "משפט המימדים: $\\dim\\mathrm{Im}(T)=4-1=3$",
+     "points": 3
+    },
+    {
+     "text": "$\\mathrm{Im}(T)\\subseteq\\mathbb{R}^3$ וממדו 3, ולכן שווה ל-$\\mathbb{R}^3$",
+     "points": 2
+    },
+    {
+     "text": "בסיס סטנדרטי של $\\mathbb{R}^3$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לרשום $\\dim\\mathrm{Im}(T)=4$ (ממד המרחב כולו) במקום להחסיר את הגרעין.",
+    "לבחור בסיס שאינו בסיס של $\\mathbb{R}^3$ (וקטורים תלויים)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Im}(T)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$\\dim M_{2\\times2}-\\dim\\mathrm{Ker}(T)=4-1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $\\mathrm{Im}(T)=\\mathbb{R}^3$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי $\\dim\\mathrm{Im}(T)=\\dim M_{2\\times2}=4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי $\\mathrm{Ker}(T)=\\{0\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $\\mathrm{Im}(T)$ תת-מרחב של $\\mathbb{R}^3$ שממדו 3, כממד $\\mathbb{R}^3$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $T$ חד-חד-ערכית"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\dim\\mathrm{Im}(T)=3$ ולא 4; הגרעין אינו טריוויאלי (ממדו 1) ולכן $T$ אינה חח״ע."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב השני של $T\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$ (כלומר $b+c$ עבור $b=1$)?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$T\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}=(1,1,1)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -322,7 +1649,67 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c6"
+   "contextId": "c6",
+   "rubric": [
+    {
+     "text": "$T$ חח״ע אם ורק אם הגרעין טריוויאלי",
+     "points": 1
+    },
+    {
+     "text": "הגרעין אינו טריוויאלי ולכן $T$ אינה חח״ע",
+     "points": 2
+    },
+    {
+     "text": "$T$ על אם ורק אם $\\dim\\mathrm{Im}(T)=\\dim\\mathbb{R}^3$",
+     "points": 1
+    },
+    {
+     "text": "$\\dim\\mathrm{Im}(T)=3$ ולכן $T$ על",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק מכך שהתמונה כל $\\mathbb{R}^3$ שגם החח״ע מתקיימת."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "האם $T$ חד-חד-ערכית ו/או על?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "חח״ע ועל"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "חח״ע אך לא על"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינה חח״ע ואינה על"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אינה חח״ע אך על"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הגרעין ממדו 1 (לא חח״ע) והתמונה ממדה 3, כממד $\\mathbb{R}^3$ (על)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Ker}(T)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "מהסעיף א׳."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -335,7 +1722,71 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c6"
+   "contextId": "c6",
+   "rubric": [
+    {
+     "text": "המשוואות $a+b=1$, $b+c=1$, $b+d=1$ ודירוגן",
+     "points": 3
+    },
+    {
+     "text": "הצורה הכללית $\\begin{pmatrix}d&1-d\\\\d&d\\end{pmatrix}$",
+     "points": 1
+    },
+    {
+     "text": "מטריצת האפס אינה בקבוצה (כי $T(0)=\\vec 0$) ולכן הקבוצה אינה תת-מרחב",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בכיוון: המקורות של $(1,1,1)$ אינם הגרעין.",
+    "להסיק שזהו תת-מרחב כי $T$ לינארית."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בפתרון $\\begin{pmatrix}d&1-d\\\\d&d\\end{pmatrix}$: מהו $b$ כאשר $d=2$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$b=1-d=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באותו פתרון: מהו $c$ כאשר $d=2$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$c=d=2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם הקבוצה היא תת-מרחב של $\\mathbb{R}^{2\\times2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי מטריצת האפס אינה בה ($T(0)=\\vec 0\\neq(1,1,1)$)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן, כי $T$ לינארית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כן, כי היא מכילה את הגרעין של $T$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא, כי הקבוצה ריקה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "איברי הגרעין נשלחים ל-$\\vec 0$ ולא ל-$(1,1,1)$, ולכן אינם בקבוצה; הקבוצה אינה ריקה (למשל $d=0$); ולינאריות $T$ אינה הופכת מקור של וקטור שונה מאפס לתת-מרחב."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
