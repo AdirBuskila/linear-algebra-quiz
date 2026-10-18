@@ -1,0 +1,117 @@
+{
+ "examCode": "25B-A",
+ "role": "refuter",
+ "scope": "ai-draft Q6a-c (solver-written); re-derived by hand + sympy tools/verify/25B-A/refute_solver_q6.py",
+ "items": {
+  "6א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "verdict": "agree"
+    }
+   ]
+  },
+  "6ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "verdict": "agree"
+    }
+   ]
+  },
+  "6ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "verdict": "agree"
+    }
+   ]
+  }
+ },
+ "disagreements": []
+}

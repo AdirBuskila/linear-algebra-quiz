@@ -511,7 +511,7 @@ ENR[(5, "ד")] = dict(
 
 
 # ---- solver-written items: ai-draft (derived from the stored "solved" solution) ----
-ENR[(4, "א")] = dict(src="ai-draft",
+ENR[(4, "א")] = dict(src="ai-verified",
     rubric=rub((r"תרגום התנאים לפי מקדמים: $d=c=2b$ ב-$W_1$ ו-$c=0$ ב-$W_2$ (כולל $p''(0)=2b$)", 2),
                (r"בסיס ל-$W_1$: $\{x^3,\ x^2+2x+2\}$ ו-$\dim W_1=2$", 2),
                (r"בסיס ל-$W_2$: $\{x^3,\ x^2,\ 1\}$ ו-$\dim W_2=3$", 2)),
@@ -526,7 +526,7 @@ ENR[(4, "א")] = dict(src="ai-draft",
         num(r"מהו $\dim W_2$?", 3, r"שלושה פרמטרים חופשיים, $a,b,d$ (התנאי היחיד הוא $c=0$)."),
     ])
 
-ENR[(4, "ב")] = dict(src="ai-draft",
+ENR[(4, "ב")] = dict(src="ai-verified",
     rubric=rub((r"$W_1+W_2=\mathrm{Sp}\{x^3,\ x^2+2x+2,\ x^2,\ 1\}$ (איחוד הבסיסים)", 2),
                (r"דירוג מטריצת הקואורדינטות של ארבעת הפולינומים", 3),
                (r"הדרגה $4=\dim\mathbb{R}_3[x]$ ולכן $W_1+W_2=\mathbb{R}_3[x]$", 2),
@@ -541,7 +541,7 @@ ENR[(4, "ב")] = dict(src="ai-draft",
             r"$\dim\mathbb{R}_3[x]=4$, ותת מרחב ממימד $4$ שלו הוא כולו. מימד $5$ בלתי אפשרי, ו-$x^3\in W_1\cap W_2$ מראה שהחיתוך אינו טריוויאלי."),
     ])
 
-ENR[(4, "ג")] = dict(src="ai-draft",
+ENR[(4, "ג")] = dict(src="ai-verified",
     rubric=rub((r"פולינום כללי ב-$W_1$: $ax^3+bx^2+2bx+2b$", 2),
                (r"התנאי $q'(0)=0$ נותן $2b=0$, כלומר $b=0$", 3),
                (r"$W_1\cap W_2=\mathrm{Sp}\{x^3\}$", 1),
@@ -554,7 +554,7 @@ ENR[(4, "ג")] = dict(src="ai-draft",
         num(r"לפי משפט המימדים, $\dim(W_1+W_2)=2+3-\dim(W_1\cap W_2)$. מהו הערך?", 4, r"$2+3-1=4$, בהתאם לסעיף ב."),
     ])
 
-ENR[(4, "ד")] = dict(src="ai-draft",
+ENR[(4, "ד")] = dict(src="ai-verified",
     rubric=rub((r"$W_1+W_2=\mathbb{R}_3[x]$ לפי סעיף ב", 1),
                (r"$Q$ פולינום ממעלה $3$ ולכן שייך", 1),
                (r"הצגה מפורשת, למשל $Q\in W_2$ כי $Q'(0)=0$", 1)),

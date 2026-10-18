@@ -657,7 +657,7 @@ ENR[(5, "ד")] = dict(
 
 
 # ---- solver-written items: ai-draft (derived from the stored "solved" solution) ----
-ENR[(6, "א")] = dict(src="ai-draft",
+ENR[(6, "א")] = dict(src="ai-verified",
     rubric=rub((r"הפעלת $\det$ על שני האגפים עם $\det(XY)=\det X\det Y$ ו-$\det H^{-1}=1/\det H$", 3),
                (r"כפל ב-$\det H$ וקבלת $(\det H)^2(\det D)^2=(\det D)^3$", 2),
                (r"חילוק ב-$(\det D)^2$ בהצדקה $\det D\neq0$ וקבלת $\det D=(\det H)^2$", 2),
@@ -684,7 +684,7 @@ ENR[(6, "א")] = dict(src="ai-draft",
             r"מהשורה השנייה מתקבל $\det D=(\det H)^2$ ולא $\det H$. עם $\det H=-3$ התוצאה השגויה נותנת $-3$ ולא $9$."),
     ])
 
-ENR[(6, "ב")] = dict(src="ai-draft",
+ENR[(6, "ב")] = dict(src="ai-verified",
     rubric=rub((r"הצגת $A\vec u=\lambda\vec u$ והוכחה ש-$\lambda\neq0$ (אחרת $A\vec u=\vec0$ בסתירה להפיכות)", 3),
                (r"כפל משמאל ב-$A^{-1}$ וקבלת $\vec u=\lambda A^{-1}\vec u$", 3),
                (r"חילוק ב-$\lambda$ והסקה ש-$\vec u\neq\vec0$ הוא וקטור עצמי של $A^{-1}$ עם הערך $\frac1\lambda$", 3)),
@@ -704,7 +704,7 @@ ENR[(6, "ב")] = dict(src="ai-draft",
             r"מהשורה הקודמת מחלקים ב-$\lambda$ ומקבלים $A^{-1}\vec u=\frac1\lambda\vec u$. עבור $\mathrm{diag}(2,4)$ מתקבל $\frac14$ ולא $4$."),
     ])
 
-ENR[(6, "ג")] = dict(src="ai-draft",
+ENR[(6, "ג")] = dict(src="ai-verified",
     rubric=rub((r"$BC$ הפיכה: $\det(BC)=\det B\det C\neq0$", 2),
                (r"$B+C$ לא תמיד: דוגמה נגדית $B=I$, $C=-I$", 2),
                (r"$\alpha C$ לא תמיד: $\alpha=0$ נותן מטריצת אפס", 2),

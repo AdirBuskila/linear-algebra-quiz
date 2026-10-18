@@ -723,7 +723,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $p''(0)=b$ במקום $p''(0)=2b$, ולקבל את התנאי השגוי $d=c=b$.",
     "לשכוח שקבוע גם הוא איבר בבסיס של $W_2$ ולהסתפק ב-$\\{x^3,x^2\\}$."
@@ -774,7 +774,7 @@
      "explain": "שלושה פרמטרים חופשיים, $a,b,d$ (התנאי היחיד הוא $c=0$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -806,7 +806,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק שהמימד הוא $\\dim W_1+\\dim W_2=5$ בלי לבדוק תלות לינארית (הסכום אינו ישר).",
     "לדרג בלי להחליף שורות ולטעות בפעולת השורות $R_3\\to R_3-R_2-2R_4$."
@@ -855,7 +855,7 @@
      "explain": "$\\dim\\mathbb{R}_3[x]=4$, ותת מרחב ממימד $4$ שלו הוא כולו. מימד $5$ בלתי אפשרי, ו-$x^3\\in W_1\\cap W_2$ מראה שהחיתוך אינו טריוויאלי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -887,7 +887,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרוש $b=0$ וגם $a=0$ ולקבל חיתוך טריוויאלי.",
     "לשכוח שהנגזרת של $2bx$ היא $2b$ ולהסיק שהתנאי מתקיים מעצמו."
@@ -915,7 +915,7 @@
      "explain": "$2+3-1=4$, בהתאם לסעיף ב."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -943,7 +943,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק שייכות ל-$W_1$ ולהסיק ש-$Q\\notin W_1+W_2$ (הסכום גדול מ-$W_1$).",
     "לא להשתמש בסעיף ב ולהתחיל לפתור מערכת מחדש."
@@ -980,7 +980,7 @@
      "explain": "$Q'(x)=3x^2+4x$, ולכן $Q\\in W_2$ עצמו."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,

@@ -1,0 +1,132 @@
+{
+ "examCode": "25A-B",
+ "role": "refuter",
+ "scope": "ai-draft Q4a-d (solver-written); re-derived by hand + sympy tools/verify/25A-B/refute_solver_q4.py",
+ "items": {
+  "4א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4ד": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ]
+  }
+ },
+ "disagreements": []
+}

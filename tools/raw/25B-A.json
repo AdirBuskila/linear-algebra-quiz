@@ -1428,7 +1428,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$(\\det D)^2$ בלי לציין ש-$D$ הפיכה ולכן $\\det D\\neq0$.",
     "להסיק $\\det D=\\det H$ (בלי ההעלאה בריבוע) ולכן לא לקבל סימן חיובי.",
@@ -1494,7 +1494,7 @@
      "explain": "מהשורה השנייה מתקבל $\\det D=(\\det H)^2$ ולא $\\det H$. עם $\\det H=-3$ התוצאה השגויה נותנת $-3$ ולא $9$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1521,7 +1521,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לא להוכיח ש-$\\lambda\\neq0$ ולכן $\\frac1\\lambda$ אינו מוגדר.",
     "להסיק שהערך העצמי של $A^{-1}$ הוא $\\lambda$ ולא $\\frac1\\lambda$.",
@@ -1576,7 +1576,7 @@
      "explain": "מהשורה הקודמת מחלקים ב-$\\lambda$ ומקבלים $A^{-1}\\vec u=\\frac1\\lambda\\vec u$. עבור $\\mathrm{diag}(2,4)$ מתקבל $\\frac14$ ולא $4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1607,7 +1607,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסתפק בדוגמה שבה $B+C$ הפיכה (למשל $B=C=I$): דוגמה אחת אינה מוכיחה טענה על כל זוג.",
     "לשכוח את $\\alpha=0$ ולהסיק ש-$\\alpha C$ תמיד הפיכה.",
@@ -1657,7 +1657,7 @@
      "explain": "$\\det(\\alpha C)=\\alpha^2\\det C$ מתאפס רק כאשר $\\alpha=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }
