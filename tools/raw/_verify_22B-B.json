@@ -1,0 +1,255 @@
+{
+ "examCode": "22B-B",
+ "role": "refuter",
+ "derivationBeforeClaims": "Own derivation: eigenvalues of [[a,b],[c,d]] with a+b=c+d are (a+b),(a-c) (charpoly factors). Q2 det=-k(k-1)(k+1): unique k not in {0,+-1}, (x,y,z)=((k+3)/(k+1),-1/k,(1-k)/(k(k+1))); k=0,-1 none; k=1 infinite (1-y,y,0). 2d bilinear z^2-z+2=0 -> (1+-i sqrt7)/2 (Hermitian product would give no solution). A^-1=[[-7,-4,8/3],[2,1,-2/3],[-1,0,1/3]], det 3; B diag(4,4,6) P cols (-1,0,1),(0,1,0),(1,0,1). W1=<1,x^2,x^3-x>, W2 dim3, sum dim4, cap=<x^3-x-6... i.e. -x^3+x+6, x^2-4> dim2, p in cap. T: (1,1,2,k) in Im iff k=-1; never onto; 1-1 iff k!=+-1; ker(k=1)=<1-2x+x^2>; [F]=[[3,-1],[8,-6]].",
+ "transcription": "checked against page PNGs (23A-B p1-2, 22B-B p1,3, 21B-B p2,3,7-9): no mismatches",
+ "summary": {
+  "agree": 19,
+  "disagree": 0,
+  "unclear": 0
+ },
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "1b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "1c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "1d": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2d": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "convention note: answer uses bilinear u.v; under the standard Hermitian inner product there are NO solutions (|z|^2 - conj(z)+2=0 has no root). Official solution uses bilinear, so key matches official; context c2 (the linear system) is attached to this item though unrelated"
+  },
+  "3a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "3b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "3c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4d": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "minor: solution writes 1-2t+t^2 although the domain variable is x (steps use x)"
+  },
+  "5d": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  }
+ }
+}

@@ -1,0 +1,250 @@
+{
+ "examCode": "23A-B",
+ "role": "refuter",
+ "derivationBeforeClaims": "Own derivation (sympy, tools/verify/23A-B/refute_*.py): Q2 rank by a: unique iff a not in {0,1/3}; a=1/3 none (row 0 0 0|4/3); a=0 infinite (0,..): x free,y=-2,z=3; z=0 or z^3=-2-i (r=5^(1/6), args 68.86/188.86/308.86 deg). A^-1=[[3,-2,2],[0,-1,0],[1,0,1]], det -1, 4 elementary ops, product checked. B diagonalizable, eig 2,2,4, P cols (-1,1,0),(-1,0,1),(1,1,0). U=<x,1+x^2,2+x^3> dim3, W=<1,x^2> dim2, U+W=V dim4, U^W=<1+x^2> dim1. T: rank3, ker=<(-2,-1,1,0)>, not 1-1, not onto, p=10 q=0, [T]_C^B=[[4,8,10,5],[2,4,4,1],[3,6,5,1],[2,4,4,1]]. Proofs 1a-1d logically valid.",
+ "transcription": "checked against page PNGs (23A-B p1-2, 22B-B p1,3, 21B-B p2,3,7-9): no mismatches",
+ "summary": {
+  "agree": 19,
+  "disagree": 0,
+  "unclear": 0
+ },
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "1b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "1c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "1d": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2d": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "3a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "3b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "3c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "wording: solution says W is defined by 'one constraint' but p(x)=p(-x) gives two (a=c=0); dim 2 correct"
+  },
+  "4c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4d": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5a": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5b": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5c": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5d": {
+   "verdict": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "solution": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  }
+ }
+}
