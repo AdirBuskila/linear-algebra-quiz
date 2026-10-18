@@ -36,7 +36,7 @@ COURSE_LEVEL("basis_dim", {
       recap: "מציבים את התנאי בוקטור הכללי ופורקים." },
     { id: "C04-Q3",
       step: { type: "numeric",
-        prompt: String.raw`מהו המימד של תת-המרחב $\{A\in M_{2\times2}(\mathbb{R})\,:\,\mathrm{Tr}A=0\}$ ?`,
+        prompt: String.raw`מהו המימד של תת-המרחב $\{A\in M_{2\times2}(\mathbb{R})\,:\,\mathrm{Tr}A=0\}$ ? (העקבה $\mathrm{Tr}A$ היא סכום איברי האלכסון.)`,
         answer: 3, tol: 0,
         explain: String.raw`המטריצה הכללית $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ עם $a+d=0$ היא $\begin{pmatrix}a&b\\c&-a\end{pmatrix}$, כלומר שלושה משתנים חופשיים $a,b,c$. המימד $4-1=3$.` },
       recap: "עקבה אפס היא אילוץ אחד: מימד 3." },

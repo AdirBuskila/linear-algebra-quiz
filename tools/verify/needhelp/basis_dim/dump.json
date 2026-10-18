@@ -354,7 +354,7 @@
      "id": "C04-Q3",
      "step": {
       "type": "numeric",
-      "prompt": "מהו המימד של תת-המרחב $\\{A\\in M_{2\\times2}(\\mathbb{R})\\,:\\,\\mathrm{Tr}A=0\\}$ ?"
+      "prompt": "מהו המימד של תת-המרחב $\\{A\\in M_{2\\times2}(\\mathbb{R})\\,:\\,\\mathrm{Tr}A=0\\}$ ? (העקבה $\\mathrm{Tr}A$ היא סכום איברי האלכסון.)"
      }
     },
     {

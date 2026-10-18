@@ -1,0 +1,374 @@
+{
+ "courseId": "diagonalization",
+ "refuter": "blind",
+ "summary": "agree on all 41 authored questions. All lesson and explanation numbers recomputed, no slips. Bank pulls exist, not held, eigen_diagonalization topic; recaps match the stored official solutions (22B-A-Q3c, 23A-A-Q3c, 25A-B-Q3b multiplicities verified).",
+ "questions": {
+  "C01-Q1": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q2": {
+   "type": "numeric",
+   "mine": 5,
+   "stored": 5,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q3": {
+   "type": "numeric",
+   "mine": -1,
+   "stored": -1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q5": {
+   "type": "numeric",
+   "mine": 10,
+   "stored": 10,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q1": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q3": {
+   "type": "numeric",
+   "mine": 7,
+   "stored": 7,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q4": {
+   "type": "numeric",
+   "mine": -5,
+   "stored": -5,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q5": {
+   "type": "order",
+   "mine": [
+    "כותבים $\\lambda I-A=\\begin{pmatrix}\\lambda-1&-2\\\\-3&\\lambda-2\\end{pmatrix}$",
+    "מחשבים את הדטרמיננטה: $(\\lambda-1)(\\lambda-2)-6$",
+    "מפשטים: $\\lambda^2-3\\lambda-4$",
+    "מפרקים: $(\\lambda-4)(\\lambda+1)$, ולכן $\\lambda=4$ או $\\lambda=-1$"
+   ],
+   "stored": [
+    "כותבים $\\lambda I-A=\\begin{pmatrix}\\lambda-1&-2\\\\-3&\\lambda-2\\end{pmatrix}$",
+    "מחשבים את הדטרמיננטה: $(\\lambda-1)(\\lambda-2)-6$",
+    "מפשטים: $\\lambda^2-3\\lambda-4$",
+    "מפרקים: $(\\lambda-4)(\\lambda+1)$, ולכן $\\lambda=4$ או $\\lambda=-1$"
+   ],
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q6": {
+   "type": "findbug",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q1": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q4": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q5": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q6": {
+   "type": "order",
+   "mine": [
+    "כותבים $4I-A=\\begin{pmatrix}1&-1\\\\-2&2\\end{pmatrix}$",
+    "מדרגים: $R_2\\to R_2+2R_1$ נותן $\\begin{pmatrix}1&-1\\\\0&0\\end{pmatrix}$",
+    "המשוואה היחידה $x_1-x_2=0$, ולכן $x_2$ חופשי",
+    "בוחרים $x_2=1$ ומקבלים את הוקטור העצמי $(1,1)^T$"
+   ],
+   "stored": [
+    "כותבים $4I-A=\\begin{pmatrix}1&-1\\\\-2&2\\end{pmatrix}$",
+    "מדרגים: $R_2\\to R_2+2R_1$ נותן $\\begin{pmatrix}1&-1\\\\0&0\\end{pmatrix}$",
+    "המשוואה היחידה $x_1-x_2=0$, ולכן $x_2$ חופשי",
+    "בוחרים $x_2=1$ ומקבלים את הוקטור העצמי $(1,1)^T$"
+   ],
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q1": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q2": {
+   "type": "numeric",
+   "mine": 7,
+   "stored": 7,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q4": {
+   "type": "numeric",
+   "mine": 8,
+   "stored": 8,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q5": {
+   "type": "numeric",
+   "mine": 96,
+   "stored": 96,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q6": {
+   "type": "findbug",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q1": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q2": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q4": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q5": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q6": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q1": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q2": {
+   "type": "numeric",
+   "mine": 4,
+   "stored": 4,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q4": {
+   "type": "numeric",
+   "mine": 1024,
+   "stored": 1024,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q5": {
+   "type": "order",
+   "mine": [
+    "מחשבים את $p(\\lambda)=\\det(\\lambda I-B)$ ומוצאים את הערכים העצמיים",
+    "לכל ערך עצמי פותרים $(\\lambda I-B)\\vec x=\\vec 0$ ומוצאים בסיס למרחב העצמי",
+    "בודקים שבכל ערך עצמי המימד הגיאומטרי שווה לאלגברי",
+    "בונים את $P$ מהוקטורים ואת $D$ מהערכים באותו סדר",
+    "מחשבים $BP$ ו-$PD$ ומראים שהם שווים"
+   ],
+   "stored": [
+    "מחשבים את $p(\\lambda)=\\det(\\lambda I-B)$ ומוצאים את הערכים העצמיים",
+    "לכל ערך עצמי פותרים $(\\lambda I-B)\\vec x=\\vec 0$ ומוצאים בסיס למרחב העצמי",
+    "בודקים שבכל ערך עצמי המימד הגיאומטרי שווה לאלגברי",
+    "בונים את $P$ מהוקטורים ואת $D$ מהערכים באותו סדר",
+    "מחשבים $BP$ ו-$PD$ ומראים שהם שווים"
+   ],
+   "verdict": "agree",
+   "note": "Order is forced by logic (eigenvalues, eigenvectors, geometric=algebraic check, build P and D, verify); no swap keeps the procedure valid."
+  },
+  "C06-Q6": {
+   "type": "findbug",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q1": {
+   "type": "order",
+   "mine": [
+    "$A\\vec v=\\lambda\\vec v$",
+    "$A(A\\vec v)=A(\\lambda\\vec v)$",
+    "$A^2\\vec v=\\lambda(A\\vec v)$",
+    "$A^2\\vec v=\\lambda\\cdot\\lambda\\vec v=\\lambda^2\\vec v$"
+   ],
+   "stored": [
+    "$A\\vec v=\\lambda\\vec v$",
+    "$A(A\\vec v)=A(\\lambda\\vec v)$",
+    "$A^2\\vec v=\\lambda(A\\vec v)$",
+    "$A^2\\vec v=\\lambda\\cdot\\lambda\\vec v=\\lambda^2\\vec v$"
+   ],
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q4": {
+   "type": "numeric",
+   "mine": 0.25,
+   "stored": 0.25,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q5": {
+   "type": "findbug",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q6": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  }
+ },
+ "bank": {
+  "22B-A-Q3c": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "23A-A-Q3c": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "24A-A-Q3c": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "25A-B-Q3b": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "23B-B-Q1a": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "23B-B-Q1d": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  }
+ }
+}

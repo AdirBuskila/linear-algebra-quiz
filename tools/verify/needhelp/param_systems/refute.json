@@ -1,0 +1,345 @@
+{
+ "courseId": "param_systems",
+ "refuter": "blind",
+ "summary": "agree on all 40 authored questions (sympy + hand). Distractors fail, no swappable order step after the merge in C03-Q4, all matrices carry row separators, boss bankIds exist and are not held (linear_systems topic).",
+ "questions": {
+  "C01-Q1": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q2": {
+   "type": "numeric",
+   "mine": -7,
+   "stored": -7,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q3": {
+   "type": "mcq",
+   "mine": "c",
+   "stored": "c",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q4": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q5": {
+   "type": "order",
+   "mine": [
+    "כותבים את המטריצה המורחבת: שורות $(1\\ \\ 1\\,|\\,3)$ ו-$(2\\ \\ -1\\,|\\,0)$",
+    "מאפסים מתחת לאיבר המוביל: $R_2\\to R_2-2R_1$ נותן $(0\\ \\ -3\\,|\\,-6)$",
+    "מהשורה השנייה $y=2$",
+    "מציבים לאחור בשורה הראשונה: $x=3-2=1$"
+   ],
+   "stored": [
+    "כותבים את המטריצה המורחבת: שורות $(1\\ \\ 1\\,|\\,3)$ ו-$(2\\ \\ -1\\,|\\,0)$",
+    "מאפסים מתחת לאיבר המוביל: $R_2\\to R_2-2R_1$ נותן $(0\\ \\ -3\\,|\\,-6)$",
+    "מהשורה השנייה $y=2$",
+    "מציבים לאחור בשורה הראשונה: $x=3-2=1$"
+   ],
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q1": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q2": {
+   "type": "mcq",
+   "mine": "c",
+   "stored": "c",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q3": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q4": {
+   "type": "mcq",
+   "mine": "b",
+   "stored": "b",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q5": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q6": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q1": {
+   "type": "numeric",
+   "mine": -5,
+   "stored": -5,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q4": {
+   "type": "order",
+   "mine": [
+    "עמודה $3$ בלי איבר מוביל, ולכן $z$ חופשי ומסמנים $z=t$",
+    "מהשורה השנייה $y=1-3t$",
+    "מהשורה הראשונה $x=3-2y+z=1+7t$",
+    "כותבים $(x,y,z)=(1,1,0)+t(7,-3,1)$"
+   ],
+   "stored": [
+    "עמודה $3$ בלי איבר מוביל, ולכן $z$ חופשי ומסמנים $z=t$",
+    "מהשורה השנייה $y=1-3t$",
+    "מהשורה הראשונה $x=3-2y+z=1+7t$",
+    "כותבים $(x,y,z)=(1,1,0)+t(7,-3,1)$"
+   ],
+   "verdict": "agree",
+   "note": "Fixed: lines 'column 3 has no pivot so z is free' and 'mark z=t' were swappable, so they were merged into one line (order step now 4 forced lines)."
+  },
+  "C03-Q5": {
+   "type": "findbug",
+   "mine": 3,
+   "stored": 3,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q1": {
+   "type": "numeric",
+   "mine": 3,
+   "stored": 3,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q5": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q6": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q1": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": "Single defensible answer (swap rows); b, c, d all divide by or multiply by k without checking k=0."
+  },
+  "C05-Q3": {
+   "type": "numeric",
+   "mine": -1,
+   "stored": -1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q5": {
+   "type": "numeric",
+   "mine": 0.25,
+   "stored": 0.25,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q6": {
+   "type": "findbug",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q1": {
+   "type": "numeric",
+   "mine": 3,
+   "stored": 3,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q4": {
+   "type": "numeric",
+   "mine": -1,
+   "stored": -1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q5": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q6": {
+   "type": "numeric",
+   "mine": -2,
+   "stored": -2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q1": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q2": {
+   "type": "numeric",
+   "mine": 3,
+   "stored": 3,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": "Subtracting rows gives (a-1)y=0, so line for a!=1 and plane for a=1; the only option matching."
+  },
+  "C07-Q5": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q6": {
+   "type": "numeric",
+   "mine": -2,
+   "stored": -2,
+   "verdict": "agree",
+   "note": ""
+  }
+ },
+ "bank": {
+  "22B-A-Q2a": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "22B-A-Q2b": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "24A-A-Q2b": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "25B-A-Q2b": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "25B-A-Q2c": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "25A-A-Q2c": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  }
+ }
+}

@@ -181,7 +181,7 @@ ok(sp.expand(3 - 2*(1 - 3*t) + t) == 1 + 7*t, "C03-Q5 correct arithmetic is 1+7t
 ok(sp.expand(3 - 2*(1 - 3*t) + t) != 1 + 5*t, "C03-Q5 buggy line is wrong")
 s5 = Q["C03-Q5"]["step"]; ok(s5["bugIndex"] == 3 and "1+5t" in s5["lines"][3] and "1+7t" not in s5["lines"][3], "C03-Q5 bug line")
 ok(all("1+5t" not in l for l in s5["lines"][:3]) and "y=1-3t" in s5["lines"][1], "C03-Q5 other lines clean")
-s4 = Q["C03-Q4"]["step"]["lines"]; ok("(1,1,0)+t(7,-3,1)" in s4[4] and "y=1-3t" in s4[2] and "1+7t" in s4[3], "C03-Q4 lines")
+s4 = Q["C03-Q4"]["step"]["lines"]; ok(len(s4) == 4 and "(1,1,0)+t(7,-3,1)" in s4[3] and "y=1-3t" in s4[1] and "1+7t" in s4[2] and "z=t" in s4[0], "C03-Q4 lines")
 
 # ================================================================ C04
 SA = lambda kk: Matrix([[1, 1, 1, 1], [1, 2, 3, 2], [1, 2, kk, kk]])

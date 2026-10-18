@@ -1,0 +1,342 @@
+{
+ "courseId": "kernel_image",
+ "refuter": "blind",
+ "summary": "agree on all 39 authored questions. Backslash row separators present in all matrices (203 matrix environments scanned across the four courses, none malformed). One explanation wording error fixed (C07-Q3 option d). Bank pulls exist, not held, linear_maps topic.",
+ "questions": {
+  "C01-Q1": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q2": {
+   "type": "numeric",
+   "mine": 4,
+   "stored": 4,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q3": {
+   "type": "numeric",
+   "mine": 4,
+   "stored": 4,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q4": {
+   "type": "mcq",
+   "mine": "b",
+   "stored": "b",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q5": {
+   "type": "numeric",
+   "mine": 3,
+   "stored": 3,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q6": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q1": {
+   "type": "numeric",
+   "mine": -1,
+   "stored": -1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q3": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q5": {
+   "type": "numeric",
+   "mine": 15,
+   "stored": 15,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q1": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q3": {
+   "type": "numeric",
+   "mine": -3,
+   "stored": -3,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q5": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q1": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q4": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q5": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q1": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q5": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q6": {
+   "type": "numeric",
+   "mine": 4,
+   "stored": 4,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q1": {
+   "type": "numeric",
+   "mine": 5,
+   "stored": 5,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q2": {
+   "type": "numeric",
+   "mine": 7,
+   "stored": 7,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q3": {
+   "type": "numeric",
+   "mine": 10,
+   "stored": 10,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q5": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q6": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q1": {
+   "type": "numeric",
+   "mine": -1,
+   "stored": -1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q2": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": "Fixed explanation: option d only swaps the two columns of the correct matrix, not rows and columns."
+  },
+  "C07-Q4": {
+   "type": "numeric",
+   "mine": -1,
+   "stored": -1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q5": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q6": {
+   "type": "numeric",
+   "mine": 7,
+   "stored": 7,
+   "verdict": "agree",
+   "note": ""
+  }
+ },
+ "bank": {
+  "22A-A-Q5a": {
+   "level": "C04",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "24A-A-Q5b": {
+   "level": "C05",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "25A-A-Q5c": {
+   "level": "C06",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "23B-B-Q5e": {
+   "level": "C07",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "23A-A-Q5a": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "23A-A-Q5b": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "25A-A-Q5a": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "24A-A-Q5c": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "25B-A-Q5c": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "23A-A-Q5d": {
+   "level": "C08",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  }
+ }
+}

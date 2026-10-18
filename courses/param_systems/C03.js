@@ -45,8 +45,7 @@ $$(x,y,z)=(0,1,0)+t\,(1,-2,1)$$
       step: { type: "order",
         prompt: String.raw`סדרו את שלבי כתיבת הפתרון הכללי של $\left(\begin{array}{ccc|c}1&2&-1&3\\0&1&3&1\end{array}\right)$.`,
         lines: [
-          String.raw`עמודה $3$ בלי איבר מוביל, ולכן $z$ חופשי`,
-          String.raw`מסמנים $z=t$`,
+          String.raw`עמודה $3$ בלי איבר מוביל, ולכן $z$ חופשי ומסמנים $z=t$`,
           String.raw`מהשורה השנייה $y=1-3t$`,
           String.raw`מהשורה הראשונה $x=3-2y+z=1+7t$`,
           String.raw`כותבים $(x,y,z)=(1,1,0)+t(7,-3,1)$`,

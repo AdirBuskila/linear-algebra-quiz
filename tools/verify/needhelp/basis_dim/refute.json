@@ -1,0 +1,380 @@
+{
+ "courseId": "basis_dim",
+ "refuter": "blind",
+ "summary": "agree on all 45 authored questions. Small numbers (0-6) re-derived by hand, all lesson and explanation arithmetic recomputed, no slips. Trace now defined in C04-Q3. Boss bankIds exist, not held, vector_spaces topic.",
+ "questions": {
+  "C01-Q1": {
+   "type": "mcq",
+   "mine": "b",
+   "stored": "b",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q2": {
+   "type": "numeric",
+   "mine": 0,
+   "stored": 0,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q3": {
+   "type": "mcq",
+   "mine": "b",
+   "stored": "b",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C01-Q5": {
+   "type": "numeric",
+   "mine": 9,
+   "stored": 9,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q1": {
+   "type": "numeric",
+   "mine": 4,
+   "stored": 4,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q2": {
+   "type": "mcq",
+   "mine": "b",
+   "stored": "b",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q3": {
+   "type": "mcq",
+   "mine": "d",
+   "stored": "d",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q4": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q5": {
+   "type": "numeric",
+   "mine": 6,
+   "stored": 6,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C02-Q6": {
+   "type": "mcq",
+   "mine": "b",
+   "stored": "b",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q1": {
+   "type": "numeric",
+   "mine": 6,
+   "stored": 6,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q2": {
+   "type": "numeric",
+   "mine": 4,
+   "stored": 4,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q3": {
+   "type": "mcq",
+   "mine": "c",
+   "stored": "c",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q4": {
+   "type": "mcq",
+   "mine": "c",
+   "stored": "c",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q5": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C03-Q6": {
+   "type": "mcq",
+   "mine": "b",
+   "stored": "b",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q1": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q2": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q3": {
+   "type": "numeric",
+   "mine": 3,
+   "stored": 3,
+   "verdict": "agree",
+   "note": "Fixed: Tr was never defined in any lesson, so the prompt now defines it (teach before you ask)."
+  },
+  "C04-Q4": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q5": {
+   "type": "numeric",
+   "mine": 3,
+   "stored": 3,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C04-Q6": {
+   "type": "order",
+   "mine": [
+    "וקטור כללי של $\\mathbb{R}^3$ הוא $(x,y,z)$",
+    "מציבים את התנאי $y=2x$ ומקבלים $(x,\\,2x,\\,z)$",
+    "פורקים לצירוף: $x(1,2,0)+z(0,0,1)$",
+    "הבסיס הוא $\\{(1,2,0),(0,0,1)\\}$ והמימד $2$"
+   ],
+   "stored": [
+    "וקטור כללי של $\\mathbb{R}^3$ הוא $(x,y,z)$",
+    "מציבים את התנאי $y=2x$ ומקבלים $(x,\\,2x,\\,z)$",
+    "פורקים לצירוף: $x(1,2,0)+z(0,0,1)$",
+    "הבסיס הוא $\\{(1,2,0),(0,0,1)\\}$ והמימד $2$"
+   ],
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q1": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q2": {
+   "type": "numeric",
+   "mine": 3,
+   "stored": 3,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q3": {
+   "type": "mcq",
+   "mine": "b",
+   "stored": "b",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C05-Q5": {
+   "type": "findbug",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": "Bug is line 3 (index 2): 7-6=1 and 4-3=1, so R3-3R1=(0,1,1), not (0,1,2); verified."
+  },
+  "C06-Q1": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q2": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q3": {
+   "type": "mcq",
+   "mine": "c",
+   "stored": "c",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q4": {
+   "type": "numeric",
+   "mine": 4,
+   "stored": 4,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q5": {
+   "type": "mcq",
+   "mine": "b",
+   "stored": "b",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C06-Q6": {
+   "type": "order",
+   "mine": [
+    "מוצאים בסיס לכל אחד מ-$W_1$ ו-$W_2$",
+    "מאחדים את שני הבסיסים לקבוצה פורשת אחת של הסכום",
+    "כותבים את הוקטורים כשורות ומדרגים",
+    "השורות שאינן אפס הן בסיס, והמימד הוא הדרגה"
+   ],
+   "stored": [
+    "מוצאים בסיס לכל אחד מ-$W_1$ ו-$W_2$",
+    "מאחדים את שני הבסיסים לקבוצה פורשת אחת של הסכום",
+    "כותבים את הוקטורים כשורות ומדרגים",
+    "השורות שאינן אפס הן בסיס, והמימד הוא הדרגה"
+   ],
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q1": {
+   "type": "numeric",
+   "mine": 5,
+   "stored": 5,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q2": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q3": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q4": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C07-Q5": {
+   "type": "numeric",
+   "mine": 1,
+   "stored": 1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C08-Q1": {
+   "type": "numeric",
+   "mine": 4,
+   "stored": 4,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C08-Q2": {
+   "type": "numeric",
+   "mine": 2,
+   "stored": 2,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C08-Q3": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  },
+  "C08-Q4": {
+   "type": "numeric",
+   "mine": -1,
+   "stored": -1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C08-Q5": {
+   "type": "numeric",
+   "mine": -1,
+   "stored": -1,
+   "verdict": "agree",
+   "note": ""
+  },
+  "C08-Q6": {
+   "type": "mcq",
+   "mine": "a",
+   "stored": "a",
+   "verdict": "agree",
+   "note": ""
+  }
+ },
+ "bank": {
+  "24A-A-Q4a": {
+   "level": "C09",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "23A-A-Q4b": {
+   "level": "C09",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "24A-A-Q4c": {
+   "level": "C09",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "23A-A-Q4d": {
+   "level": "C09",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "24A-A-Q5d": {
+   "level": "C09",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  },
+  "25B-A-Q5d": {
+   "level": "C09",
+   "exists": true,
+   "held": false,
+   "topicMatches": true
+  }
+ }
+}
