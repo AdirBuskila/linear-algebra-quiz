@@ -1,0 +1,693 @@
+{
+ "examCode": "23B-B",
+ "role": "refuter",
+ "scope": "steps, rubrics, pitfalls, final answers; recomputed with sympy (tools/verify/<CODE>/refute_sympy_*.py), solved blind from stripped text first",
+ "items": {
+  "1א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "findbug",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "1ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "1ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "findbug",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "1ד": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "findbug",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "2א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "note": "agree on answers; soft: official text says \"three suspicious values\" but lists two (a=0,-1)."
+  },
+  "2ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree",
+     "note": "soft: row (0 0 0|-4) arises only after multiplying R1 by (a+1)=0 at a=-1; the true contradictory row at a=-1 is (0 0 0|2). Rank 3 is right."
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "2ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "2ד": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "3א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "3ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "3ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "4ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "note": "agree; soft: official labels alpha for W1 and beta for W2 but then uses beta for the W1 vectors (labels swapped). Result basis -x^3-x^2+5x+5 correct (line is the same up to sign)."
+  },
+  "4ד": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "5א": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "5ב": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "5ג": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "5ד": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ]
+  },
+  "5ה": {
+   "solution": "agree",
+   "rubric": {
+    "verdict": "agree",
+    "sum_matches_points": true
+   },
+   "pitfalls": [
+    {
+     "i": 0,
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "verdict": "agree"
+    }
+   ],
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ]
+  }
+ }
+}
