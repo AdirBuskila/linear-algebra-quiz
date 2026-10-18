@@ -1,0 +1,19 @@
+{
+ "examCode": "21A-A",
+ "role": "refuter",
+ "items": {
+  "1ג": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "1ד": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "2ג": {
+   "solution": "agree",
+   "steps": "none in raw"
+  }
+ },
+ "solvedScope": "solutionSource=solved or 'official-with-correction' items; independently recomputed with sympy (tools/verify/21A-A/refute_*.py); raw has no steps/rubric for these items"
+}

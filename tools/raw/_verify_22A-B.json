@@ -1,0 +1,28 @@
+{
+ "examCode": "22A-B",
+ "role": "refuter",
+ "items": {
+  "4א": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "4ב": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "4ג": {
+   "solution": "agree (rendering defect)",
+   "steps": "none in raw",
+   "note": "agree on all values; LaTeX defect: row-op label \\substack{...\\R_5...} is missing the \\ line break (gen_22A-B.py:236), renders broken"
+  },
+  "4ד": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "4ה": {
+   "solution": "agree",
+   "steps": "none in raw"
+  }
+ },
+ "solvedScope": "solutionSource=solved or 'official-with-correction' items; independently recomputed with sympy (tools/verify/22A-B/refute_*.py); raw has no steps/rubric for these items"
+}

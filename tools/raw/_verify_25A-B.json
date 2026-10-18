@@ -468,6 +468,23 @@
      "verdict": "agree"
     }
    ]
+  },
+  "4א": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "4ב": {
+   "solution": "agree (rendering defect)",
+   "steps": "none in raw",
+   "note": "agree on all values; LaTeX defect: \\substack{R_3..\\R_3..} missing the \\ line break (gen_25A-B.py)"
+  },
+  "4ג": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "4ד": {
+   "solution": "agree",
+   "steps": "none in raw"
   }
  },
  "answers": {
@@ -544,5 +561,6 @@
  },
  "held_skipped": [
   "Q4 (no steps/rubric present)"
- ]
+ ],
+ "solvedScope": "solutionSource=solved or 'official-with-correction' items; independently recomputed with sympy (tools/verify/25A-B/refute_*.py); raw has no steps/rubric for these items"
 }

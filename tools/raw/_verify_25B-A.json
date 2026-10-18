@@ -621,6 +621,18 @@
      "verdict": "agree"
     }
    ]
+  },
+  "6א": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "6ב": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "6ג": {
+   "solution": "agree",
+   "steps": "none in raw"
   }
  },
  "answers": {
@@ -717,5 +729,6 @@
  },
  "held_skipped": [
   "Q6a/b/c (no rubric/steps)"
- ]
+ ],
+ "solvedScope": "solutionSource=solved or 'official-with-correction' items; independently recomputed with sympy (tools/verify/25B-A/refute_*.py); raw has no steps/rubric for these items"
 }

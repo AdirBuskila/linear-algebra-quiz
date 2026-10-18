@@ -1,0 +1,87 @@
+{
+ "examCode": "20A-A",
+ "role": "refuter",
+ "items": {
+  "1א": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "1ב": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "1ג": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "1ד": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "2א": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "2ב": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "2ג": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "2ד": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "3א": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "3ב": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "3ג": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "3ד": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "4א": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "4ב": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "4ג": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "4ד": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "5א": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "5ב": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "5ג": {
+   "solution": "agree",
+   "steps": "none in raw"
+  },
+  "5ד": {
+   "solution": "agree",
+   "steps": "none in raw"
+  }
+ },
+ "solvedScope": "solutionSource=solved or 'official-with-correction' items; independently recomputed with sympy (tools/verify/20A-A/refute_*.py); raw has no steps/rubric for these items"
+}
