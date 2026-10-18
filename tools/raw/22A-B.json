@@ -38,7 +38,95 @@
    "solution": "אם נחשב דטרמיננט משני הצדדים של המשוואה הנתונה, אז נקבל ש-\n$$\\det\\left[(PQ)^{-1}CPQ\\right]=\\det(D)\\Rightarrow\\det\\left[Q^{-1}P^{-1}CPQ\\right]=\\det(D)\\Rightarrow$$\n$$\\Rightarrow\\det\\left(Q^{-1}\\right)\\det\\left(P^{-1}\\right)\\det(C)\\det(P)\\det(Q)=\\det D\\Rightarrow\\frac{1}{\\det(Q)}\\cdot\\frac{1}{\\det(P)}\\det(C)\\det(P)\\det(Q)=\\det(D)\\Rightarrow\\det(C)=\\det(D)$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "נטילת דטרמיננטה משני אגפי המשוואה $(PQ)^{-1}CPQ=D$",
+     "points": 1
+    },
+    {
+     "text": "כפליות הדטרמיננטה על המכפלה: $\\det\\left(Q^{-1}\\right)\\det\\left(P^{-1}\\right)\\det(C)\\det(P)\\det(Q)$",
+     "points": 2
+    },
+    {
+     "text": "$\\det\\left(M^{-1}\\right)=\\frac{1}{\\det M}$ עבור $M=P,Q$",
+     "points": 2
+    },
+    {
+     "text": "צמצום $\\det P$ ו-$\\det Q$ (שונים מאפס כי $P,Q$ הפיכות)",
+     "points": 1
+    },
+    {
+     "text": "המסקנה $\\det C=\\det D$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לצמצם את המטריצות עצמן ולטעון ש-$(PQ)^{-1}CPQ=C$ (הכפל אינו חילופי); הצמצום חוקי רק על הדטרמיננטות, שהן מספרים.",
+    "לרשום $\\det\\left(P^{-1}\\right)=\\det P$ במקום $\\frac{1}{\\det P}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו תכונה של הדטרמיננטה מאפשרת לפרק את $\\det\\left[(PQ)^{-1}CPQ\\right]$ לגורמים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\det(XY)=\\det X\\cdot\\det Y$ לכל שתי מטריצות ריבועיות מאותו סדר"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\det(X+Y)=\\det X+\\det Y$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\det(\\alpha X)=\\alpha\\det X$ לכל מטריצה מסדר $2$ ומעלה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\det\\left(X^{-1}\\right)=\\det X$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הכפליות היא התכונה שבה הפתרון משתמש. שלוש האפשרויות האחרות שגויות: למשל עבור $X=Y=I_2$ מתקבל $\\det(X+Y)=4\\neq2=\\det X+\\det Y$; $\\det(2I_2)=4\\neq2\\det I_2$; ועבור $X=2I_2$ מתקבל $\\det\\left(X^{-1}\\right)=\\frac14\\neq4=\\det X$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שרשרת החישוב.",
+     "lines": [
+      "$\\det\\left[(PQ)^{-1}CPQ\\right]=\\det D$",
+      "$\\det\\left(Q^{-1}\\right)\\det\\left(P^{-1}\\right)\\det(C)\\det(P)\\det(Q)=\\det D$",
+      "$\\frac{1}{\\det Q}\\cdot\\frac{1}{\\det P}\\cdot\\det C\\cdot\\det P\\cdot\\det Q=\\det D$",
+      "$\\det C=\\det D$"
+     ],
+     "explain": "מחשבים דטרמיננטה בשני האגפים, מפרקים לפי כפליות ושימוש ב-$(PQ)^{-1}=Q^{-1}P^{-1}$, מציבים $\\det\\left(M^{-1}\\right)=\\frac{1}{\\det M}$ ומצמצמים."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בשרשרת הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$\\det\\left[(PQ)^{-1}CPQ\\right]=\\det D$",
+      "$\\det\\left(Q^{-1}\\right)\\det\\left(P^{-1}\\right)\\det(C)\\det(P)\\det(Q)=\\det D$",
+      "$\\det Q\\cdot\\det P\\cdot\\det C\\cdot\\det P\\cdot\\det Q=\\det D$",
+      "$\\det C=\\det D$"
+     ],
+     "bugIndex": 2,
+     "explain": "$\\det\\left(Q^{-1}\\right)=\\frac{1}{\\det Q}$ ולא $\\det Q$; השורה השגויה לא מצטמצמת ל-$\\det C$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $P=\\begin{pmatrix}1&2\\\\3&7\\end{pmatrix}$, $Q=\\begin{pmatrix}2&1\\\\5&3\\end{pmatrix}$, $C=\\begin{pmatrix}4&1\\\\2&3\\end{pmatrix}$ ו-$D=(PQ)^{-1}CPQ$, מהו $|D|$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$|C|=12-2=10$ ולכן $|D|=|C|=10$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -50,7 +138,86 @@
    "solution": "נתון ש-$2AB+3I=0$, אז $2AB=-3I$. מכאן נקבל\n$$\\det(2AB)=\\det(-3I)\\Rightarrow\\det(2A)\\det(B)=(-3)^4\\det(I)=3^4\\neq0$$\nומכאן $\\det(2A)\\det(B)=2^4\\det(A)\\det(B)\\neq0\\Leftarrow\\det(B)\\neq0$ ולכן **$B$ היא מטריצה הפיכה**.\n**הערה:** מאי-האפסיות של המכפלה $2^4\\det(A)\\det(B)$ נובע גם $\\det(A)\\neq0$, כלומר $A$ הפיכה (וזה נובע גם ישירות מהנתון $|A|=2$).",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "העברת אגף: $2AB=-3I$ ונטילת דטרמיננטה",
+     "points": 1
+    },
+    {
+     "text": "$\\det(-3I)=(-3)^4=81$ עבור מטריצות מסדר $4$",
+     "points": 2
+    },
+    {
+     "text": "$\\det(2AB)=2^4\\det A\\det B$",
+     "points": 2
+    },
+    {
+     "text": "$2^4\\det A\\det B=81\\neq0$ ולכן כל גורם שונה מאפס, ובפרט $\\det A\\neq0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $\\det(2A)=2\\det A$ במקום $2^4\\det A$ (גורם הכפל מוכפל בכל אחת מארבע השורות).",
+    "לחשב $\\det(-3I)=-3$ או $-81$ במקום $(-3)^4=81$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det(-3I)$ עבור המטריצה $-3I$ מסדר $4$?",
+     "answer": 81,
+     "tol": 0,
+     "explain": "$\\det(-3I_4)=(-3)^4=81$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $\\det(2AB)$ עבור מטריצות $A,B$ מסדר $4$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2\\det A\\det B$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^4\\det A\\det B$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\det A\\det B$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2^4\\left(\\det A+\\det B\\right)$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הכפלה בסקלר $2$ של מטריצה מסדר $4$ מכפילה את הדטרמיננטה ב-$2^4$, והדטרמיננטה של מכפלה היא מכפלת הדטרמיננטות."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$2AB=-3I$",
+      "$\\det(2AB)=\\det(-3I)=(-3)^4=81$",
+      "$2^4\\det(A)\\det(B)=81\\neq0$",
+      "לכן $\\det A\\neq0$ (וגם $\\det B\\neq0$), כלומר $A$ הפיכה"
+     ],
+     "explain": "השלבים תלויים זה בזה: קודם מעבירים אגף, אחר כך מחשבים דטרמיננטה, ורק מהמכפלה השונה מאפס מסיקים על הגורמים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\det(2A)$ אם $|A|=2$ ו-$A$ מסדר $4$?",
+     "answer": 32,
+     "tol": 0,
+     "explain": "$2^4\\cdot2=32$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -62,7 +229,68 @@
    "solution": "מהמשוואה $\\det(2A)\\det(B)=(-3)^4\\det(I)=3^4$ נקבל ש-$2^4\\cdot2\\cdot\\det(B)=3^4$ ומכאן נובע ש-\n$$\\det(B)=\\frac{3^4}{2^5}=\\frac{81}{32}$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "המשוואה $\\det(2A)\\det(B)=\\det(-3I)$",
+     "points": 2
+    },
+    {
+     "text": "$\\det(-3I)=(-3)^4=81$",
+     "points": 2
+    },
+    {
+     "text": "$\\det(2A)=2^4\\cdot2=32$",
+     "points": 2
+    },
+    {
+     "text": "פתרון המשוואה $32\\det B=81$ ולכן $\\det B=\\frac{81}{32}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $\\det(2A)=2\\cdot2=4$ במקום $2^4\\cdot2=32$.",
+    "לשכוח שהמשוואה היא $\\det(2AB)=\\det(-3I)$ ולא $\\det(AB)=\\det(-3I)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו משוואה על $\\det B$ מתקבלת?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$32\\det B=-81$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$4\\det B=81$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$32\\det B=81$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$32\\det B=9$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\det(2A)=2^4\\cdot2=32$ ו-$\\det(-3I)=(-3)^4=81$. הטעויות האחרות: סימן שלילי, $\\det(2A)=4$, ו-$(-3)^2$ במקום $(-3)^4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|B|$ (ערך עשרוני)?",
+     "answer": 2.53125,
+     "tol": 0.0001,
+     "explain": "$\\det B=\\frac{81}{32}=2.53125$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -74,7 +302,58 @@
    "solution": "מהתוצאה של הסעיף הקודם נובע ש-\n$$\\det\\left(B^{-1}\\right)=\\frac{32}{81}$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "$B$ הפיכה ולכן $\\det B\\neq0$ והמשוואה $\\det B\\cdot\\det B^{-1}=1$ מוגדרת",
+     "points": 1
+    },
+    {
+     "text": "$\\det\\left(B^{-1}\\right)=\\frac{1}{\\det B}$",
+     "points": 1
+    },
+    {
+     "text": "הצבה: $\\frac{32}{81}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשאיר $\\det\\left(B^{-1}\\right)=\\det B$ (זה נכון רק כאשר $\\det B=\\pm1$)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה קשר מתקיים בין $\\det\\left(B^{-1}\\right)$ ל-$\\det B$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\det\\left(B^{-1}\\right)=\\frac{1}{\\det B}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\det\\left(B^{-1}\\right)=\\det B$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\det\\left(B^{-1}\\right)=-\\det B$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "מ-$BB^{-1}=I$ מקבלים $\\det B\\cdot\\det\\left(B^{-1}\\right)=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\left|B^{-1}\\right|$ (ערך עשרוני, ארבע ספרות אחרי הנקודה)?",
+     "answer": 0.3951,
+     "tol": 0.0001,
+     "explain": "$\\frac{32}{81}\\approx0.3951$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -87,7 +366,102 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המורחבת ודירוג: $R_2\\to R_2-R_1$, $R_3\\to R_3-R_1$",
+     "points": 2
+    },
+    {
+     "text": "המקרה $a=2$ בנפרד: פתרון יחיד לכל $b$",
+     "points": 2
+    },
+    {
+     "text": "עבור $a\\neq2$: $R_3\\to R_3-9R_2$ והאיבר $a-2-\\frac{9}{a-2}=0\\Leftrightarrow a=5,-1$",
+     "points": 2
+    },
+    {
+     "text": "$a=5$: פתרון יחיד לא קיים; אינסוף פתרונות אם $b=7$ ואין פתרון אם $b\\neq7$",
+     "points": 2
+    },
+    {
+     "text": "$a=-1$: אינסוף פתרונות אם $b=-5$ ואין פתרון אם $b\\neq-5$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחלק ב-$a-2$ בלי לבדוק את המקרה $a=2$ בנפרד.",
+    "להסיק שאין פתרון בכל מקרה ש-$a=5,-1$, בלי לבדוק את $b$ (שם יש אינסוף פתרונות עבור $b=7$ ו-$b=-5$ בהתאמה)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "עבור אילו ערכי $a$ מטריצת המקדמים אינה הפיכה (הדטרמיננטה מתאפסת)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=5$ ו-$a=-1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a=2$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a=5$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a=2$ ו-$a=-1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הדטרמיננטה של מטריצת המקדמים היא $(a-5)(a+1)$, ולכן מתאפסת רק עבור $a=5,-1$; עבור $a=2$ היא שונה מאפס."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה קורה עבור $a=2$, כאשר $b$ כלשהו?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אין פתרון לכל $b$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינסוף פתרונות לכל $b$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "פתרון יחיד לכל $b$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "עבור $a=2$ מטריצת המקדמים הפיכה (דרגה $3$), ולכן יש פתרון יחיד לכל $b$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=5$: לאיזה ערך $b$ יש למערכת אינסוף פתרונות?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "$3(b-1)-18=0\\Rightarrow b=7$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=-1$: לאיזה ערך $b$ יש למערכת אינסוף פתרונות?",
+     "answer": -5,
+     "tol": 0,
+     "explain": "$-3(b-1)-18=0\\Rightarrow b=-5$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -100,7 +474,49 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "הצבה $a=2,b=1$ וקבלת המטריצה המדורגת",
+     "points": 2
+    },
+    {
+     "text": "מציאת $z=2$ ו-$y=0$",
+     "points": 2
+    },
+    {
+     "text": "הצבה לאחור: $x=1-2y-2z=-3$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בצורה המדורגת של המקרה $a\\neq2$ (שבה מחלקים ב-$a-2$) במקום לטפל במקרה $a=2$ בנפרד."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=2,b=1$ מהו $z$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מהשורה $0\\ 0\\ 1\\,|\\,2$ מתקבל $z=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$y=\\frac{b-1}{9}=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $x$?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "$x=1-2y-2z=1-0-4=-3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -113,7 +529,65 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "הצבה $a=5,b=7$ והשורה האחרונה מתאפסת",
+     "points": 1
+    },
+    {
+     "text": "$z=t$ משתנה חופשי",
+     "points": 1
+    },
+    {
+     "text": "$y=\\frac{2}{3}-\\frac{t}{3}$",
+     "points": 1
+    },
+    {
+     "text": "$x=-\\frac13-\\frac43t$",
+     "points": 1
+    },
+    {
+     "text": "הצגה בצורה וקטורית: פתרון פרטי $+\\,t\\cdot$ וקטור כיוון",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לכתוב את הפתרון הכללי (עם הפרמטר $t$) ולהסתפק בפתרון פרטי אחד.",
+    "טעות סימן בהצבה לאחור $x=1-2y-2z$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת מטריצת המקדמים עבור $a=5$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "השורה השלישית מתאפסת לאחר הדירוג, ונשארות שתי שורות לא אפס."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה משתנים חופשיים יש במקרה זה?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$3-2=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $x$ כאשר $t=0$ (פתרון פרטי)? (ערך עשרוני, ארבע ספרות)",
+     "answer": -0.3333,
+     "tol": 0.0001,
+     "explain": "$x=-\\frac13$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y$ כאשר $t=1$? (ערך עשרוני, ארבע ספרות)",
+     "answer": 0.3333,
+     "tol": 0.0001,
+     "explain": "$y=\\frac23-\\frac13=\\frac13$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -126,7 +600,103 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c2"
+   "contextId": "c2",
+   "rubric": [
+    {
+     "text": "חישוב הדטרמיננטה $z^2+2z+2$ (למשל פיתוח לפי עמודה ראשונה)",
+     "points": 2
+    },
+    {
+     "text": "$A$ הפיכה אם ורק אם $\\det A\\neq0$",
+     "points": 1
+    },
+    {
+     "text": "פתרון $z^2+2z+2=0$ בנוסחת השורשים: $z=-1\\pm i$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: $A$ הפיכה לכל $z\\neq-1\\pm i$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לפתור את המשוואה $\\det A=0$ ולהסיק שאלה הערכים להפיכות (ההפך הוא הנכון).",
+    "לעבוד בממשיים ולהסיק שהמטריצה הפיכה לכל $z\\in\\mathbb{R}$ בלי לבדוק את השורשים המרוכבים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det A$ עבור $z=1$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$z^2+2z+2=1+2+2=5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det A$ עבור $z=0$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$z^2+2z+2=2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם פתרונות המשוואה $z^2+2z+2=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$z=1+i$ ו-$z=1-i$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$z=-1+2i$ ו-$z=-1-2i$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$z=-1+i$ ו-$z=-1-i$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$z=-2$ ו-$z=0$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$z=\\frac{-2\\pm\\sqrt{4-8}}{2}=-1\\pm i$; בהצבת האפשרויות האחרות הביטוי אינו מתאפס."
+    },
+    {
+     "type": "choice",
+     "prompt": "עבור אילו $z$ המטריצה $A$ הפיכה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$z=-1\\pm i$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$z\\in\\mathbb{R}$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$z\\neq-1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$z\\neq-1+i$ וגם $z\\neq-1-i$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הפיכה בדיוק כאשר $\\det A\\neq0$. עבור $z=-1$ הדטרמיננטה היא $1\\neq0$ ולכן $A$ הפיכה גם שם."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -139,7 +709,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "חישוב $\\det A=-3a+27$",
+     "points": 2
+    },
+    {
+     "text": "$A$ הפיכה אם ורק אם $a\\neq9$",
+     "points": 1
+    },
+    {
+     "text": "חישוב מטריצת המשלימים האלגבריים $C$",
+     "points": 3
+    },
+    {
+     "text": "$A^{-1}=\\frac{1}{\\det A}C^T$ (שחלוף!)",
+     "points": 1
+    },
+    {
+     "text": "רישום $A^{-1}$ הסופית",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לשחלף את מטריצת המשלימים האלגבריים: $A^{-1}=\\frac{1}{\\det A}C^T$ ולא $\\frac{1}{\\det A}C$.",
+    "טעות בסימני השחמט $(-1)^{i+j}$ בחישוב המשלימים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי $\\det A$ כאשר $a=0$?",
+     "answer": 27,
+     "tol": 0,
+     "explain": "$\\det A=-3a+27$, ובהצבה $a=0$ מתקבל $27$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המשלים האלגברי $C_{11}$ עבור $a=0$?",
+     "answer": -48,
+     "tol": 0,
+     "explain": "$C_{11}=\\begin{vmatrix}5&6\\\\8&0\\end{vmatrix}=-48$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו נוסחה נותנת את $A^{-1}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$A^{-1}=\\frac{1}{\\det A}C^T$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$A^{-1}=\\frac{1}{\\det A}C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$A^{-1}=\\det A\\cdot C^T$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$A^{-1}=\\frac{1}{\\det A}C^{-1}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הנוסחה היא $\\frac{1}{\\det A}\\mathrm{adj}(A)$ כאשר $\\mathrm{adj}(A)=C^T$. עבור $a=0$ המטריצה $C$ אינה סימטרית, ולכן ההבדל בין $C$ ל-$C^T$ משנה את התוצאה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 2 של $A^{-1}$ כאשר $a=0$? (ערך עשרוני, ארבע ספרות)",
+     "answer": 0.8889,
+     "tol": 0.0001,
+     "explain": "היא $\\frac{C_{21}}{\\det A}=\\frac{24}{27}=\\frac89$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -152,7 +801,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "הצבה $a=9$ ודירוג המטריצה",
+     "points": 2
+    },
+    {
+     "text": "דרגה $\\mathrm{rank}(A)=2$",
+     "points": 2
+    },
+    {
+     "text": "שתי השורות הראשונות של הצורה המדורגת בלתי תלויות ופורשות את מרחב השורות",
+     "points": 1
+    },
+    {
+     "text": "השלמה בווקטור $(0,0,1)$",
+     "points": 1
+    },
+    {
+     "text": "בדיקה שהשלושה בלתי תלויים",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור להשלמה וקטור שנמצא כבר בפרישה של השורות (למשל כפולה של שורה), ולכן לא לקבל בסיס.",
+    "לספור את שורת האפס כשורה בלתי תלויה ולקבל דרגה $3$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת $A=\\begin{pmatrix}1&2&3\\\\4&5&6\\\\7&8&9\\end{pmatrix}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "אחרי דירוג נשארות שתי שורות שאינן אפס."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בדירוג, אחרי $R_2\\to R_2-4R_1$, מהי הכניסה בשורה 2 עמודה 2?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "$5-4\\cdot2=-3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה וקטור משלים את $(1,2,3),(0,1,2)$ לבסיס של $\\mathbb{R}^3$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(2,4,6)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(0,0,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(1,3,5)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(4,5,6)$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הווקטור $(0,0,1)$ נותן דטרמיננטה $1\\neq0$. האחרים נמצאים כבר בפרישה של $(1,2,3),(0,1,2)$: $(2,4,6)=2(1,2,3)$, $(1,3,5)=(1,2,3)+(0,1,2)$, $(4,5,6)=4(1,2,3)-3(0,1,2)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של המטריצה ששורותיה $(1,2,3),(0,1,2),(0,0,1)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "מטריצה משולשית עליונה: מכפלת האלכסון $1\\cdot1\\cdot1=1\\neq0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -164,7 +892,85 @@
    "solution": "$D$ ו-$C$ סימטריות, כלומר $D^T=D$ ו-$C^T=C$. מטריצה $CD$ היא מטריצה אנטי סימטרית אם מתקיים $(CD)^T=-CD$. נשתמש בחוקי השיחלוף והנתון ש-$CD=-DC$ ואז נקבל:\n$$(CD)^T=D^TC^T=DC$$\nאבל $CD=-DC$ ומכאן סופית נקבל:\n$$(CD)^T=D^TC^T=DC=-CD$$\nוהטענה כאן נכונה.",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הגדרה: $M$ אנטי סימטרית אם $M^T=-M$",
+     "points": 2
+    },
+    {
+     "text": "חוק השחלוף: $(CD)^T=D^TC^T$ (הסדר מתהפך)",
+     "points": 3
+    },
+    {
+     "text": "שימוש בסימטריה $C^T=C$, $D^T=D$ ובקבלת $DC$",
+     "points": 2
+    },
+    {
+     "text": "שימוש בנתון $CD=-DC$ ובקבלת $(CD)^T=-CD$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: הטענה נכונה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $(CD)^T=C^TD^T$ ולשכוח שהשחלוף הופך את סדר המכפלה.",
+    "להסיק $CD=DC$ מכך ש-$C,D$ סימטריות; הנתון הוא דווקא $CD=-DC$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "האם הטענה ($CD$ אנטי סימטרית) נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "נכונה, ויש להוכיח אותה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שגויה, ויש לתת דוגמה נגדית"
+      }
+     ],
+     "correctId": "a",
+     "explain": "השחלוף וההנחות נותנים $(CD)^T=-CD$, ולכן הטענה נכונה. בדיקה על $C=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$, $D=\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}$ אכן נותנת מטריצה אנטי סימטרית."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$(CD)^T=D^TC^T$",
+      "$=DC$ (כי $C,D$ סימטריות)",
+      "$=-CD$ (כי $CD=-DC$)",
+      "לכן $(CD)^T=-CD$, כלומר $CD$ אנטי סימטרית"
+     ],
+     "explain": "כל שורה נובעת מהקודמת: שחלוף, סימטריה, הנתון, ומסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$(CD)^T=C^TD^T$",
+      "$=CD$ (כי $C,D$ סימטריות)",
+      "$=-DC$ (כי $CD=-DC$)",
+      "לכן $(CD)^T=-DC$"
+     ],
+     "bugIndex": 0,
+     "explain": "שחלוף של מכפלה הופך את הסדר: $(CD)^T=D^TC^T$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $C=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$, $D=\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}$ (שתיהן סימטריות, ומקיימות $CD=-DC$), מהי הכניסה בשורה 1 עמודה 2 של $CD$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$CD=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}$, והיא אנטי סימטרית."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -177,7 +983,90 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "קריטריון: $0\\in U$",
+     "points": 1
+    },
+    {
+     "text": "סגירות לחיבור: $(p+q)(-x)=-(p+q)(x)$",
+     "points": 1
+    },
+    {
+     "text": "סגירות לכפל בסקלר: $(\\alpha p)(-x)=-(\\alpha p)(x)$",
+     "points": 1
+    },
+    {
+     "text": "השוואת מקדמים: $a_0=a_2=0$",
+     "points": 1
+    },
+    {
+     "text": "בסיס $\\{x,x^3\\}$ ומימד $2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק שפולינום מסוים שייך ל-$U$, במקום להוכיח סגירות לכל זוג פולינומים.",
+    "לכלול ב-$U$ את הפולינומים הזוגיים ($1,x^2$), שמקיימים $p(-x)=p(x)$ ולא $p(-x)=-p(x)$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $p(x)=a_0+a_1x+a_2x^2+a_3x^3\\in U$, מהו $a_0$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$a_0=-a_0$ ולכן $a_0=0$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת הסגירות לחיבור.",
+     "lines": [
+      "$(p+q)(-x)=p(-x)+q(-x)$",
+      "$=-p(x)-q(x)$",
+      "$=-(p+q)(x)$",
+      "לכן $p+q\\in U$"
+     ],
+     "explain": "מציבים את ההגדרה, משתמשים ב-$p,q\\in U$, ומוציאים סימן מינוס."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו בסיס של $U$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{1,\\ x^2\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{x,\\ x^2,\\ x^3\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{x\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{x,\\ x^3\\}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$U$ הוא הפולינומים האי-זוגיים. $1,x^2$ זוגיים; $x^2\\notin U$; ו-$\\{x\\}$ אינו פורש את $x^3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim U$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "הבסיס $\\{x,x^3\\}$ כולל שני איברים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -190,7 +1079,86 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "קריטריון: $0\\in W$ וסגירות לחיבור ולכפל בסקלר (הנגזרת לינארית)",
+     "points": 2
+    },
+    {
+     "text": "$p'(1)=a_1+2a_2+3a_3=0$",
+     "points": 1
+    },
+    {
+     "text": "ביטוי $a_1=-2a_2-3a_3$ והצבה בפולינום",
+     "points": 1
+    },
+    {
+     "text": "בסיס $\\{1,x^2-2x,x^3-3x\\}$ ומימד $3$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שהנגזרת מחושבת בנקודה $x=1$ ולרשום $a_1+a_2+a_3=0$.",
+    "לא לבדוק שהווקטורים שנמצאו בלתי תלויים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $p'(1)$ עבור $p(x)=x^3$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$p'(x)=3x^2$ ולכן $p'(1)=3$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי מציאת הבסיס.",
+     "lines": [
+      "$p'(x)=a_1+2a_2x+3a_3x^2$",
+      "$p'(1)=a_1+2a_2+3a_3=0$",
+      "$a_1=-2a_2-3a_3$",
+      "$p=a_0\\cdot1+a_2\\left(x^2-2x\\right)+a_3\\left(x^3-3x\\right)$"
+     ],
+     "explain": "גוזרים, מציבים $x=1$, מבודדים $a_1$ ומציבים חזרה."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו בסיס של $W$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{1,\\ x^2-2x,\\ x^3-3x\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{1,\\ x,\\ x^2\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{x^2-2x,\\ x^3-3x\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{1,\\ x^2-1,\\ x^3-1\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בבסיס הנכון לכל פולינום $p'(1)=0$: $1\\to0$, $x^2-2x\\to0$, $x^3-3x\\to0$. עבור $x$ מתקבל $1$; עבור $x^2-1$ מתקבל $2$; עבור $x^3-1$ מתקבל $3$. הקבוצה $\\{x^2-2x,\\ x^3-3x\\}$ בלתי תלויה אך אינה פורשת (מימד $2$ במקום $3$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim W$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "שלושה וקטורים בבסיס."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -203,7 +1171,75 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "$U+W=\\mathrm{Sp}\\left(B_U\\cup B_W\\right)$",
+     "points": 1
+    },
+    {
+     "text": "כתיבת הווקטורים הקואורדינטיים לפי $(a_0,a_1,a_2,a_3)$ כשורות במטריצה",
+     "points": 1
+    },
+    {
+     "text": "דירוג: שורת אפס, הדרגה $4$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $U+W=\\mathbb{R}_3[x]$, בסיס $\\{1,x,x^2,x^3\\}$, מימד $4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את כל חמשת הפולינומים כבסיס; הם תלויים (דרגה $4$ בלבד).",
+    "לחבר את המימדים $2+3=5$ בלי להחסיר את $\\dim(U\\cap W)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה פורשת את $U+W$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$B_U\\cap B_W$, החיתוך של הבסיסים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$B_U\\cup B_W$, האיחוד של הבסיסים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$B_U$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$B_W$ בלבד"
+      }
+     ],
+     "correctId": "b",
+     "explain": "סכום תתי מרחבים נפרש על ידי איחוד הפורשים. החיתוך של הבסיסים ריק; $B_U$ לא כולל את $1$; $B_W$ לא כולל את $x$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת המטריצה ששורותיה הווקטורים הקואורדינטיים של חמשת הפולינומים?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "הדרגה $4=\\dim\\mathbb{R}_3[x]$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מחמשת הפולינומים תלויים בארבעת האחרים (חמש פחות הדרגה)?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$5-4=1$ (למשל $x^3-3x$ הוא צירוף של $x$ ו-$x^3$, שכבר נמצאים בקבוצה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -216,7 +1252,75 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "פולינום ב-$U$ הוא $\\alpha x+\\beta x^3$",
+     "points": 1
+    },
+    {
+     "text": "התנאי $p'(1)=\\alpha+3\\beta=0$",
+     "points": 2
+    },
+    {
+     "text": "הצגה $\\beta\\left(x^3-3x\\right)$, בסיס ומימד $1$",
+     "points": 1
+    },
+    {
+     "text": "בדיקה במשפט המימדים: $2+3-1=4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את החיתוך כאיחוד הבסיסים (או כחיתוך הבסיסים, שהוא ריק) במקום לפתור את התנאי.",
+    "לשכוח שהנגזרת של $x^3$ היא $3x^2$ ולרשום $\\alpha+\\beta=0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $p=\\alpha x+\\beta x^3$, אם $\\beta=1$ ו-$p'(1)=0$, מהו $\\alpha$?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "$p'(1)=\\alpha+3\\beta=0\\Rightarrow\\alpha=-3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו בסיס של $U\\cap W$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{x^3+3x\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{x-3x^3\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{x^3-3x\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{x,\\ x^3-3x\\}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "רק $x^3-3x$ אי-זוגי וגם $p'(1)=3-3=0$. הפולינום $x^3+3x$ מקיים $p'(1)=6$; $x-3x^3$ מקיים $p'(1)=-8$; ו-$x\\notin W$ כי $p'(1)=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "לפי משפט המימדים, אם $\\dim U=2$, $\\dim W=3$ ו-$\\dim(U\\cap W)=1$, מהו $\\dim(U+W)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$2+3-1=4$, בהתאם לסעיף הקודם."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -229,7 +1333,58 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "contextId": "c4"
+   "contextId": "c4",
+   "rubric": [
+    {
+     "text": "שימוש בסעיף ד: $q=\\beta\\left(x^3-3x\\right)$",
+     "points": 1
+    },
+    {
+     "text": "$q(1)=1$ נותן $\\beta=-\\frac12$",
+     "points": 1
+    },
+    {
+     "text": "גזירה: $q'(x)=-\\frac32x^2+\\frac32$",
+     "points": 1
+    },
+    {
+     "text": "$q'(1)=0$",
+     "points": 1
+    },
+    {
+     "text": "$q'\\left(\\sqrt2\\right)=-\\frac32$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ש-$q\\in W$ ולכן $q'(1)=0$ בלי חישוב.",
+    "לחשב $q'(\\sqrt2)$ בלי לגזור קודם, כלומר להציב $\\sqrt2$ ב-$q$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "אם $q=\\beta\\left(x^3-3x\\right)$ ו-$q(1)=1$, מהו $\\beta$?",
+     "answer": -0.5,
+     "tol": 0,
+     "explain": "$\\beta(1-3)=1\\Rightarrow\\beta=-\\frac12$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $q'(1)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$q\\in W$ ולכן $q'(1)=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $q'\\left(\\sqrt2\\right)$? (ערך עשרוני)",
+     "answer": -1.5,
+     "tol": 0.0001,
+     "explain": "$q'(x)=-\\frac32x^2+\\frac32$, ובהצבה $-3+\\frac32=-\\frac32$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -242,7 +1397,86 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "כתיבת המטריצה המייצגת $A=[T]_E^B$ מהתמונות של איברי הבסיס",
+     "points": 2
+    },
+    {
+     "text": "דירוג $A$ ומציאת העמודות המובילות",
+     "points": 2
+    },
+    {
+     "text": "בסיס של $\\mathrm{Im}\\,T$ הוא עמודות 1,2 של $A$ המקורית, ו-$\\dim\\mathrm{Im}\\,T=2$",
+     "points": 2
+    },
+    {
+     "text": "דירוג עד הצורה המדורגת המצומצמת ומציאת המשתנים החופשיים $x_3,x_4$",
+     "points": 3
+    },
+    {
+     "text": "בסיס $\\mathrm{Nul}\\,A$: $(2,-1,1,0)$ ו-$(-2,-1,0,1)$, ותרגומם לפולינומים $2-t+t^2$ ו-$-2-t+t^3$, מימד $2$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת את עמודות הצורה המדורגת כבסיס של $\\mathrm{Im}\\,T$; יש לקחת את העמודות המתאימות מהמטריצה המקורית.",
+    "לשכוח לתרגם את וקטורי $\\mathrm{Nul}\\,A$ (קואורדינטות) בחזרה לפולינומים ב-$\\mathbb{R}_3[t]$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת $A=\\begin{pmatrix}1&1&-1&3\\\\1&2&0&4\\\\1&3&1&5\\end{pmatrix}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "אחרי דירוג נשארות שתי שורות שאינן אפס."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו בסיס של $\\mathrm{Im}\\,T$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left\\{(1,0,0),\\ (1,1,0)\\right\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left\\{(1,1,1)\\right\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left\\{(1,1,1),\\ (2,2,2)\\right\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left\\{(1,1,1),\\ (1,2,3)\\right\\}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "העמודות המובילות של $A$ המקורית נותנות בסיס. עמודות הצורה המדורגת $(1,0,0),(1,1,0)$ אינן ב-$\\mathrm{Im}\\,T$ (למשל $(1,0,0)$ אינו צירוף של $(1,1,1),(1,2,3)$); הווקטור $(1,1,1)$ לבדו פורש קו בלבד; והזוג $(1,1,1),(2,2,2)$ תלוי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Ker}\\,T$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$4-\\mathrm{rank}(A)=4-2=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $t=1,s=0$ בפתרון הכללי של $A\\vec x=0$, מהו $x_2$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$\\vec x=t(2,-1,1,0)+s(-2,-1,0,1)$, ולכן $x_2=-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -255,7 +1489,85 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "$T$ חד חד ערכית אם ורק אם $\\mathrm{Ker}\\,T=\\{0\\}$",
+     "points": 1
+    },
+    {
+     "text": "$\\dim\\mathrm{Ker}\\,T=2\\neq0$, ולכן $T$ אינה חד חד ערכית",
+     "points": 1
+    },
+    {
+     "text": "$T$ על אם ורק אם $\\dim\\mathrm{Im}\\,T=\\dim\\mathbb{R}^3=3$",
+     "points": 1
+    },
+    {
+     "text": "$\\dim\\mathrm{Im}\\,T=2<3$, ולכן $T$ אינה על",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשוות את $\\dim\\mathrm{Im}\\,T$ למימד התחום ($4$) במקום למימד הטווח ($3$) כשבודקים ״על״."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\dim\\mathrm{Ker}\\,T$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "מהסעיף הקודם."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $T$ חד חד ערכית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כן, כי $\\dim\\mathrm{Im}\\,T=2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא, כי $\\dim\\mathrm{Ker}\\,T=2\\neq0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כן, כי $\\mathrm{Ker}\\,T\\neq\\{0\\}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "חד חד ערכית אם ורק אם הגרעין טריוויאלי."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $T$ על?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כן, כי במטריצה $A$ יש $4$ עמודות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן, כי $\\mathrm{Ker}\\,T\\neq\\{0\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא, כי $\\dim\\mathrm{Im}\\,T=2<3=\\dim\\mathbb{R}^3$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "על אם ורק אם הדרגה שווה למימד הטווח $3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -268,7 +1580,53 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "contextId": "c5"
+   "contextId": "c5",
+   "rubric": [
+    {
+     "text": "$v\\in\\mathrm{Im}\\,T$ אם ורק אם $v$ צירוף של בסיס התמונה",
+     "points": 1
+    },
+    {
+     "text": "הרכבת המטריצה המורחבת עם $v=(k,7,10)$",
+     "points": 1
+    },
+    {
+     "text": "דירוג: השורה האחרונה $0\\ 0\\,|\\,k-4$",
+     "points": 1
+    },
+    {
+     "text": "עקביות אם ורק אם $k=4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לדרג רק את מטריצת המקדמים ולשכוח את עמודת אגף ימין עם $k$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בשורה האחרונה בצורה המדורגת, אגף ימין הוא $k-4$. מהו הערך שלו עבור $k=7$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$7-4=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "לאיזה $k$ הווקטור $(k,7,10)$ שייך ל-$\\mathrm{Im}\\,T$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "נדרש $k-4=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $k=4$ מתקיים $(4,7,10)=x_1(1,1,1)+x_2(1,2,3)$. מהו $x_1$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$x_1+x_2=4$, $x_1+2x_2=7$, ולכן $x_2=3$, $x_1=1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -280,7 +1638,86 @@
    "solution": "$E$ בסיס סטנדרטי של $\\mathbb{R}^2$. $\\left|\\begin{matrix}5&2\\\\17&7\\end{matrix}\\right|=1\\neq0$ אז $B=\\left(\\begin{pmatrix}5\\\\17\\end{pmatrix},\\begin{pmatrix}2\\\\7\\end{pmatrix}\\right)$ בסיס של $\\mathbb{R}^2$. לכן $[I]_E^B=\\begin{pmatrix}5&2\\\\17&7\\end{pmatrix}$.\n$$F\\left(\\begin{pmatrix}a\\\\b\\end{pmatrix}\\right)=\\begin{pmatrix}a+b\\\\a-b\\end{pmatrix}\\Rightarrow F\\left(\\begin{pmatrix}1\\\\0\\end{pmatrix}\\right)=\\begin{pmatrix}1\\\\1\\end{pmatrix},\\ F\\left(\\begin{pmatrix}0\\\\1\\end{pmatrix}\\right)=\\begin{pmatrix}1\\\\-1\\end{pmatrix}\\Rightarrow[F]_E^E=\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix}$$\n$$[F]_B^B=[I]_B^E[F]_E^E[I]_E^B=\\begin{pmatrix}5&2\\\\17&7\\end{pmatrix}^{-1}\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix}\\begin{pmatrix}5&2\\\\17&7\\end{pmatrix}=\\begin{pmatrix}7&-2\\\\-17&5\\end{pmatrix}\\begin{pmatrix}22&9\\\\-12&-5\\end{pmatrix}$$\n$$=\\begin{pmatrix}154+24&63+10\\\\-374-60&-153-25\\end{pmatrix}=\\begin{pmatrix}178&73\\\\-434&-178\\end{pmatrix}$$",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "בדיקה ש-$B$ בסיס: דטרמיננטה $1\\neq0$",
+     "points": 1
+    },
+    {
+     "text": "המטריצה $[F]_E^E=\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix}$",
+     "points": 1
+    },
+    {
+     "text": "נוסחת החלפת בסיס $[F]_B^B=P^{-1}[F]_E^EP$",
+     "points": 1
+    },
+    {
+     "text": "חישוב $P^{-1}=\\begin{pmatrix}7&-2\\\\-17&5\\end{pmatrix}$ והכפלה",
+     "points": 1
+    },
+    {
+     "text": "התוצאה $\\begin{pmatrix}178&73\\\\-434&-178\\end{pmatrix}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב את הנוסחה בסדר הפוך $P[F]_E^EP^{-1}$.",
+    "טעות חשבונית בהכפלת מטריצות $2\\times2$ (מומלץ לבדוק ש-$\\mathrm{tr}[F]_B^B=\\mathrm{tr}[F]_E^E=0$)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדטרמיננטה של $P=\\begin{pmatrix}5&2\\\\17&7\\end{pmatrix}$ (עמודותיה הווקטורים של $B$)?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$35-34=1\\neq0$, ולכן $B$ בסיס."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו נוסחה נותנת את $[F]_B^B$ (כאשר $P$ מטריצת עמודות הבסיס $B$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$P[F]_E^EP^{-1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$P^{-1}[F]_E^E$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$P^{-1}[F]_E^EP$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$[F]_E^EP^{-1}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הצגת וקטור בבסיס $B$ היא $P^{-1}$ כפול הווקטור, ולכן $[F]_B^B=P^{-1}[F]_E^EP$. שאר הנוסחאות נותנות מטריצות אחרות."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 1 של $[F]_B^B$?",
+     "answer": 178,
+     "tol": 0,
+     "explain": "$7\\cdot22+(-2)(-12)=154+24=178$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הכניסה בשורה 1 עמודה 2 של $[F]_B^B$?",
+     "answer": 73,
+     "tol": 0,
+     "explain": "$7\\cdot9+(-2)(-5)=63+10=73$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
