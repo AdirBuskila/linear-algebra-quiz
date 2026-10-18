@@ -136,7 +136,7 @@ questions.append(Q(
       r"$$-1-i=\sqrt2\left(\cos\frac{5\pi}{4}+i\sin\frac{5\pi}{4}\right)$$",
       r"$$W_{1,2}=\sqrt{-1-i}=\sqrt{\sqrt2\left(\cos\frac{5\pi}{4}+i\sin\frac{5\pi}{4}\right)}$$",
       r"$$W_1=\sqrt{\sqrt2}\left(\cos\frac{5\pi}{8}+i\sin\frac{5\pi}{8}\right)=-0.455+1.0986i$$",
-      r"$$W_2=\sqrt{\sqrt2}\left(\cos\frac{9\pi}{8}+i\sin\frac{9\pi}{8}\right)=0.455-1.0986i$$",
+      r"$$W_2=\sqrt{\sqrt2}\left(\cos\frac{13\pi}{8}+i\sin\frac{13\pi}{8}\right)=0.455-1.0986i$$",
       r"$$z_1=-0.2275+0.049i$$",
       r"$$z_2=0.2275-1.049i$$"),
     4))
@@ -397,7 +397,7 @@ ENR[(2, "ג")] = dict(
                (r"זיהוי המשתנה החופשי $y=t$", 1),
                (r"$z=\frac13$", 1),
                (r"$x=1-t$ והצגה פרמטרית", 1)),
-    pitfalls=[r"לחלק ב-9 ולטעות: $9z=3$ נותן $z=\frac13$.",
+    pitfalls=[r"לשכוח לחלק ב-9 ולרשום $z=3$ במקום $z=\frac13$ מהמשוואה $9z=3$.",
               r"לשכוח שהמשתנה החופשי הוא $y$ ולא $z$."],
     steps=[
         num(r"כמה משתנים חופשיים יש כאשר $k=0$?", 1, r"שורה 2 מתאפסת ונשארות שתי משוואות בשלושה נעלמים."),
@@ -589,7 +589,7 @@ ENR[(5, "ד")] = dict(
     steps=[
         cho(r"כיצד בנויה המטריצה $[T]_{B_2}^{B_1}$?", r"העמודה ה-$j$ היא וקטור הקואורדינטות של $T$ של האיבר ה-$j$ ב-$B_1$ ביחס ל-$B_2$",
             [r"השורה ה-$j$ היא וקטור הקואורדינטות של $T$ של האיבר ה-$j$ ב-$B_1$ ביחס ל-$B_2$", r"העמודה ה-$j$ היא הקואורדינטות של $T$ של האיבר ה-$j$ ב-$B_2$ ביחס ל-$B_1$", r"העמודה ה-$j$ היא $T$ של האיבר ה-$j$ ב-$B_1$ ביחס לבסיס הסטנדרטי"],
-            r"המטריצה היא מגודל $2\times4$, כך ש-4 עמודות מתאימות ל-4 איברי $B_1$ וכל עמודה בת 2 קואורדינטות. הבחירה האחרונה הייתה נותנת $\begin{pmatrix}1&2&2&2\\0&0&1&2\end{pmatrix}$."),
+            r"המטריצה היא מגודל $2\times4$, כך ש-4 עמודות מתאימות ל-4 איברי $B_1$ וכל עמודה בת 2 קואורדינטות. האפשרות האחרונה ברשימה (קואורדינטות ביחס לבסיס הסטנדרטי) הייתה נותנת $\begin{pmatrix}1&2&2&2\\0&0&1&2\end{pmatrix}$."),
         num(r"$T\begin{pmatrix}1&1\\1&0\end{pmatrix}=(2,1)=\alpha(1,0)+\beta(1,-1)$. מהו $\alpha$?", 3, r"$\beta=-1$ ו-$\alpha+\beta=2$ ולכן $\alpha=3$."),
         num(r"באותה משוואה, מהו $\beta$?", -1, r"השני: $-\beta=1$."),
         num(r"$T\begin{pmatrix}1&1\\1&1\end{pmatrix}=(2,2)=\alpha(1,0)+\beta(1,-1)$. מהו $\beta$?", -2, r"$-\beta=2$ ולכן $\beta=-2$ ו-$\alpha=4$."),
@@ -603,7 +603,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q["part"])
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q["part"])
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

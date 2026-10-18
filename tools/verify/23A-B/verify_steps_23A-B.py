@@ -203,6 +203,11 @@ for (num, part), qq in QS.items():
         tol = st.get("tol", 0)
         ok = abs(float(EXP[key]) - st["answer"]) <= tol + 1e-12
         chk("Q%d%s step %d numeric answer %s == sympy %s" % (num, part, i, st["answer"], EXP[key]), ok)
+# --- fix pass: W = {p(x)=p(-x)} has two coefficient constraints a=c=0
+_a, _b, _c, _d = sp.symbols("a b c d"); _xx = sp.Symbol("x")
+_p = _a * _xx ** 3 + _b * _xx ** 2 + _c * _xx + _d
+_diff = sp.Poly(sp.expand(_p - _p.subs(_xx, -_xx)), _xx).all_coeffs()
+chk("Q4b p(x)=p(-x) gives a=c=0 (two constraints), dim 2", sp.solve(_diff, [_a, _c]) == {_a: 0, _c: 0} and 4 - 2 == 2)
 extra = set(EXP) - {(num, part, i) for (num, part), qq in QS.items() for i, st in enumerate(qq.get("steps", [])) if st["type"] == "numeric"}
 chk("no orphan expected values", not extra, str(sorted(extra)))
 print("")

@@ -198,6 +198,12 @@ for (num, part), qq in QS.items():
             continue
         ok = abs(sp.N(EXP[key]) - st["answer"]) <= st.get("tol", 0) + 1e-12
         chk("Q%d%s step %d numeric answer %s == sympy %s (tol %s)" % (num, part, i, st["answer"], sp.N(EXP[key], 6), st.get("tol", 0)), ok)
+# --- fix pass: W2 angle is 13pi/8 (not 9pi/8); 9z=3 -> z=1/3
+_w2 = 2 ** sp.Rational(1, 4) * (sp.cos(13 * sp.pi / 8) + sp.I * sp.sin(13 * sp.pi / 8))
+chk("Q2d W2 at 13pi/8 = 0.455-1.0986i", abs(complex(sp.N(_w2)) - complex(0.455, -1.0986)) < 1e-3)
+_w2b = 2 ** sp.Rational(1, 4) * (sp.cos(9 * sp.pi / 8) + sp.I * sp.sin(9 * sp.pi / 8))
+chk("Q2d 9pi/8 would NOT give that value", abs(complex(sp.N(_w2b)) - complex(0.455, -1.0986)) > 0.5)
+chk("Q2c 9z=3 -> z=1/3", sp.solve(sp.Symbol("z") * 9 - 3, sp.Symbol("z")) == [sp.Rational(1, 3)])
 extra = set(EXP) - {(num, part, i) for (num, part), qq in QS.items() for i, st in enumerate(qq.get("steps", [])) if st["type"] == "numeric"}
 chk("no orphan expected values", not extra, str(sorted(extra)))
 for (num, part), qq in QS.items():

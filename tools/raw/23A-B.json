@@ -53,7 +53,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להעביר אגפים בטעות ולקבל $A^{-1}=A^2-I$ (טעות סימן).",
     "לחלק ב-$A$ לפני שהוכח שהיא הפיכה."
@@ -111,7 +111,7 @@
      "explain": "העברת $I$ לאגף ימין נותנת $A^3-A=-I$, כלומר $A-A^3=I$. הכתיבה $A^3-A=I$ שגויה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -138,7 +138,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $(BC)^n=B^nC^n$ בלי להזכיר שהשוויון תלוי בהחלפת הסדר $BC=CB$.",
     "לבחור $n$ קטן מ-$k$ ומ-$m$ ולהניח ש-$B^n=0$."
@@ -192,7 +192,7 @@
      "explain": "$B^n=0$ מובטח רק עבור $n\\geq k$. עבור $n<k$ ייתכן ש-$B^n\\neq0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -223,7 +223,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכפול משני האגפים מצדדים שונים (כפל מטריצות אינו קומוטטיבי).",
     "לצמצם $D$ משני האגפים בלי להניח שהיא הפיכה."
@@ -288,7 +288,7 @@
      "explain": "שתיהן לא הפיכות, כפי שההוכחה טוענת: $\\det D=\\det E=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -315,7 +315,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון ש-$F$ ו-$F^T$ בעלות אותם וקטורים עצמיים (רק הערכים העצמיים זהים).",
     "לשכוח שהערכים העצמיים הם שורשי הפולינום האופייני."
@@ -380,7 +380,7 @@
      "explain": "הפולינום האופייני זהה ולכן הערכים העצמיים זהים, אך הווקטורים העצמיים יכולים להיות שונים: עבור $\\begin{pmatrix}1&1\\\\0&2\\end{pmatrix}$ הוקטור העצמי של $1$ הוא $(1,0)$, ועבור המשוחלפת הוא $(1,-1)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -412,7 +412,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק שורה ב-$a$ בלי לבדוק את המקרה $a=0$.",
     "טעות סימן בהחסרה של האיבר $4a$ מהאגף הימני."
@@ -468,7 +468,7 @@
      "explain": "$1-3a=1-6=-5$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -500,7 +500,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבדוק את $a=0$ בנפרד (שם המקדם המוביל הראשון מתאפס).",
     "לבלבל בין מקדם $z$ שמתאפס (חשד לסתירה) לבין צד ימין שמתאפס."
@@ -556,7 +556,7 @@
      "explain": "עבור $a=0$ דרגת מטריצת המקדמים שווה לדרגת המטריצה המורחבת ($2$) והיא קטנה ממספר הנעלמים, ולכן אינסוף פתרונות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -588,7 +588,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לתת פרמטר לנעלם שאינו חופשי.",
     "לשכוח לציין ש-$t$ ממשי כלשהו."
@@ -616,7 +616,7 @@
      "explain": "יש משתנה חופשי אחד ($x$), והקבוצה היא ישר."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -652,7 +652,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור את הזווית $26.57$ במקום $206.57$ (המספר ברביע השלישי).",
     "לשכוח את הפתרון $z=0$.",
@@ -695,7 +695,7 @@
      "explain": "הפתרון $0$ ועוד שלושה שורשים שלישיים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -727,7 +727,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבצע כל פעולת שורה גם על חצי ה-$I$.",
     "טעות סימן בעמודה האמצעית של ההופכית."
@@ -762,7 +762,7 @@
      "explain": "מאותה מטריצה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -790,7 +790,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המטריצות האלמנטריות בסדר הפעולות במקום בסדר הפוך.",
     "להתבלבל בין המטריצה האלמנטרית של הפעולה לבין ההופכית שלה."
@@ -839,7 +839,7 @@
      "explain": "המכפלה היא $A^{-1}$ ולכן האיבר הוא $3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -874,7 +874,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק שהמטריצה אינה ניתנת לליכסון בגלל ערך עצמי כפול, בלי לבדוק את מימד המרחב העצמי.",
     "לסדר את העמודות של $P$ בסדר שאינו תואם את האיברים על אלכסון $D$."
@@ -930,7 +930,7 @@
      "explain": "$B(1,1,0)^T=4(1,1,0)^T$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -962,7 +962,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לגזור בטעות ולקבל תנאי שגוי.",
     "לטעות במימד: ארבעה מקדמים ואילוץ אחד נותנים $3$ ולא $4$."
@@ -990,7 +990,7 @@
      "explain": "ארבעה מקדמים ואילוץ אחד: $4-1=3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -999,7 +999,7 @@
    "topic": "vector_spaces",
    "points": 6,
    "question": "הראו ש-$W$ הוא תת מרחב של $V$, ומצאו לו בסיס ומימד.",
-   "solution": "תת-הקבוצה $W$ גם היא מוגדרת ע״י אילוץ אחד, והוא שכל הפולינומים חייבים להיות זוגיים:\n$$p(x)=ax^3+bx^2+cx+d=-ax^3+bx^2-cx+d=p(-x)\\ \\Rightarrow\\ ax^3+cx=0\\ \\Rightarrow\\ p(x)=bx^2+d$$\nלפיכך האיבר הכללי ב-$W$ הוא כל פולינום זוגי. אנו רואים שזהו אכן מרחב וקטורי, עם בסיס בלתי תלוי לינארית:\n$$\\dim W=2,\\qquad W=\\mathrm{Sp}\\left\\{x^2,\\ 1\\right\\}$$",
+   "solution": "תת-הקבוצה $W$ מוגדרת ע״י התנאי שכל הפולינומים חייבים להיות זוגיים, תנאי שמתורגם לשני אילוצים על המקדמים ($a=c=0$):\n$$p(x)=ax^3+bx^2+cx+d=-ax^3+bx^2-cx+d=p(-x)\\ \\Rightarrow\\ ax^3+cx=0\\ \\Rightarrow\\ p(x)=bx^2+d$$\nלפיכך האיבר הכללי ב-$W$ הוא כל פולינום זוגי. אנו רואים שזהו אכן מרחב וקטורי, עם בסיס בלתי תלוי לינארית:\n$$\\dim W=2,\\qquad W=\\mathrm{Sp}\\left\\{x^2,\\ 1\\right\\}$$",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -1018,7 +1018,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שפולינום זוגי חייב להיות קבוע.",
     "לשכוח שגם $x^2$ זוגי."
@@ -1067,7 +1067,7 @@
      "explain": "$4-2=2$, בסיס $\\{x^2,1\\}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1095,7 +1095,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחבר את המימדים $3+2=5$ בלי להחסיר את החיתוך.",
     "לספור את חמשת הוקטורים כבסיס בלי לבדוק תלות."
@@ -1123,7 +1123,7 @@
      "explain": "$U+W=\\mathbb{R}_3[x]$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1155,7 +1155,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שבצד אחד יש גם הקבוע $2a+b$.",
     "לחשב $\\dim(U\\cap W)=0$ ולפספס שהפולינום $x^2+1$ משותף."
@@ -1204,7 +1204,7 @@
      "explain": "$3+2-1=4=\\dim(U+W)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1240,7 +1240,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את העמודות המדורגות כבסיס של התמונה במקום העמודות המקוריות.",
     "לשכוח להפוך בסיס של $\\mathrm{Col}\\,A$ חזרה לפולינומים."
@@ -1296,7 +1296,7 @@
      "explain": "$x_1=-2x_3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1324,7 +1324,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שהעתקה על כי הדרגה גדולה מאפס.",
     "לבלבל בין התנאי לחד חד ערכיות (גרעין טריוויאלי) לתנאי ל\"על\" (תמונה שווה למרחב היעד)."
@@ -1366,7 +1366,7 @@
      "explain": "$4-3=1>0$, ולכן $T$ אינה על."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1398,7 +1398,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות סימן: $5=-t$ ולכן $t=-5$, לא $5$.",
     "לשכוח לאמת שהרכיב הרביעי נותן $q=0$."
@@ -1426,7 +1426,7 @@
      "explain": "הרכיב הרביעי של $(-2,-1,1,0)$ הוא $0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1458,7 +1458,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שסדר הבסיס $C$ הוא $(x^3,1,x^2,x)$ ולא הסדר הסטנדרטי.",
     "לחשב $T$ של וקטורי הבסיס הסטנדרטי במקום של וקטורי $B$."
@@ -1514,7 +1514,7 @@
      "explain": "$T(0,0,0,1)=1+x+x^2+5x^3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

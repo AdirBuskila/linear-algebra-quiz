@@ -190,6 +190,12 @@ for (num, part), qq in QS.items():
         tol = st.get("tol", 0)
         ok = abs(float(EXP[key]) - st["answer"]) <= tol + 1e-12
         chk("Q%d%s step %d numeric answer %s == sympy %s" % (num, part, i, st["answer"], EXP[key]), ok)
+# --- fix pass: bilinear vs Hermitian product for Q2d
+_z = sp.Symbol("z"); _x, _y = sp.symbols("x y", real=True)
+_zz = _x + sp.I * _y
+chk("Q2d bilinear roots (1+-i sqrt7)/2", sorted(sp.solve(_z ** 2 - _z + 2, _z), key=lambda r: sp.im(r)) == [sp.Rational(1, 2) - sp.I * sp.sqrt(7) / 2, sp.Rational(1, 2) + sp.I * sp.sqrt(7) / 2])
+_h = sp.expand(_zz * sp.conjugate(_zz) - sp.conjugate(_zz) + 2)
+chk("Q2d Hermitian product has no solution", sp.solve([sp.re(_h), sp.im(_h)], [_x, _y], dict=True) == [])
 extra = set(EXP) - {(num, part, i) for (num, part), qq in QS.items() for i, st in enumerate(qq.get("steps", [])) if st["type"] == "numeric"}
 chk("no orphan expected values", not extra, str(sorted(extra)))
 print("")

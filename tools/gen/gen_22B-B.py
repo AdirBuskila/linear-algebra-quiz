@@ -153,7 +153,8 @@ questions.append(Q(
     J(r"שני וקטורים מאונכים זה לזה אם המכפלה הסקלרית שלהם שווה לאפס. במקרה שלנו $\vec{u}=(z,-1,2)$, $\vec{v}=(z,z,1)$, ולכן נדרוש את השוויון:",
       r"$$\vec{u}\cdot\vec{v}=(z,-1,2)\cdot(z,z,1)=z^2-z+2=0$$",
       r"שורשי המשוואה הזו הם:",
-      r"$$z_1=\frac{1}{2}+i\frac{\sqrt7}{2},\qquad z_2=\frac{1}{2}-i\frac{\sqrt7}{2}$$"),
+      r"$$z_1=\frac{1}{2}+i\frac{\sqrt7}{2},\qquad z_2=\frac{1}{2}-i\frac{\sqrt7}{2}$$",
+      r"הערה: הפתרון משתמש במכפלה הסקלרית כפי שהוגדרה בשאלה, כלומר ללא צמוד מרוכב (מכפלה בילינארית). במכפלה הרמיטית הסטנדרטית, שבה מצמידים את אחד הוקטורים, המשוואה הייתה $|z|^2-\bar z+2=0$ וללא פתרונות."),
     6, contextId="c2"))
 
 # ------------------------------------------------------------------ Q3
@@ -569,7 +570,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q.get("part"))
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q.get("part"))
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

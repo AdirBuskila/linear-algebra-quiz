@@ -203,7 +203,7 @@ questions.append(Q(
 questions.append(Q(
     4, "ב", "computation", "vector_spaces",
     r"הראו ש-$W$ הוא תת מרחב של $V$, ומצאו לו בסיס ומימד.",
-    J(r"תת-הקבוצה $W$ גם היא מוגדרת ע״י אילוץ אחד, והוא שכל הפולינומים חייבים להיות זוגיים:",
+    J(r"תת-הקבוצה $W$ מוגדרת ע״י התנאי שכל הפולינומים חייבים להיות זוגיים, תנאי שמתורגם לשני אילוצים על המקדמים ($a=c=0$):",
       r"$$p(x)=ax^3+bx^2+cx+d=-ax^3+bx^2-cx+d=p(-x)\ \Rightarrow\ ax^3+cx=0\ \Rightarrow\ p(x)=bx^2+d$$",
       r"לפיכך האיבר הכללי ב-$W$ הוא כל פולינום זוגי. אנו רואים שזהו אכן מרחב וקטורי, עם בסיס בלתי תלוי לינארית:",
       r"$$\dim W=2,\qquad W=\mathrm{Sp}\left\{x^2,\ 1\right\}$$"),
@@ -536,7 +536,7 @@ for q in questions:
     if q.get("points") is not None:
         assert sum(r["points"] for r in e["rubric"]) == q["points"], (q["num"], q.get("part"))
     assert 2 <= len(e["steps"]) <= 5 and 1 <= len(e["pitfalls"]) <= 3 and 3 <= len(e["rubric"]) <= 5, (q["num"], q.get("part"))
-    q.update(rubric=e["rubric"], rubricSource="ai-draft", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-draft")
+    q.update(rubric=e["rubric"], rubricSource="ai-verified", pitfalls=e["pitfalls"], steps=e["steps"], stepsSource="ai-verified")
 
 
 exam = {

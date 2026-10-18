@@ -57,7 +57,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח להשתמש בנתון $a+b=c+d$ ולהישאר עם שורש שאינו ריבוע שלם.",
     "טעות סימן בפתיחת הסוגריים של $(c-b)^2+4bc$."
@@ -131,7 +131,7 @@
      "explain": "$3-2=1$, וגם $\\frac{(a+d)-(b+c)}{2}=\\frac{5-3}{2}=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -162,7 +162,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$\\lambda$ בלי לציין ש-$\\lambda\\neq0$ (נובע מהפיכות $B$).",
     "לכתוב $B^{-1}\\vec u=\\lambda\\vec u$ (שכחו להפוך את הערך העצמי)."
@@ -227,7 +227,7 @@
      "explain": "$B^{-1}\\vec u=\\frac13\\vec u$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -258,7 +258,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $(C-sI)\\vec u=C\\vec u-s$ (להשמיט את הוקטור).",
     "לטעון שהווקטור העצמי משתנה."
@@ -323,7 +323,7 @@
      "explain": "$(C-I)\\vec u=\\begin{pmatrix}1&1\\\\1&1\\end{pmatrix}(1,1)^T=(2,2)^T=(3-1)\\vec u$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -354,7 +354,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להחליף את סדר הכפל: $DP\\vec u$ במקום $PD\\vec u$ (המטריצות אינן מתחלפות).",
     "להסיק שלשתי המטריצות אותם וקטורים עצמיים (הווקטור העצמי של $E$ הוא $P\\vec u$)."
@@ -419,7 +419,7 @@
      "explain": "$E=\\begin{pmatrix}1&1\\\\0&2\\end{pmatrix}$ ולה אותם ערכים עצמיים $1,2$ כמו $D$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -451,7 +451,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$k$ או ב-$k+1$ בלי להזכיר את המקרים $k=0$ ו-$k=-1$.",
     "לשכוח לבדוק בנפרד את $k=1$."
@@ -507,7 +507,7 @@
      "explain": "$z=\\frac{1-k}{k(k+1)}=-\\frac16$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -539,7 +539,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שב-$k=1$ אין פתרון (שם יש אינסוף פתרונות).",
     "לשכוח את $k=0$, כי הפתרון הכללי כולל חלוקה ב-$k$."
@@ -595,7 +595,7 @@
      "explain": "עבור $k=1$ דרגת מטריצת המקדמים ודרגת המורחבת שוות $2$ ופחות ממספר הנעלמים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -631,7 +631,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור משתנה חופשי ולשכוח ש-$z=0$ קבוע.",
     "לבלבל בין הפתרון הפרטי לפתרון ההומוגני."
@@ -687,7 +687,7 @@
      "explain": "הפתרונות הם $y(-1,1,0)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -696,7 +696,7 @@
    "topic": "complex_numbers",
    "points": 6,
    "question": "נתונים שני וקטורים: $\\vec{u}=(z,-1,2)$, $\\vec{v}=(z,z,1)$. עבור איזה ערך של הפרמטר המרוכב $z$ הם מאונכים זה לזה? נא לכתוב את הפתרונות בצורה $x+iy$.",
-   "solution": "שני וקטורים מאונכים זה לזה אם המכפלה הסקלרית שלהם שווה לאפס. במקרה שלנו $\\vec{u}=(z,-1,2)$, $\\vec{v}=(z,z,1)$, ולכן נדרוש את השוויון:\n$$\\vec{u}\\cdot\\vec{v}=(z,-1,2)\\cdot(z,z,1)=z^2-z+2=0$$\nשורשי המשוואה הזו הם:\n$$z_1=\\frac{1}{2}+i\\frac{\\sqrt7}{2},\\qquad z_2=\\frac{1}{2}-i\\frac{\\sqrt7}{2}$$",
+   "solution": "שני וקטורים מאונכים זה לזה אם המכפלה הסקלרית שלהם שווה לאפס. במקרה שלנו $\\vec{u}=(z,-1,2)$, $\\vec{v}=(z,z,1)$, ולכן נדרוש את השוויון:\n$$\\vec{u}\\cdot\\vec{v}=(z,-1,2)\\cdot(z,z,1)=z^2-z+2=0$$\nשורשי המשוואה הזו הם:\n$$z_1=\\frac{1}{2}+i\\frac{\\sqrt7}{2},\\qquad z_2=\\frac{1}{2}-i\\frac{\\sqrt7}{2}$$\nהערה: הפתרון משתמש במכפלה הסקלרית כפי שהוגדרה בשאלה, כלומר ללא צמוד מרוכב (מכפלה בילינארית). במכפלה הרמיטית הסטנדרטית, שבה מצמידים את אחד הוקטורים, המשוואה הייתה $|z|^2-\\bar z+2=0$ וללא פתרונות.",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -719,7 +719,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שאיבר הביניים הוא $-z$ ולא $+z$.",
     "להשאיר את הפתרון בצורה $\\frac{1\\pm\\sqrt{-7}}{2}$ במקום בצורה $x+iy$."
@@ -754,7 +754,7 @@
      "explain": "$\\frac{\\sqrt7}{2}\\approx1.323$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -790,7 +790,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבצע את פעולות השורה גם על חצי ה-$I$.",
     "טעות בשבר $\\frac83$ בשורה הראשונה."
@@ -825,7 +825,7 @@
      "explain": "$\\frac83\\approx2.667$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -853,7 +853,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב את המטריצות האלמנטריות בסדר הפעולות במקום בסדר הפוך.",
     "לכתוב $\\frac13$ במקום $3$ (או להפך) בשלב ההכפלה בסקלר."
@@ -902,7 +902,7 @@
      "explain": "המכפלה היא $A^{-1}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -937,7 +937,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק שאין ליכסון בגלל ערך עצמי כפול, בלי לבדוק את מימד המרחב העצמי.",
     "לסדר את העמודות של $P$ בסדר שאינו תואם את האיברים על אלכסון $D$."
@@ -993,7 +993,7 @@
      "explain": "$B(1,0,1)^T=6(1,0,1)^T$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1025,7 +1025,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשאיר את $a_1$ כמשתנה חופשי בעוד שהוא נקבע לפי $a_3$.",
     "לשכוח שהמרחב $\\mathbb{R}_{\\leq3}[x]$ הוא ממימד $4$ ושאילוץ אחד מוריד את המימד ל-$3$."
@@ -1081,7 +1081,7 @@
      "explain": "$8a_3+8=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1113,7 +1113,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחבר את המימדים $3+3=6$ בלי להחסיר את החיתוך.",
     "לקחת עמודות מדורגות במקום העמודות המקוריות של הפולינומים."
@@ -1141,7 +1141,7 @@
      "explain": "$6-2=4$, ולכן $W_1+W_2=\\mathbb{R}_{\\leq3}[x]$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1173,7 +1173,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לכפול את וקטורי הבסיס ב-$\\beta_i$ לפני החיבור.",
     "לטעות בפרמטריזציה ולקבל שלושה פרמטרים."
@@ -1222,7 +1222,7 @@
      "explain": "$-8+2+6=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1250,7 +1250,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק את אחד התנאים ($p(2)=0$) ולא את שניהם.",
     "לטעות בחישוב $2(x^2-4)=2x^2-8$."
@@ -1299,7 +1299,7 @@
      "explain": "$-8+8+2-2=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1331,7 +1331,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין התנאי לשייכות לתמונה לתנאי לשייכות לגרעין.",
     "טעות בפעולת השורה $R_4+R_2$."
@@ -1380,7 +1380,7 @@
      "explain": "ב-$k=0$ וב-$k=1$ שורה 4 היא $(0\\ 0\\ 0\\mid k+1)$ עם $k+1\\neq0$, כלומר סתירה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1412,7 +1412,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון ש-$T$ על עבור ערכי $k$ מסוימים.",
     "לשכוח שגם $k=-1$ מאפס את $k^2-1$."
@@ -1468,7 +1468,7 @@
      "explain": "גם כאן $k^2-1=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1500,7 +1500,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לתת בסיס בצורת וקטור ב-$\\mathbb{R}^3$ ולשכוח להמיר לפולינום.",
     "טעות סימן בשורה 2: $x_2=-2x_3$."
@@ -1528,7 +1528,7 @@
      "explain": "$T(1-2x+x^2)=(1,0,0,0)-2(1,1,2,-1)+(1,2,4,-2)$, והרכיב הרביעי הוא $0+2-2=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1559,7 +1559,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להכפיל בסדר הפוך: $[I]_E^B[F]_E^B$.",
     "לשכוח להפוך את מטריצת המעבר."
@@ -1594,7 +1594,7 @@
      "explain": "$2\\cdot4+0\\cdot(-1)=8$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

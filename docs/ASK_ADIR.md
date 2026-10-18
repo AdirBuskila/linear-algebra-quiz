@@ -86,3 +86,5 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - 25B-A Q1 ג and 25B-A Q2 labels, 25A-B Q2 ד (R2 vs R3 label), 25B-A Q5/25A-B Q5 ב (dim R^4 vs codomain): label or notation slips, all flagged in the solution text; no answer changes.
 - 25B-B: no source file exists (the 2025 B folder holds only moed A), nothing transcribed.
 - Status: noted
+- 21B-B Q2 ד (p.3): the official writes W2's angle as 9pi/8; the numeric value 0.455-1.0986i is the angle 13pi/8. Corrected to 13pi/8 in the solution text (intermediate slip, final answers unchanged), no student-facing label.
+- Status: noted

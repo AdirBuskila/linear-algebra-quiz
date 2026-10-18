@@ -62,7 +62,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $A=E_3E_2E_1R$ בלי להפוך את מטריצות הפעולות (מתקבל $E_3E_2E_1A=R$).",
     "להפוך פעולה בסימן שגוי: ההופכית של $R_3+2R_1$ היא $R_3-2R_1$."
@@ -118,7 +118,7 @@
      "explain": "ההופכית היא $R_3+R_2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -149,7 +149,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לרשום $B^{-1}=B^2-5I$ בלי לחלק ב-4.",
     "להוציא את $B$ כגורם מהביטוי $B^3-5B-4I$ בלי להעביר קודם את $4I$ לאגף השני."
@@ -216,7 +216,7 @@
      "explain": "$\\frac{1-5}{4}=-1=B^{-1}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -243,7 +243,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכפול את אחד האגפים משמאל ואת האחר מימין, ובכך לשבור את השוויון (מטריצות אינן מתחלפות).",
     "לרשום $X=\\frac{C+D}{CD}$ כאילו היו מספרים."
@@ -296,7 +296,7 @@
      "explain": "$X=\\frac{9}{18}=\\frac12=\\frac16+\\frac13=D^{-1}+C^{-1}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -328,7 +328,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק בפרמטר (למשל ב-$k$) מבלי לבדוק את המקרה $k=0$.",
     "טעות סימן באגף הימני: $R_2-3R_1$ נותנת $3-k-3(1-k)=2k$."
@@ -384,7 +384,7 @@
      "explain": "האיבר הוא $3-k=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -412,7 +412,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק שאין פתרון בכל מקרה שבו מתאפס איבר מוביל: צריך לבדוק גם את אגף ימין.",
     "לשכוח את אחד מהערכים $k=0$ או $k=3$ שנותנים אינסוף פתרונות."
@@ -468,7 +468,7 @@
      "explain": "ב-$k=3$ וב-$k=0$ הדרגות של $A$ ושל $[A|b]$ שוות (2) ולכן יש אינסוף פתרונות; רק ב-$k=-3$ הדרגות שונות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -500,9 +500,9 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
-    "לחלק ב-9 ולטעות: $9z=3$ נותן $z=\\frac13$.",
+    "לשכוח לחלק ב-9 ולרשום $z=3$ במקום $z=\\frac13$ מהמשוואה $9z=3$.",
     "לשכוח שהמשתנה החופשי הוא $y$ ולא $z$."
    ],
    "steps": [
@@ -528,7 +528,7 @@
      "explain": "$x=1-3=-2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -537,7 +537,7 @@
    "topic": "complex_numbers",
    "points": 4,
    "question": "מצאו את כל הפתרונות המרוכבים של המשוואה $z^2+iz+0.25i=0$.",
-   "solution": "$$z=\\frac{-i+\\sqrt{i^2-i}}{2}=-0.5i+0.5\\sqrt{-1-i}$$\n$$-1-i=\\sqrt2\\left(\\cos\\frac{5\\pi}{4}+i\\sin\\frac{5\\pi}{4}\\right)$$\n$$W_{1,2}=\\sqrt{-1-i}=\\sqrt{\\sqrt2\\left(\\cos\\frac{5\\pi}{4}+i\\sin\\frac{5\\pi}{4}\\right)}$$\n$$W_1=\\sqrt{\\sqrt2}\\left(\\cos\\frac{5\\pi}{8}+i\\sin\\frac{5\\pi}{8}\\right)=-0.455+1.0986i$$\n$$W_2=\\sqrt{\\sqrt2}\\left(\\cos\\frac{9\\pi}{8}+i\\sin\\frac{9\\pi}{8}\\right)=0.455-1.0986i$$\n$$z_1=-0.2275+0.049i$$\n$$z_2=0.2275-1.049i$$",
+   "solution": "$$z=\\frac{-i+\\sqrt{i^2-i}}{2}=-0.5i+0.5\\sqrt{-1-i}$$\n$$-1-i=\\sqrt2\\left(\\cos\\frac{5\\pi}{4}+i\\sin\\frac{5\\pi}{4}\\right)$$\n$$W_{1,2}=\\sqrt{-1-i}=\\sqrt{\\sqrt2\\left(\\cos\\frac{5\\pi}{4}+i\\sin\\frac{5\\pi}{4}\\right)}$$\n$$W_1=\\sqrt{\\sqrt2}\\left(\\cos\\frac{5\\pi}{8}+i\\sin\\frac{5\\pi}{8}\\right)=-0.455+1.0986i$$\n$$W_2=\\sqrt{\\sqrt2}\\left(\\cos\\frac{13\\pi}{8}+i\\sin\\frac{13\\pi}{8}\\right)=0.455-1.0986i$$\n$$z_1=-0.2275+0.049i$$\n$$z_2=0.2275-1.049i$$",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -559,7 +559,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות בארגומנט של $-1-i$ (זהו רבע שלישי: $\\frac{5\\pi}{4}$ ולא $\\frac{\\pi}{4}$).",
     "לשכוח את השורש השני (שורש ריבועי מרוכב כולל שני ערכים)."
@@ -587,7 +587,7 @@
      "explain": "$\\frac{-0.455}{2}\\approx-0.2275$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -615,7 +615,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות סימן ב-$\\det A$ (הסימן אינו משפיע על קבוצת האפסים).",
     "לשכוח את אחד משני האפסים $k=1$ או $k=-1$."
@@ -664,7 +664,7 @@
      "explain": "הדטרמיננטה $-(k+1)(k-1)^3$ מתאפסת בדיוק ב-$k=\\pm1$, ולכן לא מספיק ערך אחד; ב-$k=0$ הערך הוא 1."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -692,7 +692,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת את שורות המטריצה כבסיס של מרחב העמודות."
    ],
@@ -733,7 +733,7 @@
      "explain": "כל עמודות $A$ הן $(1,1,1)^T$. הווקטורים $(1,0,0)^T$ ו-$(1,2,3)^T$ אינם כפולות שלו, ושני הווקטורים $(1,1,1)^T,(2,2,2)^T$ תלויים ולכן אינם בסיס."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -761,7 +761,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק עקביות עבור $\\vec b$ מסוים במקום לבדוק שהדרגה מלאה."
    ],
@@ -802,7 +802,7 @@
      "explain": "$\\det A=-3\\neq0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -837,7 +837,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לסדר את עמודות $P$ שלא בהתאמה לסדר האיברים ב-$D$.",
     "לקחת את אחד הווקטורים העצמיים כווקטור האפס (וקטור עצמי חייב להיות שונה מאפס)."
@@ -893,7 +893,7 @@
      "explain": "$-2\\cdot(-1)+1\\cdot(-2)-1\\cdot1=-1=\\lambda\\cdot(-1)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -925,7 +925,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכלול את המטריצה התלויה השלישית בבסיס של $W_1$.",
     "לשכוח שבתנאי $a+b=c+d$ נשארים שלושה משתנים חופשיים."
@@ -981,7 +981,7 @@
      "explain": "במטריצה הנכונה $a+b=3=c+d$. באחרות: $3\\neq7$, $2\\neq3$, $0\\neq1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1009,7 +1009,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק $\\dim(W_1+W_2)=\\dim W_1+\\dim W_2=5$ בלי לבדוק תלות (הסכום ממדו לכל היותר 4).",
     "לכתוב את הסכום כקבוצה של 5 וקטורים בלי להוריד את התלוי."
@@ -1051,7 +1051,7 @@
      "explain": "סכום המימדים אינו ממד הסכום; $\\begin{pmatrix}1&1\\\\0&0\\end{pmatrix}\\in W_1$ אינה ב-$W_2$ ($2\\neq0$) ולכן $W_1\\not\\subseteq W_2$; והחיתוך אינו טריוויאלי (ממדו 1)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1079,7 +1079,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב רק את המימד ולשכוח למצוא מטריצת בסיס.",
     "לעבור על הסימנים בין הצד של $W_1$ לצד של $W_2$ במערכת ההומוגנית."
@@ -1107,7 +1107,7 @@
      "explain": "$2\\cdot(2,3)=(4,6)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1134,7 +1134,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק שמטריצת האפס שייכת ל-$U$ ולהסיק שהיא תת-מרחב.",
     "לבחור שתי מטריצות שהסכום שלהן מקיים את התנאי במקרה."
@@ -1183,7 +1183,7 @@
      "explain": "$0\\cdot2=0$, ולכן המטריצה ב-$U$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1215,7 +1215,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק חיבור ולשכוח כפל בסקלר.",
     "לרשום $T(\\alpha M)=T(M)$ בלי להוציא את $\\alpha$."
@@ -1273,7 +1273,7 @@
      "explain": "לפי ההגדרה הרכיב השני הוא סכום $(d_1+d_2)+(c_1+c_2)$ ולא מכפלה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1305,7 +1305,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לפתור את ההעתקה $(a+d,b+c)$ מהפתרון המקורי במקום ההעתקה המודפסת $(a+b,d+c)$.",
     "לשכוח שבסיס התמונה כולל שני וקטורים כי $\\mathrm{Im}(T)=\\mathbb{R}^2$."
@@ -1354,7 +1354,7 @@
      "explain": "משפט המימדים: $4-2=2$, ולכן $\\mathrm{Im}\\,T=\\mathbb{R}^2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1382,7 +1382,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק שהיא אינה הפיכה מכך שאינה על; ההעתקה כאן כן על."
    ],
@@ -1423,7 +1423,7 @@
      "explain": "הגרעין כולל את כל המטריצות $\\begin{pmatrix}a&-a\\\\c&-c\\end{pmatrix}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1451,7 +1451,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לרשום את הקואורדינטות ביחס לבסיס הסטנדרטי ולא ביחס ל-$B_2$.",
     "לסדר את הקואורדינטות כשורות במקום כעמודות."
@@ -1483,7 +1483,7 @@
       }
      ],
      "correctId": "d",
-     "explain": "המטריצה היא מגודל $2\\times4$, כך ש-4 עמודות מתאימות ל-4 איברי $B_1$ וכל עמודה בת 2 קואורדינטות. הבחירה האחרונה הייתה נותנת $\\begin{pmatrix}1&2&2&2\\\\0&0&1&2\\end{pmatrix}$."
+     "explain": "המטריצה היא מגודל $2\\times4$, כך ש-4 עמודות מתאימות ל-4 איברי $B_1$ וכל עמודה בת 2 קואורדינטות. האפשרות האחרונה ברשימה (קואורדינטות ביחס לבסיס הסטנדרטי) הייתה נותנת $\\begin{pmatrix}1&2&2&2\\\\0&0&1&2\\end{pmatrix}$."
     },
     {
      "type": "numeric",
@@ -1507,7 +1507,7 @@
      "explain": "$-\\beta=2$ ולכן $\\beta=-2$ ו-$\\alpha=4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }
