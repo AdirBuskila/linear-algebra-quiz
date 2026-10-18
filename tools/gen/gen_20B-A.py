@@ -10,7 +10,8 @@ Transcription notes
 - Q1 prints item 1 (two lines, parts 1,2 = 6+7 pts), then parts b (6) and c (6). In the raw schema: a = 1.1, b = 1.2, g = old b,
   d = old c (the z^3 equation).
 - Q4 prints item 1 (A with a; parts 1,2 = 5+5) and item 2 (B; parts 1,2 = 9+6): a, b, g, d in the raw schema.
-- Q1 d (z^3+(3i-4)z=0): the solution file has NO solution for it (it jumps from Q1 b to Q2). Held "no-key".
+- Q1 d (z^3+(3i-4)z=0): the solution file has NO solution for it (it jumps from Q1 b to Q2). Was held "no-key"; now solved
+  (solutionSource "solved", official false, checks in tools/verify/20B-A/solve_Q1d.py).
 - Q1 a 1 (final-answer error): the official takes M1M2 = (-1,3,-2); M2-M1 = (0-1,3-2,-2-0) = (-1,1,-2). With the printed vector its own
   determinant is 3k+9 (not the printed 3k+12), and k=-4 is wrong: the lines meet for k=-1 only. Shipped corrected, labeled, official:false.
 - Q1 a 2 (final-answer error): same vector slip (and the printed triple product 18); the distance is 9/(3*sqrt2) = 3*sqrt2/2, not
@@ -116,8 +117,22 @@ questions.append(Q(
       r"$$\vec a\times\vec b=(0,0,1)\neq\vec 0,\qquad\vec a\times\vec c=(0,0,1)\neq\vec 0,\qquad\vec b\neq\vec c$$"),
     6))
 
-questions.append({"num": 1, "part": "ד", "kind": "computation", "topic": "complex_numbers", "points": 6,
-                  "question": r"פתור את המשוואה מעל מספרים מרוכבים $z^3+(3i-4)z=0$.", "hold": "no-key"})
+questions.append(Q(
+    1, "ד", "computation", "complex_numbers",
+    r"פתור את המשוואה מעל מספרים מרוכבים $z^3+(3i-4)z=0$.",
+    J(r"**אין פתרון רשמי לסעיף זה; הפתרון נכתב בעזרת AI ונבדק בסימבולית (sympy).**",
+      r"נוציא את $z$ כגורם משותף:",
+      r"$$z\left(z^2+3i-4\right)=0$$",
+      r"כלומר $z=0$ או $z^2=4-3i$.",
+      r"נחשב שורש ריבועי של $4-3i$: נניח $(a+ib)^2=4-3i$ עם $a,b$ ממשיים, ולכן",
+      r"$$a^2-b^2=4,\qquad 2ab=-3$$",
+      r"המודול של $4-3i$ הוא $5$, ולכן גם $a^2+b^2=5$. מכאן $a^2=\frac92$ ו-$b^2=\frac12$, ומהמשוואה $2ab=-3$ ל-$a,b$ סימנים הפוכים:",
+      r"$$a=\frac{3}{\sqrt2},\ b=-\frac{1}{\sqrt2}$$",
+      r"או",
+      r"$$a=-\frac{3}{\sqrt2},\ b=\frac{1}{\sqrt2}$$",
+      r"הפתרונות:",
+      r"$$z=0,\qquad z=\pm\frac{3-i}{\sqrt2}=\pm\left(\frac{3\sqrt2}{2}-\frac{\sqrt2}{2}i\right)$$"),
+    6, solutionSource="solved", official=False))
 
 # ------------------------------------------------------------------ Q2
 S0 = [["1", "-1", "1", "1"], ["k-1", "k+1", "k+1", "k+1"], ["k", "-2-k", "-k", "1"]]
@@ -684,6 +699,22 @@ ENR[(6, "ד")] = dict(
         cho(r"האם הקבוצה היא תת-מרחב של $\mathbb{R}^{2\times2}$?", r"לא, כי מטריצת האפס אינה בה ($T(0)=\vec 0\neq(1,1,1)$)",
             [r"כן, כי $T$ לינארית", r"כן, כי היא מכילה את הגרעין של $T$", r"לא, כי הקבוצה ריקה"],
             r"איברי הגרעין נשלחים ל-$\vec 0$ ולא ל-$(1,1,1)$, ולכן אינם בקבוצה; הקבוצה אינה ריקה (למשל $d=0$); ולינאריות $T$ אינה הופכת מקור של וקטור שונה מאפס לתת-מרחב."),
+    ])
+
+ENR[(1, "ד")] = dict(
+    rubric=rub((r"הוצאת $z$ כגורם משותף: $z=0$ או $z^2=4-3i$", 2),
+               (r"הצבת $(a+ib)^2=4-3i$ ופירוק למערכת $a^2-b^2=4,\ 2ab=-3$", 2),
+               (r"פתרון המערכת: $a=\pm\frac{3}{\sqrt2},\ b=\mp\frac{1}{\sqrt2}$", 1),
+               (r"שלושת הפתרונות $z=0,\ \pm\frac{3-i}{\sqrt2}$", 1)),
+    pitfalls=[r"לחלק את המשוואה ב-$z$ ולאבד את הפתרון $z=0$.",
+              r"לשכוח את הסימן $\pm$ של השורש הריבועי ולהסתפק בפתרון אחד של $z^2=4-3i$."],
+    steps=[
+        cho(r"מהו הצעד הראשון הנכון בפתרון $z^3+(3i-4)z=0$?", r"להוציא $z$ כגורם משותף ולקבל $z\left(z^2+3i-4\right)=0$",
+            [r"לחלק ב-$z$ ולהמשיך רק עם $z^2=4-3i$", r"להעביר אגף ולקחת שורש שלישי של $(4-3i)z$", r"להציב $z=a+ib$ ולפתוח את החזקה השלישית בלבד"],
+            r"חלוקה ב-$z$ מאבדת את הפתרון $z=0$ (הוא אכן פתרון). אגף ימין $(4-3i)z$ אינו קבוע, ולכן אי אפשר לקחת שורש שלישי. הצבה ישירה של $z=a+ib$ אפשרית אבל מסורבלת; פירוק לגורמים מפשט."),
+        num(r"מהו המודול של $4-3i$?", 5, r"$\sqrt{16+9}=5$, ומכאן $a^2+b^2=5$."),
+        num(r"מהו החלק הממשי החיובי של השורש $\sqrt{4-3i}$? (עגלו לשלוש ספרות אחרי הנקודה)", 2.121, r"$a^2=\frac{5+4}{2}=\frac92$, ולכן $a=\frac{3}{\sqrt2}\approx2.121$.", 0.001),
+        num(r"מהו החלק המדומה של השורש בעל החלק הממשי החיובי? (עגלו לשלוש ספרות אחרי הנקודה)", -0.707, r"$b=\frac{-3}{2a}=-\frac{1}{\sqrt2}\approx-0.707$.", 0.001),
     ])
 
 for q in questions:
